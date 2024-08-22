@@ -25,7 +25,6 @@ public class frm_Splash extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 51, 0));
-        setMaximumSize(new java.awt.Dimension(509, 336));
         setMinimumSize(new java.awt.Dimension(509, 336));
         setUndecorated(true);
 
@@ -33,7 +32,7 @@ public class frm_Splash extends javax.swing.JFrame {
         backGroundPanel.setMaximumSize(new java.awt.Dimension(509, 336));
         backGroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Colorful Modern Flowered Logo (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/images/SplashScreen.png"))); // NOI18N
         backGroundPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
 
         LoadingBar.setBackground(new java.awt.Color(0, 102, 102));
