@@ -3,11 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/frm_SingIn.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/frm_Dashboard_Employed.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/frm_Dashboard_Admin.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Modelo/SingIn.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/frm_Dashboard_Client.java</file>
+            <file>file:/C:/Users/Acer/OneDrive/Documentos/NetBeansProjects/Blooming/Blooming-Desktop/src/Vista/panel_Inicio_Cliente.java</file>
+            <file>file:/C:/Users/Acer/OneDrive/Documentos/NetBeansProjects/Blooming/Blooming-Desktop/src/Controlador/ctrl_Dashboard_Client.java</file>
+            <file>file:/C:/Users/Acer/OneDrive/Documentos/NetBeansProjects/Blooming/Blooming-Desktop/src/Vista/frm_Dashboard_Client.java</file>
         </group>
     </open-files>
 </project-private>
