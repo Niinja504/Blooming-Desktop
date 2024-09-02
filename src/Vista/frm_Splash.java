@@ -111,7 +111,7 @@ public class frm_Splash extends javax.swing.JFrame {
         frm_Splash Sp = new frm_Splash();
         Sp.setVisible(true);
         
-        frm_SingIn Login = new frm_SingIn();
+        frm_SignIn Login = new frm_SignIn();
         try{
             
             for(int i=0; i<=100;i++){

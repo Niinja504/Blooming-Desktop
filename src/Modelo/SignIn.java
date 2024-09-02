@@ -3,7 +3,7 @@ package Modelo;
 import Vista.frm_Dashboard_Admin;
 import Vista.frm_Dashboard_Client;
 import Vista.frm_Dashboard_Employed;
-import Vista.frm_SingIn;
+import Vista.frm_SignIn;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -13,11 +13,11 @@ import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.Timer;
 
-public class SingIn {
-    private final frm_SingIn Vista;
+public class SignIn {
+    private final frm_SignIn Vista;
 
     // Constructor que recibe la referencia a la vista de inicio de sesión
-    public SingIn(frm_SingIn vista) {
+    public SignIn(frm_SignIn vista) {
         this.Vista = vista;
         System.out.println("SingIn model instantiated.");
     }

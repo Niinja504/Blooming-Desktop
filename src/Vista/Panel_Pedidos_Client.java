@@ -8,12 +8,12 @@ package Vista;
  *
  * @author Acer
  */
-public class panel_Inicio_Cliente extends javax.swing.JPanel {
+public class Panel_Pedidos_Client extends javax.swing.JPanel {
 
     /**
-     * Creates new form frm_Inicio_Cliente
+     * Creates new form Panel_Pedidos_Clent
      */
-    public panel_Inicio_Cliente() {
+    public Panel_Pedidos_Client() {
         initComponents();
     }
 

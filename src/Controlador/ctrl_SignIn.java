@@ -1,19 +1,19 @@
 package Controlador;
 
-import Vista.frm_SingIn;
-import Modelo.SingIn;
+import Vista.frm_SignIn;
+import Modelo.SignIn;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 
-public class ctrl_SingIn {
+public class ctrl_SignIn {
     
-    private frm_SingIn Vista;
-    private SingIn Modelo;
+    private frm_SignIn Vista;
+    private SignIn Modelo;
 
-    public ctrl_SingIn(frm_SingIn vista) {
+    public ctrl_SignIn(frm_SignIn vista) {
         this.Vista = vista;
-        this.Modelo = new SingIn(vista);
+        this.Modelo = new SignIn(vista);
         Vista.btn_SingIn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

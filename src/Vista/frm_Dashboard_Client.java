@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import Controlador.ctrl_Dashboard_Client;
+
+
 /**
  *
  * @author vladk
@@ -17,6 +20,14 @@ public class frm_Dashboard_Client extends javax.swing.JFrame {
         initComponents();
     }
 
+ 
+public static void initfrm_Dashboard_Client(){
+    frm_Dashboard_Client vista = new frm_Dashboard_Client();
+    ctrl_Dashboard_Client controlador = new ctrl_Dashboard_Client(vista);
+    
+    vista.setVisible(true);
+    
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,7 +46,7 @@ public class frm_Dashboard_Client extends javax.swing.JFrame {
         btnPedidos = new javax.swing.JButton();
         btnOfertas = new javax.swing.JButton();
         btnPerfil = new javax.swing.JButton();
-        btnTienda1 = new javax.swing.JButton();
+        btnTienda = new javax.swing.JButton();
         jp_Inicio_CL = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,6 +91,16 @@ public class frm_Dashboard_Client extends javax.swing.JFrame {
         btnInicio.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         btnInicio.setText("Inicio");
         btnInicio.setBorderPainted(false);
+        btnInicio.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                btnInicioMouseDragged(evt);
+            }
+        });
+        btnInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnInicioMouseClicked(evt);
+            }
+        });
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInicioActionPerformed(evt);
@@ -115,16 +136,16 @@ public class frm_Dashboard_Client extends javax.swing.JFrame {
         btnPerfil.setBorderPainted(false);
         jPanel3.add(btnPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
-        btnTienda1.setBackground(new java.awt.Color(224, 224, 224));
-        btnTienda1.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
-        btnTienda1.setText("Tienda");
-        btnTienda1.setBorderPainted(false);
-        btnTienda1.addActionListener(new java.awt.event.ActionListener() {
+        btnTienda.setBackground(new java.awt.Color(224, 224, 224));
+        btnTienda.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        btnTienda.setText("Tienda");
+        btnTienda.setBorderPainted(false);
+        btnTienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTienda1ActionPerformed(evt);
+                btnTiendaActionPerformed(evt);
             }
         });
-        jPanel3.add(btnTienda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 80, -1));
+        jPanel3.add(btnTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 80, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 870));
 
@@ -170,9 +191,17 @@ public class frm_Dashboard_Client extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPedidosActionPerformed
 
-    private void btnTienda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTienda1ActionPerformed
+    private void btnTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTiendaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnTienda1ActionPerformed
+    }//GEN-LAST:event_btnTiendaActionPerformed
+
+    private void btnInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInicioMouseClicked
+
+    private void btnInicioMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioMouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInicioMouseDragged
 
     /**
      * @param args the command line arguments
@@ -214,7 +243,7 @@ public class frm_Dashboard_Client extends javax.swing.JFrame {
     public javax.swing.JButton btnOfertas;
     public javax.swing.JButton btnPedidos;
     public javax.swing.JButton btnPerfil;
-    public javax.swing.JButton btnTienda1;
+    public javax.swing.JButton btnTienda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
