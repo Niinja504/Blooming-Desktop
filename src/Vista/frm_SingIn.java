@@ -72,6 +72,11 @@ public class frm_SingIn extends javax.swing.JFrame {
         });
 
         btn_SingIn.setText("Iniciar Sesiòn");
+        btn_SingIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_SingInActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,6 +148,10 @@ public class frm_SingIn extends javax.swing.JFrame {
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         this.requestFocus();
     }//GEN-LAST:event_formWindowGainedFocus
+
+    private void btn_SingInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SingInActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_SingInActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
