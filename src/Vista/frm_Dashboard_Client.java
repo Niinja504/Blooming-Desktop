@@ -41,12 +41,12 @@ public static void initfrm_Dashboard_Client(){
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         btnInicio = new javax.swing.JButton();
         btnPedidos = new javax.swing.JButton();
         btnOfertas = new javax.swing.JButton();
         btnPerfil = new javax.swing.JButton();
         btnTienda = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jp_Inicio_CL = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -78,19 +78,16 @@ public static void initfrm_Dashboard_Client(){
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel3.setBackground(new java.awt.Color(224, 224, 224));
+        jPanel3.setBackground(new java.awt.Color(245, 245, 245));
         jPanel3.setForeground(new java.awt.Color(0, 51, 153));
         jPanel3.setAutoscrolls(true);
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel2.setText("Ajustes");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 760, 260, 40));
-
-        btnInicio.setBackground(new java.awt.Color(224, 224, 224));
+        btnInicio.setBackground(new java.awt.Color(245, 245, 245));
         btnInicio.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         btnInicio.setText("Inicio");
         btnInicio.setBorderPainted(false);
+        btnInicio.setContentAreaFilled(false);
         btnInicio.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 btnInicioMouseDragged(evt);
@@ -106,12 +103,13 @@ public static void initfrm_Dashboard_Client(){
                 btnInicioActionPerformed(evt);
             }
         });
-        jPanel3.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 80, -1));
+        jPanel3.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 70, -1));
 
-        btnPedidos.setBackground(new java.awt.Color(224, 224, 224));
+        btnPedidos.setBackground(new java.awt.Color(245, 245, 245));
         btnPedidos.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         btnPedidos.setText("Pedidos");
         btnPedidos.setBorderPainted(false);
+        btnPedidos.setContentAreaFilled(false);
         btnPedidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPedidosActionPerformed(evt);
@@ -119,10 +117,11 @@ public static void initfrm_Dashboard_Client(){
         });
         jPanel3.add(btnPedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
-        btnOfertas.setBackground(new java.awt.Color(224, 224, 224));
+        btnOfertas.setBackground(new java.awt.Color(245, 245, 245));
         btnOfertas.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         btnOfertas.setText("Ofertas");
         btnOfertas.setBorderPainted(false);
+        btnOfertas.setContentAreaFilled(false);
         btnOfertas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOfertasActionPerformed(evt);
@@ -130,16 +129,18 @@ public static void initfrm_Dashboard_Client(){
         });
         jPanel3.add(btnOfertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
-        btnPerfil.setBackground(new java.awt.Color(224, 224, 224));
+        btnPerfil.setBackground(new java.awt.Color(245, 245, 245));
         btnPerfil.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         btnPerfil.setText("Perfil");
         btnPerfil.setBorderPainted(false);
+        btnPerfil.setContentAreaFilled(false);
         jPanel3.add(btnPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
-        btnTienda.setBackground(new java.awt.Color(224, 224, 224));
+        btnTienda.setBackground(new java.awt.Color(245, 245, 245));
         btnTienda.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         btnTienda.setText("Tienda");
         btnTienda.setBorderPainted(false);
+        btnTienda.setContentAreaFilled(false);
         btnTienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTiendaActionPerformed(evt);
@@ -147,21 +148,17 @@ public static void initfrm_Dashboard_Client(){
         });
         jPanel3.add(btnTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 80, -1));
 
+        jButton1.setBackground(new java.awt.Color(245, 245, 245));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        jButton1.setText("Ajustes");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, -1));
+
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 870));
 
         jp_Inicio_CL.setBackground(new java.awt.Color(255, 252, 245));
-
-        javax.swing.GroupLayout jp_Inicio_CLLayout = new javax.swing.GroupLayout(jp_Inicio_CL);
-        jp_Inicio_CL.setLayout(jp_Inicio_CLLayout);
-        jp_Inicio_CLLayout.setHorizontalGroup(
-            jp_Inicio_CLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 830, Short.MAX_VALUE)
-        );
-        jp_Inicio_CLLayout.setVerticalGroup(
-            jp_Inicio_CLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 870, Short.MAX_VALUE)
-        );
-
+        jp_Inicio_CL.setLayout(new java.awt.BorderLayout());
         jPanel1.add(jp_Inicio_CL, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 830, 870));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -233,8 +230,7 @@ public static void initfrm_Dashboard_Client(){
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frm_Dashboard_Client().setVisible(true);
-            }
+                initfrm_Dashboard_Client();            }
         });
     }
 
@@ -244,8 +240,8 @@ public static void initfrm_Dashboard_Client(){
     public javax.swing.JButton btnPedidos;
     public javax.swing.JButton btnPerfil;
     public javax.swing.JButton btnTienda;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

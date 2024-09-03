@@ -14,6 +14,7 @@ public class ctrl_Dashboard_Client implements MouseListener{
     frm_Dashboard_Client vista;
     
     public ctrl_Dashboard_Client(frm_Dashboard_Client Vista){
+        this.vista = Vista;
         
     vista.btnInicio.addMouseListener(this);
     vista.btnTienda.addMouseListener(this);
