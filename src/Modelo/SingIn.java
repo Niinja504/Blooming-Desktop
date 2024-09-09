@@ -2,7 +2,7 @@ package Modelo;
 
 import Controlador.Ctrl_DashBoard_Admin;
 import Controlador.Ctrl_Usuarios;
-import Vista.Panel_Usuarios_Admin;
+import Vista.Paneles_Admin.Panel_Usuarios_Admin;
 import Vista.frm_Dashboard_Admin;
 import Vista.frm_Dashboard_Client;
 import Vista.frm_Dashboard_Employed;

@@ -26,22 +26,20 @@ public class Password_recovery2 {
 
     public void EnviarCodigo() {
     String codigo = RandomCodeGenerator.generateRandomCode();
-    setCodigo(codigo);  // Actualiza el código en el modelo
+    setCodigo(codigo);
     String subject = "Código de recuperación de contraseña";
     String content = "Tu código de recuperación es: " + codigo;
-
-    // Verifica el código antes de enviar el correo
+    
     System.out.println("Enviando código: " + codigo);
     Envio.enviarCorreo(correo, subject, content);
 
-    // Imprime mensaje para confirmar que se envió el correo
     System.out.println("Correo enviado a: " + correo);
 }
 
     
     public static class RandomCodeGenerator {
 
-        private static final String CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        private static final String CHARS = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz123456789";
         private static final SecureRandom RANDOM = new SecureRandom();
 
         public static String generateRandomCode() {

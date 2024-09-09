@@ -1,8 +1,7 @@
 package Modelo;
 
 import Modelo.ClaseConexion;
-import Modelo.ClaseConexion;
-import Vista.Panel_Usuarios_Admin;
+import Vista.Paneles_Admin.Panel_Usuarios_Admin;
 import java.sql.*;
 import java.util.UUID;
 import javax.swing.JTable;
@@ -118,7 +117,6 @@ public class Usuarios {
         Connection conexion = ClaseConexion.getConexion();
         try {
             PreparedStatement addUser = conexion.prepareStatement("INSERT INTO TbUsers (UUID_User, Nombres_User, Apellido_User, Nombre_de_Usuario, Num_Telefono_User, Edad_User, Email_User, Contra_User, Img_User, Rol_User, Sesion_User) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
             addUser.setString(1, UUID.randomUUID().toString());
             addUser.setString(2, getNombres_User());
             addUser.setString(3, getApellidos_User());
@@ -133,7 +131,7 @@ public class Usuarios {
            addUser.executeUpdate();
  
         } catch (SQLException ex) {
-            System.out.println("este es el error en el modelo:metodo guardar " + ex);
+            System.out.println("Este es el error en el modelo:metodo guardar " + ex);
         }
     }
     
@@ -145,37 +143,36 @@ public class Usuarios {
         return;
     }
     
-    String criterio = "Nombre_de_Usuario";
-    String valorCriterio = tabla.getValueAt(filaSeleccionada, 2).toString(); 
+    String uuidUser = tabla.getValueAt(filaSeleccionada, 0).toString();
     
-    String sql = "DELETE FROM TbUsers WHERE " + criterio + " = ?";
+    String sql = "DELETE FROM TbUsers WHERE UUID_User = ?";
     
     try (PreparedStatement deleteUser = conexion.prepareStatement(sql)) {
-        deleteUser.setString(1, valorCriterio);
+        deleteUser.setString(1, uuidUser);
         int rowsAffected = deleteUser.executeUpdate();
         
         if (rowsAffected > 0) {
             System.out.println("Registro eliminado correctamente.");
         } else {
-            System.out.println("No se encontró ningún registro con el criterio especificado.");
+            System.out.println("No se encontró ningún registro con el UUID especificado.");
         }
     } catch (Exception e) {
         System.out.println("Este es el error en el método de eliminar: " + e.getMessage());
     }
 }
 
-
-    
+   
     public void Mostrar(JTable tabla) {
     Connection conexion = ClaseConexion.getConexion();
     DefaultTableModel modeloDeDatos = new DefaultTableModel();
-    modeloDeDatos.setColumnIdentifiers(new Object[]{"Nombre", "Apellido", "Usuario", "Telefono", "Edad", "Correo", "Rol"});
+    modeloDeDatos.setColumnIdentifiers(new Object[]{"UUID", "Nombre", "Apellido", "Usuario", "Telefono", "Edad", "Correo", "Rol"});
     
     try {
         Statement statement = conexion.createStatement();
-        ResultSet rs = statement.executeQuery("SELECT Nombres_User, Apellido_User, Nombre_de_Usuario, Num_Telefono_User, Edad_User, Email_User, Rol_User FROM TbUsers");
+        ResultSet rs = statement.executeQuery("SELECT UUID_User, Nombres_User, Apellido_User, Nombre_de_Usuario, Num_Telefono_User, Edad_User, Email_User, Rol_User FROM TbUsers");
         while (rs.next()) {
             modeloDeDatos.addRow(new Object[]{
+                rs.getString("UUID_User"),
                 rs.getString("Nombres_User"),
                 rs.getString("Apellido_User"),
                 rs.getString("Nombre_de_Usuario"),
@@ -186,6 +183,8 @@ public class Usuarios {
             });
         }
         tabla.setModel(modeloDeDatos);
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
     } catch (Exception e) {
         System.out.println("Este es el error en el modelo, metodo mostrar " + e);
     }
@@ -212,39 +211,38 @@ public class Usuarios {
         System.out.println("No se ha seleccionado ninguna fila.");
     }
 }
-
     
     public void Actualizar(JTable tabla) {
     Connection conexion = ClaseConexion.getConexion();
     int filaSeleccionada = tabla.getSelectedRow();
-    if (filaSeleccionada != -1) {
-        String miUUId = tabla.getValueAt(filaSeleccionada, 0).toString();
-
-        try { 
-            PreparedStatement updateUser = conexion.prepareStatement(
-                "UPDATE TbUsers SET Nombres_User = ?, Apellido_User = ?, Nombre_de_Usuario = ?, Num_Telefono_User = ?, Email_User = ?, Contra_User = ? WHERE UUID_User = ?"
-            );
-
-            updateUser.setString(1, getNombres_User());
-            updateUser.setString(2, getApellidos_User());
-            updateUser.setString(3, getNombre_de_Usuario());
-            updateUser.setString(4, getNum_Telefono_User());
-            updateUser.setString(5, getEmail_User());
-            updateUser.setString(6, getContra_User());
-            updateUser.setString(7, miUUId); 
-
-            int rowsAffected = updateUser.executeUpdate();
-            if (rowsAffected > 0) {
-                System.out.println("Registro actualizado correctamente.");
-            } else {
-                System.out.println("No se actualizó ningún registro. Verifique el UUID.");
-            }
-
-        } catch (SQLException e) {
-            System.out.println("Error en el método de actualizar: " + e.getMessage());
-        }
-    } else {
+    if (filaSeleccionada == -1) {
         System.out.println("No se ha seleccionado ninguna fila.");
+        return;
+    }
+    String uuidUser = tabla.getValueAt(filaSeleccionada, 0).toString();
+    
+    try { 
+        PreparedStatement updateUser = conexion.prepareStatement(
+            "UPDATE TbUsers SET Nombres_User = ?, Apellido_User = ?, Nombre_de_Usuario = ?, Num_Telefono_User = ?, Email_User = ?, Contra_User = ? WHERE UUID_User = ?"
+        );
+
+        updateUser.setString(1, getNombres_User());
+        updateUser.setString(2, getApellidos_User());
+        updateUser.setString(3, getNombre_de_Usuario());
+        updateUser.setString(4, getNum_Telefono_User());
+        updateUser.setString(5, getEmail_User());
+        updateUser.setString(6, getContra_User());
+        updateUser.setString(7, uuidUser);  // Utilizamos el UUID para identificar el registro
+
+        int rowsAffected = updateUser.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Registro actualizado correctamente.");
+        } else {
+            System.out.println("No se actualizó ningún registro. Verifique el UUID.");
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Error en el método de actualizar: " + e.getMessage());
     }
 }
 

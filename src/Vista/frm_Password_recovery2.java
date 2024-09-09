@@ -1,13 +1,13 @@
 package Vista;
 
-import Controlador.ctrl_Password_recovery2;
+import Controlador.Ctrl_Password_recovery2;
 import Modelo.Password_recovery2;
 
 public class frm_Password_recovery2 extends javax.swing.JFrame {
     
     private String correo;
     private String codigo;
-    private ctrl_Password_recovery2 controlador;
+    private Ctrl_Password_recovery2 controlador;
     
     public frm_Password_recovery2() {
         initComponents();
@@ -16,7 +16,7 @@ public class frm_Password_recovery2 extends javax.swing.JFrame {
     
     private void initController() {
         Password_recovery2 modelo = new Password_recovery2();
-        controlador = new ctrl_Password_recovery2(modelo, this);
+        controlador = new Ctrl_Password_recovery2(modelo, this);
     }
     
     public void setCorreo(String correo) {

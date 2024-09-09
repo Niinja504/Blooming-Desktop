@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Vista;
+package Vista.Paneles_Admin;
 
 /**
  *
  * @author vladk
  */
-public class Panel_Perfil_Admin extends javax.swing.JPanel {
+public class Panel_Inventario_Admin extends javax.swing.JPanel {
 
     /**
-     * Creates new form Panel_Perfil_Admin
+     * Creates new form Panel_Inventario_Admin
      */
-    public Panel_Perfil_Admin() {
+    public Panel_Inventario_Admin() {
         initComponents();
     }
 
@@ -26,7 +26,7 @@ public class Panel_Perfil_Admin extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(153, 51, 0));
+        setBackground(new java.awt.Color(0, 0, 102));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

@@ -4,10 +4,6 @@ import javax.swing.JOptionPane;
 
 
 public class frm_Splash extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Splash
-     */
     public frm_Splash() {
         initComponents();
     }
@@ -42,9 +38,9 @@ public class frm_Splash extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/images/SplashScreen.png"))); // NOI18N
         backGroundPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
 
-        LoadingBar.setBackground(new java.awt.Color(0, 102, 102));
-        LoadingBar.setForeground(new java.awt.Color(204, 0, 102));
-        LoadingBar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        LoadingBar.setBackground(new java.awt.Color(0, 0, 153));
+        LoadingBar.setForeground(new java.awt.Color(204, 0, 0));
+        LoadingBar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 51)));
         backGroundPanel.add(LoadingBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 510, 10));
 
         LoadingLabel.setText("Cargando...");
@@ -96,9 +92,6 @@ public class frm_Splash extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -154,19 +147,19 @@ public class frm_Splash extends javax.swing.JFrame {
                 Sp.LoadingValue.setText(i + "%");
                 
                 if(i == 10){
-                    Sp.LoadingLabel.setText("Turning On Modules...");
+                    Sp.LoadingLabel.setText("Inicializando...");
                 }
                 if(i == 20){
                     Sp.LoadingLabel.setText("Cargando Modulos...");
                 }
                 if(i == 50){
-                    Sp.LoadingLabel.setText("Turning On Modules...");
+                    Sp.LoadingLabel.setText("Cargando...");
                 }
                 if(i == 70){
-                    Sp.LoadingLabel.setText("Connection !");
+                    Sp.LoadingLabel.setText("Conectando...");
                 }
                 if(i == 80){
-                    Sp.LoadingLabel.setText("Lanzando la aplicación...");
+                    Sp.LoadingLabel.setText("Iniciando la aplicación...");
                 }
                 Sp.LoadingBar.setValue(i);
             }

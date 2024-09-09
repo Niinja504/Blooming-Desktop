@@ -8,11 +8,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 
-public class ctrl_SingIn extends MouseAdapter {
+public class Ctrl_SingIn extends MouseAdapter {
     private frm_SingIn Vista;
     private SingIn Modelo;
 
-    public ctrl_SingIn(frm_SingIn vista) {
+    public Ctrl_SingIn(frm_SingIn vista) {
         this.Vista = vista;
         this.Modelo = new SingIn(vista);
 
@@ -39,7 +39,7 @@ public class ctrl_SingIn extends MouseAdapter {
             Vista.dispose();
             Password_recovery1 modeloRecuperacion = new Password_recovery1();
             frm_Password_recovery1 vistaPasswordRecovery = new frm_Password_recovery1(null);
-            ctrl_Password_recovery1 controladorRecuperacion = new ctrl_Password_recovery1(modeloRecuperacion, vistaPasswordRecovery);
+            Ctrl_Password_recovery1 controladorRecuperacion = new Ctrl_Password_recovery1(modeloRecuperacion, vistaPasswordRecovery);
             vistaPasswordRecovery.setControlador(controladorRecuperacion);
             vistaPasswordRecovery.setVisible(true);
         }

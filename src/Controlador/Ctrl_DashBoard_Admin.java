@@ -1,12 +1,12 @@
 package Controlador;
 
-import Vista.Panel_CostoEnvio_Admin;
-import Vista.Panel_Inventario_Admin;
-import Vista.Panel_Ofertas_Admin;
-import Vista.Panel_Pedidos_Admin;
-import Vista.Panel_Perfil_Admin;
-import Vista.Panel_Usuarios_Admin;
-import Vista.Panel_Ventas_Admin;
+import Vista.Paneles_Admin.Panel_CostoEnvio_Admin;
+import Vista.Paneles_Admin.Panel_Inventario_Admin;
+import Vista.Paneles_Admin.Panel_Ofertas_Admin;
+import Vista.Paneles_Admin.Panel_Pedidos_Admin;
+import Vista.Paneles_Admin.Panel_Perfil_Admin;
+import Vista.Paneles_Admin.Panel_Usuarios_Admin;
+import Vista.Paneles_Admin.Panel_Ventas_Admin;
 import Vista.frm_Dashboard_Admin;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;

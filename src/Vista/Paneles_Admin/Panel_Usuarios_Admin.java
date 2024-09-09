@@ -1,4 +1,4 @@
-package Vista;
+package Vista.Paneles_Admin;
 
 import java.awt.Color;
 import java.awt.Font;

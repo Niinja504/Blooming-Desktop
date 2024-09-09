@@ -1,5 +1,6 @@
 package Vista;
 
+import Vista.Paneles_Admin.Panel_Usuarios_Admin;
 import Controlador.Ctrl_DashBoard_Admin;
 
 
@@ -59,7 +60,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         Btn_Perfil.setText("Perfil");
         jpMenu_Admin.add(Btn_Perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 675, 196, 45));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/images/ic_Blooming.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/images/SplashScreen.png"))); // NOI18N
         jpMenu_Admin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 196, 92));
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));

@@ -1,6 +1,6 @@
 package Controlador;
 
-import Controlador.ctrl_Password_recovery3;
+import Controlador.Ctrl_Password_recovery3;
 import Modelo.Password_recovery2;
 import Modelo.Password_recovery3;
 import Vista.frm_Password_recovery2;
@@ -9,12 +9,12 @@ import javax.swing.JOptionPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ctrl_Password_recovery2 {
+public class Ctrl_Password_recovery2 {
 
     private Password_recovery2 modelo;
     private frm_Password_recovery2 vista;
 
-    public ctrl_Password_recovery2(Password_recovery2 modelo, frm_Password_recovery2 vista) {
+    public Ctrl_Password_recovery2(Password_recovery2 modelo, frm_Password_recovery2 vista) {
         this.modelo = modelo;
         this.vista = vista;
 
@@ -61,7 +61,7 @@ public class ctrl_Password_recovery2 {
             frm_Password_recovery3 vistaRecuperacion3 = new frm_Password_recovery3();
             Password_recovery3 modeloRecuperacion3 = new Password_recovery3();
 
-            ctrl_Password_recovery3 controlador3 = new ctrl_Password_recovery3(modeloRecuperacion3, vistaRecuperacion3, modelo.getCorreo());
+            Ctrl_Password_recovery3 controlador3 = new Ctrl_Password_recovery3(modeloRecuperacion3, vistaRecuperacion3, modelo.getCorreo());
 
             vistaRecuperacion3.setVisible(true);
             vista.dispose();

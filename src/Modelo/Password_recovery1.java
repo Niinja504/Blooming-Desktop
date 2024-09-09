@@ -80,7 +80,7 @@ public class Password_recovery1 {
 
     public static class RandomCodeGenerator {
 
-        private static final String CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        private static final String CHARS = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz123456789";
         private static final SecureRandom RANDOM = new SecureRandom();
 
         public static String generateRandomCode() {

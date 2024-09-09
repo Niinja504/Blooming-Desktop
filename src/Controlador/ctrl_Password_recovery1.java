@@ -7,13 +7,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
-public class ctrl_Password_recovery1 {
+public class Ctrl_Password_recovery1 {
 
     private Password_recovery1 Modelo;
     private frm_Password_recovery1 Vista;
     private boolean codigoEnviado = false;
 
-    public ctrl_Password_recovery1(Password_recovery1 modelo, frm_Password_recovery1 vista) {
+    public Ctrl_Password_recovery1(Password_recovery1 modelo, frm_Password_recovery1 vista) {
         this.Modelo = modelo;
         this.Vista = vista;
         Vista.btn_EnviarCodigo_Password_Recovery1.addActionListener(new ActionListener() {

@@ -1,7 +1,7 @@
 
 package Vista;
 
-import Controlador.ctrl_SingIn;
+import Controlador.Ctrl_SingIn;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -10,14 +10,14 @@ import javax.swing.JTextField;
 
 public class frm_SingIn extends javax.swing.JFrame {
 
-    private ctrl_SingIn controlador;
+    private Ctrl_SingIn controlador;
    
     public frm_SingIn() {
         initComponents();
         
         addPlaceholderStyle(txt_Correo_SingIn);
         addPlaceholderStyle(txt_Contra_SingIn);
-        controlador = new ctrl_SingIn(this);
+        controlador = new Ctrl_SingIn(this);
 
     }
     
@@ -64,6 +64,7 @@ public class frm_SingIn extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 formFocusGained(evt);
@@ -97,7 +98,8 @@ public class frm_SingIn extends javax.swing.JFrame {
             }
         });
 
-        lbl_Recuperar_Contra_SignIn.setText("jLabel2");
+        lbl_Recuperar_Contra_SignIn.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_Recuperar_Contra_SignIn.setText("¿Ha olvidado su contraseña?");
 
         btn_SingIn.setText("Iniciar Sesión");
         btn_SingIn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -131,10 +133,6 @@ public class frm_SingIn extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addGap(123, 123, 123))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(205, 205, 205)
-                .addComponent(lbl_Recuperar_Contra_SignIn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(138, 138, 138)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
@@ -149,6 +147,10 @@ public class frm_SingIn extends javax.swing.JFrame {
                     .addComponent(txt_Correo_SingIn, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_SingIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_Recuperar_Contra_SignIn)
+                .addGap(145, 145, 145))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,9 +163,9 @@ public class frm_SingIn extends javax.swing.JFrame {
                 .addComponent(txt_Correo_SingIn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(txt_Contra_SingIn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_Recuperar_Contra_SignIn)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addComponent(btn_SingIn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

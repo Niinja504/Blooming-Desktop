@@ -6,13 +6,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 
-public class ctrl_Password_recovery3 implements MouseListener {
+public class Ctrl_Password_recovery3 implements MouseListener {
 
     private Password_recovery3 modelo;
     private frm_Password_recovery3 vista;
     private String correo;
 
-    public ctrl_Password_recovery3(Password_recovery3 modelo, frm_Password_recovery3 vista, String correo) {
+    public Ctrl_Password_recovery3(Password_recovery3 modelo, frm_Password_recovery3 vista, String correo) {
         this.modelo = modelo;
         this.vista = vista;
         this.correo = correo;

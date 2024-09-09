@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Vista;
+package Vista.Paneles_Client;
 
 /**
  *
- * @author vladk
+ * @author Acer
  */
-public class Panel_Ofertas_Admin extends javax.swing.JPanel {
+public class Panel_Perfil_Client extends javax.swing.JPanel {
 
     /**
-     * Creates new form Panel_Ofertas_Admin
+     * Creates new form Panel_Perfil_Client
      */
-    public Panel_Ofertas_Admin() {
+    public Panel_Perfil_Client() {
         initComponents();
     }
 
@@ -26,17 +26,17 @@ public class Panel_Ofertas_Admin extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(0, 102, 51));
+        setBackground(new java.awt.Color(255, 252, 245));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 878, Short.MAX_VALUE)
+            .addGap(0, 830, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGap(0, 870, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

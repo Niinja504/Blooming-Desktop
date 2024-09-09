@@ -1,19 +1,19 @@
 package Controlador;
 
-import Vista.Panel_Inicio_Client;
-import Vista.Panel_Ofertas_Client;
-import Vista.Panel_Pedidos_Client;
-import Vista.Panel_Perfil_Client;
-import Vista.Panel_Tienda_Client;
+import Vista.Paneles_Client.Panel_Inicio_Client;
+import Vista.Paneles_Client.Panel_Ofertas_Client;
+import Vista.Paneles_Client.Panel_Pedidos_Client;
+import Vista.Paneles_Client.Panel_Perfil_Client;
+import Vista.Paneles_Client.Panel_Tienda_Client;
 import Vista.frm_Dashboard_Client;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 
-public class ctrl_Dashboard_Client implements MouseListener{
+public class Ctrl_Dashboard_Client implements MouseListener{
     frm_Dashboard_Client vista;
     
-    public ctrl_Dashboard_Client(frm_Dashboard_Client Vista){
+    public Ctrl_Dashboard_Client(frm_Dashboard_Client Vista){
         this.vista = Vista;
         
     vista.btnInicio.addMouseListener(this);

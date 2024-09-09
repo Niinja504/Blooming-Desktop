@@ -1,12 +1,11 @@
 package Controlador;
 
 import Modelo.Usuarios;
-import Vista.Panel_Usuarios_Admin;
+import Vista.Paneles_Admin.Panel_Usuarios_Admin;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class Ctrl_Usuarios implements MouseListener{
-    
     private Usuarios Modelo;
     private Panel_Usuarios_Admin Vista;
     
@@ -19,11 +18,8 @@ public class Ctrl_Usuarios implements MouseListener{
         vista.btn_Update.addMouseListener(this);
         vista.jtb_Usuarios.addMouseListener(this);
         vista.Btn_Delete.addMouseListener(this);
-    
     }
     
-    
-
     @Override
     public void mouseClicked(MouseEvent e) {
     if(e.getSource() == Vista.btn_Agregar){
@@ -69,7 +65,6 @@ public class Ctrl_Usuarios implements MouseListener{
         Modelo.Mostrar(Vista.jtb_Usuarios);
     }
 }
-
     @Override
     public void mousePressed(MouseEvent e) {
         
@@ -89,7 +84,6 @@ public class Ctrl_Usuarios implements MouseListener{
     public void mouseExited(MouseEvent e) {
         
     }
-   
 }
 
 
