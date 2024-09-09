@@ -4,9 +4,6 @@
  */
 package Vista;
 
-import Controlador.ctrl_Dashboard_Client;
-
-
 /**
  *
  * @author vladk
@@ -20,14 +17,6 @@ public class frm_Dashboard_Client extends javax.swing.JFrame {
         initComponents();
     }
 
- 
-public static void initfrm_Dashboard_Client(){
-    frm_Dashboard_Client vista = new frm_Dashboard_Client();
-    ctrl_Dashboard_Client controlador = new ctrl_Dashboard_Client(vista);
-    
-    vista.setVisible(true);
-    
-}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -176,29 +165,29 @@ public static void initfrm_Dashboard_Client(){
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+    private void btnInicioMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioMouseDragged
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnInicioActionPerformed
-
-    private void btnOfertasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOfertasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnOfertasActionPerformed
-
-    private void btnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPedidosActionPerformed
-
-    private void btnTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTiendaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTiendaActionPerformed
+    }//GEN-LAST:event_btnInicioMouseDragged
 
     private void btnInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInicioMouseClicked
 
-    private void btnInicioMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioMouseDragged
+    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnInicioMouseDragged
+    }//GEN-LAST:event_btnInicioActionPerformed
+
+    private void btnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPedidosActionPerformed
+
+    private void btnOfertasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOfertasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOfertasActionPerformed
+
+    private void btnTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTiendaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTiendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,7 +219,8 @@ public static void initfrm_Dashboard_Client(){
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                initfrm_Dashboard_Client();            }
+                new frm_Dashboard_Client().setVisible(true);
+            }
         });
     }
 
