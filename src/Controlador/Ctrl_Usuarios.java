@@ -4,6 +4,7 @@ import Modelo.Usuarios;
 import Vista.Paneles_Admin.Panel_Usuarios_Admin;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 
 public class Ctrl_Usuarios implements MouseListener{
     private Usuarios Modelo;
@@ -31,17 +32,17 @@ public class Ctrl_Usuarios implements MouseListener{
         Modelo.setEmail_User(Vista.txt_Correo.getText());
         Modelo.setContra_User(Vista.txt_Contra.getText());
         
-         String Rol_User = Vista.cb_Rol.getSelectedItem().toString();
+        String Rol_User = Vista.cb_Rol.getSelectedItem().toString();
         Modelo.setRol_User(Rol_User);
-        
         Modelo.setRol_User(Rol_User);
-        
-        Modelo.Guardar();   
+        Modelo.Guardar();
         Modelo.Mostrar(Vista.jtb_Usuarios);
+        JOptionPane.showMessageDialog(Vista, "El usuario se ha añadido", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
     }
     
     if(e.getSource() == Vista.Btn_Delete){
         Modelo.Eliminar(Vista.jtb_Usuarios);
+        JOptionPane.showMessageDialog(Vista, "El usuario se ha eliminado", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
         Modelo.Mostrar(Vista.jtb_Usuarios);
     }
     
@@ -57,10 +58,8 @@ public class Ctrl_Usuarios implements MouseListener{
         Modelo.setEdad_User(Integer.parseInt(Vista.txt_Edad.getText()));
         Modelo.setEmail_User(Vista.txt_Correo.getText());
         Modelo.setContra_User(Vista.txt_Contra.getText());
-        
         String Rol_User = Vista.cb_Rol.getSelectedItem().toString();
-        Modelo.setRol_User(Rol_User);
-        
+        Modelo.setRol_User(Rol_User);     
         Modelo.Actualizar(Vista.jtb_Usuarios);
         Modelo.Mostrar(Vista.jtb_Usuarios);
     }

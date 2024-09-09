@@ -232,7 +232,7 @@ public class Usuarios {
         updateUser.setString(4, getNum_Telefono_User());
         updateUser.setString(5, getEmail_User());
         updateUser.setString(6, getContra_User());
-        updateUser.setString(7, uuidUser);  // Utilizamos el UUID para identificar el registro
+        updateUser.setString(7, uuidUser);
 
         int rowsAffected = updateUser.executeUpdate();
         if (rowsAffected > 0) {
