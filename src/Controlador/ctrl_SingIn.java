@@ -1,6 +1,6 @@
 package Controlador;
 
-import Vista.frm_SingIn;
+import Vista.frm_SignIn;
 import Modelo.SingIn;
 import Vista.frm_Password_recovery1;
 import Modelo.Password_recovery1;
@@ -9,10 +9,10 @@ import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 
 public class Ctrl_SingIn extends MouseAdapter {
-    private frm_SingIn Vista;
+    private frm_SignIn Vista;
     private SingIn Modelo;
 
-    public Ctrl_SingIn(frm_SingIn vista) {
+    public Ctrl_SingIn(frm_SignIn vista) {
         this.Vista = vista;
         this.Modelo = new SingIn(vista);
 

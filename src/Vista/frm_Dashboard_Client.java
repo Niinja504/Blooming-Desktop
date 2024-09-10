@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import Controlador.Ctrl_Dashboard_Client;
+
 /**
  *
  * @author vladk
@@ -17,6 +19,16 @@ public class frm_Dashboard_Client extends javax.swing.JFrame {
         initComponents();
     }
 
+    
+    public static void initfrm_Dashboard_Client(){
+    frm_Dashboard_Client vista = new frm_Dashboard_Client();
+    Ctrl_Dashboard_Client controlador = new Ctrl_Dashboard_Client(vista);
+    
+    vista.setVisible(true);
+    
+}
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -219,7 +231,7 @@ public class frm_Dashboard_Client extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frm_Dashboard_Client().setVisible(true);
+                initfrm_Dashboard_Client();
             }
         });
     }
