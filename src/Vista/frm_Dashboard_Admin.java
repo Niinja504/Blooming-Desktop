@@ -27,49 +27,111 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         Btn_Usuarios = new javax.swing.JButton();
         Btn_Inventario = new javax.swing.JButton();
         Btn_CostoEnvio = new javax.swing.JButton();
-        Btn_Ofertas = new javax.swing.JButton();
         Btn_Pedidos = new javax.swing.JButton();
         Btn_Ventas = new javax.swing.JButton();
         Btn_Perfil = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        Btn_Ofertas = new javax.swing.JButton();
         jpContenedor_Admin = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jpMenu_Admin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Btn_Usuarios.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         Btn_Usuarios.setText("Usuarios");
-        jpMenu_Admin.add(Btn_Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 152, 196, 45));
+        Btn_Usuarios.setBorderPainted(false);
+        Btn_Usuarios.setContentAreaFilled(false);
+        Btn_Usuarios.setFocusPainted(false);
+        Btn_Usuarios.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/images/FnaranjaPequeña.png"))); // NOI18N
+        jpMenu_Admin.add(Btn_Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 100, 40));
 
+        Btn_Inventario.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         Btn_Inventario.setText("Inventario");
-        jpMenu_Admin.add(Btn_Inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 203, 196, 45));
+        Btn_Inventario.setBorderPainted(false);
+        Btn_Inventario.setContentAreaFilled(false);
+        Btn_Inventario.setFocusPainted(false);
+        Btn_Inventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_InventarioActionPerformed(evt);
+            }
+        });
+        jpMenu_Admin.add(Btn_Inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 110, 30));
 
+        Btn_CostoEnvio.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         Btn_CostoEnvio.setText("Costo de envio");
-        jpMenu_Admin.add(Btn_CostoEnvio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 254, 196, 45));
+        Btn_CostoEnvio.setBorderPainted(false);
+        Btn_CostoEnvio.setContentAreaFilled(false);
+        Btn_CostoEnvio.setFocusPainted(false);
+        Btn_CostoEnvio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_CostoEnvioActionPerformed(evt);
+            }
+        });
+        jpMenu_Admin.add(Btn_CostoEnvio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 160, 30));
 
-        Btn_Ofertas.setText("Ofertas");
-        jpMenu_Admin.add(Btn_Ofertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 305, 196, 45));
-
+        Btn_Pedidos.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         Btn_Pedidos.setText("Pedidos");
-        jpMenu_Admin.add(Btn_Pedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 356, 196, 45));
+        Btn_Pedidos.setBorderPainted(false);
+        Btn_Pedidos.setContentAreaFilled(false);
+        Btn_Pedidos.setFocusPainted(false);
+        Btn_Pedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_PedidosActionPerformed(evt);
+            }
+        });
+        jpMenu_Admin.add(Btn_Pedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 130, 30));
 
+        Btn_Ventas.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         Btn_Ventas.setText("Ventas");
-        jpMenu_Admin.add(Btn_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 407, 196, 45));
+        Btn_Ventas.setBorderPainted(false);
+        Btn_Ventas.setContentAreaFilled(false);
+        Btn_Ventas.setFocusPainted(false);
+        Btn_Ventas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_VentasActionPerformed(evt);
+            }
+        });
+        jpMenu_Admin.add(Btn_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 100, -1));
 
+        Btn_Perfil.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         Btn_Perfil.setText("Perfil");
-        jpMenu_Admin.add(Btn_Perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 675, 196, 45));
+        Btn_Perfil.setBorderPainted(false);
+        Btn_Perfil.setContentAreaFilled(false);
+        Btn_Perfil.setFocusPainted(false);
+        Btn_Perfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_PerfilActionPerformed(evt);
+            }
+        });
+        jpMenu_Admin.add(Btn_Perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, 90, 45));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/images/SplashScreen.png"))); // NOI18N
-        jpMenu_Admin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 196, 92));
+        jpMenu_Admin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 196, 90));
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 80, 65));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Administrador");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jpMenu_Admin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 98, 196, 48));
+        jpMenu_Admin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 160, 48));
 
+        Btn_Ofertas.setBackground(new java.awt.Color(245, 245, 245));
+        Btn_Ofertas.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        Btn_Ofertas.setText("Ofertas");
+        Btn_Ofertas.setBorderPainted(false);
+        Btn_Ofertas.setContentAreaFilled(false);
+        Btn_Ofertas.setFocusPainted(false);
+        Btn_Ofertas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_OfertasActionPerformed(evt);
+            }
+        });
+        jpMenu_Admin.add(Btn_Ofertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
+
+        jpContenedor_Admin.setBackground(new java.awt.Color(255, 252, 245));
         jpContenedor_Admin.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -77,9 +139,10 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jpMenu_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpContenedor_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 878, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jpMenu_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jpContenedor_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,6 +153,30 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Btn_OfertasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_OfertasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_OfertasActionPerformed
+
+    private void Btn_PerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_PerfilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_PerfilActionPerformed
+
+    private void Btn_InventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_InventarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_InventarioActionPerformed
+
+    private void Btn_PedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_PedidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_PedidosActionPerformed
+
+    private void Btn_VentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_VentasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_VentasActionPerformed
+
+    private void Btn_CostoEnvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CostoEnvioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_CostoEnvioActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
