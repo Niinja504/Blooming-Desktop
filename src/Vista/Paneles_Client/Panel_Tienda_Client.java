@@ -26,21 +26,34 @@ public class Panel_Tienda_Client extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblCatágolo = new javax.swing.JLabel();
+
         setBackground(new java.awt.Color(255, 252, 245));
+
+        lblCatágolo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lblCatágolo.setForeground(new java.awt.Color(102, 80, 65));
+        lblCatágolo.setText("Catálogo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 830, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(lblCatágolo)
+                .addContainerGap(709, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 870, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(lblCatágolo)
+                .addContainerGap(821, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel lblCatágolo;
     // End of variables declaration//GEN-END:variables
 }

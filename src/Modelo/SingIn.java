@@ -6,7 +6,7 @@ import Vista.Paneles_Admin.Panel_Usuarios_Admin;
 import Vista.frm_Dashboard_Admin;
 import Vista.frm_Dashboard_Client;
 import Vista.frm_Dashboard_Employed;
-import Vista.frm_SingIn;
+import Vista.frm_SignIn;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -18,9 +18,9 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 public class SingIn {
-    private final frm_SingIn Vista;
+    private final frm_SignIn Vista;
 
-    public SingIn(frm_SingIn vista) {
+    public SingIn(frm_SignIn vista) {
         this.Vista = vista;
         System.out.println("SingIn model instantiated.");
     }

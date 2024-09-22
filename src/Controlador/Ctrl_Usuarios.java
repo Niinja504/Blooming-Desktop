@@ -30,7 +30,7 @@ public class Ctrl_Usuarios implements MouseListener{
         Modelo.setNum_Telefono_User(Vista.txt_Telefono.getText());
         Modelo.setEdad_User(Integer.parseInt(Vista.txt_Edad.getText()));
         Modelo.setEmail_User(Vista.txt_Correo.getText());
-        Modelo.setContra_User(Vista.txt_Contra.getText());
+        Modelo.setContra_User(Vista.txt_Confirmar_Contra.getText());
         
         String Rol_User = Vista.cb_Rol.getSelectedItem().toString();
         Modelo.setRol_User(Rol_User);
@@ -57,7 +57,7 @@ public class Ctrl_Usuarios implements MouseListener{
         Modelo.setNum_Telefono_User(Vista.txt_Telefono.getText());
         Modelo.setEdad_User(Integer.parseInt(Vista.txt_Edad.getText()));
         Modelo.setEmail_User(Vista.txt_Correo.getText());
-        Modelo.setContra_User(Vista.txt_Contra.getText());
+        Modelo.setContra_User(Vista.txt_Confirmar_Contra.getText());
         String Rol_User = Vista.cb_Rol.getSelectedItem().toString();
         Modelo.setRol_User(Rol_User);     
         Modelo.Actualizar(Vista.jtb_Usuarios);

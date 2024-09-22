@@ -29,7 +29,6 @@ public class Panel_Ofertas_Admin extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        IMG_Offers_admin = new javax.swing.JLabel();
         txt_Buscar_Offers_Admin = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         txt_Titulo_Offers_Admin = new javax.swing.JTextField();
@@ -43,10 +42,9 @@ public class Panel_Ofertas_Admin extends javax.swing.JPanel {
         btn_Add_Offers_Admin = new javax.swing.JButton();
         Btn_Delete_Offers_Admin = new javax.swing.JButton();
         btn_Update_Offers_Admin = new javax.swing.JButton();
+        IMG_Offers_admin = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 102, 51));
-
-        IMG_Offers_admin.setBackground(new java.awt.Color(204, 204, 204));
 
         txt_Buscar_Offers_Admin.setText("Buscar...");
         txt_Buscar_Offers_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -123,6 +121,8 @@ public class Panel_Ofertas_Admin extends javax.swing.JPanel {
         Btn_Delete_Offers_Admin.setText("Eliminar");
 
         btn_Update_Offers_Admin.setText("Actualizar");
+
+        IMG_Offers_admin.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
