@@ -3,9 +3,7 @@ package Vista.Paneles_Admin;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextField;
-
 public class Panel_Usuarios_Admin extends javax.swing.JPanel {
-
     public Panel_Usuarios_Admin() {
         initComponents();
         addPlaceholderStyle(txt_Nombre);
@@ -26,7 +24,7 @@ public class Panel_Usuarios_Admin extends javax.swing.JPanel {
     
     public void removePlaceholderStyle(JTextField textField){
         Font font = textField.getFont();
-        font = font.deriveFont(Font.PLAIN|Font.BOLD);
+        font = font.deriveFont(Font.PLAIN);
         textField.setFont(font);
         textField.setForeground(Color.black);
     }
@@ -52,6 +50,8 @@ public class Panel_Usuarios_Admin extends javax.swing.JPanel {
         txt_NombreDeUsuario = new javax.swing.JTextField();
         btn_Update = new javax.swing.JButton();
         Btn_Delete = new javax.swing.JButton();
+        btn_Subir_IMG_Users_Admin = new javax.swing.JButton();
+        IMG_User_admin = new javax.swing.JLabel();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -83,6 +83,11 @@ public class Panel_Usuarios_Admin extends javax.swing.JPanel {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt_CorreoFocusLost(evt);
+            }
+        });
+        txt_Correo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_CorreoActionPerformed(evt);
             }
         });
 
@@ -197,70 +202,77 @@ public class Panel_Usuarios_Admin extends javax.swing.JPanel {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_Telefono)
-                            .addComponent(btn_Agregar, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
-                            .addComponent(cb_Rol, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_Edad, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txt_Confirmar_Contra, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
-                            .addComponent(txt_Contra, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
-                            .addComponent(txt_Correo, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
-                            .addComponent(txt_NombreDeUsuario)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txt_Telefono)
+                                .addComponent(btn_Agregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cb_Rol, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_Edad, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txt_Confirmar_Contra)
+                                .addComponent(txt_Contra)
+                                .addComponent(txt_Correo)
+                                .addComponent(txt_NombreDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_Nombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(27, 27, 27)
+                        .addComponent(IMG_User_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_Buscar, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btn_Subir_IMG_Users_Admin)
+                                .addGap(87, 87, 87)
                                 .addComponent(btn_Update)
-                                .addGap(44, 44, 44)
+                                .addGap(43, 43, 43)
                                 .addComponent(Btn_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txt_Buscar, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)))))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(137, 137, 137))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addComponent(txt_NombreDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txt_Correo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txt_Contra, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txt_Confirmar_Contra, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(txt_Edad, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txt_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cb_Rol, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                .addGap(26, 26, 26)
-                .addComponent(btn_Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_Update, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                    .addComponent(Btn_Delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(IMG_User_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_NombreDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_Correo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_Contra, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_Confirmar_Contra, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_Edad, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cb_Rol)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Btn_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_Subir_IMG_Users_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -302,7 +314,7 @@ public class Panel_Usuarios_Admin extends javax.swing.JPanel {
 
     private void txt_ContraFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ContraFocusGained
 
-        if(txt_Contra.getText().equals("Correo")){
+        if(txt_Contra.getText().equals("Contraseña")){
             txt_Contra.setText(null);
             txt_Contra.requestFocus();
             
@@ -311,7 +323,7 @@ public class Panel_Usuarios_Admin extends javax.swing.JPanel {
     }//GEN-LAST:event_txt_ContraFocusGained
 
     private void txt_Confirmar_ContraFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Confirmar_ContraFocusGained
-        if(txt_Confirmar_Contra.getText().equals("Correo")){
+        if(txt_Confirmar_Contra.getText().equals("Confirmar contraseña")){
             txt_Confirmar_Contra.setText(null);
             txt_Confirmar_Contra.requestFocus();
             
@@ -320,7 +332,7 @@ public class Panel_Usuarios_Admin extends javax.swing.JPanel {
     }//GEN-LAST:event_txt_Confirmar_ContraFocusGained
 
     private void txt_EdadFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_EdadFocusGained
-        if(txt_Edad.getText().equals("Correo")){
+        if(txt_Edad.getText().equals("Edad")){
             txt_Edad.setText(null);
             txt_Edad.requestFocus();
             
@@ -329,7 +341,7 @@ public class Panel_Usuarios_Admin extends javax.swing.JPanel {
     }//GEN-LAST:event_txt_EdadFocusGained
 
     private void txt_TelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_TelefonoFocusGained
-        if(txt_Telefono.getText().equals("Correo")){
+        if(txt_Telefono.getText().equals("Telefono")){
             txt_Telefono.setText(null);
             txt_Telefono.requestFocus();
             
@@ -382,7 +394,7 @@ public class Panel_Usuarios_Admin extends javax.swing.JPanel {
     private void txt_EdadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_EdadFocusLost
         if(txt_Confirmar_Contra.getText().length()==0){
             addPlaceholderStyle(txt_Confirmar_Contra);
-            txt_Confirmar_Contra.setText("Confirmar contraseña");
+            txt_Confirmar_Contra.setText("Edad");
         }
     }//GEN-LAST:event_txt_EdadFocusLost
 
@@ -398,7 +410,7 @@ public class Panel_Usuarios_Admin extends javax.swing.JPanel {
     }//GEN-LAST:event_formFocusGained
 
     private void txt_BuscarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_BuscarFocusGained
-        if(txt_Buscar.getText().equals("Correo")){
+        if(txt_Buscar.getText().equals("Buscar")){
             txt_Buscar.setText(null);
             txt_Buscar.requestFocus();
             
@@ -413,10 +425,16 @@ public class Panel_Usuarios_Admin extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txt_BuscarFocusLost
 
+    private void txt_CorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_CorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_CorreoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton Btn_Delete;
+    public javax.swing.JLabel IMG_User_admin;
     public javax.swing.JButton btn_Agregar;
+    public javax.swing.JButton btn_Subir_IMG_Users_Admin;
     public javax.swing.JButton btn_Update;
     public javax.swing.JComboBox<String> cb_Rol;
     private javax.swing.JLabel jLabel1;

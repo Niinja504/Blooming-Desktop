@@ -4,6 +4,7 @@ import Modelo.ClaseConexion;
 import Vista.Paneles_Admin.Panel_Usuarios_Admin;
 import java.sql.*;
 import java.util.UUID;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -20,6 +21,8 @@ public class Usuarios {
     private String Img_User;
     private String Rol_User;
     private int Sesion_User;
+    
+    private JLabel IMG_User_admin;
 
     public String getUUID_User() {
         return UUID_User;
@@ -161,7 +164,6 @@ public class Usuarios {
     }
 }
 
-   
     public void Mostrar(JTable tabla) {
     Connection conexion = ClaseConexion.getConexion();
     DefaultTableModel modeloDeDatos = new DefaultTableModel();
@@ -188,18 +190,18 @@ public class Usuarios {
     } catch (Exception e) {
         System.out.println("Este es el error en el modelo, metodo mostrar " + e);
     }
-}
+   }
     
     public void cargarDatosTabla(Panel_Usuarios_Admin Vista) {
     int filaSeleccionada = Vista.jtb_Usuarios.getSelectedRow();
     if (filaSeleccionada != -1) {
-        String NombresTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 0).toString();
-        String ApellidosTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 1).toString();
-        String NombreDeUsuarioTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 2).toString();
-        String TelefonoTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 3).toString();
-        String EdadTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 4).toString();
-        String CorreoTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 5).toString();
-        String RolTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 6).toString();
+        String NombresTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 1).toString();
+        String ApellidosTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 2).toString();
+        String NombreDeUsuarioTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 3).toString();
+        String TelefonoTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 4).toString();
+        String EdadTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 5).toString();
+        String CorreoTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 6).toString();
+        String RolTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 7).toString();
         
         Vista.txt_Nombre.setText(NombresTB);
         Vista.txt_Apellido.setText(ApellidosTB);
@@ -210,7 +212,7 @@ public class Usuarios {
     } else {
         System.out.println("No se ha seleccionado ninguna fila.");
     }
-}
+   }
     
     public void Actualizar(JTable tabla) {
     Connection conexion = ClaseConexion.getConexion();
@@ -244,7 +246,7 @@ public class Usuarios {
     } catch (SQLException e) {
         System.out.println("Error en el método de actualizar: " + e.getMessage());
     }
-}
+   }
 
     
     public void Buscar(JTable tabla, JTextField txtBuscar) {
@@ -271,6 +273,7 @@ public class Usuarios {
     } catch (Exception e) {
         System.out.println("Este es el error en el modelo, metodo buscar " + e);
     }
-}
+   }
+    
 
 }

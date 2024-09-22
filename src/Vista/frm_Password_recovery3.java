@@ -12,8 +12,8 @@ public class frm_Password_recovery3 extends javax.swing.JFrame {
         btn_UpdatePassword = new javax.swing.JButton();
         txt_New_Password = new javax.swing.JPasswordField();
         txt__ConfirmPassword = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -34,9 +34,10 @@ public class frm_Password_recovery3 extends javax.swing.JFrame {
 
         txt__ConfirmPassword.setText("jPasswordField2");
 
-        jLabel1.setText("jLabel1");
-
         jLabel2.setText("jLabel2");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("Restablecer contraseña");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -55,17 +56,18 @@ public class frm_Password_recovery3 extends javax.swing.JFrame {
                                 .addComponent(txt_New_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(226, 226, 226)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))))
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(jLabel1)))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addGap(48, 48, 48)
+                .addGap(57, 57, 57)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                 .addComponent(txt_New_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)

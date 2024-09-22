@@ -19,7 +19,7 @@ is divided into following sections:
   - cleanup
 
         -->
-<project xmlns:if="ant:if" xmlns:j2seproject1="http://www.netbeans.org/ns/j2se-project/1" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxrpc="http://www.netbeans.org/ns/j2se-project/jax-rpc" xmlns:unless="ant:unless" basedir=".." default="default" name="Blooming-impl">
+<project xmlns:if="ant:if" xmlns:j2seproject1="http://www.netbeans.org/ns/j2se-project/3" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxrpc="http://www.netbeans.org/ns/j2se-project/jax-rpc" xmlns:unless="ant:unless" basedir=".." default="default" name="Blooming-impl">
     <fail message="Please build using Ant 1.8.0 or higher.">
         <condition>
             <not>
@@ -325,7 +325,7 @@ is divided into following sections:
         <fail unless="dist.jar">Must set dist.jar</fail>
     </target>
     <target name="-init-macrodef-property">
-        <macrodef name="property" uri="http://www.netbeans.org/ns/j2se-project/1">
+        <macrodef name="property" uri="http://www.netbeans.org/ns/j2se-project/3">
             <attribute name="name"/>
             <attribute name="value"/>
             <sequential>
@@ -862,7 +862,7 @@ is divided into following sections:
                 end of pre NB7.2 profiling section
             -->
     <target depends="-init-debug-args" name="-init-macrodef-nbjpda">
-        <macrodef name="nbjpdastart" uri="http://www.netbeans.org/ns/j2se-project/1">
+        <macrodef name="nbjpdastart" uri="http://www.netbeans.org/ns/j2se-project/3">
             <attribute default="${main.class}" name="name"/>
             <attribute default="${debug.modulepath}" name="modulepath"/>
             <attribute default="${debug.classpath}" name="classpath"/>
@@ -878,7 +878,7 @@ is divided into following sections:
                 </nbjpdastart>
             </sequential>
         </macrodef>
-        <macrodef name="nbjpdareload" uri="http://www.netbeans.org/ns/j2se-project/1">
+        <macrodef name="nbjpdareload" uri="http://www.netbeans.org/ns/j2se-project/3">
             <attribute default="${build.classes.dir}" name="dir"/>
             <sequential>
                 <nbjpdareload>
@@ -915,7 +915,7 @@ is divided into following sections:
         </macrodef>
     </target>
     <target depends="-init-source-module-properties" if="named.module.internal" name="-init-macrodef-java-with-module">
-        <macrodef name="java" uri="http://www.netbeans.org/ns/j2se-project/1">
+        <macrodef name="java" uri="http://www.netbeans.org/ns/j2se-project/3">
             <attribute default="${module.name}" name="modulename"/>
             <attribute default="${main.class}" name="classname"/>
             <attribute default="${run.modulepath}" name="modulepath"/>
@@ -949,7 +949,7 @@ is divided into following sections:
         </macrodef>
     </target>
     <target depends="-init-source-module-properties" if="unnamed.module.internal" name="-init-macrodef-java-with-unnamed-module">
-        <macrodef name="java" uri="http://www.netbeans.org/ns/j2se-project/1">
+        <macrodef name="java" uri="http://www.netbeans.org/ns/j2se-project/3">
             <attribute default="" name="modulename"/>
             <attribute default="${main.class}" name="classname"/>
             <attribute default="${run.modulepath}" name="modulepath"/>
@@ -1041,7 +1041,7 @@ is divided into following sections:
         </macrodef>
     </target>
     <target name="-init-presetdef-jar">
-        <presetdef name="jar" uri="http://www.netbeans.org/ns/j2se-project/1">
+        <presetdef name="jar" uri="http://www.netbeans.org/ns/j2se-project/3">
             <jar compress="${jar.compress}" index="${jar.index}" jarfile="${dist.jar}" manifestencoding="UTF-8">
                 <j2seproject1:fileset dir="${build.classes.dir}" excludes="${dist.archive.excludes}"/>
             </jar>

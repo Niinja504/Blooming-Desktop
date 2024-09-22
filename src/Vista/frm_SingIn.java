@@ -30,7 +30,7 @@ public class frm_SingIn extends javax.swing.JFrame {
     
     public void removePlaceholderStyle(JTextField textField){
         Font font = textField.getFont();
-        font = font.deriveFont(Font.PLAIN|Font.BOLD);
+        font = font.deriveFont(Font.PLAIN);
         textField.setFont(font);
         textField.setForeground(Color.black);
     }

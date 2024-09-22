@@ -1,5 +1,8 @@
 package Controlador;
 
+import Modelo.ComboBox.Lista_Productos;
+import Modelo.Ofertas;
+import Modelo.Usuarios;
 import Vista.Paneles_Admin.Panel_CostoEnvio_Admin;
 import Vista.Paneles_Admin.Panel_Inventario_Admin;
 import Vista.Paneles_Admin.Panel_Ofertas_Admin;
@@ -12,10 +15,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class Ctrl_DashBoard_Admin implements MouseListener {
-
     frm_Dashboard_Admin Vista;
-    Panel_Usuarios_Admin Panel;
-    
+    Panel_Usuarios_Admin Panel;   
     public Ctrl_DashBoard_Admin(frm_Dashboard_Admin vista, Panel_Usuarios_Admin Panel){
         this.Vista = vista;
         this.Panel = Panel;
@@ -37,6 +38,8 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
             System.out.println("Usuarios");
             //1-Creo un objeto del panel que quiero mostrar
             Panel_Usuarios_Admin objUsuarios = new Panel_Usuarios_Admin();
+            Usuarios modeloUsuarios = new Usuarios();
+            Ctrl_Usuarios controladorUsuarios = new Ctrl_Usuarios(modeloUsuarios, objUsuarios);
             
             //2- Limpio el panel contendor (por si acaso)
             Vista.jpContenedor_Admin.removeAll();
@@ -78,12 +81,16 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
         
         if(e.getSource() == Vista.Btn_Ofertas){
             //1-Creo un objeto del panel que quiero mostrar
-            Panel_Ofertas_Admin objInventario = new Panel_Ofertas_Admin();
+            Panel_Ofertas_Admin objOfertas = new Panel_Ofertas_Admin();
+            Ofertas modeloOfertas = new Ofertas();
+            Lista_Productos modeloProductos = new Lista_Productos();
+            Ctrl_Ofertas controladorOfertas = new Ctrl_Ofertas(modeloOfertas, modeloProductos, objOfertas);
+            
             
             //2- Limpio el panel contendor (por si acaso)
             Vista.jpContenedor_Admin.removeAll();
             //3- muestro el panel que quiero
-            Vista.jpContenedor_Admin.add(objInventario);
+            Vista.jpContenedor_Admin.add(objOfertas);
             
             //4- Refrescar todo
             Vista.jpContenedor_Admin.revalidate();
