@@ -30,16 +30,16 @@ public class Panel_Inventario_Admin extends javax.swing.JPanel {
         jFileChooser1 = new javax.swing.JFileChooser();
         txt_Buscar_Inventory_Admin = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtb_Inventory = new javax.swing.JTable();
         txt_Nombre_Inventory_Admin = new javax.swing.JTextField();
         txt_Precio_Inventory_Admin = new javax.swing.JTextField();
         txt_Cantidad_Inventory_Admin = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        Cb_Categoria_Flores_Inventory_admin = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         txt_Descrip_Inventory_Admin = new javax.swing.JTextPane();
-        jLabel1 = new javax.swing.JLabel();
+        IMG_Inventory_admin = new javax.swing.JLabel();
         btn_Add_Inventory_Admin = new javax.swing.JButton();
         btn_Update_Inventory_Admin = new javax.swing.JButton();
         Btn_Delete_Inventory_Admin = new javax.swing.JButton();
@@ -56,7 +56,7 @@ public class Panel_Inventario_Admin extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtb_Inventory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -67,7 +67,7 @@ public class Panel_Inventario_Admin extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtb_Inventory);
 
         txt_Nombre_Inventory_Admin.setText("Nombre");
         txt_Nombre_Inventory_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -99,15 +99,13 @@ public class Panel_Inventario_Admin extends javax.swing.JPanel {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hortencias", "Rosas", "Tulipanes", "Girasoles", "Mixtas" }));
+        Cb_Categoria_Flores_Inventory_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hortencias", "Rosas", "Tulipanes", "Girasoles", "Mixtas" }));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cajas", "Ramos", "Botellas", "Corazones", "Rosas preservadas" }));
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cumpleaños", "Aniversario", "Amor", "Nacimiento", "Condolencias" }));
 
         jScrollPane2.setViewportView(txt_Descrip_Inventory_Admin);
-
-        jLabel1.setText("jLabel1");
 
         btn_Add_Inventory_Admin.setText("Agregar");
 
@@ -121,9 +119,9 @@ public class Panel_Inventario_Admin extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addGap(43, 43, 43)
+                .addComponent(IMG_Inventory_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_Buscar_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -134,7 +132,7 @@ public class Panel_Inventario_Admin extends javax.swing.JPanel {
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Cb_Categoria_Flores_Inventory_admin, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txt_Cantidad_Inventory_Admin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)))
                         .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -162,13 +160,13 @@ public class Panel_Inventario_Admin extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Cb_Categoria_Flores_Inventory_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btn_Update_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(21, 21, 21))))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(IMG_Inventory_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
@@ -247,16 +245,16 @@ public class Panel_Inventario_Admin extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton Btn_Delete_Inventory_Admin;
+    public javax.swing.JComboBox<String> Cb_Categoria_Flores_Inventory_admin;
+    public javax.swing.JLabel IMG_Inventory_admin;
     public javax.swing.JButton btn_Add_Inventory_Admin;
     public javax.swing.JButton btn_Update_Inventory_Admin;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JFileChooser jFileChooser1;
-    public javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jtb_Inventory;
     public javax.swing.JTextField txt_Buscar_Inventory_Admin;
     public javax.swing.JTextField txt_Cantidad_Inventory_Admin;
     public javax.swing.JTextPane txt_Descrip_Inventory_Admin;

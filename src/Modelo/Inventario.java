@@ -1,12 +1,17 @@
 package Modelo;
 
-import Vista.Paneles_Admin.Panel_Usuarios_Admin;
+import Vista.Paneles_Admin.Panel_Inventario_Admin;
+import java.awt.Image;
+import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.UUID;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -160,23 +165,38 @@ public class Inventario {
         }
     }
     
-    public void cargarDatosTabla(Panel_Usuarios_Admin Vista) {
-      int filaSeleccionada = Vista.jtb_Usuarios.getSelectedRow();
+    public void cargarDatosTabla(Panel_Inventario_Admin Vista) {
+      int filaSeleccionada = Vista.jtb_Inventory.getSelectedRow();
       if (filaSeleccionada != -1) {
-          String NombresTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 1).toString();
-          String ApellidosTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 2).toString();
-          String NombreDeUsuarioTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 3).toString();
-          String TelefonoTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 4).toString();
-          String EdadTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 5).toString();
-          String CorreoTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 6).toString();
-          String RolTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 7).toString();
+          String NombreTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 1).toString();
+          String PrecioTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 2).toString();
+          String CantidadTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 3).toString();
+          String TelefonoTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 4).toString();
+          String EdadTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 5).toString();
+          String DescripcionTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 6).toString();
+          String imgPath = (String) Vista.jtb_Inventory.getValueAt(filaSeleccionada, 4);
         
-          Vista.txt_Nombre.setText(NombresTB);
-          Vista.txt_Apellido.setText(ApellidosTB);
-          Vista.txt_NombreDeUsuario.setText(NombreDeUsuarioTB);
+          Vista.txt_Nombre_Inventory_Admin.setText(NombreTB);
+          Vista.txt_Precio_Inventory_Admin.setText(PrecioTB);
+          Vista.txt_Cantidad_Inventory_Admin.setText(CantidadTB);
           Vista.txt_Telefono.setText(TelefonoTB);
           Vista.txt_Edad.setText(EdadTB);
-          Vista.txt_Correo.setText(CorreoTB);
+          Vista.txt_Descrip_Inventory_Admin.setText(DescripcionTB);
+          
+          //Funcion que nos permitira mostrar la imagen al seleccionar el registro de la tabla
+        if (imgPath != null && !imgPath.isEmpty()) {
+                try {
+                    URL url = new URL(imgPath);
+                    Image image = ImageIO.read(url);
+                    ImageIcon icon = new ImageIcon(image);
+                    Vista.IMG_Inventory_admin.setIcon(icon);
+                    Vista.IMG_Inventory_admin.setText(null);
+                } catch (IOException e) {
+                    System.out.println("Error al cargar la imagen: " + e.getMessage());
+                }
+            } else {
+                Vista.IMG_Inventory_admin.setIcon(null);
+            }
        } else {
         System.out.println("No se ha seleccionado ninguna fila.");
        }
