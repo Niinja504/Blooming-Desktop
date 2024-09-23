@@ -34,7 +34,6 @@ public class Ctrl_Usuarios implements MouseListener{
         
         String Rol_User = Vista.cb_Rol.getSelectedItem().toString();
         Modelo.setRol_User(Rol_User);
-        Modelo.setRol_User(Rol_User);
         Modelo.Guardar();
         Modelo.Mostrar(Vista.jtb_Usuarios);
         JOptionPane.showMessageDialog(Vista, "El usuario se ha añadido", "Mensaje", JOptionPane.INFORMATION_MESSAGE);

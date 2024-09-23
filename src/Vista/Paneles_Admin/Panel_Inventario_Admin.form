@@ -38,8 +38,8 @@
                           <Component id="txt_Precio_Inventory_Admin" alignment="0" min="-2" pref="309" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jComboBox3" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jComboBox2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="Cb_Categoria_Evento_Inventory_admin" alignment="0" max="32767" attributes="0"/>
+                              <Component id="Cb_Categoria_Diseno_Inventory_admin" alignment="0" max="32767" attributes="0"/>
                               <Component id="Cb_Categoria_Flores_Inventory_admin" alignment="0" max="32767" attributes="0"/>
                               <Component id="txt_Cantidad_Inventory_Admin" alignment="0" pref="309" max="32767" attributes="0"/>
                           </Group>
@@ -79,7 +79,7 @@
                           <Group type="102" attributes="0">
                               <Component id="Cb_Categoria_Flores_Inventory_admin" min="-2" pref="40" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jComboBox2" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="Cb_Categoria_Diseno_Inventory_admin" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="btn_Update_Inventory_Admin" min="-2" pref="53" max="-2" attributes="0"/>
@@ -90,7 +90,7 @@
                   <Component id="IMG_Inventory_admin" min="-2" pref="200" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jComboBox3" min="-2" pref="40" max="-2" attributes="0"/>
+              <Component id="Cb_Categoria_Evento_Inventory_admin" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace pref="18" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane2" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
@@ -192,7 +192,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox2">
+    <Component class="javax.swing.JComboBox" name="Cb_Categoria_Diseno_Inventory_admin">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
@@ -206,9 +206,10 @@
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox3">
+    <Component class="javax.swing.JComboBox" name="Cb_Categoria_Evento_Inventory_admin">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
@@ -222,6 +223,7 @@
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">

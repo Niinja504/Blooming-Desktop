@@ -171,20 +171,23 @@ public class Inventario {
           String NombreTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 1).toString();
           String PrecioTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 2).toString();
           String CantidadTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 3).toString();
-          String TelefonoTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 4).toString();
-          String EdadTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 5).toString();
-          String DescripcionTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 6).toString();
-          String imgPath = (String) Vista.jtb_Inventory.getValueAt(filaSeleccionada, 4);
+          String Categoria_FloresTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 4).toString();
+          String Categoria_DisenoTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 5).toString();
+          String Categoria_EventoTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 6).toString();
+          String DescripcionTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 7).toString();
+          String imgPath = (String) Vista.jtb_Inventory.getValueAt(filaSeleccionada, 8);
         
           Vista.txt_Nombre_Inventory_Admin.setText(NombreTB);
           Vista.txt_Precio_Inventory_Admin.setText(PrecioTB);
           Vista.txt_Cantidad_Inventory_Admin.setText(CantidadTB);
-          Vista.txt_Telefono.setText(TelefonoTB);
-          Vista.txt_Edad.setText(EdadTB);
           Vista.txt_Descrip_Inventory_Admin.setText(DescripcionTB);
           
+          Vista.Cb_Categoria_Flores_Inventory_admin.setSelectedItem(Categoria_FloresTB);
+          Vista.Cb_Categoria_Diseno_Inventory_admin.setSelectedItem(Categoria_DisenoTB);
+          Vista.Cb_Categoria_Evento_Inventory_admin.setSelectedItem(Categoria_EventoTB);
+          
           //Funcion que nos permitira mostrar la imagen al seleccionar el registro de la tabla
-        if (imgPath != null && !imgPath.isEmpty()) {
+          if (imgPath != null && !imgPath.isEmpty()) {
                 try {
                     URL url = new URL(imgPath);
                     Image image = ImageIO.read(url);
