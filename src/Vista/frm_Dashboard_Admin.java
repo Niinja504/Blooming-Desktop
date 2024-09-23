@@ -69,7 +69,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
                 Btn_CostoEnvioActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_CostoEnvio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 160, 30));
+        jpMenu_Admin.add(Btn_CostoEnvio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 160, 40));
 
         Btn_Pedidos.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         Btn_Pedidos.setText("Pedidos");

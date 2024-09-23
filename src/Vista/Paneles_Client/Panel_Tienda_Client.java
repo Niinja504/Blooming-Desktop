@@ -27,6 +27,7 @@ public class Panel_Tienda_Client extends javax.swing.JPanel {
     private void initComponents() {
 
         lblCatágolo = new javax.swing.JLabel();
+        productoTemplate1 = new Componentes.ProductoTemplate();
 
         setBackground(new java.awt.Color(255, 252, 245));
 
@@ -39,21 +40,29 @@ public class Panel_Tienda_Client extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(lblCatágolo)
-                .addContainerGap(709, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(lblCatágolo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(productoTemplate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(845, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(lblCatágolo)
-                .addContainerGap(821, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(productoTemplate1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(569, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel lblCatágolo;
+    private Componentes.ProductoTemplate productoTemplate1;
     // End of variables declaration//GEN-END:variables
 }
