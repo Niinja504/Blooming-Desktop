@@ -1,12 +1,16 @@
 package Modelo;
 
 import Vista.Paneles_Admin.Panel_Ofertas_Admin;
+import java.awt.Image;
+import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.UUID;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -66,8 +70,6 @@ public class Ofertas {
     public void setImg_oferta(String Img_oferta) {
         this.Img_oferta = Img_oferta;
     }
-    
-    
     
     public void Guardar() {
         Connection conexion = ClaseConexion.getConexion();
@@ -132,8 +134,8 @@ public class Ofertas {
         tabla.setModel(modeloDeDatos);
         tabla.getColumnModel().getColumn(0).setMinWidth(0);
         tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(4).setMinWidth(0);
-        tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(4).setMinWidth(1);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(1);
     } catch (Exception e) {
         System.out.println("Este es el error en el modelo, metodo mostrar " + e);
         e.printStackTrace();
@@ -147,19 +149,30 @@ public class Ofertas {
         String PorcentajeTB = Vista.jtb_Offers_Admin.getValueAt(filaSeleccionada, 2).toString();
         String DecripcionTB = Vista.jtb_Offers_Admin.getValueAt(filaSeleccionada, 3).toString();
         String imgPath = (String) Vista.jtb_Offers_Admin.getValueAt(filaSeleccionada, 4);
-        
+
         Vista.txt_Titulo_Offers_Admin.setText(TituloTB);
         Vista.txt_Porcentaje_Offers_Admin.setText(PorcentajeTB);
         Vista.txt_Descrip_Offers_Admin.setText(DecripcionTB);
         
-        if (imgPath != null) {
-            ImageIcon icon = new ImageIcon(imgPath);
-            Vista.IMG_Offers_admin.setIcon(icon);
-        }
+        //Funcion que nos permitira mostrar la imagen al seleccionar el registro de la tabla
+        if (imgPath != null && !imgPath.isEmpty()) {
+                try {
+                    URL url = new URL(imgPath);
+                    Image image = ImageIO.read(url);
+                    ImageIcon icon = new ImageIcon(image);
+                    Vista.IMG_Offers_admin.setIcon(icon);
+                    Vista.IMG_Offers_admin.setText(null);
+                } catch (IOException e) {
+                    System.out.println("Error al cargar la imagen: " + e.getMessage());
+                }
+            } else {
+                Vista.IMG_Offers_admin.setIcon(null);
+            }
     } else {
         System.out.println("No se ha seleccionado ninguna fila.");
     }
    }
+
     
     public void Actualizar(JTable tabla) {
     Connection conexion = ClaseConexion.getConexion();

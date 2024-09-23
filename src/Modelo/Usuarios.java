@@ -162,7 +162,7 @@ public class Usuarios {
     } catch (Exception e) {
         System.out.println("Este es el error en el método de eliminar: " + e.getMessage());
     }
-}
+   }
 
     public void Mostrar(JTable tabla) {
     Connection conexion = ClaseConexion.getConexion();
