@@ -139,7 +139,7 @@ public class Inventario {
     public void Mostrar(JTable tabla) {
        Connection conexion = ClaseConexion.getConexion();
        DefaultTableModel modeloDeDatos = new DefaultTableModel();
-       modeloDeDatos.setColumnIdentifiers(new Object[]{"UUID", "Img_Producto", "Apellido", "Usuario", "Telefono", "Edad", "Correo", "Rol"});
+       modeloDeDatos.setColumnIdentifiers(new Object[]{"UUID", "Imagen", "Nombre del producto", "Precio", "Cantidad disponible", "Categoria flores", "Categoria diseño", "Categoria evento", "Descripción"});
     
       try {
           Statement statement = conexion.createStatement();
@@ -160,6 +160,8 @@ public class Inventario {
           tabla.setModel(modeloDeDatos);
           tabla.getColumnModel().getColumn(0).setMinWidth(0);
           tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+          tabla.getColumnModel().getColumn(1).setMinWidth(0);
+          tabla.getColumnModel().getColumn(1).setMaxWidth(0);
         }catch (Exception e) {
             System.out.println("Este es el error en el modelo, metodo mostrar " + e);
         }
@@ -168,14 +170,14 @@ public class Inventario {
     public void cargarDatosTabla(Panel_Inventario_Admin Vista) {
       int filaSeleccionada = Vista.jtb_Inventory.getSelectedRow();
       if (filaSeleccionada != -1) {
-          String NombreTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 1).toString();
-          String PrecioTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 2).toString();
-          String CantidadTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 3).toString();
-          String Categoria_FloresTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 4).toString();
-          String Categoria_DisenoTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 5).toString();
-          String Categoria_EventoTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 6).toString();
-          String DescripcionTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 7).toString();
-          String imgPath = (String) Vista.jtb_Inventory.getValueAt(filaSeleccionada, 8);
+          String imgPath = (String) Vista.jtb_Inventory.getValueAt(filaSeleccionada, 1);
+          String NombreTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 2).toString();
+          String PrecioTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 3).toString();
+          String CantidadTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 4).toString();
+          String Categoria_FloresTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 5).toString();
+          String Categoria_DisenoTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 6).toString();
+          String Categoria_EventoTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 7).toString();
+          String DescripcionTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 8).toString();
         
           Vista.txt_Nombre_Inventory_Admin.setText(NombreTB);
           Vista.txt_Precio_Inventory_Admin.setText(PrecioTB);

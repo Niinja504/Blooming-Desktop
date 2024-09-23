@@ -2,6 +2,7 @@
 package Controlador;
 
 import Modelo.ComboBox.Lista_Productos;
+import Modelo.Costo_Envio;
 import Modelo.Inventario;
 import Modelo.Ofertas;
 import Modelo.Usuarios;
@@ -72,6 +73,8 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
         if(e.getSource() == Vista.Btn_CostoEnvio){
             //1-Creo un objeto del panel que quiero mostrar
             Panel_CostoEnvio_Admin objCostoEnvio = new Panel_CostoEnvio_Admin();
+            Costo_Envio modeloCosto = new Costo_Envio();
+            Ctrl_Costo_Envio controladorCosto = new Ctrl_Costo_Envio(modeloCosto, objCostoEnvio);
             
             //2- Limpio el panel contendor (por si acaso)
             Vista.jpContenedor_Admin.removeAll();

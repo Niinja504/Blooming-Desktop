@@ -5,9 +5,14 @@
         <group>
             <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/Paneles_Admin/Panel_Inventario_Admin.java</file>
             <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Modelo/Inventario.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Controlador/Ctrl_Usuarios.java</file>
+            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Mapa/Button_Punto.java</file>
+            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Modelo/Costo_Envio.java</file>
             <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Controlador/Ctrl_Inventario.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Modelo/Ofertas.java</file>
+            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Mapa/Renderizar_Button.java</file>
+            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/Paneles_Admin/Panel_CostoEnvio_Admin.java</file>
+            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Mapa/EventPunto.java</file>
+            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Mapa/MyWaypoint.java</file>
+            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Controlador/Ctrl_Costo_Envio.java</file>
         </group>
     </open-files>
 </project-private>
