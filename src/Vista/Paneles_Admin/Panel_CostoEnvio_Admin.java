@@ -3,12 +3,15 @@ package Vista.Paneles_Admin;
 import Mapa.EventPunto;
 import Mapa.MyWaypoint;
 import Mapa.Renderizar_Button;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.event.MouseInputListener;
 import org.jxmapviewer.OSMTileFactoryInfo;
 import org.jxmapviewer.VirtualEarthTileFactoryInfo;
@@ -27,6 +30,12 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
     private MyWaypoint currentWaypoint;
     
     public Panel_CostoEnvio_Admin() {
+        try {
+            // UIManager.setLookAndFeel(new FlatLightLaf()); 
+            UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
         initComponents();
         init();
     }
@@ -97,14 +106,14 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
         Font font = textField.getFont();
         font = font.deriveFont(Font.ITALIC);
         textField.setFont(font);
-        textField.setForeground(Color.gray);
+        textField.setForeground(Color.white);
     }
     
     public void removePlaceholderStyle(JTextField textField){
         Font font = textField.getFont();
         font = font.deriveFont(Font.PLAIN);
         textField.setFont(font);
-        textField.setForeground(Color.black);
+        textField.setForeground(Color.white);
     }
     
     public void actualizarMapaConCoordenadas(String coordenadas) {
@@ -142,7 +151,7 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
         btn_Update_Cost_Admin = new javax.swing.JButton();
         btn_Delete_Cost_Admin = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(0, 255, 204));
+        setBackground(new java.awt.Color(255, 252, 245));
 
         txt_Buscar_Cost_admin.setText("Buscar...");
         txt_Buscar_Cost_admin.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -154,14 +163,44 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
             }
         });
 
+        cmdAdd.setBackground(new java.awt.Color(243, 143, 154));
+        cmdAdd.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        cmdAdd.setForeground(new java.awt.Color(255, 255, 255));
         cmdAdd.setText("Marcar");
+        cmdAdd.setBorderPainted(false);
+        cmdAdd.setFocusPainted(false);
+        cmdAdd.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                cmdAddMouseDragged(evt);
+            }
+        });
+        cmdAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmdAddMouseClicked(evt);
+            }
+        });
         cmdAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdAddActionPerformed(evt);
             }
         });
 
+        cmdClear.setBackground(new java.awt.Color(243, 143, 154));
+        cmdClear.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        cmdClear.setForeground(new java.awt.Color(255, 255, 255));
         cmdClear.setText("Limpiar");
+        cmdClear.setBorderPainted(false);
+        cmdClear.setFocusPainted(false);
+        cmdClear.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                cmdClearMouseDragged(evt);
+            }
+        });
+        cmdClear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmdClearMouseClicked(evt);
+            }
+        });
         cmdClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdClearActionPerformed(evt);
@@ -175,18 +214,18 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
             .addGroup(jXMapViewerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cmdAdd)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cmdClear)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
         jXMapViewerLayout.setVerticalGroup(
             jXMapViewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jXMapViewerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jXMapViewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmdAdd)
-                    .addComponent(cmdClear))
-                .addContainerGap(606, Short.MAX_VALUE))
+                    .addComponent(cmdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmdClear, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(601, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -200,6 +239,7 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
             .addComponent(jXMapViewer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        comboMap.setForeground(new java.awt.Color(255, 255, 255));
         comboMap.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Hibrido", "Satelite", "Relieve" }));
         comboMap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,6 +247,7 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
             }
         });
 
+        jtb_Cost.setForeground(new java.awt.Color(255, 255, 255));
         jtb_Cost.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -228,6 +269,7 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jtb_Cost);
 
+        txt_Zona_Cost_Admin.setForeground(new java.awt.Color(255, 255, 255));
         txt_Zona_Cost_Admin.setText("Nombre");
         txt_Zona_Cost_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -238,6 +280,7 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
             }
         });
 
+        txt_Costo_Cost_Admin.setForeground(new java.awt.Color(255, 255, 255));
         txt_Costo_Cost_Admin.setText("Precio");
         txt_Costo_Cost_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -248,11 +291,11 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
             }
         });
 
-        btn_Add_Cost_Admin.setText("jButton1");
+        btn_Add_Cost_Admin.setText("Agregar");
 
-        btn_Update_Cost_Admin.setText("jButton2");
+        btn_Update_Cost_Admin.setText("Actualizar");
 
-        btn_Delete_Cost_Admin.setText("jButton3");
+        btn_Delete_Cost_Admin.setText("Eliminar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -260,23 +303,25 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(comboMap, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 233, Short.MAX_VALUE)
-                .addComponent(txt_Buscar_Cost_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(293, 293, 293)
+                .addComponent(txt_Buscar_Cost_admin))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_Zona_Cost_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_Costo_Cost_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btn_Add_Cost_Admin)
-                            .addComponent(btn_Update_Cost_Admin)
-                            .addComponent(btn_Delete_Cost_Admin))
-                        .addGap(37, 37, 37))))
+                            .addComponent(btn_Update_Cost_Admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_Delete_Cost_Admin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(37, 37, 37))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,21 +329,25 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txt_Buscar_Cost_admin, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                     .addComponent(comboMap))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_Zona_Cost_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_Add_Cost_Admin))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txt_Costo_Cost_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_Update_Cost_Admin))
-                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txt_Costo_Cost_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(56, 56, 56))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btn_Update_Cost_Admin)
+                                .addGap(48, 48, 48)))
                         .addComponent(btn_Delete_Cost_Admin)
                         .addGap(37, 37, 37)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -338,23 +387,6 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
         jXMapViewer.setTileFactory(tileFactory);
     }//GEN-LAST:event_comboMapActionPerformed
 
-    private void cmdClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdClearActionPerformed
-        clearWaypoint();
-        currentWaypoint = new MyWaypoint("Movible", event, geo);
-        currentWaypoint.setMovable(true);
-        addWaypoint(currentWaypoint);
-    }//GEN-LAST:event_cmdClearActionPerformed
-
-    private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed
-        if (currentWaypoint != null && currentWaypoint.getPosition() != null) {
-        currentWaypoint.setMovable(false);
-        GeoPosition geo = currentWaypoint.getPosition();
-        JOptionPane.showMessageDialog(this, "Coordenadas: " + geo.getLatitude() + ", " + geo.getLongitude());
-    } else {
-        JOptionPane.showMessageDialog(this, "No hay un punto seleccionado.");
-    }
-    }//GEN-LAST:event_cmdAddActionPerformed
-
     private void txt_Zona_Cost_AdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Zona_Cost_AdminFocusGained
         if(txt_Zona_Cost_Admin.getText().equals("Titulo de oferta")){
             txt_Zona_Cost_Admin.setText(null);
@@ -387,13 +419,37 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txt_Costo_Cost_AdminFocusLost
 
+    private void cmdAddMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmdAddMouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdAddMouseDragged
+
+    private void cmdAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmdAddMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdAddMouseClicked
+
+    private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdAddActionPerformed
+
+    private void cmdClearMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmdClearMouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdClearMouseDragged
+
+    private void cmdClearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmdClearMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdClearMouseClicked
+
+    private void cmdClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdClearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdClearActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn_Add_Cost_Admin;
     public javax.swing.JButton btn_Delete_Cost_Admin;
     public javax.swing.JButton btn_Update_Cost_Admin;
     public javax.swing.JButton cmdAdd;
-    private javax.swing.JButton cmdClear;
+    public javax.swing.JButton cmdClear;
     public javax.swing.JComboBox<String> comboMap;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

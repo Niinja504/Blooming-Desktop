@@ -131,7 +131,7 @@ public class Usuarios {
             addUser.setString(9, getImg_User());
             addUser.setString(10, getRol_User());
             addUser.setInt(11, getSesion_User());
-           addUser.executeUpdate();
+            addUser.executeUpdate();
  
         } catch (SQLException ex) {
             System.out.println("Este es el error en el modelo:metodo guardar " + ex);
@@ -209,6 +209,7 @@ public class Usuarios {
         Vista.txt_Telefono.setText(TelefonoTB);
         Vista.txt_Edad.setText(EdadTB);
         Vista.txt_Correo.setText(CorreoTB);
+        Vista.cb_Rol.setSelectedItem(RolTB);
     } else {
         System.out.println("No se ha seleccionado ninguna fila.");
     }

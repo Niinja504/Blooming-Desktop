@@ -2,6 +2,10 @@ package Vista;
 
 import Controlador.Ctrl_Password_recovery2;
 import Modelo.Password_recovery2;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
+import javax.swing.ImageIcon;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class frm_Password_recovery2 extends javax.swing.JFrame {
     
@@ -10,6 +14,13 @@ public class frm_Password_recovery2 extends javax.swing.JFrame {
     private Ctrl_Password_recovery2 controlador;
     
     public frm_Password_recovery2() {
+        try {
+            // UIManager.setLookAndFeel(new FlatLightLaf()); 
+            UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+        setIconImage(new ImageIcon(getClass().getResource("/Vista/images/Logo.png")).getImage());
         initComponents();
         initController();
     }

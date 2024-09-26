@@ -2,22 +2,34 @@
 package Vista;
 
 import Controlador.Ctrl_SingIn;
+import Modelo.SingIn;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class frm_SignIn extends javax.swing.JFrame {
 
-    private Ctrl_SingIn controlador;
+    private Ctrl_SingIn ctrl;
    
-    public frm_SignIn() {
+    public frm_SignIn(Ctrl_SingIn controlador) {
+        try {
+            // UIManager.setLookAndFeel(new FlatLightLaf()); 
+            UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+        setIconImage(new ImageIcon(getClass().getResource("/Vista/images/Logo.png")).getImage());
         initComponents();
+        this.ctrl = controlador; 
         
         addPlaceholderStyle(txt_Correo_SingIn);
         addPlaceholderStyle(txt_Contra_SingIn);
-        controlador = new Ctrl_SingIn(this);
 
     }
     
@@ -25,18 +37,28 @@ public class frm_SignIn extends javax.swing.JFrame {
         Font font = textField.getFont();
         font = font.deriveFont(Font.ITALIC);
         textField.setFont(font);
-        textField.setForeground(Color.gray);
+        textField.setForeground(Color.white);
     }
     
     public void removePlaceholderStyle(JTextField textField){
         Font font = textField.getFont();
         font = font.deriveFont(Font.PLAIN);
         textField.setFont(font);
-        textField.setForeground(Color.black);
+        textField.setForeground(Color.white);
+    }
+    
+    public void setControlador(Ctrl_SingIn controlador) {
+        this.ctrl = controlador;
+    }
+    
+    public static void init_frm_SignIn() {
+        frm_SignIn vista = new frm_SignIn(null);
+        SingIn modelo = new SingIn(vista);
+        Ctrl_SingIn controlador = new Ctrl_SingIn(modelo, vista);
+        vista.setControlador(controlador);
+        vista.setVisible(true);
     }
 
-
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -45,12 +67,11 @@ public class frm_SignIn extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        txt_Correo_SingIn = new Componentes.TextField();
-        txt_Contra_SingIn = new Componentes.TextField();
+        Lbl_Register_SingIn = new javax.swing.JLabel();
         lbl_Recuperar_Contra_SignIn = new javax.swing.JLabel();
         btn_SingIn = new javax.swing.JButton();
+        txt_Correo_SingIn = new javax.swing.JTextField();
+        txt_Contra_SingIn = new javax.swing.JPasswordField();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -81,40 +102,9 @@ public class frm_SignIn extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("para continuar");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("¿No tienes una cuenta?");
-
-        jButton1.setBackground(new java.awt.Color(255, 252, 245));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(253, 149, 160));
-        jButton1.setText("Registrate");
-        jButton1.setBorderPainted(false);
-
-        txt_Correo_SingIn.setText("Correo");
-        txt_Correo_SingIn.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_Correo_SingInFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_Correo_SingInFocusLost(evt);
-            }
-        });
-        txt_Correo_SingIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Correo_SingInActionPerformed(evt);
-            }
-        });
-
-        txt_Contra_SingIn.setText("Contraseña");
-        txt_Contra_SingIn.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_Contra_SingInFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_Contra_SingInFocusLost(evt);
-            }
-        });
+        Lbl_Register_SingIn.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        Lbl_Register_SingIn.setForeground(new java.awt.Color(255, 255, 255));
+        Lbl_Register_SingIn.setText("¿No tienes una cuenta?");
 
         lbl_Recuperar_Contra_SignIn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_Recuperar_Contra_SignIn.setForeground(new java.awt.Color(255, 255, 255));
@@ -131,16 +121,31 @@ public class frm_SignIn extends javax.swing.JFrame {
             }
         });
 
+        txt_Correo_SingIn.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Correo_SingIn.setText("Correo");
+        txt_Correo_SingIn.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_Correo_SingInFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_Correo_SingInFocusLost(evt);
+            }
+        });
+
+        txt_Contra_SingIn.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Contra_SingIn.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_Contra_SingInFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_Contra_SingInFocusLost(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(56, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(7, 7, 7)
-                .addComponent(jButton1)
-                .addGap(123, 123, 123))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(138, 138, 138)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,15 +153,21 @@ public class frm_SignIn extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jLabel4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_SingIn, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_Recuperar_Contra_SignIn)
-                    .addComponent(txt_Contra_SingIn, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_Correo_SingIn, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txt_Contra_SingIn, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+                    .addComponent(txt_Correo_SingIn, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lbl_Recuperar_Contra_SignIn)
+                        .addGap(76, 76, 76))
+                    .addComponent(btn_SingIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Lbl_Register_SingIn)
+                .addGap(136, 136, 136))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,19 +176,17 @@ public class frm_SignIn extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(9, 9, 9)
                 .addComponent(jLabel4)
-                .addGap(59, 59, 59)
+                .addGap(45, 45, 45)
                 .addComponent(txt_Correo_SingIn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22)
+                .addGap(31, 31, 31)
                 .addComponent(txt_Contra_SingIn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbl_Recuperar_Contra_SignIn)
                 .addGap(26, 26, 26)
                 .addComponent(btn_SingIn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jButton1))
-                .addGap(33, 33, 33))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Lbl_Register_SingIn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -275,34 +284,26 @@ public class frm_SignIn extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_Correo_SingInFocusLost
 
     private void txt_Correo_SingInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Correo_SingInActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txt_Correo_SingInActionPerformed
 
     private void txt_Contra_SingInFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Contra_SingInFocusGained
-        if(txt_Contra_SingIn.getText().equals("Contraseña")){
-            txt_Contra_SingIn.setText(null);
-            txt_Contra_SingIn.requestFocus();
 
-            removePlaceholderStyle(txt_Contra_SingIn);
-        }
     }//GEN-LAST:event_txt_Contra_SingInFocusGained
 
     private void txt_Contra_SingInFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Contra_SingInFocusLost
-        if(txt_Contra_SingIn.getText().length()==0){
-            addPlaceholderStyle(txt_Contra_SingIn);
-            txt_Contra_SingIn.setText("Contraseña");
-        }
+        //
     }//GEN-LAST:event_txt_Contra_SingInFocusLost
 
     private void btn_SingInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SingInActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btn_SingInActionPerformed
 
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frm_SignIn().setVisible(true);
+                init_frm_SignIn();
             }
         });
     }
@@ -319,15 +320,15 @@ public class frm_SignIn extends javax.swing.JFrame {
         btn_SingIn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controlador.procesarLogin();
+                ctrl.procesarLogin();
             }
         });
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel Lbl_Register_SingIn;
     public javax.swing.JButton btn_SingIn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -339,13 +340,12 @@ public class frm_SignIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     public javax.swing.JLabel lbl_Recuperar_Contra_SignIn;
-    public Componentes.TextField txt_Contra_SingIn;
-    public Componentes.TextField txt_Correo_SingIn;
+    public javax.swing.JPasswordField txt_Contra_SingIn;
+    public javax.swing.JTextField txt_Correo_SingIn;
     // End of variables declaration//GEN-END:variables
 }

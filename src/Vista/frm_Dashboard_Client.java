@@ -1,28 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Vista;
 
-import Controlador.ctrl_Dashboard_Client;
+import Controlador.Ctrl_Dashboard_Client;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
+import javax.swing.ImageIcon;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
-/**
- *
- * @author vladk
- */
 public class frm_Dashboard_Client extends javax.swing.JFrame {
-
-    /**
-     * Creates new form frm_Dashboard_Client
-     */
     public frm_Dashboard_Client() {
+        try {
+            // UIManager.setLookAndFeel(new FlatLightLaf()); 
+            UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+        setIconImage(new ImageIcon(getClass().getResource("/Vista/images/Logo.png")).getImage());
         initComponents();
     }
 
     
     public static void initfrm_Dashboard_Client(){
     frm_Dashboard_Client vista = new frm_Dashboard_Client();
-    ctrl_Dashboard_Client controlador = new ctrl_Dashboard_Client(vista);
+    Ctrl_Dashboard_Client controlador = new Ctrl_Dashboard_Client(vista);
     
     vista.setVisible(true);
     

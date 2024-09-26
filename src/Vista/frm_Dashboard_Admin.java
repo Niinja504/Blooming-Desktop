@@ -2,12 +2,24 @@ package Vista;
 
 import Vista.Paneles_Admin.Panel_Usuarios_Admin;
 import Controlador.Ctrl_DashBoard_Admin;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
+import javax.swing.ImageIcon;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 
 public class frm_Dashboard_Admin extends javax.swing.JFrame {
 
     public frm_Dashboard_Admin() {
+        try {
+            // UIManager.setLookAndFeel(new FlatLightLaf()); 
+            UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+        setIconImage(new ImageIcon(getClass().getResource("/Vista/images/Logo.png")).getImage());
         initComponents();
+        
     }
     
     public static void init_frm_Dashboard_Admin(){
@@ -33,6 +45,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Btn_Ofertas = new javax.swing.JButton();
+        btn_logout_Dashboard_Admin = new javax.swing.JButton();
         jpContenedor_Admin = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -40,14 +53,16 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         jpMenu_Admin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Btn_Usuarios.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        Btn_Usuarios.setForeground(new java.awt.Color(255, 255, 255));
         Btn_Usuarios.setText("Usuarios");
         Btn_Usuarios.setBorderPainted(false);
         Btn_Usuarios.setContentAreaFilled(false);
         Btn_Usuarios.setFocusPainted(false);
         Btn_Usuarios.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/images/FnaranjaPequeña.png"))); // NOI18N
-        jpMenu_Admin.add(Btn_Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 100, 40));
+        jpMenu_Admin.add(Btn_Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 100, 40));
 
         Btn_Inventario.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        Btn_Inventario.setForeground(new java.awt.Color(255, 255, 255));
         Btn_Inventario.setText("Inventario");
         Btn_Inventario.setBorderPainted(false);
         Btn_Inventario.setContentAreaFilled(false);
@@ -57,9 +72,10 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
                 Btn_InventarioActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_Inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 110, 30));
+        jpMenu_Admin.add(Btn_Inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 110, 30));
 
         Btn_CostoEnvio.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        Btn_CostoEnvio.setForeground(new java.awt.Color(255, 255, 255));
         Btn_CostoEnvio.setText("Costo de envio");
         Btn_CostoEnvio.setBorderPainted(false);
         Btn_CostoEnvio.setContentAreaFilled(false);
@@ -69,9 +85,10 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
                 Btn_CostoEnvioActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_CostoEnvio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 160, 30));
+        jpMenu_Admin.add(Btn_CostoEnvio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 160, 50));
 
         Btn_Pedidos.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        Btn_Pedidos.setForeground(new java.awt.Color(255, 255, 255));
         Btn_Pedidos.setText("Pedidos");
         Btn_Pedidos.setBorderPainted(false);
         Btn_Pedidos.setContentAreaFilled(false);
@@ -81,9 +98,10 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
                 Btn_PedidosActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_Pedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 130, 30));
+        jpMenu_Admin.add(Btn_Pedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 130, 30));
 
         Btn_Ventas.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        Btn_Ventas.setForeground(new java.awt.Color(255, 255, 255));
         Btn_Ventas.setText("Ventas");
         Btn_Ventas.setBorderPainted(false);
         Btn_Ventas.setContentAreaFilled(false);
@@ -93,9 +111,10 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
                 Btn_VentasActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 100, -1));
+        jpMenu_Admin.add(Btn_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 100, -1));
 
         Btn_Perfil.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        Btn_Perfil.setForeground(new java.awt.Color(255, 255, 255));
         Btn_Perfil.setText("Perfil");
         Btn_Perfil.setBorderPainted(false);
         Btn_Perfil.setContentAreaFilled(false);
@@ -105,14 +124,14 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
                 Btn_PerfilActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_Perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, 90, 45));
+        jpMenu_Admin.add(Btn_Perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 90, 45));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/images/SplashScreen.png"))); // NOI18N
         jpMenu_Admin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 196, 90));
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 80, 65));
+        jLabel2.setForeground(new java.awt.Color(150, 120, 100));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Administrador");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -120,6 +139,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
 
         Btn_Ofertas.setBackground(new java.awt.Color(245, 245, 245));
         Btn_Ofertas.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        Btn_Ofertas.setForeground(new java.awt.Color(255, 255, 255));
         Btn_Ofertas.setText("Ofertas");
         Btn_Ofertas.setBorderPainted(false);
         Btn_Ofertas.setContentAreaFilled(false);
@@ -129,7 +149,10 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
                 Btn_OfertasActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_Ofertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
+        jpMenu_Admin.add(Btn_Ofertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
+
+        btn_logout_Dashboard_Admin.setText("Cerrar sesión");
+        jpMenu_Admin.add(btn_logout_Dashboard_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 670, 260, 50));
 
         jpContenedor_Admin.setBackground(new java.awt.Color(255, 252, 245));
         jpContenedor_Admin.setLayout(new java.awt.BorderLayout());
@@ -140,14 +163,13 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jpMenu_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jpContenedor_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jpContenedor_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 878, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jpMenu_Admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jpContenedor_Admin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpContenedor_Admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -194,6 +216,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
     public javax.swing.JButton Btn_Perfil;
     public javax.swing.JButton Btn_Usuarios;
     public javax.swing.JButton Btn_Ventas;
+    public javax.swing.JButton btn_logout_Dashboard_Admin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     public javax.swing.JPanel jpContenedor_Admin;

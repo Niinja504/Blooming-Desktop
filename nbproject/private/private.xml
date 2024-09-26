@@ -3,16 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/Paneles_Admin/Panel_Ventas_Admin.java</file>
             <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/Paneles_Admin/Panel_Inventario_Admin.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Modelo/Inventario.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Mapa/Button_Punto.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Modelo/Costo_Envio.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Controlador/Ctrl_Inventario.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Mapa/Renderizar_Button.java</file>
+            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/Paneles_Admin/Panel_Ofertas_Admin.java</file>
+            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/Paneles_Admin/Panel_Perfil_Admin.java</file>
+            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/Paneles_Admin/Panel_Usuarios_Admin.java</file>
+            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/Paneles_Admin/Panel_Pedidos_Admin.java</file>
+            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/frm_Dashboard_Admin.java</file>
             <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/Paneles_Admin/Panel_CostoEnvio_Admin.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Mapa/EventPunto.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Mapa/MyWaypoint.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Controlador/Ctrl_Costo_Envio.java</file>
+            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/frm_Splash.java</file>
+            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Componentes/RoundedImagePanel.java</file>
         </group>
     </open-files>
 </project-private>

@@ -10,10 +10,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 
-public class ctrl_Dashboard_Client implements MouseListener{
+public class Ctrl_Dashboard_Client implements MouseListener{
     frm_Dashboard_Client vista;
     
-    public ctrl_Dashboard_Client(frm_Dashboard_Client Vista){
+    public Ctrl_Dashboard_Client(frm_Dashboard_Client Vista){
         this.vista = Vista;
         
     vista.btnInicio.addMouseListener(this);

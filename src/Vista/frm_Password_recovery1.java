@@ -3,23 +3,33 @@ package Vista;
 
 import Controlador.Ctrl_Password_recovery1;
 import Modelo.Password_recovery1;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class frm_Password_recovery1 extends javax.swing.JFrame {
 
-     private Controlador.Ctrl_Password_recovery1  ctrl;
+    private Controlador.Ctrl_Password_recovery1  ctrl;
     
-   public frm_Password_recovery1(Ctrl_Password_recovery1 controlador) {
+    public frm_Password_recovery1(Ctrl_Password_recovery1 controlador) {
+        try {
+            // UIManager.setLookAndFeel(new FlatLightLaf()); 
+            UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
         this.ctrl = controlador; 
+        setIconImage(new ImageIcon(getClass().getResource("/Vista/images/Logo.png")).getImage());
         initComponents();
         addPlaceholderStyle(txt_Correo_Password_Recovery1);
         this.setLocationRelativeTo(null);
     }
 
-     public void addPlaceholderStyle(JTextField textField){
+    public void addPlaceholderStyle(JTextField textField){
         Font font = textField.getFont();
         font = font.deriveFont(Font.ITALIC);
         textField.setFont(font);
@@ -39,9 +49,9 @@ public class frm_Password_recovery1 extends javax.swing.JFrame {
 
     public static void init_frm_Password_recovery1() {
         Password_recovery1 modelo = new Password_recovery1();
-        frm_Password_recovery1 vista = new frm_Password_recovery1(null); // Controlador temporal
+        frm_Password_recovery1 vista = new frm_Password_recovery1(null);
         Ctrl_Password_recovery1 controlador = new Ctrl_Password_recovery1(modelo, vista);
-        vista.setControlador(controlador); // Inicializa el controlador con la vista
+        vista.setControlador(controlador);
         vista.setVisible(true);
     }
     
@@ -142,7 +152,7 @@ public class frm_Password_recovery1 extends javax.swing.JFrame {
     
      private void btn_EnviarCodigo_Password_Recovery1ActionPerformed(java.awt.event.ActionEvent evt) {                                                                    
         if (ctrl != null) {
-        ctrl.enviarCodigo();  // Llama al método del controlador
+        ctrl.enviarCodigo();
        }
     }                                                                   
                                                                                                             
@@ -169,7 +179,6 @@ public class frm_Password_recovery1 extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(frm_Password_recovery1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                init_frm_Password_recovery1();

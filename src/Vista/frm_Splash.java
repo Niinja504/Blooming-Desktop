@@ -1,10 +1,22 @@
 package Vista;
 
+import static Vista.frm_SignIn.init_frm_SignIn;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 
 public class frm_Splash extends javax.swing.JFrame {
     public frm_Splash() {
+        try {
+            // UIManager.setLookAndFeel(new FlatLightLaf()); 
+            UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+        setIconImage(new ImageIcon(getClass().getResource("/Vista/images/Logo.png")).getImage());
         initComponents();
     }
 
@@ -38,14 +50,17 @@ public class frm_Splash extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/images/SplashScreen.png"))); // NOI18N
         backGroundPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
 
-        LoadingBar.setBackground(new java.awt.Color(0, 0, 153));
+        LoadingBar.setBackground(new java.awt.Color(255, 255, 255));
         LoadingBar.setForeground(new java.awt.Color(204, 0, 0));
+        LoadingBar.setMaximum(98);
         LoadingBar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 51)));
-        backGroundPanel.add(LoadingBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 510, 10));
+        backGroundPanel.add(LoadingBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 330, 520, 10));
 
+        LoadingLabel.setForeground(new java.awt.Color(51, 51, 51));
         LoadingLabel.setText("Cargando...");
         backGroundPanel.add(LoadingLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
 
+        LoadingValue.setForeground(new java.awt.Color(51, 51, 51));
         LoadingValue.setText("0 %");
         backGroundPanel.add(LoadingValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, -1, -1));
 
@@ -139,7 +154,6 @@ public class frm_Splash extends javax.swing.JFrame {
         frm_Splash Sp = new frm_Splash();
         Sp.setVisible(true);
         
-        frm_SignIn Login = new frm_SignIn();
         try{
             
             for(int i=0; i<=100;i++){
@@ -168,7 +182,7 @@ public class frm_Splash extends javax.swing.JFrame {
         }
         
         Sp.setVisible(false);
-        Login.setVisible(true);
+        init_frm_SignIn();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

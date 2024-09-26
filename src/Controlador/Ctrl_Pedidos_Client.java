@@ -14,10 +14,9 @@ public class Ctrl_Pedidos_Client implements MouseListener{
     public Ctrl_Pedidos_Client(Panel_Pedidos_Client Vista){
         this.vista = Vista;
         
-    vista.btn_Pedidos_Pendientes_Client.addMouseListener(this);
-    vista.btn_Pedidos_Entregados_Client.addMouseListener(this);
-    
-}
+        vista.btn_Pedidos_Pendientes_Client.addMouseListener(this);
+        vista.btn_Pedidos_Entregados_Client.addMouseListener(this);
+    }
 
     @Override
     public void mouseClicked(MouseEvent e) {

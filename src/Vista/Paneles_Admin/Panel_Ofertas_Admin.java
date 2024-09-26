@@ -1,11 +1,20 @@
 package Vista.Paneles_Admin;
 
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class Panel_Ofertas_Admin extends javax.swing.JPanel {
     public Panel_Ofertas_Admin() {
+        try {
+            // UIManager.setLookAndFeel(new FlatLightLaf()); 
+            UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
         initComponents();
         addPlaceholderStyle(txt_Titulo_Offers_Admin);
         addPlaceholderStyle(txt_Porcentaje_Offers_Admin);
@@ -15,14 +24,14 @@ public class Panel_Ofertas_Admin extends javax.swing.JPanel {
         Font font = textField.getFont();
         font = font.deriveFont(Font.ITALIC);
         textField.setFont(font);
-        textField.setForeground(Color.gray);
+        textField.setForeground(Color.white);
     }
     
     public void removePlaceholderStyle(JTextField textField){
         Font font = textField.getFont();
         font = font.deriveFont(Font.PLAIN);
         textField.setFont(font);
-        textField.setForeground(Color.black);
+        textField.setForeground(Color.white);
     }
     
     @SuppressWarnings("unchecked")
@@ -38,13 +47,12 @@ public class Panel_Ofertas_Admin extends javax.swing.JPanel {
         jtb_Offers_Admin = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         txt_Descrip_Offers_Admin = new javax.swing.JTextPane();
-        btn_Subir_IMG_Users_Admin = new javax.swing.JButton();
-        btn_Add_Offers_Admin = new javax.swing.JButton();
-        Btn_Delete_Offers_Admin = new javax.swing.JButton();
-        btn_Update_Offers_Admin = new javax.swing.JButton();
         IMG_Offers_admin = new javax.swing.JLabel();
+        btn_Add_Offers_Admin = new javax.swing.JButton();
+        btn_Update_Offers_Admin = new javax.swing.JButton();
+        Btn_Delete_Offers_Admin = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(0, 102, 51));
+        setBackground(new java.awt.Color(255, 252, 245));
 
         txt_Buscar_Offers_Admin.setText("Buscar...");
         txt_Buscar_Offers_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -60,6 +68,7 @@ public class Panel_Ofertas_Admin extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ofertas");
 
+        txt_Titulo_Offers_Admin.setForeground(new java.awt.Color(255, 255, 255));
         txt_Titulo_Offers_Admin.setText("Titulo de oferta");
         txt_Titulo_Offers_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -70,6 +79,7 @@ public class Panel_Ofertas_Admin extends javax.swing.JPanel {
             }
         });
 
+        Cb_Productos_Offers_Admin.setForeground(new java.awt.Color(255, 255, 255));
         Cb_Productos_Offers_Admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Cb_Productos_Offers_Admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +87,7 @@ public class Panel_Ofertas_Admin extends javax.swing.JPanel {
             }
         });
 
+        txt_Porcentaje_Offers_Admin.setForeground(new java.awt.Color(255, 255, 255));
         txt_Porcentaje_Offers_Admin.setText("Porcentaje oferta");
         txt_Porcentaje_Offers_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -87,6 +98,7 @@ public class Panel_Ofertas_Admin extends javax.swing.JPanel {
             }
         });
 
+        jtb_Offers_Admin.setForeground(new java.awt.Color(255, 255, 255));
         jtb_Offers_Admin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -108,21 +120,33 @@ public class Panel_Ofertas_Admin extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jtb_Offers_Admin);
 
+        txt_Descrip_Offers_Admin.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(txt_Descrip_Offers_Admin);
 
-        btn_Subir_IMG_Users_Admin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_Subir_IMG_Users_AdminActionPerformed(evt);
-            }
-        });
-
-        btn_Add_Offers_Admin.setText("Guardar");
-
-        Btn_Delete_Offers_Admin.setText("Eliminar");
-
-        btn_Update_Offers_Admin.setText("Actualizar");
-
         IMG_Offers_admin.setBackground(new java.awt.Color(204, 204, 204));
+
+        btn_Add_Offers_Admin.setBackground(new java.awt.Color(243, 143, 154));
+        btn_Add_Offers_Admin.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_Add_Offers_Admin.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Add_Offers_Admin.setText("Guadar");
+        btn_Add_Offers_Admin.setBorderPainted(false);
+        btn_Add_Offers_Admin.setFocusPainted(false);
+
+        btn_Update_Offers_Admin.setBackground(new java.awt.Color(243, 143, 154));
+        btn_Update_Offers_Admin.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_Update_Offers_Admin.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Update_Offers_Admin.setText("Actualizar");
+        btn_Update_Offers_Admin.setToolTipText("");
+        btn_Update_Offers_Admin.setBorderPainted(false);
+        btn_Update_Offers_Admin.setFocusPainted(false);
+
+        Btn_Delete_Offers_Admin.setBackground(new java.awt.Color(243, 143, 154));
+        Btn_Delete_Offers_Admin.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        Btn_Delete_Offers_Admin.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Delete_Offers_Admin.setText("Eliminar");
+        Btn_Delete_Offers_Admin.setToolTipText("");
+        Btn_Delete_Offers_Admin.setBorderPainted(false);
+        Btn_Delete_Offers_Admin.setFocusPainted(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -132,13 +156,12 @@ public class Panel_Ofertas_Admin extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(91, 91, 91)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(18, Short.MAX_VALUE)
-                        .addComponent(IMG_Offers_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_Subir_IMG_Users_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(IMG_Offers_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(77, 77, 77)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_Buscar_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -149,50 +172,52 @@ public class Panel_Ofertas_Admin extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txt_Porcentaje_Offers_Admin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btn_Update_Offers_Admin)
-                                .addComponent(btn_Add_Offers_Admin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Btn_Delete_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-            .addComponent(jScrollPane1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_Add_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btn_Update_Offers_Admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Btn_Delete_Offers_Admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_Buscar_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txt_Buscar_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txt_Titulo_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btn_Add_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(Cb_Productos_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txt_Porcentaje_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btn_Update_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btn_Add_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53)
+                                .addComponent(btn_Update_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(btn_Subir_IMG_Users_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Btn_Delete_Offers_Admin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
+                                .addComponent(txt_Titulo_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Cb_Productos_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_Porcentaje_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addComponent(IMG_Offers_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(Btn_Delete_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(IMG_Offers_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -244,10 +269,6 @@ public class Panel_Ofertas_Admin extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txt_Porcentaje_Offers_AdminFocusLost
 
-    private void btn_Subir_IMG_Users_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Subir_IMG_Users_AdminActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_Subir_IMG_Users_AdminActionPerformed
-
     private void Cb_Productos_Offers_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cb_Productos_Offers_AdminActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Cb_Productos_Offers_AdminActionPerformed
@@ -258,7 +279,6 @@ public class Panel_Ofertas_Admin extends javax.swing.JPanel {
     public javax.swing.JComboBox<String> Cb_Productos_Offers_Admin;
     public javax.swing.JLabel IMG_Offers_admin;
     public javax.swing.JButton btn_Add_Offers_Admin;
-    public javax.swing.JButton btn_Subir_IMG_Users_Admin;
     public javax.swing.JButton btn_Update_Offers_Admin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

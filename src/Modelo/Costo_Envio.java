@@ -98,8 +98,8 @@ public class Costo_Envio {
           tabla.setModel(modeloDeDatos);
           tabla.getColumnModel().getColumn(0).setMinWidth(0);
           tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-          tabla.getColumnModel().getColumn(4).setMinWidth(0);
-          tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+          tabla.getColumnModel().getColumn(3).setMinWidth(0);
+          tabla.getColumnModel().getColumn(3).setMaxWidth(0);
         }catch (Exception e) {
             System.out.println("Este es el error en el modelo, metodo mostrar " + e);
         }

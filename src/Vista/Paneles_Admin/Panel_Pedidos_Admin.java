@@ -1,19 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package Vista.Paneles_Admin;
 
-/**
- *
- * @author vladk
- */
-public class Panel_Pedidos_Admin extends javax.swing.JPanel {
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
-    /**
-     * Creates new form Panel_Pedidos_Admin
-     */
+public class Panel_Pedidos_Admin extends javax.swing.JPanel {
     public Panel_Pedidos_Admin() {
+        try {
+            // UIManager.setLookAndFeel(new FlatLightLaf()); 
+            UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
         initComponents();
     }
 

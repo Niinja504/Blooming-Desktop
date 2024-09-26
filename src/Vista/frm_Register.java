@@ -1,11 +1,28 @@
 package Vista;
 
+import Controlador.Ctrl_Register;
+import Modelo.Register;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.ImageIcon;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
-public class frm_Registro extends javax.swing.JFrame {
-    public frm_Registro() {
+public class frm_Register extends javax.swing.JFrame {
+    
+    private Controlador.Ctrl_Register ctrl;
+    
+    public frm_Register(Ctrl_Register controlador) {
+        try {
+            // UIManager.setLookAndFeel(new FlatLightLaf()); 
+            UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+        this.ctrl = controlador; 
+        setIconImage(new ImageIcon(getClass().getResource("/Vista/images/Logo.png")).getImage());
         initComponents();
     }
     
@@ -21,6 +38,18 @@ public class frm_Registro extends javax.swing.JFrame {
         font = font.deriveFont(Font.PLAIN);
         textField.setFont(font);
         textField.setForeground(Color.black);
+    }
+    
+    public void setControlador(Ctrl_Register controlador) {
+        this.ctrl = controlador;
+    }
+    
+    public static void init_frm_Register() {
+        Register modelo = new Register();
+        frm_Register vista = new frm_Register(null);
+        Ctrl_Register controlador = new Ctrl_Register(modelo, vista);
+        vista.setControlador(controlador);
+        vista.setVisible(true);
     }
     
     @SuppressWarnings("unchecked")
@@ -40,8 +69,7 @@ public class frm_Registro extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Lbl_SingIn_Register = new javax.swing.JLabel();
         txt_Nombre_Register = new javax.swing.JTextField();
         txt_Apellido_Register = new javax.swing.JTextField();
         txt_NombreDeUsuario_Register = new javax.swing.JTextField();
@@ -49,7 +77,7 @@ public class frm_Registro extends javax.swing.JFrame {
         txt_Contra = new javax.swing.JTextField();
         txt_Confirmar_Contra = new javax.swing.JTextField();
         txt_Telefono = new javax.swing.JTextField();
-        cb_Rol = new javax.swing.JComboBox<>();
+        Btn_CrearCuenta_Register = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -106,23 +134,12 @@ public class frm_Registro extends javax.swing.JFrame {
         jLabel4.setText("una cuenta nueva");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(253, 149, 160));
-        jLabel8.setText("¿Ya tienes una cuenta?");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, -1, -1));
+        Lbl_SingIn_Register.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        Lbl_SingIn_Register.setForeground(new java.awt.Color(253, 149, 160));
+        Lbl_SingIn_Register.setText("¿Ya tienes una cuenta?");
+        jPanel1.add(Lbl_SingIn_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(253, 149, 160));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(253, 255, 255));
-        jButton1.setText("Inicia sesión");
-        jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 517, -1, 30));
-
+        txt_Nombre_Register.setForeground(new java.awt.Color(255, 255, 255));
         txt_Nombre_Register.setText("Nombre");
         txt_Nombre_Register.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -132,8 +149,9 @@ public class frm_Registro extends javax.swing.JFrame {
                 txt_Nombre_RegisterFocusLost(evt);
             }
         });
-        jPanel1.add(txt_Nombre_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 309, 40));
+        jPanel1.add(txt_Nombre_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 309, 40));
 
+        txt_Apellido_Register.setForeground(new java.awt.Color(255, 255, 255));
         txt_Apellido_Register.setText("Apellido");
         txt_Apellido_Register.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -143,8 +161,9 @@ public class frm_Registro extends javax.swing.JFrame {
                 txt_Apellido_RegisterFocusLost(evt);
             }
         });
-        jPanel1.add(txt_Apellido_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 309, 40));
+        jPanel1.add(txt_Apellido_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 309, 40));
 
+        txt_NombreDeUsuario_Register.setForeground(new java.awt.Color(255, 255, 255));
         txt_NombreDeUsuario_Register.setText("Usuario");
         txt_NombreDeUsuario_Register.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -154,8 +173,9 @@ public class frm_Registro extends javax.swing.JFrame {
                 txt_NombreDeUsuario_RegisterFocusLost(evt);
             }
         });
-        jPanel1.add(txt_NombreDeUsuario_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 309, 40));
+        jPanel1.add(txt_NombreDeUsuario_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 309, 40));
 
+        txt_Correo_Register.setForeground(new java.awt.Color(255, 255, 255));
         txt_Correo_Register.setText("Correo");
         txt_Correo_Register.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -170,8 +190,9 @@ public class frm_Registro extends javax.swing.JFrame {
                 txt_Correo_RegisterActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_Correo_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 309, 40));
+        jPanel1.add(txt_Correo_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 309, 40));
 
+        txt_Contra.setForeground(new java.awt.Color(255, 255, 255));
         txt_Contra.setText("Contraseña");
         txt_Contra.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -181,8 +202,9 @@ public class frm_Registro extends javax.swing.JFrame {
                 txt_ContraFocusLost(evt);
             }
         });
-        jPanel1.add(txt_Contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 309, 40));
+        jPanel1.add(txt_Contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 309, 40));
 
+        txt_Confirmar_Contra.setForeground(new java.awt.Color(255, 255, 255));
         txt_Confirmar_Contra.setText("Confirmar contraseña");
         txt_Confirmar_Contra.setName(""); // NOI18N
         txt_Confirmar_Contra.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -193,8 +215,9 @@ public class frm_Registro extends javax.swing.JFrame {
                 txt_Confirmar_ContraFocusLost(evt);
             }
         });
-        jPanel1.add(txt_Confirmar_Contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 309, 40));
+        jPanel1.add(txt_Confirmar_Contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 309, 40));
 
+        txt_Telefono.setForeground(new java.awt.Color(255, 255, 255));
         txt_Telefono.setText("Telefono");
         txt_Telefono.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -204,10 +227,11 @@ public class frm_Registro extends javax.swing.JFrame {
                 txt_TelefonoFocusLost(evt);
             }
         });
-        jPanel1.add(txt_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 309, 40));
+        jPanel1.add(txt_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 309, 40));
 
-        cb_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Empleado", "Cliente" }));
-        jPanel1.add(cb_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 309, 40));
+        Btn_CrearCuenta_Register.setForeground(new java.awt.Color(204, 204, 204));
+        Btn_CrearCuenta_Register.setText("Crear cuenta");
+        jPanel1.add(Btn_CrearCuenta_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 310, 40));
 
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 0, 460, 564));
 
@@ -229,6 +253,7 @@ public class frm_Registro extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_Nombre_RegisterFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Nombre_RegisterFocusGained
@@ -332,10 +357,6 @@ public class frm_Registro extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txt_Confirmar_ContraFocusLost
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void txt_TelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_TelefonoFocusGained
         if(txt_Telefono.getText().equals("Telefono")){
             txt_Telefono.setText(null);
@@ -365,26 +386,27 @@ public class frm_Registro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frm_Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frm_Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frm_Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frm_Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frm_Registro().setVisible(true);
+                init_frm_Register();
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JComboBox<String> cb_Rol;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton Btn_CrearCuenta_Register;
+    public javax.swing.JLabel Lbl_SingIn_Register;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -396,7 +418,6 @@ public class frm_Registro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
