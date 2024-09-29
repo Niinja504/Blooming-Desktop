@@ -18,7 +18,7 @@ public class Ctrl_Register extends MouseAdapter  {
         Vista.Lbl_SingIn_Register.addMouseListener(this);
     }
     
-     public void mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent e) {
         if (e.getSource() == Vista.Btn_CrearCuenta_Register) {
            
         }

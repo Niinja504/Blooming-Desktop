@@ -8,7 +8,7 @@ import javax.swing.JButton;
 public class Button_Punto extends JButton {
     public Button_Punto(){
         setContentAreaFilled(false);
-        setIcon(new ImageIcon(getClass().getResource("/Vista/pin.png")));
+        setIcon(new ImageIcon(getClass().getResource("/Vista/images/pin.png")));
         setCursor(new Cursor(Cursor.HAND_CURSOR));
         setSize(new Dimension(24, 24));
     }

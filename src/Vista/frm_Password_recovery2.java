@@ -71,9 +71,12 @@ public class frm_Password_recovery2 extends javax.swing.JFrame {
 
         btn_Reenviar_Code_Password_Recovery2.setText("Verificar código");
 
-        txt_Code_Password_Recovery2.setText("jTextField1");
+        txt_Code_Password_Recovery2.setText("Còdigo");
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("<html><p>Revisa la bandeja de entrada de tu correo e introduce el còdigo<p>"
+            + "<p>de 6 digitos que se te ha enviado para verificar<p>"
+            + "<p>que eres tù quien quiere restablecer la contraseña de tu cuenta.<p><html>"
+        );
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Restablecer contraseña");
@@ -83,41 +86,33 @@ public class frm_Password_recovery2 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(216, 216, 216))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(134, 134, 134))))
+                .addGap(0, 143, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(134, 134, 134))
             .addGroup(layout.createSequentialGroup()
+                .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(181, 181, 181)
-                        .addComponent(btn_Verificar_Codigo_Password_Recovery2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(txt_Code_Password_Recovery2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(btn_Reenviar_Code_Password_Recovery2)))
-                .addContainerGap(88, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txt_Code_Password_Recovery2, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
+                        .addComponent(btn_Verificar_Codigo_Password_Recovery2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_Reenviar_Code_Password_Recovery2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1)
-                .addGap(62, 62, 62)
+                .addGap(19, 19, 19)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addComponent(txt_Code_Password_Recovery2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98)
-                .addComponent(btn_Verificar_Codigo_Password_Recovery2)
-                .addGap(29, 29, 29)
-                .addComponent(btn_Reenviar_Code_Password_Recovery2)
-                .addGap(85, 85, 85))
+                .addGap(40, 40, 40)
+                .addComponent(btn_Reenviar_Code_Password_Recovery2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_Verificar_Codigo_Password_Recovery2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118))
         );
 
         pack();
@@ -136,7 +131,7 @@ public class frm_Password_recovery2 extends javax.swing.JFrame {
     public javax.swing.JButton btn_Reenviar_Code_Password_Recovery2;
     public javax.swing.JButton btn_Verificar_Codigo_Password_Recovery2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JTextField txt_Code_Password_Recovery2;
     // End of variables declaration//GEN-END:variables

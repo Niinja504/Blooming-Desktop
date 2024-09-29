@@ -59,7 +59,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         Btn_Usuarios.setContentAreaFilled(false);
         Btn_Usuarios.setFocusPainted(false);
         Btn_Usuarios.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/images/FnaranjaPequeña.png"))); // NOI18N
-        jpMenu_Admin.add(Btn_Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 100, 40));
+        jpMenu_Admin.add(Btn_Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 100, 40));
 
         Btn_Inventario.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         Btn_Inventario.setForeground(new java.awt.Color(255, 255, 255));
@@ -72,7 +72,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
                 Btn_InventarioActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_Inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 110, 30));
+        jpMenu_Admin.add(Btn_Inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 110, 30));
 
         Btn_CostoEnvio.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         Btn_CostoEnvio.setForeground(new java.awt.Color(255, 255, 255));
@@ -85,7 +85,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
                 Btn_CostoEnvioActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_CostoEnvio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 160, 50));
+        jpMenu_Admin.add(Btn_CostoEnvio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 160, 50));
 
         Btn_Pedidos.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         Btn_Pedidos.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,7 +111,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
                 Btn_VentasActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 100, -1));
+        jpMenu_Admin.add(Btn_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 100, -1));
 
         Btn_Perfil.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         Btn_Perfil.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,7 +124,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
                 Btn_PerfilActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_Perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 90, 45));
+        jpMenu_Admin.add(Btn_Perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 90, 45));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/images/SplashScreen.png"))); // NOI18N
         jpMenu_Admin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 196, 90));
@@ -135,7 +135,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Administrador");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jpMenu_Admin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 160, 48));
+        jpMenu_Admin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 160, 48));
 
         Btn_Ofertas.setBackground(new java.awt.Color(245, 245, 245));
         Btn_Ofertas.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
@@ -149,10 +149,10 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
                 Btn_OfertasActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_Ofertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
+        jpMenu_Admin.add(Btn_Ofertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, -1, -1));
 
         btn_logout_Dashboard_Admin.setText("Cerrar sesión");
-        jpMenu_Admin.add(btn_logout_Dashboard_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 670, 260, 50));
+        jpMenu_Admin.add(btn_logout_Dashboard_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 670, 260, 40));
 
         jpContenedor_Admin.setBackground(new java.awt.Color(255, 252, 245));
         jpContenedor_Admin.setLayout(new java.awt.BorderLayout());

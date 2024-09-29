@@ -37,7 +37,7 @@ public class Ctrl_Ofertas implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-         if(e.getSource() == Vista.btn_Add_Offers_Admin){
+    if(e.getSource() == Vista.btn_Add_Offers_Admin){
         Modelo.setTitulo(Vista.txt_Titulo_Offers_Admin.getText());
         Modelo.setUUID_Producto(ModeloCom.getUUID_Producto());
         Modelo.setPorcentaje_Oferta(Vista.txt_Porcentaje_Offers_Admin.getText());

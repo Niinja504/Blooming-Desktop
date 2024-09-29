@@ -3,11 +3,14 @@ package Controlador;
 import Modelo.Password_recovery1;
 import Vista.frm_Password_recovery1;
 import Vista.frm_Password_recovery2;
+import static Vista.frm_SignIn.init_frm_SignIn;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 
-public class Ctrl_Password_recovery1 {
+public class Ctrl_Password_recovery1 extends MouseAdapter {
 
     private Password_recovery1 Modelo;
     private frm_Password_recovery1 Vista;
@@ -44,6 +47,13 @@ public class Ctrl_Password_recovery1 {
             JOptionPane.showMessageDialog(Vista, "Ya se ha enviado un código al correo electrónico proporcionado.", "Información", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(Vista, "El correo electrónico proporcionado no existe en la base de datos.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void mouseClicked(MouseEvent e) {
+        if (e.getSource() == Vista.Lbl_Recuerda_Contra){
+            Vista.dispose();
+            init_frm_SignIn();
         }
     }
 }

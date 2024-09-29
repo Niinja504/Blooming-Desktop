@@ -3,7 +3,6 @@ package Modelo;
 import Modelo.ClaseConexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import javax.swing.JTable;
 
 public class Password_recovery3 {
 

@@ -105,17 +105,14 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
         }
         
         if(e.getSource() == Vista.Btn_Pedidos){
-            //1-Creo un objeto del panel que quiero mostrar
-            Panel_Pedidos_Admin objPedidos = new Panel_Pedidos_Admin();
-            
-            //2- Limpio el panel contendor (por si acaso)
-            Vista.jpContenedor_Admin.removeAll();
-            //3- muestro el panel que quiero
-            Vista.jpContenedor_Admin.add(objPedidos);
-            
-            //4- Refrescar todo
-            Vista.jpContenedor_Admin.revalidate();
-            Vista.jpContenedor_Admin.repaint();
+           Panel_Pedidos_Admin objPedidos = new Panel_Pedidos_Admin(null);
+           Ctrl_Pedidos_admin controladorPedidos = new Ctrl_Pedidos_admin(objPedidos);           
+           objPedidos.setControlador(controladorPedidos);
+           controladorPedidos.mostrarPedidos();
+           Vista.jpContenedor_Admin.removeAll();
+           Vista.jpContenedor_Admin.add(objPedidos);
+           Vista.jpContenedor_Admin.revalidate();
+           Vista.jpContenedor_Admin.repaint();
         }
         
         if(e.getSource() == Vista.Btn_Ventas){
