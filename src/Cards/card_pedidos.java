@@ -1,4 +1,4 @@
-package Card;
+package Cards;
 
 import Card.Item.ModelItem;
 import Controlador.Ctrl_Pedidos_admin;
@@ -31,7 +31,6 @@ public class card_pedidos extends javax.swing.JPanel {
      Btn_delete_Pedido.addActionListener(e -> eliminarPedido());
    }
 
-    
     public void setData(ModelItem data){
         this.data = data;
         DecimalFormat df = new DecimalFormat("$#, ##0.00");

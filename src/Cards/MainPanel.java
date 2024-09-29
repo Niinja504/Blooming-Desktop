@@ -1,4 +1,4 @@
-package Card;
+package Cards;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

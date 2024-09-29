@@ -1,4 +1,4 @@
-package Card;
+package Cards;
 
 import java.awt.Component;
 import java.awt.Container;

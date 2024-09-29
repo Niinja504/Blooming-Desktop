@@ -117,8 +117,10 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
         
         if(e.getSource() == Vista.Btn_Ventas){
             //1-Creo un objeto del panel que quiero mostrar
-            Panel_Ventas_Admin objVentas = new Panel_Ventas_Admin();
-            
+            Panel_Ventas_Admin objVentas = new Panel_Ventas_Admin(null);
+            Ctrl_Ventas_Admin controladorVentas = new Ctrl_Ventas_Admin(objVentas);
+            objVentas.setControlador(controladorVentas);
+            controladorVentas.mostrarVentas();
             //2- Limpio el panel contendor (por si acaso)
             Vista.jpContenedor_Admin.removeAll();
             //3- muestro el panel que quiero

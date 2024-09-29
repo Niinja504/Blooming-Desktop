@@ -1,8 +1,8 @@
 package Vista.Paneles_Admin;
 
 import Card.Item.ModelItem;
-import Card.ScrollBar;
-import Card.card_pedidos;
+import Cards.ScrollBar;
+import Cards.card_pedidos;
 import Controlador.Ctrl_Pedidos_admin;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import java.awt.event.MouseAdapter;
@@ -28,9 +28,8 @@ public class Panel_Pedidos_Admin extends javax.swing.JPanel {
     
     public void setControlador(Ctrl_Pedidos_admin controlador) {
     this.controlador = controlador;
-  }
+    }
 
-    
     public void addItem(ModelItem data) {
         card_pedidos item = new card_pedidos(controlador);
         item.setData(data);
@@ -61,7 +60,7 @@ public class Panel_Pedidos_Admin extends javax.swing.JPanel {
     private void initComponents() {
 
         scroll = new javax.swing.JScrollPane();
-        panelItem = new Card.PanelItem();
+        panelItem = new Cards.PanelItem();
         jPanel1 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 252, 245));
@@ -102,7 +101,7 @@ public class Panel_Pedidos_Admin extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    private Card.PanelItem panelItem;
+    private Cards.PanelItem panelItem;
     private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables
 }
