@@ -2,6 +2,7 @@ package Cards;
 
 import Card.Item.ModelItem;
 import Controlador.Ctrl_Pedidos_admin;
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -62,7 +63,8 @@ public class card_pedidos extends javax.swing.JPanel {
         g2.setColor(new Color (242, 242, 242));
         g2.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
         if(selected){
-            g2.setColor(new Color(94, 156, 255));
+            g2.setColor(new Color(171, 71, 188));
+            g2.setStroke(new BasicStroke(4));
             g2.drawRoundRect(0, 0, getWidth() -1, getHeight() -1, 20, 20);
         }
         g2.dispose();
@@ -137,9 +139,9 @@ public class card_pedidos extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGap(47, 47, 47)
                 .addComponent(Lbl_Costo_Pedidos_Admin)
-                .addGap(48, 48, 48)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Btn_delete_Pedido)
                 .addGap(5, 5, 5))
             .addGroup(layout.createSequentialGroup()
@@ -154,7 +156,7 @@ public class card_pedidos extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel4))
-                                .addGap(52, 52, 52)
+                                .addGap(38, 38, 38)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Lbl_HoraEntrega_Pedidos_Admin)
                                     .addComponent(Lbl_FechaEntrega_Pedidos_Admin))
@@ -164,10 +166,10 @@ public class card_pedidos extends javax.swing.JPanel {
                                     .addComponent(jLabel7)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel5)
-                                        .addGap(61, 61, 61)
+                                        .addGap(48, 48, 48)
                                         .addComponent(Lbl_NombreCliente_Pedidos_Admin))
                                     .addComponent(jLabel8))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addContainerGap(93, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

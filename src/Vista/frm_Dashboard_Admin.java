@@ -124,7 +124,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
                 Btn_PerfilActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_Perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 90, 45));
+        jpMenu_Admin.add(Btn_Perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 90, 45));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/images/SplashScreen.png"))); // NOI18N
         jpMenu_Admin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 196, 90));

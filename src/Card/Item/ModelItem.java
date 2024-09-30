@@ -198,6 +198,7 @@ public class ModelItem {
         this.NombreCliente = Item_NombreCliente;
         this.Colonia = Item_Colonia;
         this.NombreCalle = Item_NombreCalle;
+        this.LugarEntrega = Item_LugarEntrega;
     }
     
     public boolean isPendiente() {
