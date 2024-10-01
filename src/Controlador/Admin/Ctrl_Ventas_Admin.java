@@ -1,8 +1,8 @@
-package Controlador;
+package Controlador.Admin;
 
 import Card.Item.Sales_Admin;
 import Modelo.ClaseConexion;
-import Vista.Paneles_Admin.Panel_Ventas_Admin;
+import Vista.Paneles_Admin.Panel_Ventas;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Collections;
@@ -11,9 +11,9 @@ import javax.swing.JOptionPane;
 import java.sql.*;
 
 public class Ctrl_Ventas_Admin {
-    private Panel_Ventas_Admin panelVentas;
+    private Panel_Ventas panelVentas;
 
-    public Ctrl_Ventas_Admin(Panel_Ventas_Admin panelVentas) {
+    public Ctrl_Ventas_Admin(Panel_Ventas panelVentas) {
         this.panelVentas = panelVentas;
     }
 

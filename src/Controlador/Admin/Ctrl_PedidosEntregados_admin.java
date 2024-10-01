@@ -1,31 +1,30 @@
-package Controlador;
+package Controlador.Admin;
 
-import Card.Item.ModelItem;
+import Card.Item.PedidosEntregados_Admin;
 import Modelo.ClaseConexion;
-import Vista.Paneles_Admin.Panel_Pedidos_Admin;
+import Vista.Paneles_Admin.Panel_Pedidos_Entregados;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.JOptionPane;
-import java.sql.*;
 
-
-public class Ctrl_Pedidos_admin {
-    private Panel_Pedidos_Admin panelPedidos;
-
-    public Ctrl_Pedidos_admin(Panel_Pedidos_Admin panelPedidos) {
+public class Ctrl_PedidosEntregados_admin {
+    private Panel_Pedidos_Entregados panelPedidos;
+    
+    public Ctrl_PedidosEntregados_admin(Panel_Pedidos_Entregados panelPedidos) {
         this.panelPedidos = panelPedidos;
     }
 
     public void mostrarPedidos() {
-        List<ModelItem> pedidos = cargarPedidos();
+        List<PedidosEntregados_Admin> pedidos = cargarPedidos();
         panelPedidos.cargarPedidos(pedidos);
     }
 
-    private List<ModelItem> cargarPedidos() {
+    private List<PedidosEntregados_Admin> cargarPedidos() {
         try (Connection connection = ClaseConexion.getConexion()) {
-            return ModelItem.obtenerPedidosPendientes(connection);
+            return PedidosEntregados_Admin.obtenerPedidosEntregados(connection);
         } catch (SQLException e) {
             return Collections.emptyList(); 
         }

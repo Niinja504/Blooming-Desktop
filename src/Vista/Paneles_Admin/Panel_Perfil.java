@@ -8,8 +8,8 @@ import javax.imageio.ImageIO;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class Panel_Perfil_Admin extends javax.swing.JPanel {
-    public Panel_Perfil_Admin() {
+public class Panel_Perfil extends javax.swing.JPanel {
+    public Panel_Perfil() {
         try {
             UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
         } catch (UnsupportedLookAndFeelException e) {

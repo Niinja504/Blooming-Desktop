@@ -1,7 +1,8 @@
 package Vista;
 
-import Vista.Paneles_Admin.Panel_Usuarios_Admin;
+import Vista.Paneles_Admin.Panel_Usuarios;
 import Controlador.Ctrl_DashBoard_Admin;
+import Menu.MenuEvent;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
@@ -10,6 +11,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class frm_Dashboard_Admin extends javax.swing.JFrame {
 
+    private Ctrl_DashBoard_Admin ctrl;
     public frm_Dashboard_Admin() {
         try {
             // UIManager.setLookAndFeel(new FlatLightLaf()); 
@@ -19,14 +21,25 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         }
         setIconImage(new ImageIcon(getClass().getResource("/Vista/images/Logo.png")).getImage());
         initComponents();
-        
     }
     
     public static void init_frm_Dashboard_Admin(){
         frm_Dashboard_Admin Vista = new frm_Dashboard_Admin();
-        Panel_Usuarios_Admin Panel = new Panel_Usuarios_Admin();
+        Panel_Usuarios Panel = new Panel_Usuarios();
         Vista.jpContenedor_Admin.add(Panel);
-        Ctrl_DashBoard_Admin Controlador = new Ctrl_DashBoard_Admin(Vista, Panel);
+        Vista.ctrl = new Ctrl_DashBoard_Admin(Vista, Panel);
+        Vista.menu.setEvent(new MenuEvent() {
+        @Override
+        public void selected(int index, int subIndex) {
+            if (subIndex == 1) {
+                Vista.ctrl.AbrirPanelPendientes();
+            }
+            
+            if (subIndex == 2){
+                Vista.ctrl.AbrirPanelEntregados();
+            }
+        }
+     });
         Vista.setVisible(true);
     }
 
@@ -35,17 +48,18 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        menu1 = new Menu.Menu();
         jpMenu_Admin = new javax.swing.JPanel();
         Btn_Usuarios = new javax.swing.JButton();
         Btn_Inventario = new javax.swing.JButton();
         Btn_CostoEnvio = new javax.swing.JButton();
-        Btn_Pedidos = new javax.swing.JButton();
         Btn_Ventas = new javax.swing.JButton();
         Btn_Perfil = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Btn_Ofertas = new javax.swing.JButton();
         btn_logout_Dashboard_Admin = new javax.swing.JButton();
+        menu = new Menu.Menu();
         jpContenedor_Admin = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,19 +101,6 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         });
         jpMenu_Admin.add(Btn_CostoEnvio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 160, 50));
 
-        Btn_Pedidos.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
-        Btn_Pedidos.setForeground(new java.awt.Color(255, 255, 255));
-        Btn_Pedidos.setText("Pedidos");
-        Btn_Pedidos.setBorderPainted(false);
-        Btn_Pedidos.setContentAreaFilled(false);
-        Btn_Pedidos.setFocusPainted(false);
-        Btn_Pedidos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_PedidosActionPerformed(evt);
-            }
-        });
-        jpMenu_Admin.add(Btn_Pedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 130, 30));
-
         Btn_Ventas.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         Btn_Ventas.setForeground(new java.awt.Color(255, 255, 255));
         Btn_Ventas.setText("Ventas");
@@ -111,7 +112,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
                 Btn_VentasActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 100, -1));
+        jpMenu_Admin.add(Btn_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 100, -1));
 
         Btn_Perfil.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         Btn_Perfil.setForeground(new java.awt.Color(255, 255, 255));
@@ -153,6 +154,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
 
         btn_logout_Dashboard_Admin.setText("Cerrar sesión");
         jpMenu_Admin.add(btn_logout_Dashboard_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 670, 260, 40));
+        jpMenu_Admin.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 260, -1));
 
         jpContenedor_Admin.setBackground(new java.awt.Color(255, 252, 245));
         jpContenedor_Admin.setLayout(new java.awt.BorderLayout());
@@ -188,10 +190,6 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Btn_InventarioActionPerformed
 
-    private void Btn_PedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_PedidosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Btn_PedidosActionPerformed
-
     private void Btn_VentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_VentasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Btn_VentasActionPerformed
@@ -212,7 +210,6 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
     public javax.swing.JButton Btn_CostoEnvio;
     public javax.swing.JButton Btn_Inventario;
     public javax.swing.JButton Btn_Ofertas;
-    public javax.swing.JButton Btn_Pedidos;
     public javax.swing.JButton Btn_Perfil;
     public javax.swing.JButton Btn_Usuarios;
     public javax.swing.JButton Btn_Ventas;
@@ -221,5 +218,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     public javax.swing.JPanel jpContenedor_Admin;
     public javax.swing.JPanel jpMenu_Admin;
+    private Menu.Menu menu;
+    private Menu.Menu menu1;
     // End of variables declaration//GEN-END:variables
 }

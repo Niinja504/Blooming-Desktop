@@ -7,8 +7,8 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class Panel_Ofertas_Admin extends javax.swing.JPanel {
-    public Panel_Ofertas_Admin() {
+public class Panel_Ofertas extends javax.swing.JPanel {
+    public Panel_Ofertas() {
         try {
             // UIManager.setLookAndFeel(new FlatLightLaf()); 
             UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());

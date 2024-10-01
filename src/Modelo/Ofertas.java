@@ -1,6 +1,6 @@
 package Modelo;
 
-import Vista.Paneles_Admin.Panel_Ofertas_Admin;
+import Vista.Paneles_Admin.Panel_Ofertas;
 import java.awt.Image;
 import java.io.IOException;
 import java.net.URL;
@@ -142,7 +142,7 @@ public class Ofertas {
     }
    }
     
-    public void cargarDatosTabla(Panel_Ofertas_Admin Vista) {
+    public void cargarDatosTabla(Panel_Ofertas Vista) {
     int filaSeleccionada = Vista.jtb_Offers_Admin.getSelectedRow();
     if (filaSeleccionada != -1) {
         String TituloTB = Vista.jtb_Offers_Admin.getValueAt(filaSeleccionada, 1).toString();

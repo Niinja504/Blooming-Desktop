@@ -1,11 +1,12 @@
 package Card.Item;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-public class ModelItem {
+import java.util.ArrayList;
+import java.util.List;
+
+public class PedidosEntregados_Admin {
     String uuid;
     String uuid_Cliente;
     String FechaVenta;
@@ -187,8 +188,7 @@ public class ModelItem {
         this.NombreEmisor = NombreEmisor;
     }
     
-    
-    public ModelItem(String Item_uuid, String Item_uuid_Cliente, String Item_FechaVenta, String Item_HoraVenta, Float Item_SubTotal, String Item_Pendiente, String Item_UUID_Producto, Float Item_PrecioProducto, int Item_CantidadProducto,
+    public PedidosEntregados_Admin(String Item_uuid, String Item_uuid_Cliente, String Item_FechaVenta, String Item_HoraVenta, Float Item_SubTotal, String Item_Pendiente, String Item_UUID_Producto, Float Item_PrecioProducto, int Item_CantidadProducto,
     String Item_FechaEntrega, String Item_HorarioEntrega, String Item_NombreCliente, String Item_NombreCalle, String Item_LugarEntrega, String Item_Colonia, String Item_Coordenadas, String Item_SinMensaje, String Item_Dedicatoria, String Item_EnvioSinNombre,
     String Item_NombreEmisor){
         this.uuid = Item_uuid;
@@ -202,11 +202,11 @@ public class ModelItem {
     }
     
     public boolean isPendiente() {
-        return "Si".equalsIgnoreCase(Pendiente);
+        return "No".equalsIgnoreCase(Pendiente);
     }
     
-    public static List<ModelItem> obtenerPedidosPendientes(Connection connection) {
-        List<ModelItem> pedidosPendientes = new ArrayList<>();
+    public static List<PedidosEntregados_Admin> obtenerPedidosEntregados(Connection connection) {
+        List<PedidosEntregados_Admin> pedidosEntregados = new ArrayList<>();
         String query = "SELECT " +
                 "p.UUID_Pedido AS uuid, " +
                 "p.UUID_Cliente AS uuid_Cliente, " +
@@ -233,13 +233,13 @@ public class ModelItem {
                 "LEFT JOIN TbHorarioPedido h ON p.UUID_Pedido = h.UUID_Pedido " +
                 "LEFT JOIN TbDireccionPedido d ON p.UUID_Pedido = d.UUID_Pedido " +
                 "LEFT JOIN TbDedicatorias de ON p.UUID_Pedido = de.UUID_Pedido " +
-                "WHERE p.Pedido_Pendiente = 'Si'";
+                "WHERE p.Pedido_Pendiente = 'No'";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
 
             while (resultSet.next()) {
-                ModelItem pedido = new ModelItem(
+                PedidosEntregados_Admin pedido = new PedidosEntregados_Admin(
                     resultSet.getString("uuid"),
                     resultSet.getString("uuid_Cliente"),
                     resultSet.getString("FechaVenta"),
@@ -261,13 +261,13 @@ public class ModelItem {
                     resultSet.getString("EnvioSinNombre"),
                     resultSet.getString("NombreEmisor")
                 );
-                pedidosPendientes.add(pedido);
+                pedidosEntregados.add(pedido);
 
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return pedidosPendientes;
+        return pedidosEntregados;
     }
 }

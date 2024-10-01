@@ -1,26 +1,34 @@
 
 package Controlador;
 
+import Controlador.Admin.Ctrl_Ofertas;
+import Controlador.Admin.Ctrl_PedidosPendientes_admin;
+import Controlador.Admin.Ctrl_Usuarios;
+import Controlador.Admin.Ctrl_Ventas_Admin;
+import Controlador.Admin.Ctrl_Inventario;
+import Controlador.Admin.Ctrl_Costo_Envio;
+import Controlador.Admin.Ctrl_PedidosEntregados_admin;
 import Modelo.ComboBox.Lista_Productos;
 import Modelo.Costo_Envio;
 import Modelo.Inventario;
 import Modelo.Ofertas;
 import Modelo.Usuarios;
 import Vista.Paneles_Admin.Panel_CostoEnvio_Admin;
-import Vista.Paneles_Admin.Panel_Inventario_Admin;
-import Vista.Paneles_Admin.Panel_Ofertas_Admin;
-import Vista.Paneles_Admin.Panel_Pedidos_Admin;
-import Vista.Paneles_Admin.Panel_Perfil_Admin;
-import Vista.Paneles_Admin.Panel_Usuarios_Admin;
-import Vista.Paneles_Admin.Panel_Ventas_Admin;
+import Vista.Paneles_Admin.Panel_Inventario;
+import Vista.Paneles_Admin.Panel_Ofertas;
+import Vista.Paneles_Admin.Panel_Pedidos_Entregados;
+import Vista.Paneles_Admin.Panel_Pedidos_Pendientes;
+import Vista.Paneles_Admin.Panel_Perfil;
+import Vista.Paneles_Admin.Panel_Usuarios;
+import Vista.Paneles_Admin.Panel_Ventas;
 import Vista.frm_Dashboard_Admin;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class Ctrl_DashBoard_Admin implements MouseListener {
     frm_Dashboard_Admin Vista;
-    Panel_Usuarios_Admin Panel;   
-    public Ctrl_DashBoard_Admin(frm_Dashboard_Admin vista, Panel_Usuarios_Admin Panel){
+    Panel_Usuarios Panel;   
+    public Ctrl_DashBoard_Admin(frm_Dashboard_Admin vista, Panel_Usuarios Panel){
         this.Vista = vista;
         this.Panel = Panel;
         
@@ -30,7 +38,6 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
         Vista.Btn_Inventario.addMouseListener(this);
         Vista.Btn_CostoEnvio.addMouseListener(this);
         Vista.Btn_Ofertas.addMouseListener(this);
-        Vista.Btn_Pedidos.addMouseListener(this);
         Vista.Btn_Ventas.addMouseListener(this);
         Vista.Btn_Perfil.addMouseListener(this);
     }
@@ -40,7 +47,7 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
         if(e.getSource() == Vista.Btn_Usuarios){
             System.out.println("Usuarios");
             //1-Creo un objeto del panel que quiero mostrar
-            Panel_Usuarios_Admin objUsuarios = new Panel_Usuarios_Admin();
+            Panel_Usuarios objUsuarios = new Panel_Usuarios();
             Usuarios modeloUsuarios = new Usuarios();
             Ctrl_Usuarios controladorUsuarios = new Ctrl_Usuarios(modeloUsuarios, objUsuarios);
             
@@ -56,7 +63,7 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
         
         if(e.getSource() == Vista.Btn_Inventario){
             //1-Creo un objeto del panel que quiero mostrar
-            Panel_Inventario_Admin objInventario = new Panel_Inventario_Admin();
+            Panel_Inventario objInventario = new Panel_Inventario();
             Inventario modeloInventario = new Inventario();
             Ctrl_Inventario controladorInventario = new Ctrl_Inventario(modeloInventario, objInventario);
             
@@ -88,7 +95,7 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
         
         if(e.getSource() == Vista.Btn_Ofertas){
             //1-Creo un objeto del panel que quiero mostrar
-            Panel_Ofertas_Admin objOfertas = new Panel_Ofertas_Admin();
+            Panel_Ofertas objOfertas = new Panel_Ofertas();
             Ofertas modeloOfertas = new Ofertas();
             Lista_Productos modeloProductos = new Lista_Productos();
             Ctrl_Ofertas controladorOfertas = new Ctrl_Ofertas(modeloOfertas, modeloProductos, objOfertas);
@@ -104,20 +111,10 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
             Vista.jpContenedor_Admin.repaint();
         }
         
-        if(e.getSource() == Vista.Btn_Pedidos){
-           Panel_Pedidos_Admin objPedidos = new Panel_Pedidos_Admin(null);
-           Ctrl_Pedidos_admin controladorPedidos = new Ctrl_Pedidos_admin(objPedidos);           
-           objPedidos.setControlador(controladorPedidos);
-           controladorPedidos.mostrarPedidos();
-           Vista.jpContenedor_Admin.removeAll();
-           Vista.jpContenedor_Admin.add(objPedidos);
-           Vista.jpContenedor_Admin.revalidate();
-           Vista.jpContenedor_Admin.repaint();
-        }
         
         if(e.getSource() == Vista.Btn_Ventas){
             //1-Creo un objeto del panel que quiero mostrar
-            Panel_Ventas_Admin objVentas = new Panel_Ventas_Admin(null);
+            Panel_Ventas objVentas = new Panel_Ventas(null);
             Ctrl_Ventas_Admin controladorVentas = new Ctrl_Ventas_Admin(objVentas);
             objVentas.setControlador(controladorVentas);
             controladorVentas.mostrarVentas();
@@ -133,7 +130,7 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
         
         if(e.getSource() == Vista.Btn_Perfil){
             //1-Creo un objeto del panel que quiero mostrar
-            Panel_Perfil_Admin objPerfil = new Panel_Perfil_Admin();
+            Panel_Perfil objPerfil = new Panel_Perfil();
             
             //2- Limpio el panel contendor (por si acaso)
             Vista.jpContenedor_Admin.removeAll();
@@ -144,6 +141,28 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
             Vista.jpContenedor_Admin.revalidate();
             Vista.jpContenedor_Admin.repaint();
         }
+    }
+    
+    public void AbrirPanelPendientes(){
+        Panel_Pedidos_Pendientes objPedidosPe = new Panel_Pedidos_Pendientes(null);
+           Ctrl_PedidosPendientes_admin controladorPedidosPe = new Ctrl_PedidosPendientes_admin(objPedidosPe);           
+           objPedidosPe.setControlador(controladorPedidosPe);
+           controladorPedidosPe.mostrarPedidos();
+           Vista.jpContenedor_Admin.removeAll();
+           Vista.jpContenedor_Admin.add(objPedidosPe);
+           Vista.jpContenedor_Admin.revalidate();
+           Vista.jpContenedor_Admin.repaint();
+    }
+    
+    public void AbrirPanelEntregados(){
+        Panel_Pedidos_Entregados objPedidosEn = new Panel_Pedidos_Entregados(null);
+        Ctrl_PedidosEntregados_admin controladorPedidosEn = new Ctrl_PedidosEntregados_admin(objPedidosEn);           
+        objPedidosEn.setControlador(controladorPedidosEn);
+        controladorPedidosEn.mostrarPedidos();
+        Vista.jpContenedor_Admin.removeAll();
+        Vista.jpContenedor_Admin.add(objPedidosEn);
+        Vista.jpContenedor_Admin.revalidate();
+        Vista.jpContenedor_Admin.repaint();
     }
 
     @Override

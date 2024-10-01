@@ -1,6 +1,6 @@
 package Modelo;
 
-import Vista.Paneles_Admin.Panel_Inventario_Admin;
+import Vista.Paneles_Admin.Panel_Inventario;
 import java.awt.Image;
 import java.io.IOException;
 import java.net.URL;
@@ -167,7 +167,7 @@ public class Inventario {
         }
     }
     
-    public void cargarDatosTabla(Panel_Inventario_Admin Vista) {
+    public void cargarDatosTabla(Panel_Inventario Vista) {
       int filaSeleccionada = Vista.jtb_Inventory.getSelectedRow();
       if (filaSeleccionada != -1) {
           String imgPath = (String) Vista.jtb_Inventory.getValueAt(filaSeleccionada, 1);

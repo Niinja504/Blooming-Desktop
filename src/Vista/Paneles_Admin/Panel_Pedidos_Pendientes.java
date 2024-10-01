@@ -1,11 +1,10 @@
 package Vista.Paneles_Admin;
 
-import Card.Item.ModelItem;
-import Cards.EventItem;
-import Cards.EventItemImpl;
+import Card.Item.PedidosPendientes_Admin;
+import Cards.EventItemImpl_PedidosPe;
 import Cards.ScrollBar;
-import Cards.card_pedidos;
-import Controlador.Ctrl_Pedidos_admin;
+import Cards.card_pedidos_Pendientes;
+import Controlador.Admin.Ctrl_PedidosPendientes_admin;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -16,15 +15,16 @@ import java.util.List;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import Cards.EventItem_PedidosPendientes;
 
-public class Panel_Pedidos_Admin extends javax.swing.JPanel {
+public class Panel_Pedidos_Pendientes extends javax.swing.JPanel {
     
-    private EventItem event;
-    private Ctrl_Pedidos_admin controlador; 
+    private EventItem_PedidosPendientes event;
+    private Ctrl_PedidosPendientes_admin controlador; 
     
-    public Panel_Pedidos_Admin(Ctrl_Pedidos_admin controlador) {
+    public Panel_Pedidos_Pendientes(Ctrl_PedidosPendientes_admin controlador) {
         this.controlador = controlador;
-        this.event = new EventItemImpl();
+        this.event = new EventItemImpl_PedidosPe();
         try {
             UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
         } catch (UnsupportedLookAndFeelException e) {
@@ -36,19 +36,19 @@ public class Panel_Pedidos_Admin extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new Dimension(300, 720));
     }
     
-    public void setControlador(Ctrl_Pedidos_admin controlador) {
+    public void setControlador(Ctrl_PedidosPendientes_admin controlador) {
        this.controlador = controlador;
     }
 
-    public void addItem(ModelItem data) {
-        card_pedidos item = new card_pedidos(controlador);
+    public void addItem(PedidosPendientes_Admin data) {
+        card_pedidos_Pendientes item = new card_pedidos_Pendientes(controlador);
         item.setData(data);
         item.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent me) {
                 if (SwingUtilities.isLeftMouseButton(me)) {
                     setSelected(item);
-                    event.itemClick(item, data, Panel_Pedidos_Admin.this);
+                    event.itemClick(item, data, Panel_Pedidos_Pendientes.this);
                 }
             }
         });
@@ -59,15 +59,15 @@ public class Panel_Pedidos_Admin extends javax.swing.JPanel {
     
     public void setSelected(Component item){
         for (Component com : panelItem.getComponents()){
-            card_pedidos i = (card_pedidos) com;
+            card_pedidos_Pendientes i = (card_pedidos_Pendientes) com;
             if (i.isSelected()){
                 i.setSelected(false);
             }
         }
-        ((card_pedidos) item).setSelected(true);
+        ((card_pedidos_Pendientes) item).setSelected(true);
     }
     
-    public void ShowItem(ModelItem data){
+    public void ShowItem(PedidosPendientes_Admin data){
         Lbl_Nombre_Detalles_Pedido.setText(data.getNombreCliente());
         Lbl_FechaEntrga_Detalles_Pedido.setText(data.getFechaEntrega());
         Lbl_HoraEntrga_Detalles_Pedido.setText(data.getHorarioEntrega());
@@ -78,16 +78,16 @@ public class Panel_Pedidos_Admin extends javax.swing.JPanel {
         //Costo de envio
     }
     
-    public void cargarPedidos(List<ModelItem> pedidos) {
+    public void cargarPedidos(List<PedidosPendientes_Admin> pedidos) {
        panelItem.removeAll(); 
-       for (ModelItem pedido : pedidos) {
+       for (PedidosPendientes_Admin pedido : pedidos) {
             addItem(pedido);
         }
        panelItem.revalidate(); 
        panelItem.repaint();
     }
     
-    public void setEvent(EventItem event) {
+    public void setEvent(EventItem_PedidosPendientes event) {
         this.event = event;
     }
 
@@ -133,7 +133,7 @@ public class Panel_Pedidos_Admin extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Pedidos");
+        jLabel1.setText("Pedidos pendientes");
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Cliente:");
@@ -215,33 +215,23 @@ public class Panel_Pedidos_Admin extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addComponent(jSeparator5)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel2)
                         .addGap(73, 73, 73)
                         .addComponent(Lbl_Nombre_Detalles_Pedido))
+                    .addComponent(jLabel5)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel4)
                         .addGap(47, 47, 47)
                         .addComponent(Lbl_DireccionEntrega_Detalles_Pedido))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel8)
                         .addGap(81, 81, 81)
                         .addComponent(Lbl_Dedicatoria_Detalles_Pedido))
+                    .addComponent(jLabel9)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel9))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7))
@@ -251,13 +241,17 @@ public class Panel_Pedidos_Admin extends javax.swing.JPanel {
                             .addComponent(Lbl_FechaEntrga_Detalles_Pedido))))
                 .addContainerGap(87, Short.MAX_VALUE))
             .addComponent(jSeparator2)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

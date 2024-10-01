@@ -3,7 +3,7 @@ package Vista.Paneles_Admin;
 import Card.Item.Sales_Admin;
 import Cards.ScrollBar;
 import Cards.card_sales;
-import Controlador.Ctrl_Ventas_Admin;
+import Controlador.Admin.Ctrl_Ventas_Admin;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -12,10 +12,10 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class Panel_Ventas_Admin extends javax.swing.JPanel {
+public class Panel_Ventas extends javax.swing.JPanel {
     private Ctrl_Ventas_Admin controlador;
     
-    public Panel_Ventas_Admin(Ctrl_Ventas_Admin controlador) {
+    public Panel_Ventas(Ctrl_Ventas_Admin controlador) {
         this.controlador = controlador;
         try {
             // UIManager.setLookAndFeel(new FlatLightLaf()); 

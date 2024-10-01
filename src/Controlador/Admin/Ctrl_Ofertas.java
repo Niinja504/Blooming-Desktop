@@ -1,8 +1,8 @@
-package Controlador;
+package Controlador.Admin;
 
 import Modelo.ComboBox.Lista_Productos;
 import Modelo.Ofertas;
-import Vista.Paneles_Admin.Panel_Ofertas_Admin;
+import Vista.Paneles_Admin.Panel_Ofertas;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
@@ -10,9 +10,9 @@ import javax.swing.JOptionPane;
 public class Ctrl_Ofertas implements MouseListener {
     private Ofertas Modelo;
     private Lista_Productos ModeloCom;
-    private Panel_Ofertas_Admin Vista;
+    private Panel_Ofertas Vista;
     
-    public Ctrl_Ofertas(Ofertas modelo, Lista_Productos modeloCom, Panel_Ofertas_Admin vista){
+    public Ctrl_Ofertas(Ofertas modelo, Lista_Productos modeloCom, Panel_Ofertas vista){
         this.Modelo = modelo;
         this.ModeloCom = modeloCom;
         this.Vista = vista;

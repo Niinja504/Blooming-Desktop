@@ -1,7 +1,7 @@
 package Modelo;
 
 import Modelo.ClaseConexion;
-import Vista.Paneles_Admin.Panel_Usuarios_Admin;
+import Vista.Paneles_Admin.Panel_Usuarios;
 import java.sql.*;
 import java.util.UUID;
 import javax.swing.JLabel;
@@ -192,7 +192,7 @@ public class Usuarios {
     }
    }
     
-    public void cargarDatosTabla(Panel_Usuarios_Admin Vista) {
+    public void cargarDatosTabla(Panel_Usuarios Vista) {
     int filaSeleccionada = Vista.jtb_Usuarios.getSelectedRow();
     if (filaSeleccionada != -1) {
         String NombresTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 1).toString();

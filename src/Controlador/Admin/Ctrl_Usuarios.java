@@ -1,16 +1,16 @@
-package Controlador;
+package Controlador.Admin;
 
 import Modelo.Usuarios;
-import Vista.Paneles_Admin.Panel_Usuarios_Admin;
+import Vista.Paneles_Admin.Panel_Usuarios;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 
 public class Ctrl_Usuarios implements MouseListener{
     private Usuarios Modelo;
-    private Panel_Usuarios_Admin Vista;
+    private Panel_Usuarios Vista;
     
-    public Ctrl_Usuarios(Usuarios modelo, Panel_Usuarios_Admin vista){
+    public Ctrl_Usuarios(Usuarios modelo, Panel_Usuarios vista){
         this.Modelo = modelo;
         this.Vista = vista;
         

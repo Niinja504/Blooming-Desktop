@@ -1,7 +1,7 @@
-package Controlador;
+package Controlador.Admin;
 
 import Modelo.Inventario;
-import Vista.Paneles_Admin.Panel_Inventario_Admin;
+import Vista.Paneles_Admin.Panel_Inventario;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
@@ -9,9 +9,9 @@ import javax.swing.JOptionPane;
 
 public class Ctrl_Inventario implements MouseListener {
     private Inventario Modelo;
-    private Panel_Inventario_Admin Vista;
+    private Panel_Inventario Vista;
     
-    public Ctrl_Inventario(Inventario modelo, Panel_Inventario_Admin vista){
+    public Ctrl_Inventario(Inventario modelo, Panel_Inventario vista){
         this.Modelo = modelo;
         this.Vista = vista;
         

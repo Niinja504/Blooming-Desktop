@@ -1,8 +1,8 @@
 package Modelo;
 
 import Controlador.Ctrl_DashBoard_Admin;
-import Controlador.Ctrl_Usuarios;
-import Vista.Paneles_Admin.Panel_Usuarios_Admin;
+import Controlador.Admin.Ctrl_Usuarios;
+import Vista.Paneles_Admin.Panel_Usuarios;
 import Vista.frm_Dashboard_Admin;
 import Vista.frm_Dashboard_Client;
 import Vista.frm_Dashboard_Employed;
@@ -75,7 +75,7 @@ public class SingIn {
                             switch (finalRol) {
                                 case 0:
                                     currentFrame = new frm_Dashboard_Admin();
-                                    Panel_Usuarios_Admin panelUsuarios = new Panel_Usuarios_Admin();
+                                    Panel_Usuarios panelUsuarios = new Panel_Usuarios();
                                     ((frm_Dashboard_Admin) currentFrame).jpContenedor_Admin.add(panelUsuarios);
                                     Usuarios modeloUsuarios = new Usuarios();
                                     Ctrl_Usuarios controladorUsuarios = new Ctrl_Usuarios(modeloUsuarios, panelUsuarios);

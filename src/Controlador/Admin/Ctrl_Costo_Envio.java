@@ -1,4 +1,4 @@
-package Controlador;
+package Controlador.Admin;
 
 import Modelo.Costo_Envio;
 import Vista.Paneles_Admin.Panel_CostoEnvio_Admin;

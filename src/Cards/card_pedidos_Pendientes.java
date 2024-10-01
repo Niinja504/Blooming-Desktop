@@ -1,7 +1,7 @@
 package Cards;
 
-import Card.Item.ModelItem;
-import Controlador.Ctrl_Pedidos_admin;
+import Card.Item.PedidosPendientes_Admin;
+import Controlador.Admin.Ctrl_PedidosPendientes_admin;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -10,11 +10,11 @@ import java.awt.RenderingHints;
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
-public class card_pedidos extends javax.swing.JPanel {
+public class card_pedidos_Pendientes extends javax.swing.JPanel {
     
     private boolean selected;
-    private ModelItem data;
-    private Ctrl_Pedidos_admin controlador;
+    private PedidosPendientes_Admin data;
+    private Ctrl_PedidosPendientes_admin controlador;
     
     public boolean isSelected(){
         return selected;
@@ -25,14 +25,14 @@ public class card_pedidos extends javax.swing.JPanel {
         repaint();
     }
     
-    public card_pedidos(Ctrl_Pedidos_admin controlador) {
+    public card_pedidos_Pendientes(Ctrl_PedidosPendientes_admin controlador) {
      this.controlador = controlador;
      initComponents();
      setOpaque(false);
      Btn_delete_Pedido.addActionListener(e -> eliminarPedido());
    }
 
-    public void setData(ModelItem data){
+    public void setData(PedidosPendientes_Admin data){
         this.data = data;
         DecimalFormat df = new DecimalFormat("$#, ##0.00");
         Lbl_Costo_Pedidos_Admin.setText(df.format(data.getSubTotal()));
