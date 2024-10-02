@@ -1,7 +1,7 @@
-package Cards;
+package Cards.Card_Desing;
 
-import Card.Item.PedidosEntregados_Admin;
-import Controlador.Admin.Ctrl_PedidosEntregados_admin;
+import Card.Item.PedidosPendientes_Admin;
+import Controlador.Admin.Ctrl_PedidosPendientes_admin;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -10,11 +10,11 @@ import java.awt.RenderingHints;
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
-public class card_pedidos_Entregados extends javax.swing.JPanel {
+public class card_pedidos_Pendientes_Ad extends javax.swing.JPanel {
     
     private boolean selected;
-    private PedidosEntregados_Admin data;
-    private Ctrl_PedidosEntregados_admin controlador;
+    private PedidosPendientes_Admin data;
+    private Ctrl_PedidosPendientes_admin controlador;
     
     public boolean isSelected(){
         return selected;
@@ -25,14 +25,14 @@ public class card_pedidos_Entregados extends javax.swing.JPanel {
         repaint();
     }
     
-    public card_pedidos_Entregados(Ctrl_PedidosEntregados_admin controlador) {
-        this.controlador = controlador;
-        initComponents();
-        setOpaque(false);
-        Btn_delete_Pedido.addActionListener(e -> eliminarPedido());
-    }
+    public card_pedidos_Pendientes_Ad(Ctrl_PedidosPendientes_admin controlador) {
+     this.controlador = controlador;
+     initComponents();
+     setOpaque(false);
+     Btn_delete_Pedido.addActionListener(e -> eliminarPedido());
+   }
 
-    public void setData(PedidosEntregados_Admin data){
+    public void setData(PedidosPendientes_Admin data){
         this.data = data;
         DecimalFormat df = new DecimalFormat("$#, ##0.00");
         Lbl_Costo_Pedidos_Admin.setText(df.format(data.getSubTotal()));
@@ -55,6 +55,7 @@ public class card_pedidos_Entregados extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "No se pudo eliminar el pedido.", "Error en la Eliminación", JOptionPane.ERROR_MESSAGE);
     }
 }
+    
     @Override
     public void paint(Graphics grphcs){
         Graphics2D g2 = (Graphics2D) grphcs.create();
@@ -74,10 +75,6 @@ public class card_pedidos_Entregados extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        Lbl_FechaEntrega_Pedidos_Admin = new javax.swing.JLabel();
-        Lbl_HoraEntrega_Pedidos_Admin = new javax.swing.JLabel();
         Btn_delete_Pedido = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -87,20 +84,12 @@ public class card_pedidos_Entregados extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
         Lbl_NombreCliente_Pedidos_Admin = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        Lbl_FechaEntrega_Pedidos_Admin = new javax.swing.JLabel();
+        Lbl_HoraEntrega_Pedidos_Admin = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
-
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Colonia:");
-
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Calle:");
-
-        Lbl_FechaEntrega_Pedidos_Admin.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_FechaEntrega_Pedidos_Admin.setText("jLabel9");
-
-        Lbl_HoraEntrega_Pedidos_Admin.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_HoraEntrega_Pedidos_Admin.setText("jLabel10");
 
         Btn_delete_Pedido.setBackground(new java.awt.Color(204, 204, 204));
         Btn_delete_Pedido.setForeground(new java.awt.Color(204, 204, 204));
@@ -130,6 +119,18 @@ public class card_pedidos_Entregados extends javax.swing.JPanel {
 
         Lbl_NombreCliente_Pedidos_Admin.setForeground(new java.awt.Color(0, 0, 0));
         Lbl_NombreCliente_Pedidos_Admin.setText("jLabel6");
+
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Colonia:");
+
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Calle:");
+
+        Lbl_FechaEntrega_Pedidos_Admin.setForeground(new java.awt.Color(0, 0, 0));
+        Lbl_FechaEntrega_Pedidos_Admin.setText("jLabel9");
+
+        Lbl_HoraEntrega_Pedidos_Admin.setForeground(new java.awt.Color(0, 0, 0));
+        Lbl_HoraEntrega_Pedidos_Admin.setText("jLabel10");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

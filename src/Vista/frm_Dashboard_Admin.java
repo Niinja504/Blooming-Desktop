@@ -2,7 +2,7 @@ package Vista;
 
 import Vista.Paneles_Admin.Panel_Usuarios;
 import Controlador.Ctrl_DashBoard_Admin;
-import Menu.MenuEvent;
+import Menu.Admin.MenuEvent;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
@@ -48,7 +48,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        menu1 = new Menu.Menu();
+        menu1 = new Menu.Admin.Menu();
         jpMenu_Admin = new javax.swing.JPanel();
         Btn_Usuarios = new javax.swing.JButton();
         Btn_Inventario = new javax.swing.JButton();
@@ -59,7 +59,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         Btn_Ofertas = new javax.swing.JButton();
         btn_logout_Dashboard_Admin = new javax.swing.JButton();
-        menu = new Menu.Menu();
+        menu = new Menu.Admin.Menu();
         jpContenedor_Admin = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -218,7 +218,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     public javax.swing.JPanel jpContenedor_Admin;
     public javax.swing.JPanel jpMenu_Admin;
-    private Menu.Menu menu;
-    private Menu.Menu menu1;
+    private Menu.Admin.Menu menu;
+    private Menu.Admin.Menu menu1;
     // End of variables declaration//GEN-END:variables
 }

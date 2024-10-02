@@ -1,4 +1,4 @@
-package Menu;
+package Menu.Admin;
 
 import java.awt.Color;
 import java.awt.Component;

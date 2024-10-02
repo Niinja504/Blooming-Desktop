@@ -152,9 +152,9 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
            Vista.jpContenedor_Admin.add(objPedidosPe);
            Vista.jpContenedor_Admin.revalidate();
            Vista.jpContenedor_Admin.repaint();
-    }
+    } 
     
-    public void AbrirPanelEntregados(){
+    public void AbrirPanelEntregados(){                                
         Panel_Pedidos_Entregados objPedidosEn = new Panel_Pedidos_Entregados(null);
         Ctrl_PedidosEntregados_admin controladorPedidosEn = new Ctrl_PedidosEntregados_admin(objPedidosEn);           
         objPedidosEn.setControlador(controladorPedidosEn);

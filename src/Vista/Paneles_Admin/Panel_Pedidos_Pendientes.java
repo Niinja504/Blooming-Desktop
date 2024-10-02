@@ -3,7 +3,7 @@ package Vista.Paneles_Admin;
 import Card.Item.PedidosPendientes_Admin;
 import Cards.EventItemImpl_PedidosPe;
 import Cards.ScrollBar;
-import Cards.card_pedidos_Pendientes;
+import Cards.Card_Desing.card_pedidos_Pendientes_Ad;
 import Controlador.Admin.Ctrl_PedidosPendientes_admin;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import java.awt.Component;
@@ -41,7 +41,7 @@ public class Panel_Pedidos_Pendientes extends javax.swing.JPanel {
     }
 
     public void addItem(PedidosPendientes_Admin data) {
-        card_pedidos_Pendientes item = new card_pedidos_Pendientes(controlador);
+        card_pedidos_Pendientes_Ad item = new card_pedidos_Pendientes_Ad(controlador);
         item.setData(data);
         item.addMouseListener(new MouseAdapter() {
             @Override
@@ -59,12 +59,12 @@ public class Panel_Pedidos_Pendientes extends javax.swing.JPanel {
     
     public void setSelected(Component item){
         for (Component com : panelItem.getComponents()){
-            card_pedidos_Pendientes i = (card_pedidos_Pendientes) com;
+            card_pedidos_Pendientes_Ad i = (card_pedidos_Pendientes_Ad) com;
             if (i.isSelected()){
                 i.setSelected(false);
             }
         }
-        ((card_pedidos_Pendientes) item).setSelected(true);
+        ((card_pedidos_Pendientes_Ad) item).setSelected(true);
     }
     
     public void ShowItem(PedidosPendientes_Admin data){

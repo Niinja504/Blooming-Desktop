@@ -2,7 +2,7 @@ package Vista.Paneles_Admin;
 
 import Card.Item.Sales_Admin;
 import Cards.ScrollBar;
-import Cards.card_sales;
+import Cards.Card_Desing.card_sales_Ad;
 import Controlador.Admin.Ctrl_Ventas_Admin;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import java.awt.event.MouseAdapter;
@@ -32,7 +32,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
     }
     
     public void addItem(Sales_Admin data) {
-        card_sales item = new card_sales(controlador);
+        card_sales_Ad item = new card_sales_Ad(controlador);
         item.setData(data);
         item.addMouseListener(new MouseAdapter() {
             @Override

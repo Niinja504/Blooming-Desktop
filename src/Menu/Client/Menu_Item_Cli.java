@@ -1,8 +1,7 @@
-package Menu;
+package Menu.Client;
 
 import Componentes.Effects.RippleEffect;
 import Componentes.ShadowRender;
-import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -14,7 +13,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-public class Menu_Item extends JButton {
+public class Menu_Item_Cli extends JButton {
     public float getAnimate() {
         return animate;
     }
@@ -66,7 +65,7 @@ public class Menu_Item extends JButton {
     private int subMenuIndex;
     private int length;
 
-    public Menu_Item(String name, int index, boolean subMenuAble) {
+    public Menu_Item_Cli(String name, int index, boolean subMenuAble) {
         super(name);
         this.index = index;
         this.subMenuAble = subMenuAble;

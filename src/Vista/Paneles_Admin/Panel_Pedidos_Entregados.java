@@ -4,7 +4,7 @@ import Card.Item.PedidosEntregados_Admin;
 import Cards.EventItemImpl_PedidosEn;
 import Cards.EventItem_PedidosEntregados;
 import Cards.ScrollBar;
-import Cards.card_pedidos_Entregados;
+import Cards.Card_Desing.card_pedidos_Entregados_Ad;
 import Controlador.Admin.Ctrl_PedidosEntregados_admin;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import java.awt.Component;
@@ -41,7 +41,7 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
     }
 
     public void addItem(PedidosEntregados_Admin data) {
-        card_pedidos_Entregados item = new card_pedidos_Entregados(controlador);
+        card_pedidos_Entregados_Ad item = new card_pedidos_Entregados_Ad(controlador);
         item.setData(data);
         item.addMouseListener(new MouseAdapter() {
             @Override
@@ -59,12 +59,12 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
     
     public void setSelected(Component item){
         for (Component com : panelItem.getComponents()){
-            card_pedidos_Entregados i = (card_pedidos_Entregados) com;
+            card_pedidos_Entregados_Ad i = (card_pedidos_Entregados_Ad) com;
             if (i.isSelected()){
                 i.setSelected(false);
             }
         }
-        ((card_pedidos_Entregados) item).setSelected(true);
+        ((card_pedidos_Entregados_Ad) item).setSelected(true);
     }
     
     public void ShowItem(PedidosEntregados_Admin data){
@@ -116,46 +116,18 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
         jLabel46 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jLabel47 = new javax.swing.JLabel();
-        Lbl_Nombre_Detalles_Pedido3 = new javax.swing.JLabel();
-        Lbl_FechaEntrga_Detalles_Pedido3 = new javax.swing.JLabel();
-        Lbl_HoraEntrga_Detalles_Pedido3 = new javax.swing.JLabel();
-        Lbl_Dedicatoria_Detalles_Pedido3 = new javax.swing.JLabel();
-        Lbl_DireccionEntrega_Detalles_Pedido3 = new javax.swing.JLabel();
-        Lbl_Costo_Detalles_Pedido3 = new javax.swing.JLabel();
+        Lbl_Nombre_Detalles_Pedido = new javax.swing.JLabel();
+        Lbl_FechaEntrga_Detalles_Pedido = new javax.swing.JLabel();
+        Lbl_HoraEntrga_Detalles_Pedido = new javax.swing.JLabel();
+        Lbl_Dedicatoria_Detalles_Pedido = new javax.swing.JLabel();
+        Lbl_DireccionEntrega_Detalles_Pedido = new javax.swing.JLabel();
+        Lbl_Costo_Detalles_Pedido = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        scroll1 = new javax.swing.JScrollPane();
-        panelItem1 = new Cards.PanelItem();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel49 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
-        jLabel51 = new javax.swing.JLabel();
-        jLabel52 = new javax.swing.JLabel();
-        jSeparator21 = new javax.swing.JSeparator();
-        jSeparator22 = new javax.swing.JSeparator();
-        jLabel53 = new javax.swing.JLabel();
-        jLabel54 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
-        jSeparator23 = new javax.swing.JSeparator();
-        jSeparator24 = new javax.swing.JSeparator();
-        jLabel56 = new javax.swing.JLabel();
-        jSeparator25 = new javax.swing.JSeparator();
-        jLabel57 = new javax.swing.JLabel();
-        jLabel58 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jLabel59 = new javax.swing.JLabel();
-        Lbl_Nombre_Detalles_Pedido4 = new javax.swing.JLabel();
-        Lbl_FechaEntrga_Detalles_Pedido4 = new javax.swing.JLabel();
-        Lbl_HoraEntrga_Detalles_Pedido4 = new javax.swing.JLabel();
-        Lbl_Dedicatoria_Detalles_Pedido4 = new javax.swing.JLabel();
-        Lbl_DireccionEntrega_Detalles_Pedido4 = new javax.swing.JLabel();
-        Lbl_Costo_Detalles_Pedido4 = new javax.swing.JLabel();
-        jLabel60 = new javax.swing.JLabel();
 
         scroll.setBorder(null);
         scroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        panelItem.setPreferredSize(new java.awt.Dimension(10, 20));
+        panelItem.setPreferredSize(new java.awt.Dimension(13, 20));
         scroll.setViewportView(panelItem);
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
@@ -198,23 +170,23 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
         jLabel47.setForeground(new java.awt.Color(0, 0, 0));
         jLabel47.setText("Nota:");
 
-        Lbl_Nombre_Detalles_Pedido3.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_Nombre_Detalles_Pedido3.setText("jLabel12");
+        Lbl_Nombre_Detalles_Pedido.setForeground(new java.awt.Color(0, 0, 0));
+        Lbl_Nombre_Detalles_Pedido.setText("jLabel12");
 
-        Lbl_FechaEntrga_Detalles_Pedido3.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_FechaEntrga_Detalles_Pedido3.setText("jLabel12");
+        Lbl_FechaEntrga_Detalles_Pedido.setForeground(new java.awt.Color(0, 0, 0));
+        Lbl_FechaEntrga_Detalles_Pedido.setText("jLabel12");
 
-        Lbl_HoraEntrga_Detalles_Pedido3.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_HoraEntrga_Detalles_Pedido3.setText("jLabel12");
+        Lbl_HoraEntrga_Detalles_Pedido.setForeground(new java.awt.Color(0, 0, 0));
+        Lbl_HoraEntrga_Detalles_Pedido.setText("jLabel12");
 
-        Lbl_Dedicatoria_Detalles_Pedido3.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_Dedicatoria_Detalles_Pedido3.setText("jLabel12");
+        Lbl_Dedicatoria_Detalles_Pedido.setForeground(new java.awt.Color(0, 0, 0));
+        Lbl_Dedicatoria_Detalles_Pedido.setText("jLabel12");
 
-        Lbl_DireccionEntrega_Detalles_Pedido3.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_DireccionEntrega_Detalles_Pedido3.setText("jLabel12");
+        Lbl_DireccionEntrega_Detalles_Pedido.setForeground(new java.awt.Color(0, 0, 0));
+        Lbl_DireccionEntrega_Detalles_Pedido.setText("jLabel12");
 
-        Lbl_Costo_Detalles_Pedido3.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_Costo_Detalles_Pedido3.setText("jLabel12");
+        Lbl_Costo_Detalles_Pedido.setForeground(new java.awt.Color(0, 0, 0));
+        Lbl_Costo_Detalles_Pedido.setText("jLabel12");
 
         jLabel48.setForeground(new java.awt.Color(0, 0, 0));
         jLabel48.setText("Sin nota");
@@ -238,7 +210,7 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel39)
                         .addGap(18, 18, 18)
-                        .addComponent(Lbl_Costo_Detalles_Pedido3)
+                        .addComponent(Lbl_Costo_Detalles_Pedido)
                         .addGap(21, 21, 21)
                         .addComponent(jLabel46)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -249,16 +221,16 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel38)
                         .addGap(73, 73, 73)
-                        .addComponent(Lbl_Nombre_Detalles_Pedido3))
+                        .addComponent(Lbl_Nombre_Detalles_Pedido))
                     .addComponent(jLabel41)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel40)
                         .addGap(47, 47, 47)
-                        .addComponent(Lbl_DireccionEntrega_Detalles_Pedido3))
+                        .addComponent(Lbl_DireccionEntrega_Detalles_Pedido))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel44)
                         .addGap(81, 81, 81)
-                        .addComponent(Lbl_Dedicatoria_Detalles_Pedido3))
+                        .addComponent(Lbl_Dedicatoria_Detalles_Pedido))
                     .addComponent(jLabel45)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,8 +238,8 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
                             .addComponent(jLabel43))
                         .addGap(43, 43, 43)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Lbl_HoraEntrga_Detalles_Pedido3)
-                            .addComponent(Lbl_FechaEntrga_Detalles_Pedido3))))
+                            .addComponent(Lbl_HoraEntrga_Detalles_Pedido)
+                            .addComponent(Lbl_FechaEntrga_Detalles_Pedido))))
                 .addContainerGap(87, Short.MAX_VALUE))
             .addComponent(jSeparator17)
             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -285,7 +257,7 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel38)
-                    .addComponent(Lbl_Nombre_Detalles_Pedido3))
+                    .addComponent(Lbl_Nombre_Detalles_Pedido))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -293,23 +265,23 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel42)
-                    .addComponent(Lbl_FechaEntrga_Detalles_Pedido3))
+                    .addComponent(Lbl_FechaEntrga_Detalles_Pedido))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel43)
-                    .addComponent(Lbl_HoraEntrga_Detalles_Pedido3))
+                    .addComponent(Lbl_HoraEntrga_Detalles_Pedido))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator18, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel40)
-                    .addComponent(Lbl_DireccionEntrega_Detalles_Pedido3))
+                    .addComponent(Lbl_DireccionEntrega_Detalles_Pedido))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator19, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel44)
-                    .addComponent(Lbl_Dedicatoria_Detalles_Pedido3))
+                    .addComponent(Lbl_Dedicatoria_Detalles_Pedido))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator20, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -318,7 +290,7 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39)
                     .addComponent(jLabel46)
-                    .addComponent(Lbl_Costo_Detalles_Pedido3))
+                    .addComponent(Lbl_Costo_Detalles_Pedido))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -329,295 +301,38 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
                     .addComponent(jLabel47)))
         );
 
-        scroll1.setBorder(null);
-        scroll1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        panelItem1.setPreferredSize(new java.awt.Dimension(10, 20));
-        scroll1.setViewportView(panelItem1);
-
-        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
-
-        jLabel49.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel49.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel49.setText("Pedidos pendientes");
-
-        jLabel50.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel50.setText("Cliente:");
-
-        jLabel51.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel51.setText("Costo pedido:");
-
-        jLabel52.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel52.setText("Dirección de envio");
-
-        jLabel53.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel53.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel53.setText("Información de envio:");
-
-        jLabel54.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel54.setText("Fecha de entrega:");
-
-        jLabel55.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel55.setText("Hora de entrega:");
-
-        jLabel56.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel56.setText("Dedicatoria:");
-
-        jLabel57.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel57.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel57.setText("Detalles del pedido");
-
-        jLabel58.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel58.setText("Envio:");
-
-        jButton5.setText("Eliminar pedido");
-
-        jLabel59.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel59.setText("Nota:");
-
-        Lbl_Nombre_Detalles_Pedido4.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_Nombre_Detalles_Pedido4.setText("jLabel12");
-
-        Lbl_FechaEntrga_Detalles_Pedido4.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_FechaEntrga_Detalles_Pedido4.setText("jLabel12");
-
-        Lbl_HoraEntrga_Detalles_Pedido4.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_HoraEntrga_Detalles_Pedido4.setText("jLabel12");
-
-        Lbl_Dedicatoria_Detalles_Pedido4.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_Dedicatoria_Detalles_Pedido4.setText("jLabel12");
-
-        Lbl_DireccionEntrega_Detalles_Pedido4.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_DireccionEntrega_Detalles_Pedido4.setText("jLabel12");
-
-        Lbl_Costo_Detalles_Pedido4.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_Costo_Detalles_Pedido4.setText("jLabel12");
-
-        jLabel60.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel60.setText("Sin nota");
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator21)
-            .addComponent(jSeparator24)
-            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jSeparator23, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel59)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel60, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel51)
-                        .addGap(18, 18, 18)
-                        .addComponent(Lbl_Costo_Detalles_Pedido4)
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel58)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addComponent(jSeparator25)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel50)
-                        .addGap(73, 73, 73)
-                        .addComponent(Lbl_Nombre_Detalles_Pedido4))
-                    .addComponent(jLabel53)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel52)
-                        .addGap(47, 47, 47)
-                        .addComponent(Lbl_DireccionEntrega_Detalles_Pedido4))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel56)
-                        .addGap(81, 81, 81)
-                        .addComponent(Lbl_Dedicatoria_Detalles_Pedido4))
-                    .addComponent(jLabel57)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel54)
-                            .addComponent(jLabel55))
-                        .addGap(43, 43, 43)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Lbl_HoraEntrga_Detalles_Pedido4)
-                            .addComponent(Lbl_FechaEntrga_Detalles_Pedido4))))
-                .addContainerGap(87, Short.MAX_VALUE))
-            .addComponent(jSeparator22)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jLabel49)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel49)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 267, Short.MAX_VALUE)
-                .addComponent(jSeparator21, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel50)
-                    .addComponent(Lbl_Nombre_Detalles_Pedido4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator22, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel53)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel54)
-                    .addComponent(Lbl_FechaEntrga_Detalles_Pedido4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel55)
-                    .addComponent(Lbl_HoraEntrga_Detalles_Pedido4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator23, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel52)
-                    .addComponent(Lbl_DireccionEntrega_Detalles_Pedido4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator24, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel56)
-                    .addComponent(Lbl_Dedicatoria_Detalles_Pedido4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator25, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel57)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel51)
-                    .addComponent(jLabel58)
-                    .addComponent(Lbl_Costo_Detalles_Pedido4))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel59)))
-        );
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(scroll1, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(scroll1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(597, 597, 597))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 281, Short.MAX_VALUE)
+                    .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(scroll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel Lbl_Costo_Detalles_Pedido;
-    public javax.swing.JLabel Lbl_Costo_Detalles_Pedido1;
-    public javax.swing.JLabel Lbl_Costo_Detalles_Pedido2;
-    public javax.swing.JLabel Lbl_Costo_Detalles_Pedido3;
-    public javax.swing.JLabel Lbl_Costo_Detalles_Pedido4;
     public javax.swing.JLabel Lbl_Dedicatoria_Detalles_Pedido;
-    public javax.swing.JLabel Lbl_Dedicatoria_Detalles_Pedido1;
-    public javax.swing.JLabel Lbl_Dedicatoria_Detalles_Pedido2;
-    public javax.swing.JLabel Lbl_Dedicatoria_Detalles_Pedido3;
-    public javax.swing.JLabel Lbl_Dedicatoria_Detalles_Pedido4;
     public javax.swing.JLabel Lbl_DireccionEntrega_Detalles_Pedido;
-    public javax.swing.JLabel Lbl_DireccionEntrega_Detalles_Pedido1;
-    public javax.swing.JLabel Lbl_DireccionEntrega_Detalles_Pedido2;
-    public javax.swing.JLabel Lbl_DireccionEntrega_Detalles_Pedido3;
-    public javax.swing.JLabel Lbl_DireccionEntrega_Detalles_Pedido4;
     public javax.swing.JLabel Lbl_FechaEntrga_Detalles_Pedido;
-    public javax.swing.JLabel Lbl_FechaEntrga_Detalles_Pedido1;
-    public javax.swing.JLabel Lbl_FechaEntrga_Detalles_Pedido2;
-    public javax.swing.JLabel Lbl_FechaEntrga_Detalles_Pedido3;
-    public javax.swing.JLabel Lbl_FechaEntrga_Detalles_Pedido4;
     public javax.swing.JLabel Lbl_HoraEntrga_Detalles_Pedido;
-    public javax.swing.JLabel Lbl_HoraEntrga_Detalles_Pedido1;
-    public javax.swing.JLabel Lbl_HoraEntrga_Detalles_Pedido2;
-    public javax.swing.JLabel Lbl_HoraEntrga_Detalles_Pedido3;
-    public javax.swing.JLabel Lbl_HoraEntrga_Detalles_Pedido4;
     public javax.swing.JLabel Lbl_Nombre_Detalles_Pedido;
-    public javax.swing.JLabel Lbl_Nombre_Detalles_Pedido1;
-    public javax.swing.JLabel Lbl_Nombre_Detalles_Pedido2;
-    public javax.swing.JLabel Lbl_Nombre_Detalles_Pedido3;
-    public javax.swing.JLabel Lbl_Nombre_Detalles_Pedido4;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -627,57 +342,13 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator11;
-    private javax.swing.JSeparator jSeparator12;
-    private javax.swing.JSeparator jSeparator13;
-    private javax.swing.JSeparator jSeparator14;
-    private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator18;
     private javax.swing.JSeparator jSeparator19;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator20;
-    private javax.swing.JSeparator jSeparator21;
-    private javax.swing.JSeparator jSeparator22;
-    private javax.swing.JSeparator jSeparator23;
-    private javax.swing.JSeparator jSeparator24;
-    private javax.swing.JSeparator jSeparator25;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator9;
     private Cards.PanelItem panelItem;
-    private Cards.PanelItem panelItem1;
     private javax.swing.JScrollPane scroll;
-    private javax.swing.JScrollPane scroll1;
     // End of variables declaration//GEN-END:variables
 }
