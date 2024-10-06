@@ -1,5 +1,6 @@
 package Cards;
 
+import Cards.Eventos.EventItem_PedidosEntregados;
 import Card.Item.PedidosEntregados_Admin;
 import Vista.Paneles_Admin.Panel_Pedidos_Entregados;
 import java.awt.Component;

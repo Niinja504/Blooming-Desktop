@@ -15,7 +15,7 @@ import java.util.List;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import Cards.EventItem_PedidosPendientes;
+import Cards.Eventos.EventItem_PedidosPendientes;
 
 public class Panel_Pedidos_Pendientes extends javax.swing.JPanel {
     
@@ -75,7 +75,6 @@ public class Panel_Pedidos_Pendientes extends javax.swing.JPanel {
         Lbl_Dedicatoria_Detalles_Pedido.setText(data.getSinMensaje());
         DecimalFormat df = new DecimalFormat("$#, ##0.00");
         Lbl_Costo_Detalles_Pedido.setText(df.format(data.getSubTotal()));
-        //Costo de envio
     }
     
     public void cargarPedidos(List<PedidosPendientes_Admin> pedidos) {
@@ -164,6 +163,7 @@ public class Panel_Pedidos_Pendientes extends javax.swing.JPanel {
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Envio:");
 
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Eliminar pedido");
 
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
@@ -318,12 +318,12 @@ public class Panel_Pedidos_Pendientes extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel Lbl_Costo_Detalles_Pedido;
-    public javax.swing.JLabel Lbl_Dedicatoria_Detalles_Pedido;
-    public javax.swing.JLabel Lbl_DireccionEntrega_Detalles_Pedido;
-    public javax.swing.JLabel Lbl_FechaEntrga_Detalles_Pedido;
-    public javax.swing.JLabel Lbl_HoraEntrga_Detalles_Pedido;
-    public javax.swing.JLabel Lbl_Nombre_Detalles_Pedido;
+    private javax.swing.JLabel Lbl_Costo_Detalles_Pedido;
+    private javax.swing.JLabel Lbl_Dedicatoria_Detalles_Pedido;
+    private javax.swing.JLabel Lbl_DireccionEntrega_Detalles_Pedido;
+    private javax.swing.JLabel Lbl_FechaEntrga_Detalles_Pedido;
+    private javax.swing.JLabel Lbl_HoraEntrga_Detalles_Pedido;
+    private javax.swing.JLabel Lbl_Nombre_Detalles_Pedido;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

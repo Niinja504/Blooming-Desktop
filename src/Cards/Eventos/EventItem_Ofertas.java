@@ -1,4 +1,4 @@
-package Cards;
+package Cards.Eventos;
 
 import Card.Item.Ofertas_Client;
 import Vista.Paneles_Client.Panel_Inicio_Client;

@@ -1,7 +1,11 @@
 package Controlador;
 
 import Controlador.Client.Ctrl_Ofertas_Client;
+import Controlador.Client.Ctrl_PedidosPendientes_client;
+import Controlador.Client.Ctrl_Shop_Client;
 import Vista.Paneles_Client.Panel_Inicio_Client;
+import Vista.Paneles_Client.Panel_Pedido_Pendiente_Cliente;
+import Vista.Paneles_Client.Panel_Tienda_Client;
 import Vista.frm_Dashboard_Client;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -10,16 +14,18 @@ import java.awt.event.MouseListener;
 public class Ctrl_Dashboard_Client implements MouseListener{
     frm_Dashboard_Client Vista;
     Panel_Inicio_Client Panel; 
-    public Ctrl_Dashboard_Client(frm_Dashboard_Client vista, Panel_Inicio_Client panel){
-        this.Vista = Vista;
-        this.Panel = Panel;
+    String UUID;
+    public Ctrl_Dashboard_Client(frm_Dashboard_Client vista, Panel_Inicio_Client panel, String UUID){
+        this.Vista = vista;
+        this.Panel = panel;
+        this.UUID = UUID;
         
         System.out.println("Controlador inicializado.");
-//        
-//        Vista.Btn_Inicio_DashBoard_Client.addMouseListener(this);
-//        Vista.Btn_Tienda_DashBoard_Client.addMouseListener(this);
-//        Vista.Btn_Compra_DashBoard_Client.addMouseListener(this);
-//        Vista.Btn_Perfil_DashBoard_Client.addMouseListener(this);
+        
+        Vista.Btn_Inicio_DashBoard_Client.addMouseListener(this);
+        Vista.Btn_Tienda_DashBoard_Client.addMouseListener(this);
+        Vista.Btn_Compra_DashBoard_Client.addMouseListener(this);
+        Vista.Btn_Perfil_DashBoard_Client.addMouseListener(this);
     
     }
 
@@ -40,17 +46,33 @@ public class Ctrl_Dashboard_Client implements MouseListener{
             Vista.jpContenedor_Client.revalidate();
             Vista.jpContenedor_Client.repaint();
         }
+        
+        if(e.getSource() == Vista.Btn_Tienda_DashBoard_Client){
+            //1-Creo un objeto del panel que quiero mostrar
+            Panel_Tienda_Client objShop = new Panel_Tienda_Client(null);
+            Ctrl_Shop_Client controladorShop = new Ctrl_Shop_Client(objShop);
+            objShop.setControlador(controladorShop);
+            controladorShop.mostrarProductos();
+            //2- Limpio el panel contendor (por si acaso)
+            Vista.jpContenedor_Client.removeAll();
+            //3- muestro el panel que quiero
+            Vista.jpContenedor_Client.add(objShop);
+            
+            //4- Refrescar todo
+            Vista.jpContenedor_Client.revalidate();
+            Vista.jpContenedor_Client.repaint();
+        }
     }
     
     public void AbrirPanelPendientes(){
-//        Panel_Pedido_Pendiente_Cliente objPedidosPe = new Panel_Pedido_Pendiente_Cliente (null);
-//        Ctrl_PedidosPendientes_client controladorPedidosPe = new Ctrl_PedidosPendientes_client(objPedidosPe);           
-//        objPedidosPe.setControlador(controladorPedidosPe);
-//        controladorPedidosPe.mostrarPedidos();
-//        Vista.jpContenedor_Client.removeAll();
-//        Vista.jpContenedor_Client.add(objPedidosPe);
-//        Vista.jpContenedor_Client.revalidate();
-//        Vista.jpContenedor_Client.repaint();
+        Panel_Pedido_Pendiente_Cliente objPedidosPe = new Panel_Pedido_Pendiente_Cliente (null);
+        Ctrl_PedidosPendientes_client controladorPedidosPe = new Ctrl_PedidosPendientes_client(objPedidosPe, UUID);           
+        objPedidosPe.setControlador(controladorPedidosPe);
+        controladorPedidosPe.mostrarPedidos();
+        Vista.jpContenedor_Client.removeAll();
+        Vista.jpContenedor_Client.add(objPedidosPe);
+        Vista.jpContenedor_Client.revalidate();
+        Vista.jpContenedor_Client.repaint();
     }
     
     public void AbrirPanelEntregados(){

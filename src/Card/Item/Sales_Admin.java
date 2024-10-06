@@ -90,7 +90,7 @@ public class Sales_Admin {
     }
     
     public Sales_Admin(String Item_uuid, String Item_uuid_Empleado, String Item_FechaVenta, String Item_HoraVenta, String Item_NombreCliente,
-           Float Item_TotalVenta, String Item_UUID_Producto, Float Item_PrecioProducto, int Item_CantidadProducto){
+       Float Item_TotalVenta, String Item_UUID_Producto, Float Item_PrecioProducto, int Item_CantidadProducto){
         this.uuid = Item_uuid;
         this.uuid_Empleado = Item_uuid_Empleado;
         this.FechaVenta = Item_FechaVenta;

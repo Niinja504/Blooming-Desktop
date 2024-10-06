@@ -1,5 +1,6 @@
-package Modelo;
+package Modelo.Admin;
 
+import Modelo.ClaseConexion;
 import Vista.Paneles_Admin.Panel_Inventario;
 import java.awt.Image;
 import java.io.IOException;

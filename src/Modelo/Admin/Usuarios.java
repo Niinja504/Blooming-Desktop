@@ -1,4 +1,4 @@
-package Modelo;
+package Modelo.Admin;
 
 import Modelo.ClaseConexion;
 import Vista.Paneles_Admin.Panel_Usuarios;

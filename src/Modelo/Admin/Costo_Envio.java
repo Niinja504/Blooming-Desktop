@@ -1,5 +1,6 @@
-package Modelo;
+package Modelo.Admin;
 
+import Modelo.ClaseConexion;
 import Vista.Paneles_Admin.Panel_CostoEnvio_Admin;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

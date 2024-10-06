@@ -1,7 +1,7 @@
 package Controlador.Admin;
 
 import Modelo.ComboBox.Lista_Productos;
-import Modelo.Ofertas;
+import Modelo.Admin.Ofertas;
 import Vista.Paneles_Admin.Panel_Ofertas;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;

@@ -1,6 +1,6 @@
 package Controlador.Admin;
 
-import Modelo.Usuarios;
+import Modelo.Admin.Usuarios;
 import Vista.Paneles_Admin.Panel_Usuarios;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;

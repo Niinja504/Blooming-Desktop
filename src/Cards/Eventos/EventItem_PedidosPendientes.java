@@ -1,4 +1,4 @@
-package Cards;
+package Cards.Eventos;
 
 import Card.Item.PedidosPendientes_Admin;
 import Vista.Paneles_Admin.Panel_Pedidos_Pendientes;

@@ -2,6 +2,7 @@ package Cards.Card_Desing;
 
 import Card.Item.Sales_Admin;
 import Controlador.Admin.Ctrl_Ventas_Admin;
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -62,7 +63,8 @@ public class card_sales_Ad extends javax.swing.JPanel {
         g2.setColor(new Color (242, 242, 242));
         g2.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
         if(selected){
-            g2.setColor(new Color(94, 156, 255));
+            g2.setColor(new Color(171, 71, 188));
+            g2.setStroke(new BasicStroke(4));
             g2.drawRoundRect(0, 0, getWidth() -1, getHeight() -1, 20, 20);
         }
         g2.dispose();

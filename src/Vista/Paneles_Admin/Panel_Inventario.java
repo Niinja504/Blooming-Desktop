@@ -124,7 +124,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         Cb_Categoria_Flores_Inventory_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hortencias", "Rosas", "Tulipanes", "Girasoles", "Mixtas" }));
 
         Cb_Categoria_Diseno_Inventory_admin.setForeground(new java.awt.Color(255, 255, 255));
-        Cb_Categoria_Diseno_Inventory_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cajas", "Ramos", "Botellas", "Corazones", "Rosas preservadas" }));
+        Cb_Categoria_Diseno_Inventory_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cajas", "Ramos", "Botellas", "Corazones", "Rosas preservadas", "Individual" }));
 
         Cb_Categoria_Evento_Inventory_admin.setForeground(new java.awt.Color(255, 255, 255));
         Cb_Categoria_Evento_Inventory_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cumpleaños", "Aniversario", "Amor", "Nacimiento", "Condolencias" }));

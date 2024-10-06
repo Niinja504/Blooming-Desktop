@@ -1,6 +1,6 @@
 package Controlador.Admin;
 
-import Modelo.Inventario;
+import Modelo.Admin.Inventario;
 import Vista.Paneles_Admin.Panel_Inventario;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;

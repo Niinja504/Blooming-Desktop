@@ -31,7 +31,6 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
     
     public Panel_CostoEnvio_Admin() {
         try {
-            // UIManager.setLookAndFeel(new FlatLightLaf()); 
             UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
@@ -368,23 +367,30 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
     }//GEN-LAST:event_txt_Buscar_Cost_adminFocusLost
 
     private void comboMapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMapActionPerformed
-        TileFactoryInfo info;
+        TileFactoryInfo info = null;
         int index = comboMap.getSelectedIndex();
-        if (index == 0){
+        System.out.println("Selected Index: " + index);
+        try {
+        if (index == 0) {
             info = new OSMTileFactoryInfo();
-        }
-        else if (index == 1){
+        } else if (index == 1) {
             info = new VirtualEarthTileFactoryInfo(VirtualEarthTileFactoryInfo.MAP);
-        }
-        else if (index == 2){
+        } else if (index == 2) {
             info = new VirtualEarthTileFactoryInfo(VirtualEarthTileFactoryInfo.HYBRID);
-        }
-        else {
+        } else if (index == 3) {
             info = new VirtualEarthTileFactoryInfo(VirtualEarthTileFactoryInfo.SATELLITE);
         }
         
-        DefaultTileFactory tileFactory = new DefaultTileFactory(info);
-        jXMapViewer.setTileFactory(tileFactory);
+        if (info != null) {
+            DefaultTileFactory tileFactory = new DefaultTileFactory(info);
+            jXMapViewer.setTileFactory(tileFactory);
+        } else {
+            throw new IllegalArgumentException("TileFactoryInfo no válido");
+        }
+        } catch (Exception e) {
+         e.printStackTrace();
+         JOptionPane.showMessageDialog(this, "Error al cambiar el mapa: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+      }
     }//GEN-LAST:event_comboMapActionPerformed
 
     private void txt_Zona_Cost_AdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Zona_Cost_AdminFocusGained

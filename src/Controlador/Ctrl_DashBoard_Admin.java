@@ -9,10 +9,10 @@ import Controlador.Admin.Ctrl_Inventario;
 import Controlador.Admin.Ctrl_Costo_Envio;
 import Controlador.Admin.Ctrl_PedidosEntregados_admin;
 import Modelo.ComboBox.Lista_Productos;
-import Modelo.Costo_Envio;
-import Modelo.Inventario;
-import Modelo.Ofertas;
-import Modelo.Usuarios;
+import Modelo.Admin.Costo_Envio;
+import Modelo.Admin.Inventario;
+import Modelo.Admin.Ofertas;
+import Modelo.Admin.Usuarios;
 import Vista.Paneles_Admin.Panel_CostoEnvio_Admin;
 import Vista.Paneles_Admin.Panel_Inventario;
 import Vista.Paneles_Admin.Panel_Ofertas;
@@ -28,6 +28,7 @@ import java.awt.event.MouseListener;
 public class Ctrl_DashBoard_Admin implements MouseListener {
     frm_Dashboard_Admin Vista;
     Panel_Usuarios Panel;   
+    
     public Ctrl_DashBoard_Admin(frm_Dashboard_Admin vista, Panel_Usuarios Panel){
         this.Vista = vista;
         this.Panel = Panel;
@@ -145,13 +146,13 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
     
     public void AbrirPanelPendientes(){
         Panel_Pedidos_Pendientes objPedidosPe = new Panel_Pedidos_Pendientes(null);
-           Ctrl_PedidosPendientes_admin controladorPedidosPe = new Ctrl_PedidosPendientes_admin(objPedidosPe);           
-           objPedidosPe.setControlador(controladorPedidosPe);
-           controladorPedidosPe.mostrarPedidos();
-           Vista.jpContenedor_Admin.removeAll();
-           Vista.jpContenedor_Admin.add(objPedidosPe);
-           Vista.jpContenedor_Admin.revalidate();
-           Vista.jpContenedor_Admin.repaint();
+        Ctrl_PedidosPendientes_admin controladorPedidosPe = new Ctrl_PedidosPendientes_admin(objPedidosPe);           
+        objPedidosPe.setControlador(controladorPedidosPe);
+        controladorPedidosPe.mostrarPedidos();
+        Vista.jpContenedor_Admin.removeAll();
+        Vista.jpContenedor_Admin.add(objPedidosPe);
+        Vista.jpContenedor_Admin.revalidate();
+        Vista.jpContenedor_Admin.repaint();
     } 
     
     public void AbrirPanelEntregados(){                                

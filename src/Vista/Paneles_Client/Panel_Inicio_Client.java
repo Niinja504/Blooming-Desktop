@@ -3,15 +3,20 @@ package Vista.Paneles_Client;
 import Card.Item.Ofertas_Client;
 import Cards.Card_Desing.card_ofertas_Cli;
 import Cards.EventItemImpl_Ofertas_Cli;
-import Cards.EventItem_Ofertas;
+import Cards.Eventos.EventItem_Ofertas;
 import Cards.ScrollBar;
 import Controlador.Client.Ctrl_Ofertas_Client;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -67,14 +72,24 @@ public class Panel_Inicio_Client extends javax.swing.JPanel {
     }
     
     public void ShowItem(Ofertas_Client data){
-//        Lbl_Nombre_Detalles_Pedido.setText(data.getNombreCliente());
-//        Lbl_FechaEntrga_Detalles_Pedido.setText(data.getFechaEntrega());
-//        Lbl_HoraEntrga_Detalles_Pedido.setText(data.getHorarioEntrega());
-//        Lbl_DireccionEntrega_Detalles_Pedido.setText(data.getLugarEntrega());
-//        Lbl_Dedicatoria_Detalles_Pedido.setText(data.getSinMensaje());
-//        DecimalFormat df = new DecimalFormat("$#, ##0.00");
-//        Lbl_Costo_Detalles_Pedido.setText(df.format(data.getSubTotal()));
-        //Costo de envio
+        String imgPath = data.getImg_oferta();
+        if (imgPath != null && !imgPath.isEmpty()){
+            try {
+                URL url = new URL (imgPath);
+                Image image = ImageIO.read(url);
+                ImageIcon icon = new ImageIcon(image);
+                IMG_Details_Ofertas_Client.setIcon(icon);
+                IMG_Details_Ofertas_Client.setText(null);
+            } catch (IOException e) {
+                System.out.println("Error al cargar la imagen: " + e.getMessage());
+            }
+            
+        } else {
+                IMG_Details_Ofertas_Client.setIcon(null);
+        }
+        Lbl_Titulo_Oferta_Client.setText(data.getTitulo());
+        Lbl_Porcentaje_Oferta_Client.setText(data.getPorcentaje());
+        Lbl_Descripcion_Oferta_Client.setText(data.getDescripcion());
     }
     
     public void cargarOfertas(List<Ofertas_Client> pedidos) {
@@ -98,29 +113,14 @@ public class Panel_Inicio_Client extends javax.swing.JPanel {
         panelItem = new Cards.PanelItem();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        Lbl_Titulo_Oferta_Client = new javax.swing.JLabel();
+        IMG_Details_Ofertas_Client = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        Lbl_Porcentaje_Oferta_Client = new javax.swing.JLabel();
+        Lbl_Descripcion_Oferta_Client = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
-        jSeparator4 = new javax.swing.JSeparator();
-        jLabel8 = new javax.swing.JLabel();
-        jSeparator5 = new javax.swing.JSeparator();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        Lbl_Nombre_Detalles_Pedido = new javax.swing.JLabel();
-        Lbl_FechaEntrga_Detalles_Pedido = new javax.swing.JLabel();
-        Lbl_HoraEntrga_Detalles_Pedido = new javax.swing.JLabel();
-        Lbl_Dedicatoria_Detalles_Pedido = new javax.swing.JLabel();
-        Lbl_DireccionEntrega_Detalles_Pedido = new javax.swing.JLabel();
-        Lbl_Costo_Detalles_Pedido = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 252, 245));
 
@@ -135,169 +135,75 @@ public class Panel_Inicio_Client extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Ofertas");
 
+        Lbl_Titulo_Oferta_Client.setForeground(new java.awt.Color(0, 0, 0));
+        Lbl_Titulo_Oferta_Client.setText("jLabel12");
+
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Cliente:");
+        jLabel2.setText("Nombre Articulo:");
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Costo pedido:");
+        jLabel3.setText("Porcentaje:");
+
+        Lbl_Porcentaje_Oferta_Client.setForeground(new java.awt.Color(0, 0, 0));
+        Lbl_Porcentaje_Oferta_Client.setText("jLabel4");
+
+        Lbl_Descripcion_Oferta_Client.setForeground(new java.awt.Color(0, 0, 0));
+        Lbl_Descripcion_Oferta_Client.setText("jLabel4");
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Dirección de envio");
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Información de envio:");
-
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Fecha de entrega:");
-
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Hora de entrega:");
-
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Dedicatoria:");
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Detalles del pedido");
-
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Envio:");
-
-        jButton1.setText("Eliminar pedido");
-
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setText("Nota:");
-
-        Lbl_Nombre_Detalles_Pedido.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_Nombre_Detalles_Pedido.setText("jLabel12");
-
-        Lbl_FechaEntrga_Detalles_Pedido.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_FechaEntrga_Detalles_Pedido.setText("jLabel12");
-
-        Lbl_HoraEntrga_Detalles_Pedido.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_HoraEntrga_Detalles_Pedido.setText("jLabel12");
-
-        Lbl_Dedicatoria_Detalles_Pedido.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_Dedicatoria_Detalles_Pedido.setText("jLabel12");
-
-        Lbl_DireccionEntrega_Detalles_Pedido.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_DireccionEntrega_Detalles_Pedido.setText("jLabel12");
-
-        Lbl_Costo_Detalles_Pedido.setForeground(new java.awt.Color(0, 0, 0));
-        Lbl_Costo_Detalles_Pedido.setText("jLabel12");
-
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("Sin nota");
+        jLabel4.setText("Descripciòn:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
-            .addComponent(jSeparator4)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(Lbl_Costo_Detalles_Pedido)
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel10)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addComponent(jSeparator5)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(73, 73, 73)
-                        .addComponent(Lbl_Nombre_Detalles_Pedido))
-                    .addComponent(jLabel5)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(47, 47, 47)
-                        .addComponent(Lbl_DireccionEntrega_Detalles_Pedido))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(81, 81, 81)
-                        .addComponent(Lbl_Dedicatoria_Detalles_Pedido))
-                    .addComponent(jLabel9)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(43, 43, 43)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Lbl_HoraEntrga_Detalles_Pedido)
-                            .addComponent(Lbl_FechaEntrga_Detalles_Pedido))))
-                .addContainerGap(87, Short.MAX_VALUE))
-            .addComponent(jSeparator2)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(86, 86, 86)
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(IMG_Details_Ofertas_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))
+                                .addGap(30, 30, 30)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Lbl_Porcentaje_Oferta_Client)
+                                    .addComponent(Lbl_Titulo_Oferta_Client)))
+                            .addComponent(Lbl_Descripcion_Oferta_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 267, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addComponent(IMG_Details_Ofertas_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(Lbl_Nombre_Detalles_Pedido))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(Lbl_FechaEntrga_Detalles_Pedido))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(Lbl_HoraEntrga_Detalles_Pedido))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(Lbl_DireccionEntrega_Detalles_Pedido))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(Lbl_Dedicatoria_Detalles_Pedido))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(Lbl_Titulo_Oferta_Client)
+                    .addComponent(jLabel2))
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel10)
-                    .addComponent(Lbl_Costo_Detalles_Pedido))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel11)))
+                    .addComponent(Lbl_Porcentaje_Oferta_Client))
+                .addGap(35, 35, 35)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Lbl_Descripcion_Oferta_Client)
+                .addGap(260, 260, 260))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -318,31 +224,16 @@ public class Panel_Inicio_Client extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel Lbl_Costo_Detalles_Pedido;
-    public javax.swing.JLabel Lbl_Dedicatoria_Detalles_Pedido;
-    public javax.swing.JLabel Lbl_DireccionEntrega_Detalles_Pedido;
-    public javax.swing.JLabel Lbl_FechaEntrga_Detalles_Pedido;
-    public javax.swing.JLabel Lbl_HoraEntrga_Detalles_Pedido;
-    public javax.swing.JLabel Lbl_Nombre_Detalles_Pedido;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JLabel IMG_Details_Ofertas_Client;
+    public javax.swing.JLabel Lbl_Descripcion_Oferta_Client;
+    public javax.swing.JLabel Lbl_Porcentaje_Oferta_Client;
+    public javax.swing.JLabel Lbl_Titulo_Oferta_Client;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
     private Cards.PanelItem panelItem;
     private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables

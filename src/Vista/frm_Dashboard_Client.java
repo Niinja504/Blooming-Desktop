@@ -11,8 +11,10 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class frm_Dashboard_Client extends javax.swing.JFrame {
     
+    private String UUID;
     private Ctrl_Dashboard_Client ctrl;
-    public frm_Dashboard_Client() {
+    public frm_Dashboard_Client(String UUID) {
+        this.UUID = UUID;
         try {
             UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
         } catch (UnsupportedLookAndFeelException e) {
@@ -23,14 +25,14 @@ public class frm_Dashboard_Client extends javax.swing.JFrame {
     }
 
     
-    public static void initfrm_Dashboard_Client(){
-        frm_Dashboard_Client Vista = new frm_Dashboard_Client();
+    public static void initfrm_Dashboard_Client(String UUID){
+        frm_Dashboard_Client Vista = new frm_Dashboard_Client(UUID);
         Panel_Inicio_Client Panel = new Panel_Inicio_Client(null);
         Ctrl_Ofertas_Client ctrlOfertas = new Ctrl_Ofertas_Client(Panel);
         Panel.setControlador(ctrlOfertas);
         ctrlOfertas.mostrarOfertas();
         Vista.jpContenedor_Client.add(Panel);
-        Vista.ctrl = new Ctrl_Dashboard_Client(Vista, Panel);
+        Vista.ctrl = new Ctrl_Dashboard_Client(Vista, Panel, UUID);
         Vista.menu_Cli.setEvent(new MenuEvent_Cli(){
         @Override
         public void selected(int index, int subIndex){
@@ -45,7 +47,10 @@ public class frm_Dashboard_Client extends javax.swing.JFrame {
         }
       });
         Vista.setVisible(true);
+    }
     
+    public String getUUID() {
+        return UUID;
     }
     
     @SuppressWarnings("unchecked")
@@ -116,7 +121,7 @@ public class frm_Dashboard_Client extends javax.swing.JFrame {
         jpMenu_Client.add(Btn_Compra_DashBoard_Client, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 337, 100, 40));
 
         btn_logout_Dashboard_Client.setText("Cerrar sesión");
-        jpMenu_Client.add(btn_logout_Dashboard_Client, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 670, 260, 40));
+        jpMenu_Client.add(btn_logout_Dashboard_Client, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 670, 255, 40));
         jpMenu_Client.add(menu_Cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 260, -1));
 
         jpContenedor_Client.setBackground(new java.awt.Color(255, 252, 245));
@@ -142,31 +147,11 @@ public class frm_Dashboard_Client extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public static void main(String args[]) {
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frm_Dashboard_Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frm_Dashboard_Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frm_Dashboard_Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frm_Dashboard_Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
+        String uuid = args[0];
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                initfrm_Dashboard_Client();
+                System.out.println(uuid);
+                initfrm_Dashboard_Client(uuid);
             }
         });
     }

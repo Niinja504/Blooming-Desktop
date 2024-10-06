@@ -2,7 +2,7 @@ package Vista.Paneles_Admin;
 
 import Card.Item.PedidosEntregados_Admin;
 import Cards.EventItemImpl_PedidosEn;
-import Cards.EventItem_PedidosEntregados;
+import Cards.Eventos.EventItem_PedidosEntregados;
 import Cards.ScrollBar;
 import Cards.Card_Desing.card_pedidos_Entregados_Ad;
 import Controlador.Admin.Ctrl_PedidosEntregados_admin;
@@ -75,7 +75,6 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
         Lbl_Dedicatoria_Detalles_Pedido.setText(data.getSinMensaje());
         DecimalFormat df = new DecimalFormat("$#, ##0.00");
         Lbl_Costo_Detalles_Pedido.setText(df.format(data.getSubTotal()));
-        //Costo de envio
     }
     
     public void cargarPedidos(List<PedidosEntregados_Admin> pedidos) {
@@ -165,6 +164,7 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
         jLabel46.setForeground(new java.awt.Color(0, 0, 0));
         jLabel46.setText("Envio:");
 
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Eliminar pedido");
 
         jLabel47.setForeground(new java.awt.Color(0, 0, 0));

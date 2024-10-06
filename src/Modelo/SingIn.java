@@ -1,8 +1,15 @@
 package Modelo;
 
-import Controlador.Ctrl_DashBoard_Admin;
 import Controlador.Admin.Ctrl_Usuarios;
+import Controlador.Client.Ctrl_Ofertas_Client;
+import Controlador.Ctrl_DashBoard_Admin;
+import Controlador.Ctrl_DashBoard_Employed;
+import Controlador.Ctrl_Dashboard_Client;
+import Controlador.Employed.Ctrl_Caja;
+import Modelo.Admin.Usuarios;
 import Vista.Paneles_Admin.Panel_Usuarios;
+import Vista.Paneles_Client.Panel_Inicio_Client;
+import Vista.Paneles_Employed.Panel_Caja_Employed;
 import Vista.frm_Dashboard_Admin;
 import Vista.frm_Dashboard_Client;
 import Vista.frm_Dashboard_Employed;
@@ -45,8 +52,7 @@ public class SingIn {
             if (Resultado.next()) {
                 String RolS = Resultado.getString("Rol_User");
                 String UUID = Resultado.getString("UUID_User");
-
-
+                
                 Integer Rol = null;
                 if (RolS != null) {
                     final String finalRolS = RolS;
@@ -74,7 +80,7 @@ public class SingIn {
                             
                             switch (finalRol) {
                                 case 0:
-                                    currentFrame = new frm_Dashboard_Admin();
+                                    currentFrame = new frm_Dashboard_Admin(UUID);
                                     Panel_Usuarios panelUsuarios = new Panel_Usuarios();
                                     ((frm_Dashboard_Admin) currentFrame).jpContenedor_Admin.add(panelUsuarios);
                                     Usuarios modeloUsuarios = new Usuarios();
@@ -82,10 +88,20 @@ public class SingIn {
                                     Ctrl_DashBoard_Admin controlador = new Ctrl_DashBoard_Admin((frm_Dashboard_Admin) currentFrame, panelUsuarios);
                                     break;
                                 case 1:
-                                    currentFrame = new frm_Dashboard_Employed();
+                                    currentFrame = new frm_Dashboard_Employed(UUID);
+                                    Panel_Caja_Employed panelCaja = new Panel_Caja_Employed(null);
+                                    ((frm_Dashboard_Employed) currentFrame).jpContenedor_Employed.add(panelCaja);
+                                    Ctrl_Caja controladorCaja = new Ctrl_Caja(panelCaja);
+                                    panelCaja.setControlador(controladorCaja);
+                                    controladorCaja.mostrarProductos();
+                                    Ctrl_DashBoard_Employed controladorEmployed = new Ctrl_DashBoard_Employed((frm_Dashboard_Employed) currentFrame, panelCaja, UUID);   
                                     break;
                                 case 2:
-                                    currentFrame = new frm_Dashboard_Client();
+                                    currentFrame = new frm_Dashboard_Client(UUID);
+                                    Panel_Inicio_Client panelOfertas = new Panel_Inicio_Client(null);
+                                    ((frm_Dashboard_Employed) currentFrame).jpContenedor_Employed.add(panelOfertas);
+                                    Ctrl_Ofertas_Client controladorOfertas = new Ctrl_Ofertas_Client(panelOfertas);
+                                    Ctrl_Dashboard_Client controladorCliente = new Ctrl_Dashboard_Client((frm_Dashboard_Client) currentFrame, panelOfertas, UUID);
                                     break;
                             }
 

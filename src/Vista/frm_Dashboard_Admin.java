@@ -11,10 +11,11 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class frm_Dashboard_Admin extends javax.swing.JFrame {
 
+    private String uuid;
     private Ctrl_DashBoard_Admin ctrl;
-    public frm_Dashboard_Admin() {
+    public frm_Dashboard_Admin(String uuid) {
+        this.uuid = uuid;
         try {
-            // UIManager.setLookAndFeel(new FlatLightLaf()); 
             UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
@@ -23,8 +24,8 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         initComponents();
     }
     
-    public static void init_frm_Dashboard_Admin(){
-        frm_Dashboard_Admin Vista = new frm_Dashboard_Admin();
+    public static void init_frm_Dashboard_Admin(String uuid){
+        frm_Dashboard_Admin Vista = new frm_Dashboard_Admin(uuid);
         Panel_Usuarios Panel = new Panel_Usuarios();
         Vista.jpContenedor_Admin.add(Panel);
         Vista.ctrl = new Ctrl_DashBoard_Admin(Vista, Panel);
@@ -42,8 +43,11 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
      });
         Vista.setVisible(true);
     }
-
-
+    
+    public String getUUID() {
+        return uuid;
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -153,7 +157,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         jpMenu_Admin.add(Btn_Ofertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, -1, -1));
 
         btn_logout_Dashboard_Admin.setText("Cerrar sesión");
-        jpMenu_Admin.add(btn_logout_Dashboard_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 670, 260, 40));
+        jpMenu_Admin.add(btn_logout_Dashboard_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 670, 255, 40));
         jpMenu_Admin.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 260, -1));
 
         jpContenedor_Admin.setBackground(new java.awt.Color(255, 252, 245));
@@ -199,9 +203,10 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_CostoEnvioActionPerformed
 
     public static void main(String args[]) {
+        String uuid = "d8d8d8d8d8d";
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                init_frm_Dashboard_Admin();
+                init_frm_Dashboard_Admin(uuid);
             }
         });
     }
@@ -218,7 +223,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     public javax.swing.JPanel jpContenedor_Admin;
     public javax.swing.JPanel jpMenu_Admin;
-    private Menu.Admin.Menu menu;
+    public Menu.Admin.Menu menu;
     private Menu.Admin.Menu menu1;
     // End of variables declaration//GEN-END:variables
 }

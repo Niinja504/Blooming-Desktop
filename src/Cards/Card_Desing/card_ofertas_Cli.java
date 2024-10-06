@@ -78,18 +78,12 @@ public class card_ofertas_Cli extends javax.swing.JPanel {
     private void initComponents() {
 
         shadow1 = new Componentes.Shadow();
-        bordesRendodeados1 = new Componentes.BordesRendodeados();
         Lbl_Titulo_CardOffers_Cli = new javax.swing.JLabel();
         Lbl_Porcentaje_CardOffers_Cli = new javax.swing.JLabel();
         IMG_CardOferta_Client = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setDoubleBuffered(false);
-        setEnabled(false);
-
-        bordesRendodeados1.setBackground(new java.awt.Color(204, 204, 204));
-        bordesRendodeados1.setEnabled(false);
 
         Lbl_Titulo_CardOffers_Cli.setForeground(new java.awt.Color(0, 0, 0));
         Lbl_Titulo_CardOffers_Cli.setText("jLabel1");
@@ -99,41 +93,33 @@ public class card_ofertas_Cli extends javax.swing.JPanel {
 
         IMG_CardOferta_Client.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        javax.swing.GroupLayout bordesRendodeados1Layout = new javax.swing.GroupLayout(bordesRendodeados1);
-        bordesRendodeados1.setLayout(bordesRendodeados1Layout);
-        bordesRendodeados1Layout.setHorizontalGroup(
-            bordesRendodeados1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bordesRendodeados1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(bordesRendodeados1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Lbl_Titulo_CardOffers_Cli)
-                    .addComponent(Lbl_Porcentaje_CardOffers_Cli))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                .addComponent(IMG_CardOferta_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
-        );
-        bordesRendodeados1Layout.setVerticalGroup(
-            bordesRendodeados1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bordesRendodeados1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(bordesRendodeados1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(IMG_CardOferta_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(bordesRendodeados1Layout.createSequentialGroup()
-                        .addComponent(Lbl_Titulo_CardOffers_Cli)
-                        .addGap(33, 33, 33)
-                        .addComponent(Lbl_Porcentaje_CardOffers_Cli)))
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bordesRendodeados1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Lbl_Titulo_CardOffers_Cli)
+                    .addComponent(Lbl_Porcentaje_CardOffers_Cli))
+                .addGap(42, 42, 42)
+                .addComponent(IMG_CardOferta_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bordesRendodeados1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(28, Short.MAX_VALUE)
+                        .addComponent(IMG_CardOferta_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(Lbl_Titulo_CardOffers_Cli)
+                        .addGap(41, 41, 41)
+                        .addComponent(Lbl_Porcentaje_CardOffers_Cli)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(32, 32, 32))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -142,7 +128,6 @@ public class card_ofertas_Cli extends javax.swing.JPanel {
     public javax.swing.JLabel IMG_CardOferta_Client;
     public javax.swing.JLabel Lbl_Porcentaje_CardOffers_Cli;
     public javax.swing.JLabel Lbl_Titulo_CardOffers_Cli;
-    private Componentes.BordesRendodeados bordesRendodeados1;
     private Componentes.Shadow shadow1;
     // End of variables declaration//GEN-END:variables
 }
