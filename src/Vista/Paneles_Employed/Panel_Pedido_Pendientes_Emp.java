@@ -1,12 +1,11 @@
 package Vista.Paneles_Employed;
 
-import Card.Item.PedidosEntregados_Admin;
-import Card.Item.PedidosEntregados_Emp;
-import Cards.Card_Desing.card_pedidos_Entregados_Emp;
-import Cards.EventItemImpl_PedidosEn_Emp;
-import Cards.Eventos.EventItem_PedidosEntregados_Emp;
+import Card.Item.PedidosPendientes_Emp;
+import Cards.Card_Desing.card_pedidos_Pendientes_Emp;
+import Cards.EventItemImpl_PedidosPe_Emp;
+import Cards.Eventos.EventItem_PedidosPendientes_Emp;
 import Cards.ScrollBar;
-import Controlador.Employed.Ctrl_PedidosEntregados_Emp;
+import Controlador.Employed.Ctrl_PedidosPendientes_Emp;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -18,14 +17,14 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class Panel_Pedidos_Entregados_Emp extends javax.swing.JPanel {
-
-    private EventItem_PedidosEntregados_Emp event;
-    private Ctrl_PedidosEntregados_Emp controlador; 
+public class Panel_Pedido_Pendientes_Emp extends javax.swing.JPanel {
     
-    public Panel_Pedidos_Entregados_Emp(Ctrl_PedidosEntregados_Emp controlador) {
+    private EventItem_PedidosPendientes_Emp event;
+    private Ctrl_PedidosPendientes_Emp controlador; 
+    
+    public Panel_Pedido_Pendientes_Emp(Ctrl_PedidosPendientes_Emp controlador) {
         this.controlador = controlador;
-        this.event = new EventItemImpl_PedidosEn_Emp();
+        this.event = new EventItemImpl_PedidosPe_Emp();
         try {
             UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
         } catch (UnsupportedLookAndFeelException e) {
@@ -37,19 +36,19 @@ public class Panel_Pedidos_Entregados_Emp extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new Dimension(300, 720));
     }
     
-    public void setControlador(Ctrl_PedidosEntregados_Emp controlador) {
+    public void setControlador(Ctrl_PedidosPendientes_Emp controlador) {
        this.controlador = controlador;
     }
 
-    public void addItem(PedidosEntregados_Emp data) {
-        card_pedidos_Entregados_Emp item = new card_pedidos_Entregados_Emp(controlador);
+    public void addItem(PedidosPendientes_Emp data) {
+        card_pedidos_Pendientes_Emp item = new card_pedidos_Pendientes_Emp(controlador);
         item.setData(data);
         item.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent me) {
                 if (SwingUtilities.isLeftMouseButton(me)) {
                     setSelected(item);
-                    event.itemClick(item, data, Panel_Pedidos_Entregados_Emp.this);
+                    event.itemClick(item, data, Panel_Pedido_Pendientes_Emp.this);
                 }
             }
         });
@@ -60,15 +59,15 @@ public class Panel_Pedidos_Entregados_Emp extends javax.swing.JPanel {
     
     public void setSelected(Component item){
         for (Component com : panelItem.getComponents()){
-            card_pedidos_Entregados_Emp i = (card_pedidos_Entregados_Emp) com;
+            card_pedidos_Pendientes_Emp i = (card_pedidos_Pendientes_Emp) com;
             if (i.isSelected()){
                 i.setSelected(false);
             }
         }
-        ((card_pedidos_Entregados_Emp) item).setSelected(true);
+        ((card_pedidos_Pendientes_Emp) item).setSelected(true);
     }
     
-    public void ShowItem(PedidosEntregados_Emp data){
+    public void ShowItem(PedidosPendientes_Emp data){
         Lbl_Nombre_Detalles_Pedido.setText(data.getNombreCliente());
         Lbl_FechaEntrga_Detalles_Pedido.setText(data.getFechaEntrega());
         Lbl_HoraEntrga_Detalles_Pedido.setText(data.getHorarioEntrega());
@@ -78,20 +77,19 @@ public class Panel_Pedidos_Entregados_Emp extends javax.swing.JPanel {
         Lbl_Costo_Detalles_Pedido.setText(df.format(data.getSubTotal()));
     }
     
-    public void cargarPedidos(List<PedidosEntregados_Emp> pedidos) {
+    public void cargarPedidos(List<PedidosPendientes_Emp> pedidos) {
        panelItem.removeAll(); 
-       for (PedidosEntregados_Emp pedido : pedidos) {
+       for (PedidosPendientes_Emp pedido : pedidos) {
             addItem(pedido);
         }
        panelItem.revalidate(); 
        panelItem.repaint();
     }
     
-    public void setEvent(EventItem_PedidosEntregados_Emp event) {
+    public void setEvent(EventItem_PedidosPendientes_Emp event) {
         this.event = event;
     }
-
-   
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -128,7 +126,7 @@ public class Panel_Pedidos_Entregados_Emp extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Pedidos entregados");
+        jLabel1.setText("Pedidos pendientes");
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Cliente:");

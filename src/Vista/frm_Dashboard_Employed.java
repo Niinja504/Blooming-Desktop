@@ -35,7 +35,7 @@ public class frm_Dashboard_Employed extends javax.swing.JFrame {
         @Override
         public void selected(int index, int subIndex) {
             if (subIndex == 1) {
-//                Vista.ctrl.AbrirPanelPendientes();
+                Vista.ctrl.AbrirPanelPendientes();
             }
             
             if (subIndex == 2){

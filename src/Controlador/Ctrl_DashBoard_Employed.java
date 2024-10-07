@@ -3,9 +3,11 @@ package Controlador;
 import Controlador.Employed.Ctrl_Caja;
 import Controlador.Employed.Ctrl_Inventario_Emp;
 import Controlador.Employed.Ctrl_PedidosEntregados_Emp;
+import Controlador.Employed.Ctrl_PedidosPendientes_Emp;
 import Controlador.Employed.Ctrl_Ventas_Emp;
 import Vista.Paneles_Employed.Panel_Caja_Employed;
 import Vista.Paneles_Employed.Panel_Inventario_Employed;
+import Vista.Paneles_Employed.Panel_Pedido_Pendientes_Emp;
 import Vista.Paneles_Employed.Panel_Pedidos_Entregados_Emp;
 import Vista.Paneles_Employed.Panel_Ventas_Employed;
 import Vista.frm_Dashboard_Employed;
@@ -80,6 +82,17 @@ public class Ctrl_DashBoard_Employed implements MouseListener {
             Vista.jpContenedor_Employed.revalidate();
             Vista.jpContenedor_Employed.repaint();
         }
+    }
+    
+    public void AbrirPanelPendientes(){
+        Panel_Pedido_Pendientes_Emp objPedidosPe = new Panel_Pedido_Pendientes_Emp(null);
+        Ctrl_PedidosPendientes_Emp controladorPedidosPe = new Ctrl_PedidosPendientes_Emp(objPedidosPe);           
+        objPedidosPe.setControlador(controladorPedidosPe);
+        controladorPedidosPe.mostrarPedidos();
+        Vista.jpContenedor_Employed.removeAll();
+        Vista.jpContenedor_Employed.add(objPedidosPe);
+        Vista.jpContenedor_Employed.revalidate();
+        Vista.jpContenedor_Employed.repaint();
     }
     
     public void AbrirPanelEntregados(){                                
