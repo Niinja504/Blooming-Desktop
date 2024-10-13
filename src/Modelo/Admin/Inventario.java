@@ -172,13 +172,23 @@ public class Inventario {
       int filaSeleccionada = Vista.jtb_Inventory.getSelectedRow();
       if (filaSeleccionada != -1) {
           String imgPath = (String) Vista.jtb_Inventory.getValueAt(filaSeleccionada, 1);
-          String NombreTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 2).toString();
-          String PrecioTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 3).toString();
-          String CantidadTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 4).toString();
-          String Categoria_FloresTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 5).toString();
-          String Categoria_DisenoTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 6).toString();
-          String Categoria_EventoTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 7).toString();
-          String DescripcionTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 8).toString();
+          //
+          //Esto nos permite establecer datos nulos si los hay claro =)
+          //
+          String NombreTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 2) != null ? 
+          Vista.jtb_Inventory.getValueAt(filaSeleccionada, 2).toString() : "";
+          String PrecioTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 3) != null
+                  ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 3).toString() : "0";
+          String CantidadTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 4) != null
+                  ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 4).toString() : "0";
+          String Categoria_FloresTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 5) != null
+                  ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 5).toString() : "";
+          String Categoria_DisenoTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 6) != null
+                  ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 6).toString() : "";
+          String Categoria_EventoTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 7) != null
+                  ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 7).toString() : "";
+          String DescripcionTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 8) != null
+                  ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 8).toString() : "";
         
           Vista.txt_Nombre_Inventory_Admin.setText(NombreTB);
           Vista.txt_Precio_Inventory_Admin.setText(PrecioTB);
@@ -219,7 +229,7 @@ public class Inventario {
     
       try { 
           PreparedStatement updateProduct = conexion.prepareStatement(
-            "UPDATE TbInventario SET Nombre_Producto = ?, Precio_Producto = ?, Cantidad_Bodega_Producto = ?, Categoria_Flores = ?, Categoria_Diseno = ?, Categoria_Evento = ?, Descripcion_Producto = ?  WHERE UUID_Producto = ?"
+            "UPDATE TbInventario SET Nombre_Producto = ?, Precio_Producto = ?, Cantidad_Bodega_Productos = ?, Categoria_Flores = ?, Categoria_Diseno = ?, Categoria_Evento = ?, Descripcion_Producto = ?  WHERE UUID_Producto = ?"
           );
 
           updateProduct.setString(1, getNombre_Producto());

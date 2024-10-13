@@ -184,26 +184,25 @@ public class Ofertas {
     }
     String uuidOferta = tabla.getValueAt(filaSeleccionada, 0).toString();
     
-    try { 
-        PreparedStatement updateOferta = conexion.prepareStatement(
-            "UPDATE TbUsers SET Nombres_User = ?, Apellido_User = ?, Nombre_de_Usuario = ?, Num_Telefono_User = ?, Email_User = ?, Contra_User = ? WHERE UUID_User = ?"
-        );
+        try {
+            PreparedStatement updateOferta = conexion.prepareStatement(
+                    "UPDATE TbOfertas SET Titulo = ?, Porcentaje_Oferta = ?, Decripcion_Oferta = ? WHERE UUID_Oferta = ?"
+            );
 
-        updateOferta.setString(1, getTitulo());
-        updateOferta.setString(2, getPorcentaje_Oferta());
-        updateOferta.setString(3, getDescripcion_Oferta());
-        updateOferta.setString(4, getImg_oferta());
-        updateOferta.setString(5, uuidOferta);
+            updateOferta.setString(1, getTitulo());
+            updateOferta.setString(2, getPorcentaje_Oferta());
+            updateOferta.setString(3, getDescripcion_Oferta());
+            updateOferta.setString(4, uuidOferta);
 
-        int rowsAffected = updateOferta.executeUpdate();
-        if (rowsAffected > 0) {
-            System.out.println("Registro actualizado correctamente.");
-        } else {
-            System.out.println("No se actualizó ningún registro. Verifique el UUID.");
+            int rowsAffected = updateOferta.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Registro actualizado correctamente.");
+            } else {
+                System.out.println("No se actualizó ningún registro. Verifique el UUID.");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error en el método de actualizar: " + e.getMessage());
         }
-
-    } catch (SQLException e) {
-        System.out.println("Error en el método de actualizar: " + e.getMessage());
     }
-   }
 }

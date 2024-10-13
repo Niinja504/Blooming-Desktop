@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class Usuarios {
+
     private String UUID_User;
     private String Nombres_User;
     private String Apellidos_User;
@@ -21,7 +22,7 @@ public class Usuarios {
     private String Img_User;
     private String Rol_User;
     private int Sesion_User;
-    
+
     private JLabel IMG_User_admin;
 
     public String getUUID_User() {
@@ -31,7 +32,7 @@ public class Usuarios {
     public void setUUID_User(String UUID_User) {
         this.UUID_User = UUID_User;
     }
-    
+
     public void generarUUID() {
         this.UUID_User = UUID.randomUUID().toString();
     }
@@ -115,7 +116,7 @@ public class Usuarios {
     public void setSesion_User(int Sesion_User) {
         this.Sesion_User = Sesion_User;
     }
-    
+
     public void Guardar() {
         Connection conexion = ClaseConexion.getConexion();
         try {
@@ -132,149 +133,147 @@ public class Usuarios {
             addUser.setString(10, getRol_User());
             addUser.setInt(11, getSesion_User());
             addUser.executeUpdate();
- 
+
         } catch (SQLException ex) {
             System.out.println("Este es el error en el modelo:metodo guardar " + ex);
         }
     }
-    
-   public void Eliminar(JTable tabla) {
-    Connection conexion = ClaseConexion.getConexion();
-    int filaSeleccionada = tabla.getSelectedRow();
-    if (filaSeleccionada == -1) {
-        System.out.println("No se ha seleccionado ninguna fila.");
-        return;
-    }
-    
-    String uuidUser = tabla.getValueAt(filaSeleccionada, 0).toString();
-    
-    String sql = "DELETE FROM TbUsers WHERE UUID_User = ?";
-    
-    try (PreparedStatement deleteUser = conexion.prepareStatement(sql)) {
-        deleteUser.setString(1, uuidUser);
-        int rowsAffected = deleteUser.executeUpdate();
-        
-        if (rowsAffected > 0) {
-            System.out.println("Registro eliminado correctamente.");
-        } else {
-            System.out.println("No se encontró ningún registro con el UUID especificado.");
+
+    public void Eliminar(JTable tabla) {
+        Connection conexion = ClaseConexion.getConexion();
+        int filaSeleccionada = tabla.getSelectedRow();
+        if (filaSeleccionada == -1) {
+            System.out.println("No se ha seleccionado ninguna fila.");
+            return;
         }
-    } catch (Exception e) {
-        System.out.println("Este es el error en el método de eliminar: " + e.getMessage());
+
+        String uuidUser = tabla.getValueAt(filaSeleccionada, 0).toString();
+
+        String sql = "DELETE FROM TbUsers WHERE UUID_User = ?";
+
+        try (PreparedStatement deleteUser = conexion.prepareStatement(sql)) {
+            deleteUser.setString(1, uuidUser);
+            int rowsAffected = deleteUser.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Registro eliminado correctamente.");
+            } else {
+                System.out.println("No se encontró ningún registro con el UUID especificado.");
+            }
+        } catch (Exception e) {
+            System.out.println("Este es el error en el método de eliminar: " + e.getMessage());
+        }
     }
-   }
 
     public void Mostrar(JTable tabla) {
-    Connection conexion = ClaseConexion.getConexion();
-    DefaultTableModel modeloDeDatos = new DefaultTableModel();
-    modeloDeDatos.setColumnIdentifiers(new Object[]{"UUID", "Nombre", "Apellido", "Usuario", "Telefono", "Edad", "Correo", "Rol"});
-    
-    try {
-        Statement statement = conexion.createStatement();
-        ResultSet rs = statement.executeQuery("SELECT UUID_User, Nombres_User, Apellido_User, Nombre_de_Usuario, Num_Telefono_User, Edad_User, Email_User, Rol_User FROM TbUsers");
-        while (rs.next()) {
-            modeloDeDatos.addRow(new Object[]{
-                rs.getString("UUID_User"),
-                rs.getString("Nombres_User"),
-                rs.getString("Apellido_User"),
-                rs.getString("Nombre_de_Usuario"),
-                rs.getString("Num_Telefono_User"),
-                rs.getInt("Edad_User"),
-                rs.getString("Email_User"),
-                rs.getString("Rol_User")
-            });
+        Connection conexion = ClaseConexion.getConexion();
+        DefaultTableModel modeloDeDatos = new DefaultTableModel();
+        modeloDeDatos.setColumnIdentifiers(new Object[]{"UUID", "Nombre", "Apellido", "Usuario", "Telefono", "Edad", "Correo", "Rol"});
+
+        try {
+            Statement statement = conexion.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT UUID_User, Nombres_User, Apellido_User, Nombre_de_Usuario, Num_Telefono_User, Edad_User, Email_User, Rol_User FROM TbUsers");
+            while (rs.next()) {
+                modeloDeDatos.addRow(new Object[]{
+                    rs.getString("UUID_User"),
+                    rs.getString("Nombres_User"),
+                    rs.getString("Apellido_User"),
+                    rs.getString("Nombre_de_Usuario"),
+                    rs.getString("Num_Telefono_User"),
+                    rs.getInt("Edad_User"),
+                    rs.getString("Email_User"),
+                    rs.getString("Rol_User")
+                });
+            }
+            tabla.setModel(modeloDeDatos);
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        } catch (Exception e) {
+            System.out.println("Este es el error en el modelo, metodo mostrar " + e);
         }
-        tabla.setModel(modeloDeDatos);
-        tabla.getColumnModel().getColumn(0).setMinWidth(0);
-        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-    } catch (Exception e) {
-        System.out.println("Este es el error en el modelo, metodo mostrar " + e);
     }
-   }
-    
+
     public void cargarDatosTabla(Panel_Usuarios Vista) {
-    int filaSeleccionada = Vista.jtb_Usuarios.getSelectedRow();
-    if (filaSeleccionada != -1) {
-        String NombresTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 1).toString();
-        String ApellidosTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 2).toString();
-        String NombreDeUsuarioTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 3).toString();
-        String TelefonoTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 4).toString();
-        String EdadTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 5).toString();
-        String CorreoTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 6).toString();
-        String RolTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 7).toString();
-        
-        Vista.txt_Nombre.setText(NombresTB);
-        Vista.txt_Apellido.setText(ApellidosTB);
-        Vista.txt_NombreDeUsuario.setText(NombreDeUsuarioTB);
-        Vista.txt_Telefono.setText(TelefonoTB);
-        Vista.txt_Edad.setText(EdadTB);
-        Vista.txt_Correo.setText(CorreoTB);
-        Vista.cb_Rol.setSelectedItem(RolTB);
-    } else {
-        System.out.println("No se ha seleccionado ninguna fila.");
-    }
-   }
-    
-    public void Actualizar(JTable tabla) {
-    Connection conexion = ClaseConexion.getConexion();
-    int filaSeleccionada = tabla.getSelectedRow();
-    if (filaSeleccionada == -1) {
-        System.out.println("No se ha seleccionado ninguna fila.");
-        return;
-    }
-    String uuidUser = tabla.getValueAt(filaSeleccionada, 0).toString();
-    
-    try { 
-        PreparedStatement updateUser = conexion.prepareStatement(
-            "UPDATE TbUsers SET Nombres_User = ?, Apellido_User = ?, Nombre_de_Usuario = ?, Num_Telefono_User = ?, Email_User = ?, Contra_User = ? WHERE UUID_User = ?"
-        );
+        int filaSeleccionada = Vista.jtb_Usuarios.getSelectedRow();
+        if (filaSeleccionada != -1) {
+            String NombresTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 1).toString();
+            String ApellidosTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 2).toString();
+            String NombreDeUsuarioTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 3).toString();
+            String TelefonoTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 4).toString();
+            String EdadTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 5).toString();
+            String CorreoTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 6).toString();
+            String RolTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 7).toString();
 
-        updateUser.setString(1, getNombres_User());
-        updateUser.setString(2, getApellidos_User());
-        updateUser.setString(3, getNombre_de_Usuario());
-        updateUser.setString(4, getNum_Telefono_User());
-        updateUser.setString(5, getEmail_User());
-        updateUser.setString(6, getContra_User());
-        updateUser.setString(7, uuidUser);
-
-        int rowsAffected = updateUser.executeUpdate();
-        if (rowsAffected > 0) {
-            System.out.println("Registro actualizado correctamente.");
+            Vista.txt_Nombre.setText(NombresTB);
+            Vista.txt_Apellido.setText(ApellidosTB);
+            Vista.txt_NombreDeUsuario.setText(NombreDeUsuarioTB);
+            Vista.txt_Telefono.setText(TelefonoTB);
+            Vista.txt_Edad.setText(EdadTB);
+            Vista.txt_Correo.setText(CorreoTB);
+            Vista.cb_Rol.setSelectedItem(RolTB);
         } else {
-            System.out.println("No se actualizó ningún registro. Verifique el UUID.");
+            System.out.println("No se ha seleccionado ninguna fila.");
         }
-
-    } catch (SQLException e) {
-        System.out.println("Error en el método de actualizar: " + e.getMessage());
     }
-   }
 
-    
+    public void Actualizar(JTable tabla) {
+        Connection conexion = ClaseConexion.getConexion();
+        int filaSeleccionada = tabla.getSelectedRow();
+        if (filaSeleccionada == -1) {
+            System.out.println("No se ha seleccionado ninguna fila.");
+            return;
+        }
+        String uuidUser = tabla.getValueAt(filaSeleccionada, 0).toString();
+
+        try {
+            PreparedStatement updateUser = conexion.prepareStatement(
+                    "UPDATE TbUsers SET Nombres_User = ?, Apellido_User = ?, Nombre_de_Usuario = ?, Num_Telefono_User = ?, Email_User = ?, Contra_User = ? WHERE UUID_User = ?"
+            );
+
+            updateUser.setString(1, getNombres_User());
+            updateUser.setString(2, getApellidos_User());
+            updateUser.setString(3, getNombre_de_Usuario());
+            updateUser.setString(4, getNum_Telefono_User());
+            updateUser.setString(5, getEmail_User());
+            updateUser.setString(6, getContra_User());
+            updateUser.setString(7, uuidUser);
+
+            int rowsAffected = updateUser.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Registro actualizado correctamente.");
+            } else {
+                System.out.println("No se actualizó ningún registro. Verifique el UUID.");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error en el método de actualizar: " + e.getMessage());
+        }
+    }
+
     public void Buscar(JTable tabla, JTextField txtBuscar) {
-    Connection conexion = ClaseConexion.getConexion();
-    DefaultTableModel modelo = new DefaultTableModel();
-    modelo.setColumnIdentifiers(new Object[]{"UUID_User", "Nombre", "Apellido", "Usuario", "Telefono", "Edad", "Correo", "Rol"});
-    try {
-        PreparedStatement searchUser = conexion.prepareStatement("SELECT * FROM TbUsers WHERE Nombres_User LIKE ?");
-        searchUser.setString(1, "%" + txtBuscar.getText() + "%");
-        ResultSet rs = searchUser.executeQuery();
-        while (rs.next()) {
-            modelo.addRow(new Object[]{
-                rs.getString("UUID_User"),
-                rs.getString("Nombres_User"),
-                rs.getString("Apellido_User"),
-                rs.getString("Nombre_de_Usuario"),
-                rs.getString("Num_Telefono_User"),
-                rs.getInt("Edad_User"),
-                rs.getString("Email_User"),
-                rs.getString("Rol_User")
-            });
+        Connection conexion = ClaseConexion.getConexion();
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.setColumnIdentifiers(new Object[]{"UUID_User", "Nombre", "Apellido", "Usuario", "Telefono", "Edad", "Correo", "Rol"});
+        try {
+            PreparedStatement searchUser = conexion.prepareStatement("SELECT * FROM TbUsers WHERE Nombres_User LIKE ?");
+            searchUser.setString(1, "%" + txtBuscar.getText() + "%");
+            ResultSet rs = searchUser.executeQuery();
+            while (rs.next()) {
+                modelo.addRow(new Object[]{
+                    rs.getString("UUID_User"),
+                    rs.getString("Nombres_User"),
+                    rs.getString("Apellido_User"),
+                    rs.getString("Nombre_de_Usuario"),
+                    rs.getString("Num_Telefono_User"),
+                    rs.getInt("Edad_User"),
+                    rs.getString("Email_User"),
+                    rs.getString("Rol_User")
+                });
+            }
+            tabla.setModel(modelo);
+        } catch (Exception e) {
+            System.out.println("Este es el error en el modelo, metodo buscar " + e);
         }
-        tabla.setModel(modelo);
-    } catch (Exception e) {
-        System.out.println("Este es el error en el modelo, metodo buscar " + e);
     }
-   }
-    
 
 }

@@ -4,12 +4,11 @@ import Vista.frm_SignIn;
 import Modelo.SingIn;
 import Vista.frm_Password_recovery1;
 import Modelo.Password_recovery1;
-import Modelo.Register;
-import Vista.frm_Register;
 import static Vista.frm_Register.init_frm_Register;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class Ctrl_SingIn extends MouseAdapter {
     private frm_SignIn Vista;
@@ -24,9 +23,22 @@ public class Ctrl_SingIn extends MouseAdapter {
         Vista.btn_SingIn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                procesarLogin();
+                if (validarCamposVacios()) {
+                    procesarLogin();
+                }
             }
         });
+    }
+    
+    public boolean validarCamposVacios() {
+        String correo = Vista.txt_Correo_SingIn.getText().trim();
+        String contraseña = new String(Vista.txt_Contra_SingIn.getPassword()).trim();
+        
+        if (correo.isEmpty() || contraseña.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Los campos de correo y contraseña no deben estar vacíos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
     }
 
     public void procesarLogin() {

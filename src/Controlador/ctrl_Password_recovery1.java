@@ -22,7 +22,9 @@ public class Ctrl_Password_recovery1 extends MouseAdapter {
         Vista.btn_EnviarCodigo_Password_Recovery1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                enviarCodigo();
+                if (validarCampoVacio()) {
+                    enviarCodigo();
+                }
             }
         });
     }
@@ -48,6 +50,15 @@ public class Ctrl_Password_recovery1 extends MouseAdapter {
         } else {
             JOptionPane.showMessageDialog(Vista, "El correo electrónico proporcionado no existe en la base de datos.", "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    
+    public boolean validarCampoVacio() {
+        String correo = Vista.txt_Correo_Password_Recovery1.getText().trim();
+        if (correo.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "El campo no debe de estar vacio.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
     }
 
     public void mouseClicked(MouseEvent e) {

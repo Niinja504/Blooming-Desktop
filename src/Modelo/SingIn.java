@@ -1,18 +1,6 @@
 package Modelo;
 
-import Controlador.Admin.Ctrl_Usuarios;
-import Controlador.Client.Ctrl_Ofertas_Client;
-import Controlador.Ctrl_DashBoard_Admin;
-import Controlador.Ctrl_DashBoard_Employed;
-import Controlador.Ctrl_Dashboard_Client;
-import Controlador.Employed.Ctrl_Caja;
-import Modelo.Admin.Usuarios;
-import Vista.Paneles_Admin.Panel_Usuarios;
-import Vista.Paneles_Client.Panel_Inicio_Client;
-import Vista.Paneles_Employed.Panel_Caja_Employed;
-import Vista.frm_Dashboard_Admin;
-import Vista.frm_Dashboard_Client;
-import Vista.frm_Dashboard_Employed;
+import static Vista.frm_Dashboard_Admin.init_frm_Dashboard_Admin;
 import Vista.frm_SignIn;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -20,11 +8,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.Timer;
+import javax.swing.JPanel;
 
 public class SingIn {
+
     private final frm_SignIn Vista;
 
     public SingIn(frm_SignIn vista) {
@@ -42,7 +31,7 @@ public class SingIn {
 
             String ContraseEncrip = hashSHA256(Vista.txt_Contra_SingIn.getText());
             String Correo = Vista.txt_Correo_SingIn.getText();
-            
+
             String sql = "SELECT * FROM TbUsers WHERE Email_User = ? AND Contra_User = ?";
             PreparedStatement Comprobar_Usu = conexion.prepareStatement(sql);
             Comprobar_Usu.setString(1, Correo);
@@ -52,77 +41,34 @@ public class SingIn {
             if (Resultado.next()) {
                 String RolS = Resultado.getString("Rol_User");
                 String UUID = Resultado.getString("UUID_User");
-                
+
                 Integer Rol = null;
                 if (RolS != null) {
-                    final String finalRolS = RolS;
-                    switch (RolS) {
-                        case "Administrador":
-                            Rol = 0;
-                            break;
-                        case "Empleado":
-                            Rol = 1;
-                            break;
-                        case "Cliente":
-                            Rol = 2;
-                            break;
-                        default:
-                            Rol = null;
-                            break;
+                    if (RolS.equals("Administrador")) {
+                        Rol = 0;
+                    } else {
+                        JPanel mensajePanel = new JPanel();
+                        mensajePanel.add(new JLabel("Esta aplicación está hecha solo para administradores."));
+                        JOptionPane.showMessageDialog(Vista, mensajePanel, "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
+                        return;
                     }
 
                     if (Rol != null) {
                         final Integer finalRol = Rol;
                         Vista.setVisible(false);
 
-                        Timer timer = new Timer(200, e -> {
-                            JFrame currentFrame = null;
-                            
-                            switch (finalRol) {
-                                case 0:
-                                    currentFrame = new frm_Dashboard_Admin(UUID);
-                                    Panel_Usuarios panelUsuarios = new Panel_Usuarios();
-                                    ((frm_Dashboard_Admin) currentFrame).jpContenedor_Admin.add(panelUsuarios);
-                                    Usuarios modeloUsuarios = new Usuarios();
-                                    Ctrl_Usuarios controladorUsuarios = new Ctrl_Usuarios(modeloUsuarios, panelUsuarios);
-                                    Ctrl_DashBoard_Admin controlador = new Ctrl_DashBoard_Admin((frm_Dashboard_Admin) currentFrame, panelUsuarios);
-                                    break;
-                                case 1:
-                                    currentFrame = new frm_Dashboard_Employed(UUID);
-                                    Panel_Caja_Employed panelCaja = new Panel_Caja_Employed(null);
-                                    ((frm_Dashboard_Employed) currentFrame).jpContenedor_Employed.add(panelCaja);
-                                    Ctrl_Caja controladorCaja = new Ctrl_Caja(panelCaja);
-                                    panelCaja.setControlador(controladorCaja);
-                                    controladorCaja.mostrarProductos();
-                                    Ctrl_DashBoard_Employed controladorEmployed = new Ctrl_DashBoard_Employed((frm_Dashboard_Employed) currentFrame, panelCaja, UUID);   
-                                    break;
-                                case 2:
-                                    currentFrame = new frm_Dashboard_Client(UUID);
-                                    Panel_Inicio_Client panelOfertas = new Panel_Inicio_Client(null);
-                                    ((frm_Dashboard_Employed) currentFrame).jpContenedor_Employed.add(panelOfertas);
-                                    Ctrl_Ofertas_Client controladorOfertas = new Ctrl_Ofertas_Client(panelOfertas);
-                                    Ctrl_Dashboard_Client controladorCliente = new Ctrl_Dashboard_Client((frm_Dashboard_Client) currentFrame, panelOfertas, UUID);
-                                    break;
+                        if (finalRol == 0) {
+                                init_frm_Dashboard_Admin(UUID);
                             }
 
-                            if (currentFrame != null) {
-                                currentFrame.setVisible(true);
-                            } else {
-                                System.err.println("Error: No se pudo abrir la ventana correspondiente");
-                            }
-                            
-                            System.out.println("El rol del usuario es: " + finalRolS);
-
+                            System.out.println("El rol del usuario es: " + RolS);
                             Vista.dispose();
-                        });
-
-                        timer.setRepeats(false);
-                        timer.start();
                     }
                 }
             } else {
                 JOptionPane.showMessageDialog(Vista, "El correo o la contraseña son incorrectos.", "Error", JOptionPane.ERROR_MESSAGE);
             }
+
         } catch (SQLException ex) {
             System.out.println("Error: " + ex.getMessage());
         } finally {

@@ -8,10 +8,12 @@ import Controlador.Admin.Ctrl_Ventas_Admin;
 import Controlador.Admin.Ctrl_Inventario;
 import Controlador.Admin.Ctrl_Costo_Envio;
 import Controlador.Admin.Ctrl_PedidosEntregados_admin;
+import Controlador.Admin.Ctrl_Perfil;
 import Modelo.ComboBox.Lista_Productos;
 import Modelo.Admin.Costo_Envio;
 import Modelo.Admin.Inventario;
 import Modelo.Admin.Ofertas;
+import Modelo.Admin.Perfil;
 import Modelo.Admin.Usuarios;
 import Vista.Paneles_Admin.Panel_CostoEnvio_Admin;
 import Vista.Paneles_Admin.Panel_Inventario;
@@ -28,10 +30,12 @@ import java.awt.event.MouseListener;
 public class Ctrl_DashBoard_Admin implements MouseListener {
     frm_Dashboard_Admin Vista;
     Panel_Usuarios Panel;   
+    String UUID;
     
-    public Ctrl_DashBoard_Admin(frm_Dashboard_Admin vista, Panel_Usuarios Panel){
+    public Ctrl_DashBoard_Admin(frm_Dashboard_Admin vista, Panel_Usuarios Panel, String UUID){
         this.Vista = vista;
         this.Panel = Panel;
+        this.UUID = UUID;
         
         System.out.println("Controlador inicializado.");
         
@@ -112,7 +116,6 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
             Vista.jpContenedor_Admin.repaint();
         }
         
-        
         if(e.getSource() == Vista.Btn_Ventas){
             //1-Creo un objeto del panel que quiero mostrar
             Panel_Ventas objVentas = new Panel_Ventas(null);
@@ -130,9 +133,13 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
         }
         
         if(e.getSource() == Vista.Btn_Perfil){
-            //1-Creo un objeto del panel que quiero mostrar
-            Panel_Perfil objPerfil = new Panel_Perfil();
-            
+            Perfil modeloPerfil = new Perfil();
+            Panel_Perfil objPerfil = new Panel_Perfil(UUID, null);
+            Ctrl_Perfil controladorPerfil = new Ctrl_Perfil(modeloPerfil, objPerfil);
+
+            // Establecer el controlador en el panel
+            objPerfil.setControlador(controladorPerfil);
+            controladorPerfil.Cargar(UUID);
             //2- Limpio el panel contendor (por si acaso)
             Vista.jpContenedor_Admin.removeAll();
             //3- muestro el panel que quiero

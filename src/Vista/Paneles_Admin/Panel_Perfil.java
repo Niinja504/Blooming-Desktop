@@ -1,5 +1,6 @@
 package Vista.Paneles_Admin;
 
+import Controlador.Admin.Ctrl_Perfil;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -9,7 +10,13 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 public class Panel_Perfil extends javax.swing.JPanel {
-    public Panel_Perfil() {
+
+    private String UUID;
+    private Ctrl_Perfil controlador;
+
+    public Panel_Perfil(String UUID, Ctrl_Perfil controlador) {
+        this.UUID = UUID;
+        this.controlador = controlador;
         try {
             UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
         } catch (UnsupportedLookAndFeelException e) {
@@ -18,7 +25,16 @@ public class Panel_Perfil extends javax.swing.JPanel {
         initComponents();
         initCustomComponents();
     }
-                
+
+    public String getUUID() {
+        return UUID;
+    }
+
+    public void setControlador(Ctrl_Perfil controlador) {
+        this.controlador = controlador;
+        controlador.Cargar(UUID);
+    }
+
     private void initCustomComponents() {
         try {
             InputStream imageStream = getClass().getResourceAsStream("/Vista/images/profile_user.png");
@@ -38,36 +54,37 @@ public class Panel_Perfil extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        btn_delete_photo_admin = new javax.swing.JButton();
+        Txt_Nombres_Profile = new javax.swing.JTextField();
         btn_Upload_photo_Admin = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        Txt_Apellidos_Profile = new javax.swing.JTextField();
+        Txt_NombreUsuario_Profile = new javax.swing.JTextField();
+        Txt_Correo_Profile = new javax.swing.JTextField();
+        Txt_Edad_Profile = new javax.swing.JTextField();
+        Txt_Telefono_Profile = new javax.swing.JTextField();
         roundedImagePanel = new Componentes.RoundedImagePanel();
         jLabel1 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        Txt_Contra_Profile = new javax.swing.JPasswordField();
+        Txt_ContraConfirmar_Profile = new javax.swing.JPasswordField();
+        Btn_Update_Perfil = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 252, 245));
 
-        jTextField1.setText("Nombres");
+        Txt_Nombres_Profile.setText("Nombres");
 
-        btn_delete_photo_admin.setText("Eliminar");
-
+        btn_Upload_photo_Admin.setForeground(new java.awt.Color(255, 255, 255));
         btn_Upload_photo_Admin.setText("Subir");
 
-        jTextField2.setText("Apellidos");
+        Txt_Apellidos_Profile.setText("Apellidos");
 
-        jTextField3.setText("Nombre de usuario");
+        Txt_NombreUsuario_Profile.setText("Nombre de usuario");
 
-        jTextField4.setText("Correo");
+        Txt_Correo_Profile.setText("Correo");
 
-        jTextField5.setText("Edad");
+        Txt_Edad_Profile.setText("Edad");
 
-        jTextField6.setText("Telèfono");
+        Txt_Telefono_Profile.setText("Telèfono");
 
         roundedImagePanel.setBackground(new java.awt.Color(255, 252, 245));
 
@@ -86,9 +103,14 @@ public class Panel_Perfil extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Contraseña");
 
-        jPasswordField1.setText("jPasswordField1");
+        Btn_Update_Perfil.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Update_Perfil.setText("Actualizar");
 
-        jPasswordField2.setText("jPasswordField2");
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Nueva Contraseña");
+
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Confirmar contraseña");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -99,25 +121,32 @@ public class Panel_Perfil extends javax.swing.JPanel {
                 .addComponent(roundedImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
                 .addComponent(btn_Upload_photo_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(btn_delete_photo_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
+                .addGap(211, 211, 211))
             .addGroup(layout.createSequentialGroup()
-                .addGap(94, 94, 94)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE))
-                        .addGap(58, 58, 58)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
-                            .addComponent(jPasswordField2))))
+                        .addGap(94, 94, 94)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(Txt_Contra_Profile, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Txt_Edad_Profile, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Txt_NombreUsuario_Profile, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Txt_Nombres_Profile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE))
+                                    .addComponent(jLabel2))
+                                .addGap(58, 58, 58)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(Txt_Apellidos_Profile)
+                                        .addComponent(Txt_Correo_Profile)
+                                        .addComponent(Txt_Telefono_Profile, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                                        .addComponent(Txt_ContraConfirmar_Profile))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(291, 291, 291)
+                        .addComponent(Btn_Update_Perfil, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -126,46 +155,52 @@ public class Panel_Perfil extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(116, 116, 116)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_delete_photo_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_Upload_photo_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_Upload_photo_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(roundedImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Txt_Nombres_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Txt_Apellidos_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Txt_NombreUsuario_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Txt_Correo_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                    .addComponent(jTextField5))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Txt_Edad_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Txt_Telefono_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Txt_Contra_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Txt_ContraConfirmar_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                    .addComponent(jPasswordField1))
-                .addGap(102, 102, 102))
+                .addComponent(Btn_Update_Perfil, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton Btn_Update_Perfil;
+    public javax.swing.JTextField Txt_Apellidos_Profile;
+    public javax.swing.JPasswordField Txt_ContraConfirmar_Profile;
+    public javax.swing.JPasswordField Txt_Contra_Profile;
+    public javax.swing.JTextField Txt_Correo_Profile;
+    public javax.swing.JTextField Txt_Edad_Profile;
+    public javax.swing.JTextField Txt_NombreUsuario_Profile;
+    public javax.swing.JTextField Txt_Nombres_Profile;
+    public javax.swing.JTextField Txt_Telefono_Profile;
     public javax.swing.JButton btn_Upload_photo_Admin;
-    public javax.swing.JButton btn_delete_photo_admin;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    public javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     public Componentes.RoundedImagePanel roundedImagePanel;
     // End of variables declaration//GEN-END:variables
 }

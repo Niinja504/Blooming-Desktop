@@ -28,7 +28,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         frm_Dashboard_Admin Vista = new frm_Dashboard_Admin(uuid);
         Panel_Usuarios Panel = new Panel_Usuarios();
         Vista.jpContenedor_Admin.add(Panel);
-        Vista.ctrl = new Ctrl_DashBoard_Admin(Vista, Panel);
+        Vista.ctrl = new Ctrl_DashBoard_Admin(Vista, Panel, uuid);
         Vista.menu.setEvent(new MenuEvent() {
         @Override
         public void selected(int index, int subIndex) {
@@ -57,13 +57,14 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         Btn_Usuarios = new javax.swing.JButton();
         Btn_Inventario = new javax.swing.JButton();
         Btn_CostoEnvio = new javax.swing.JButton();
-        Btn_Ventas = new javax.swing.JButton();
+        Btn_Notificaciones = new javax.swing.JButton();
         Btn_Perfil = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Btn_Ofertas = new javax.swing.JButton();
         btn_logout_Dashboard_Admin = new javax.swing.JButton();
         menu = new Menu.Admin.Menu();
+        Btn_Ventas = new javax.swing.JButton();
         jpContenedor_Admin = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -103,20 +104,20 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
                 Btn_CostoEnvioActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_CostoEnvio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 160, 50));
+        jpMenu_Admin.add(Btn_CostoEnvio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 160, 50));
 
-        Btn_Ventas.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
-        Btn_Ventas.setForeground(new java.awt.Color(255, 255, 255));
-        Btn_Ventas.setText("Ventas");
-        Btn_Ventas.setBorderPainted(false);
-        Btn_Ventas.setContentAreaFilled(false);
-        Btn_Ventas.setFocusPainted(false);
-        Btn_Ventas.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Notificaciones.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        Btn_Notificaciones.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Notificaciones.setText("Notificaciones");
+        Btn_Notificaciones.setBorderPainted(false);
+        Btn_Notificaciones.setContentAreaFilled(false);
+        Btn_Notificaciones.setFocusPainted(false);
+        Btn_Notificaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_VentasActionPerformed(evt);
+                Btn_NotificacionesActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 100, -1));
+        jpMenu_Admin.add(Btn_Notificaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 150, -1));
 
         Btn_Perfil.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         Btn_Perfil.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,11 +155,24 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
                 Btn_OfertasActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_Ofertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, -1, -1));
+        jpMenu_Admin.add(Btn_Ofertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, -1, -1));
 
         btn_logout_Dashboard_Admin.setText("Cerrar sesión");
         jpMenu_Admin.add(btn_logout_Dashboard_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 670, 255, 40));
-        jpMenu_Admin.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 260, -1));
+        jpMenu_Admin.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 260, -1));
+
+        Btn_Ventas.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        Btn_Ventas.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Ventas.setText("Ventas");
+        Btn_Ventas.setBorderPainted(false);
+        Btn_Ventas.setContentAreaFilled(false);
+        Btn_Ventas.setFocusPainted(false);
+        Btn_Ventas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_VentasActionPerformed(evt);
+            }
+        });
+        jpMenu_Admin.add(Btn_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 100, -1));
 
         jpContenedor_Admin.setBackground(new java.awt.Color(255, 252, 245));
         jpContenedor_Admin.setLayout(new java.awt.BorderLayout());
@@ -194,13 +208,17 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Btn_InventarioActionPerformed
 
-    private void Btn_VentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_VentasActionPerformed
+    private void Btn_NotificacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NotificacionesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Btn_VentasActionPerformed
+    }//GEN-LAST:event_Btn_NotificacionesActionPerformed
 
     private void Btn_CostoEnvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CostoEnvioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Btn_CostoEnvioActionPerformed
+
+    private void Btn_VentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_VentasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_VentasActionPerformed
 
     public static void main(String args[]) {
         String uuid = "d8d8d8d8d8d";
@@ -214,6 +232,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton Btn_CostoEnvio;
     public javax.swing.JButton Btn_Inventario;
+    public javax.swing.JButton Btn_Notificaciones;
     public javax.swing.JButton Btn_Ofertas;
     public javax.swing.JButton Btn_Perfil;
     public javax.swing.JButton Btn_Usuarios;

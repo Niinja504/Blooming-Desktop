@@ -19,7 +19,6 @@ public class frm_SignIn extends javax.swing.JFrame {
    
     public frm_SignIn(Ctrl_SingIn controlador) {
         try {
-            // UIManager.setLookAndFeel(new FlatLightLaf()); 
             UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();

@@ -25,37 +25,49 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-              <Component id="IMG_Inventory_admin" min="-2" pref="280" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txt_Buscar_Inventory_Admin" min="-2" pref="532" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txt_Nombre_Inventory_Admin" alignment="0" min="-2" pref="309" max="-2" attributes="0"/>
-                          <Component id="txt_Precio_Inventory_Admin" alignment="0" min="-2" pref="309" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="Cb_Categoria_Evento_Inventory_admin" alignment="0" max="32767" attributes="0"/>
-                              <Component id="Cb_Categoria_Diseno_Inventory_admin" alignment="0" max="32767" attributes="0"/>
-                              <Component id="Cb_Categoria_Flores_Inventory_admin" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txt_Cantidad_Inventory_Admin" alignment="0" pref="309" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="IMG_Inventory_admin" min="-2" pref="280" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
+                              <Component id="btn_Upload_photo_Inventario" min="-2" pref="109" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="btn_Update_Inventory_Admin" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btn_Add_Inventory_Admin" alignment="1" max="32767" attributes="0"/>
-                          <Component id="Btn_Delete_Inventory_Admin" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txt_Buscar_Inventory_Admin" min="-2" pref="532" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txt_Nombre_Inventory_Admin" alignment="0" min="-2" pref="309" max="-2" attributes="0"/>
+                                  <Component id="txt_Precio_Inventory_Admin" alignment="0" min="-2" pref="309" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="Cb_Categoria_Evento_Inventory_admin" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="Cb_Categoria_Diseno_Inventory_admin" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="Cb_Categoria_Flores_Inventory_admin" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txt_Cantidad_Inventory_Admin" alignment="0" pref="309" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="btn_Update_Inventory_Admin" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btn_Add_Inventory_Admin" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="Btn_Delete_Inventory_Admin" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -64,16 +76,6 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txt_Buscar_Inventory_Admin" min="-2" pref="36" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                      <Component id="btn_Add_Inventory_Admin" min="-2" pref="37" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                      <Component id="btn_Update_Inventory_Admin" min="-2" pref="37" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                      <Component id="Btn_Delete_Inventory_Admin" min="-2" pref="37" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -93,10 +95,28 @@
                               <Component id="IMG_Inventory_admin" min="-2" pref="280" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Cb_Categoria_Evento_Inventory_admin" min="-2" pref="40" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" pref="62" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btn_Upload_photo_Inventario" min="-2" pref="46" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Cb_Categoria_Evento_Inventory_admin" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="62" max="-2" attributes="0"/>
+                      <Component id="txt_Buscar_Inventory_Admin" min="-2" pref="36" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                      <Component id="btn_Add_Inventory_Admin" min="-2" pref="37" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="btn_Update_Inventory_Admin" min="-2" pref="37" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="Btn_Delete_Inventory_Admin" min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="37" max="32767" attributes="0"/>
@@ -331,6 +351,14 @@
         <Property name="text" type="java.lang.String" value="Eliminar"/>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="focusPainted" type="boolean" value="false"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_Upload_photo_Inventario">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Subir foto"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
