@@ -153,6 +153,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         Btn_Delete_Inventory_Admin.setBorderPainted(false);
         Btn_Delete_Inventory_Admin.setFocusPainted(false);
 
+        btn_Upload_photo_Inventario.setForeground(new java.awt.Color(255, 255, 255));
         btn_Upload_photo_Inventario.setText("Subir foto");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -219,36 +219,36 @@ public class Inventario {
     }
     
     public void Actualizar(JTable tabla) {
-       Connection conexion = ClaseConexion.getConexion();
-       int filaSeleccionada = tabla.getSelectedRow();
-       if (filaSeleccionada == -1) {
-           System.out.println("No se ha seleccionado ninguna fila.");
-           return;
+        Connection conexion = ClaseConexion.getConexion();
+        int filaSeleccionada = tabla.getSelectedRow();
+        if (filaSeleccionada == -1) {
+            System.out.println("No se ha seleccionado ninguna fila.");
+            return;
         }
-       String uuidProduct = tabla.getValueAt(filaSeleccionada, 0).toString();
-    
-      try { 
-          PreparedStatement updateProduct = conexion.prepareStatement(
-            "UPDATE TbInventario SET Nombre_Producto = ?, Precio_Producto = ?, Cantidad_Bodega_Productos = ?, Categoria_Flores = ?, Categoria_Diseno = ?, Categoria_Evento = ?, Descripcion_Producto = ?  WHERE UUID_Producto = ?"
-          );
+        String uuidProduct = tabla.getValueAt(filaSeleccionada, 0).toString();
 
-          updateProduct.setString(1, getNombre_Producto());
-          updateProduct.setFloat(2, getPrecio_Producto());
-          updateProduct.setInt(3, getCantidad_Bodega_Productos());
-          updateProduct.setString(4, getCategoria_Flores());
-          updateProduct.setString(5, getCategoria_Diseno());
-          updateProduct.setString(6, getCategoria_Evento());
-          updateProduct.setString(7, getDescripcion_Producto());
-          updateProduct.setString(8, uuidProduct);
+        try {
+            PreparedStatement updateProduct = conexion.prepareStatement(
+                    "UPDATE TbInventario SET Nombre_Producto = ?, Precio_Producto = ?, Cantidad_Bodega_Productos = ?, Categoria_Flores = ?, Categoria_Diseno = ?, Categoria_Evento = ?, Descripcion_Producto = ?  WHERE UUID_Producto = ?"
+            );
 
-          int rowsAffected = updateProduct.executeUpdate();
-          if (rowsAffected > 0) {
-            System.out.println("Registro actualizado correctamente.");
-          } else {
-            System.out.println("No se actualizó ningún registro. Verifique el UUID.");
-          }
+            updateProduct.setString(1, getNombre_Producto());
+            updateProduct.setFloat(2, getPrecio_Producto());
+            updateProduct.setInt(3, getCantidad_Bodega_Productos());
+            updateProduct.setString(4, getCategoria_Flores());
+            updateProduct.setString(5, getCategoria_Diseno());
+            updateProduct.setString(6, getCategoria_Evento());
+            updateProduct.setString(7, getDescripcion_Producto());
+            updateProduct.setString(8, uuidProduct);
+
+            int rowsAffected = updateProduct.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Registro actualizado correctamente.");
+            } else {
+                System.out.println("No se actualizó ningún registro. Verifique el UUID.");
+            }
         } catch (SQLException e) {
-        System.out.println("Error en el método de actualizar: " + e.getMessage());
+            System.out.println("Error en el método de actualizar: " + e.getMessage());
         }
     }
     

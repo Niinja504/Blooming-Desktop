@@ -7,6 +7,7 @@ import Controlador.Admin.Ctrl_Usuarios;
 import Controlador.Admin.Ctrl_Ventas_Admin;
 import Controlador.Admin.Ctrl_Inventario;
 import Controlador.Admin.Ctrl_Costo_Envio;
+import Controlador.Admin.Ctrl_Notificaciones;
 import Controlador.Admin.Ctrl_PedidosEntregados_admin;
 import Controlador.Admin.Ctrl_Perfil;
 import Modelo.ComboBox.Lista_Productos;
@@ -15,8 +16,11 @@ import Modelo.Admin.Inventario;
 import Modelo.Admin.Ofertas;
 import Modelo.Admin.Perfil;
 import Modelo.Admin.Usuarios;
+import Modelo.ClaseConexion;
+import java.sql.*;
 import Vista.Paneles_Admin.Panel_CostoEnvio_Admin;
 import Vista.Paneles_Admin.Panel_Inventario;
+import Vista.Paneles_Admin.Panel_Notificaciones;
 import Vista.Paneles_Admin.Panel_Ofertas;
 import Vista.Paneles_Admin.Panel_Pedidos_Entregados;
 import Vista.Paneles_Admin.Panel_Pedidos_Pendientes;
@@ -24,8 +28,12 @@ import Vista.Paneles_Admin.Panel_Perfil;
 import Vista.Paneles_Admin.Panel_Usuarios;
 import Vista.Paneles_Admin.Panel_Ventas;
 import Vista.frm_Dashboard_Admin;
+import static Vista.frm_SignIn.init_frm_SignIn;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 public class Ctrl_DashBoard_Admin implements MouseListener {
     frm_Dashboard_Admin Vista;
@@ -44,7 +52,9 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
         Vista.Btn_CostoEnvio.addMouseListener(this);
         Vista.Btn_Ofertas.addMouseListener(this);
         Vista.Btn_Ventas.addMouseListener(this);
+        Vista.Btn_Notificaciones.addMouseListener(this);
         Vista.Btn_Perfil.addMouseListener(this);
+        Vista.btn_logout_Dashboard_Admin.addMouseListener(this);
     }
         
     @Override
@@ -132,10 +142,26 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
             Vista.jpContenedor_Admin.repaint();
         }
         
+        if(e.getSource() == Vista.Btn_Notificaciones){
+            Panel_Notificaciones objNotificaciones = new Panel_Notificaciones(null);
+            Ctrl_Notificaciones controladorNotificaciones = new Ctrl_Notificaciones(objNotificaciones, UUID);
+            // Establecer el controlador en el panel
+            objNotificaciones.setControlador(controladorNotificaciones);
+            controladorNotificaciones.mostrarNotificacion();
+            //2- Limpio el panel contendor (por si acaso)
+            Vista.jpContenedor_Admin.removeAll();
+            //3- muestro el panel que quiero
+            Vista.jpContenedor_Admin.add(objNotificaciones);
+            
+            //4- Refrescar todo
+            Vista.jpContenedor_Admin.revalidate();
+            Vista.jpContenedor_Admin.repaint();
+        }
+        
         if(e.getSource() == Vista.Btn_Perfil){
             Perfil modeloPerfil = new Perfil();
             Panel_Perfil objPerfil = new Panel_Perfil(UUID, null);
-            Ctrl_Perfil controladorPerfil = new Ctrl_Perfil(modeloPerfil, objPerfil);
+            Ctrl_Perfil controladorPerfil = new Ctrl_Perfil(modeloPerfil, objPerfil, UUID);
 
             // Establecer el controlador en el panel
             objPerfil.setControlador(controladorPerfil);
@@ -149,8 +175,54 @@ public class Ctrl_DashBoard_Admin implements MouseListener {
             Vista.jpContenedor_Admin.revalidate();
             Vista.jpContenedor_Admin.repaint();
         }
+        
+        if(e.getSource() == Vista.btn_logout_Dashboard_Admin){
+            Connection connection = ClaseConexion.getConexion();
+            cerrarSesion(connection); 
+        }
     }
     
+    private void cerrarSesion(Connection connection) {
+        int resultado = JOptionPane.showConfirmDialog(
+                null,
+                "¿Estás seguro de que deseas cerrar sesión?",
+                "Cerrar sesión",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (resultado == JOptionPane.YES_OPTION) {
+            new Thread(() -> {
+                PreparedStatement cerrar = null;
+
+                try {
+                    String sql = "UPDATE TbUsers SET Sesion_User = ? WHERE UUID_User = ?";
+                    cerrar = connection.prepareStatement(sql);
+                    int cerrado = 0;
+
+                    cerrar.setInt(1, cerrado);
+                    cerrar.setString(2, UUID);
+                    cerrar.executeUpdate();
+                    
+                    Vista.dispose();
+                    init_frm_SignIn();
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } finally {
+                    try {
+                        if (cerrar != null) {
+                            cerrar.close();
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        } else if (resultado == JOptionPane.NO_OPTION) {
+            
+        }
+    }
+
     public void AbrirPanelPendientes(){
         Panel_Pedidos_Pendientes objPedidosPe = new Panel_Pedidos_Pendientes(null);
         Ctrl_PedidosPendientes_admin controladorPedidosPe = new Ctrl_PedidosPendientes_admin(objPedidosPe);           

@@ -112,7 +112,25 @@ public class Perfil {
     
     public void ActualizarPerfil(String UUID){
         Connection conexion = ClaseConexion.getConexion();
-        
+        try {
+            PreparedStatement updateProfile = conexion.prepareStatement(
+                    "UPDATE TbUsers SET Nombres_User = ?, Apellido_User = ?, Nombre_de_Usuario = ?, Num_Telefono_User = ?, Edad_User = ?, Email_User = ?, Contra_User = ?, Img_User  WHERE UUID_User = ?"
+            );
+
+            updateProfile.setString(1, getNombres_User());
+            updateProfile.setString(2, getApellido_User());
+            updateProfile.setString(3, getNombre_de_Usuario());
+            updateProfile.setString(4, getNum_Telefono_User());
+            updateProfile.setInt(5, getEdad_User());
+            updateProfile.setString(6, getEmail_User());
+            updateProfile.setString(7, getContra_User());
+            updateProfile.setString(8, getImg_User());
+            updateProfile.setString(9, getUUID_User());
+            updateProfile.executeUpdate();
+            
+        } catch (SQLException e) {
+            System.out.println("Error en el método de actualizar: " + e.getMessage());
+        }
         
     }
 

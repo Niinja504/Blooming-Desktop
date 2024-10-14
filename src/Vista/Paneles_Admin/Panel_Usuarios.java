@@ -60,7 +60,7 @@ public class Panel_Usuarios extends javax.swing.JPanel {
         btn_Update = new javax.swing.JButton();
         Btn_Delete = new javax.swing.JButton();
         btn_Agregar = new javax.swing.JButton();
-        txt_Contra1 = new javax.swing.JTextField();
+        txt_Contra = new javax.swing.JTextField();
         IMG_User = new javax.swing.JLabel();
         btn_Upload_photo_User = new javax.swing.JButton();
 
@@ -120,6 +120,7 @@ public class Panel_Usuarios extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jtb_Usuarios.setPreferredSize(new java.awt.Dimension(520, 80));
         jScrollPane1.setViewportView(jtb_Usuarios);
 
         txt_Apellido.setForeground(new java.awt.Color(255, 255, 255));
@@ -270,19 +271,19 @@ public class Panel_Usuarios extends javax.swing.JPanel {
             }
         });
 
-        txt_Contra1.setForeground(new java.awt.Color(255, 255, 255));
-        txt_Contra1.setText("Contraseña");
-        txt_Contra1.addFocusListener(new java.awt.event.FocusAdapter() {
+        txt_Contra.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Contra.setText("Contraseña");
+        txt_Contra.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_Contra1FocusGained(evt);
+                txt_ContraFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_Contra1FocusLost(evt);
+                txt_ContraFocusLost(evt);
             }
         });
-        txt_Contra1.addActionListener(new java.awt.event.ActionListener() {
+        txt_Contra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Contra1ActionPerformed(evt);
+                txt_ContraActionPerformed(evt);
             }
         });
 
@@ -301,7 +302,7 @@ public class Panel_Usuarios extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_Contra1)
+                                    .addComponent(txt_Contra)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(txt_Telefono)
@@ -317,27 +318,22 @@ public class Panel_Usuarios extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(107, 107, 107)
                                 .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 135, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(IMG_User, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(99, 99, 99)
-                        .addComponent(btn_Upload_photo_User, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(57, 57, 57)
+                        .addComponent(IMG_User, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(btn_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(Btn_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(txt_Buscar)
-                            .addContainerGap()))))
+                            .addComponent(Btn_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
+                        .addComponent(txt_Buscar))
+                    .addComponent(btn_Upload_photo_User, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 6, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -352,14 +348,12 @@ public class Panel_Usuarios extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_Update)
                             .addComponent(Btn_Delete))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(39, 39, 39)
+                        .addComponent(btn_Upload_photo_User, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IMG_User, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(btn_Upload_photo_User, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(IMG_User, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -369,7 +363,7 @@ public class Panel_Usuarios extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_Correo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_Contra1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_Contra, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_Confirmar_Contra, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -379,9 +373,8 @@ public class Panel_Usuarios extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cb_Rol, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(btn_Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -558,17 +551,17 @@ public class Panel_Usuarios extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_Confirmar_ContraActionPerformed
 
-    private void txt_Contra1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Contra1FocusGained
+    private void txt_ContraFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ContraFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Contra1FocusGained
+    }//GEN-LAST:event_txt_ContraFocusGained
 
-    private void txt_Contra1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Contra1FocusLost
+    private void txt_ContraFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ContraFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Contra1FocusLost
+    }//GEN-LAST:event_txt_ContraFocusLost
 
-    private void txt_Contra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Contra1ActionPerformed
+    private void txt_ContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ContraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Contra1ActionPerformed
+    }//GEN-LAST:event_txt_ContraActionPerformed
 
     private void txt_EdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_EdadActionPerformed
         // TODO add your handling code here:
@@ -593,7 +586,7 @@ public class Panel_Usuarios extends javax.swing.JPanel {
     public javax.swing.JTextField txt_Apellido;
     public javax.swing.JTextField txt_Buscar;
     public javax.swing.JTextField txt_Confirmar_Contra;
-    public javax.swing.JTextField txt_Contra1;
+    public javax.swing.JTextField txt_Contra;
     public javax.swing.JTextField txt_Correo;
     public javax.swing.JTextField txt_Edad;
     public javax.swing.JTextField txt_Nombre;

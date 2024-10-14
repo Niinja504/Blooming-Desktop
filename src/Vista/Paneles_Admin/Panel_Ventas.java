@@ -32,7 +32,6 @@ public class Panel_Ventas extends javax.swing.JPanel {
         }
         initComponents();
         scroll.setVerticalScrollBar(new ScrollBar());
-        panelItem.setPreferredSize(new Dimension(600, 720));
         jPanel.setPreferredSize(new Dimension(300, 720));
     }
     

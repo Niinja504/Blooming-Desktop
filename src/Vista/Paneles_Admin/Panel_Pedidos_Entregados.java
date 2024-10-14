@@ -32,7 +32,6 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
         }
         initComponents();
         scroll.setVerticalScrollBar(new ScrollBar());
-        panelItem.setPreferredSize(new Dimension(600, 720));
         jPanel4.setPreferredSize(new Dimension(300, 720));
     }
     

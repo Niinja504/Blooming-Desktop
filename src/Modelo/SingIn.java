@@ -60,8 +60,6 @@ public class SingIn {
                         if (finalRol == 0) {
                                 init_frm_Dashboard_Admin(UUID);
                             }
-
-                            System.out.println("El rol del usuario es: " + RolS);
                             Vista.dispose();
                     }
                 }

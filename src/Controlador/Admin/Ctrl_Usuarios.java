@@ -1,6 +1,8 @@
 package Controlador.Admin;
 
+import Componentes.Limites;
 import Modelo.Admin.Usuarios;
+import static Modelo.SingIn.hashSHA256;
 import Vista.Paneles_Admin.Panel_Usuarios;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -16,6 +18,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
+import javax.swing.text.AbstractDocument;
 
 public class Ctrl_Usuarios implements MouseListener {
 
@@ -34,6 +37,15 @@ public class Ctrl_Usuarios implements MouseListener {
         vista.Btn_Delete.addMouseListener(this);
         vista.btn_Upload_photo_User.addMouseListener(this);
         
+        //Limites de caracteres
+        ((AbstractDocument) Vista.txt_Nombre.getDocument()).setDocumentFilter(new Limites(15));
+        ((AbstractDocument) Vista.txt_Apellido.getDocument()).setDocumentFilter(new Limites(15));
+        ((AbstractDocument) Vista.txt_NombreDeUsuario.getDocument()).setDocumentFilter(new Limites(13));
+        ((AbstractDocument) Vista.txt_Telefono.getDocument()).setDocumentFilter(new Limites(11));
+        ((AbstractDocument) Vista.txt_Correo.getDocument()).setDocumentFilter(new Limites(30));
+        ((AbstractDocument) Vista.txt_Contra.getDocument()).setDocumentFilter(new Limites(20));
+        ((AbstractDocument) Vista.txt_Confirmar_Contra.getDocument()).setDocumentFilter(new Limites(20));
+        
         Vista.txt_Edad.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -50,7 +62,7 @@ public class Ctrl_Usuarios implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == Vista.btn_Agregar) {
-            if (!verificarCampos()) {
+            if (!verificarCampos() || !verificarContra()) {
                 return;
             }
 
@@ -72,7 +84,8 @@ public class Ctrl_Usuarios implements MouseListener {
             }
 
             Modelo.setEmail_User(Vista.txt_Correo.getText());
-            Modelo.setContra_User(Vista.txt_Confirmar_Contra.getText());
+            String ContraseEncrip = hashSHA256(Vista.txt_Contra.getText());
+            Modelo.setContra_User(ContraseEncrip);
             
             if (imageUrl != null) {
                 Modelo.setImg_User(imageUrl);
@@ -136,22 +149,64 @@ public class Ctrl_Usuarios implements MouseListener {
         }
 
         if (e.getSource() == Vista.btn_Update) {
+            if (!verificarContraUpdate()) {
+                return;
+            }
+
             Modelo.setNombres_User(Vista.txt_Nombre.getText());
             Modelo.setApellidos_User(Vista.txt_Apellido.getText());
             Modelo.setNombre_de_Usuario(Vista.txt_NombreDeUsuario.getText());
             Modelo.setNum_Telefono_User(Vista.txt_Telefono.getText());
-            Modelo.setEdad_User(Integer.parseInt(Vista.txt_Edad.getText()));
+
+            try {
+                int edad = Integer.parseInt(Vista.txt_Edad.getText());
+                Modelo.setEdad_User(edad);
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(Vista, "Por favor, ingrese un valor numérico válido para la edad.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
             Modelo.setEmail_User(Vista.txt_Correo.getText());
-            Modelo.setContra_User(Vista.txt_Confirmar_Contra.getText());
+
+            if (!Vista.txt_Contra.getText().isEmpty()) {
+                String ContraseEncrip = hashSHA256(Vista.txt_Contra.getText());
+                Modelo.setContra_User(ContraseEncrip);
+            }
+
             if (imageUrl != null) {
                 Modelo.setImg_User(imageUrl);
             }
+
             String Rol_User = Vista.cb_Rol.getSelectedItem().toString();
             Modelo.setRol_User(Rol_User);
             Modelo.Actualizar(Vista.jtb_Usuarios);
             Modelo.Mostrar(Vista.jtb_Usuarios);
         }
+
     }
+    
+    private boolean verificarContra() {
+        String contrasenia = Vista.txt_Contra.getText();
+        String confirmarContrasenia = Vista.txt_Confirmar_Contra.getText();
+
+        if (!contrasenia.equals(confirmarContrasenia)) {
+            JOptionPane.showMessageDialog(Vista, "Las contraseñas no coinciden.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+
+    private boolean verificarContraUpdate() {
+        String contrasenia = Vista.txt_Contra.getText();
+        String confirmarContrasenia = Vista.txt_Confirmar_Contra.getText();
+
+        if (!contrasenia.isEmpty() && !contrasenia.equals(confirmarContrasenia)) {
+            JOptionPane.showMessageDialog(Vista, "Las contraseñas no coinciden.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+
 
     private boolean verificarCampos() {
         String nombres = Vista.txt_Nombre.getText();

@@ -2,8 +2,13 @@ package Modelo.Admin;
 
 import Modelo.ClaseConexion;
 import Vista.Paneles_Admin.Panel_Usuarios;
+import java.awt.Image;
+import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
 import java.util.UUID;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -168,11 +173,11 @@ public class Usuarios {
     public void Mostrar(JTable tabla) {
         Connection conexion = ClaseConexion.getConexion();
         DefaultTableModel modeloDeDatos = new DefaultTableModel();
-        modeloDeDatos.setColumnIdentifiers(new Object[]{"UUID", "Nombre", "Apellido", "Usuario", "Telefono", "Edad", "Correo", "Rol"});
+        modeloDeDatos.setColumnIdentifiers(new Object[]{"UUID", "Nombre", "Apellido", "Usuario", "Telefono", "Edad", "Correo", "Img_User", "Rol"});
 
         try {
             Statement statement = conexion.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT UUID_User, Nombres_User, Apellido_User, Nombre_de_Usuario, Num_Telefono_User, Edad_User, Email_User, Rol_User FROM TbUsers");
+            ResultSet rs = statement.executeQuery("SELECT UUID_User, Nombres_User, Apellido_User, Nombre_de_Usuario, Num_Telefono_User, Edad_User, Email_User, Img_User, Rol_User FROM TbUsers");
             while (rs.next()) {
                 modeloDeDatos.addRow(new Object[]{
                     rs.getString("UUID_User"),
@@ -182,12 +187,15 @@ public class Usuarios {
                     rs.getString("Num_Telefono_User"),
                     rs.getInt("Edad_User"),
                     rs.getString("Email_User"),
+                    rs.getString("Img_User"),
                     rs.getString("Rol_User")
                 });
             }
             tabla.setModel(modeloDeDatos);
             tabla.getColumnModel().getColumn(0).setMinWidth(0);
             tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(7).setMinWidth(0);
+            tabla.getColumnModel().getColumn(7).setMaxWidth(0);
         } catch (Exception e) {
             System.out.println("Este es el error en el modelo, metodo mostrar " + e);
         }
@@ -202,7 +210,8 @@ public class Usuarios {
             String TelefonoTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 4).toString();
             String EdadTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 5).toString();
             String CorreoTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 6).toString();
-            String RolTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 7).toString();
+            String imgPath = (String) Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 7);
+            String RolTB = Vista.jtb_Usuarios.getValueAt(filaSeleccionada, 8).toString();
 
             Vista.txt_Nombre.setText(NombresTB);
             Vista.txt_Apellido.setText(ApellidosTB);
@@ -211,6 +220,22 @@ public class Usuarios {
             Vista.txt_Edad.setText(EdadTB);
             Vista.txt_Correo.setText(CorreoTB);
             Vista.cb_Rol.setSelectedItem(RolTB);
+            
+            //Funcion que nos permitira mostrar la imagen al seleccionar el registro de la tabla
+            if (imgPath != null && !imgPath.isEmpty()) {
+                try {
+                    URL url = new URL(imgPath);
+                    Image image = ImageIO.read(url);
+                    ImageIcon icon = new ImageIcon(image);
+                    Vista.IMG_User.setIcon(icon);
+                    Vista.IMG_User.setText(null);
+                } catch (IOException e) {
+                    System.out.println("Error al cargar la imagen: " + e.getMessage());
+                }
+            } else {
+                Vista.IMG_User.setIcon(null);
+            }
+            
         } else {
             System.out.println("No se ha seleccionado ninguna fila.");
         }

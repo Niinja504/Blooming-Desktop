@@ -32,7 +32,6 @@ public class Panel_Pedidos_Pendientes extends javax.swing.JPanel {
         }
         initComponents();
         scroll.setVerticalScrollBar(new ScrollBar());
-        panelItem.setPreferredSize(new Dimension(600, 720));
         jPanel1.setPreferredSize(new Dimension(300, 720));
     }
     

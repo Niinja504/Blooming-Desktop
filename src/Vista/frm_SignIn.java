@@ -66,7 +66,6 @@ public class frm_SignIn extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        Lbl_Register_SingIn = new javax.swing.JLabel();
         lbl_Recuperar_Contra_SignIn = new javax.swing.JLabel();
         btn_SingIn = new javax.swing.JButton();
         txt_Correo_SingIn = new javax.swing.JTextField();
@@ -100,10 +99,6 @@ public class frm_SignIn extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("para continuar");
-
-        Lbl_Register_SingIn.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        Lbl_Register_SingIn.setForeground(new java.awt.Color(255, 255, 255));
-        Lbl_Register_SingIn.setText("¿No tienes una cuenta?");
 
         lbl_Recuperar_Contra_SignIn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_Recuperar_Contra_SignIn.setForeground(new java.awt.Color(255, 255, 255));
@@ -163,10 +158,6 @@ public class frm_SignIn extends javax.swing.JFrame {
                         .addGap(76, 76, 76))
                     .addComponent(btn_SingIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Lbl_Register_SingIn)
-                .addGap(136, 136, 136))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,8 +174,6 @@ public class frm_SignIn extends javax.swing.JFrame {
                 .addComponent(lbl_Recuperar_Contra_SignIn)
                 .addGap(26, 26, 26)
                 .addComponent(btn_SingIn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Lbl_Register_SingIn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -326,7 +315,6 @@ public class frm_SignIn extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel Lbl_Register_SingIn;
     public javax.swing.JButton btn_SingIn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

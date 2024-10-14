@@ -1,8 +1,10 @@
 package Vista;
 
+import Controlador.Admin.Ctrl_Usuarios;
 import Vista.Paneles_Admin.Panel_Usuarios;
 import Controlador.Ctrl_DashBoard_Admin;
 import Menu.Admin.MenuEvent;
+import Modelo.Admin.Usuarios;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
@@ -27,6 +29,8 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
     public static void init_frm_Dashboard_Admin(String uuid){
         frm_Dashboard_Admin Vista = new frm_Dashboard_Admin(uuid);
         Panel_Usuarios Panel = new Panel_Usuarios();
+        Usuarios modeloUsuarios = new Usuarios();
+        Ctrl_Usuarios controladorUsuarios = new Ctrl_Usuarios(modeloUsuarios, Panel);
         Vista.jpContenedor_Admin.add(Panel);
         Vista.ctrl = new Ctrl_DashBoard_Admin(Vista, Panel, uuid);
         Vista.menu.setEvent(new MenuEvent() {
@@ -157,6 +161,7 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         });
         jpMenu_Admin.add(Btn_Ofertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, -1, -1));
 
+        btn_logout_Dashboard_Admin.setForeground(new java.awt.Color(255, 255, 255));
         btn_logout_Dashboard_Admin.setText("Cerrar sesión");
         jpMenu_Admin.add(btn_logout_Dashboard_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 670, 255, 40));
         jpMenu_Admin.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 260, -1));

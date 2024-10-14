@@ -1,5 +1,6 @@
 package Controlador.Admin;
 
+import Componentes.Limites;
 import Modelo.Admin.Inventario;
 import Vista.Paneles_Admin.Panel_Inventario;
 import java.awt.event.KeyAdapter;
@@ -16,6 +17,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
+import javax.swing.text.AbstractDocument;
 
 
 public class Ctrl_Inventario implements MouseListener {
@@ -33,6 +35,10 @@ public class Ctrl_Inventario implements MouseListener {
         vista.jtb_Inventory.addMouseListener(this);
         vista.Btn_Delete_Inventory_Admin.addMouseListener(this);
         Vista.btn_Upload_photo_Inventario.addMouseListener(this);
+        
+        ((AbstractDocument) Vista.txt_Nombre_Inventory_Admin.getDocument()).setDocumentFilter(new Limites(28));
+        ((AbstractDocument) Vista.txt_Precio_Inventory_Admin.getDocument()).setDocumentFilter(new Limites(8));
+        ((AbstractDocument) Vista.txt_Descrip_Inventory_Admin.getDocument()).setDocumentFilter(new Limites(2000));
         
         Vista.txt_Precio_Inventory_Admin.addKeyListener(new KeyAdapter() {
             @Override

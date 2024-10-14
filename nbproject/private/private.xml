@@ -5,12 +5,9 @@
         <group>
             <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/Paneles_Admin/Panel_Perfil.java</file>
             <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Controlador/Admin/Ctrl_Perfil.java</file>
+            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Controlador/Admin/Ctrl_Usuarios.java</file>
             <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Controlador/Admin/Ctrl_Inventario.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/python/Subir_IMG_Profile.py</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Controlador/Admin/Ctrl_PedidosPendientes_admin.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/frm_Dashboard_Admin.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Controlador/Ctrl_DashBoard_Admin.java</file>
-            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Vista/Paneles_Admin/Panel_Inventario.java</file>
+            <file>file:/C:/Users/vladk/Desktop/Blooming-Desktop/src/Modelo/Admin/Perfil.java</file>
         </group>
     </open-files>
 </project-private>

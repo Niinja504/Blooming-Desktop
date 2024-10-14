@@ -1,5 +1,6 @@
 package Controlador.Admin;
 
+import Componentes.Limites;
 import Modelo.Admin.Costo_Envio;
 import Vista.Paneles_Admin.Panel_CostoEnvio_Admin;
 import java.awt.event.KeyAdapter;
@@ -7,6 +8,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
+import javax.swing.text.AbstractDocument;
 import org.jxmapviewer.viewer.GeoPosition;
 
 public class Ctrl_Costo_Envio implements MouseListener {
@@ -23,6 +25,9 @@ public class Ctrl_Costo_Envio implements MouseListener {
         vista.btn_Update_Cost_Admin.addMouseListener(this);
         vista.jtb_Cost.addMouseListener(this);
         vista.btn_Delete_Cost_Admin.addMouseListener(this);
+        
+        ((AbstractDocument) Vista.txt_Zona_Cost_Admin.getDocument()).setDocumentFilter(new Limites(30));
+        ((AbstractDocument) Vista.txt_Costo_Cost_Admin.getDocument()).setDocumentFilter(new Limites(6));
         
         Vista.txt_Costo_Cost_Admin.addKeyListener(new KeyAdapter() {
             @Override

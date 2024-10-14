@@ -1,5 +1,6 @@
 package Controlador.Admin;
 
+import Componentes.Limites;
 import Modelo.ComboBox.Lista_Productos;
 import Modelo.Admin.Ofertas;
 import Vista.Paneles_Admin.Panel_Ofertas;
@@ -19,6 +20,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
+import javax.swing.text.AbstractDocument;
 
 public class Ctrl_Ofertas implements MouseListener {
 
@@ -39,6 +41,10 @@ public class Ctrl_Ofertas implements MouseListener {
         vista.Btn_Delete_Offers_Admin.addMouseListener(this);
         vista.btn_Upload_photo_Ofertas.addMouseListener(this);
         this.ModeloCom.CargarComboProductos(Vista.Cb_Productos_Offers_Admin);
+        
+        ((AbstractDocument) Vista.txt_Titulo_Offers_Admin.getDocument()).setDocumentFilter(new Limites(14));
+        ((AbstractDocument) Vista.txt_Porcentaje_Offers_Admin.getDocument()).setDocumentFilter(new Limites(3));
+        ((AbstractDocument) Vista.txt_Descrip_Offers_Admin.getDocument()).setDocumentFilter(new Limites(400));
 
         Vista.Cb_Productos_Offers_Admin.addActionListener(e -> {
             if (e.getSource() == Vista.Cb_Productos_Offers_Admin) {
