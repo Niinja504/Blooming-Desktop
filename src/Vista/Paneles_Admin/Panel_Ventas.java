@@ -13,6 +13,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.DecimalFormat;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -64,6 +65,22 @@ public class Panel_Ventas extends javax.swing.JPanel {
             }
         }
         ((card_sales_Ad) item).setSelected(true);
+    }
+    
+    public void eliminarNotificacion(card_sales_Ad item) {
+        if (item != null && item.getData() != null) {
+            String uuid = item.getData().getUuid();
+            boolean eliminado = controlador.eliminarVenta(uuid);
+            if (eliminado) {
+                JOptionPane.showMessageDialog(this, "La notificación se ha eliminado exitosamente.", "Eliminación Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                controlador.mostrarVentas();
+                cargarVentas(controlador.cargarVentas());
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo eliminar la notificación.", "Error en la Eliminación", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No se pudo eliminar la notificación.", "Error en la Eliminación", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     public void ShowItem(Sales_Admin data){
@@ -120,134 +137,64 @@ public class Panel_Ventas extends javax.swing.JPanel {
         scroll.setViewportView(panelItem);
 
         jPanel.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel37.setForeground(new java.awt.Color(0, 0, 0));
         jLabel37.setText("Ventas");
+        jPanel.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 6, -1, -1));
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombre cliente:");
+        jPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 362, -1, -1));
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre empleado:");
+        jPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 390, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Informaciòn de envio:");
+        jPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 434, -1, -1));
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Fecha de la venta:");
+        jPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 468, -1, -1));
 
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Hora de la venta:");
+        jPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 513, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Detalles del pedido:");
+        jPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 563, -1, -1));
 
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Total de la venta:");
+        jPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 591, -1, -1));
 
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Eliminar venta");
+        jPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 684, 272, 36));
+        jPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 547, 272, 10));
+        jPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 418, 272, 10));
+        jPanel.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 346, 272, 10));
 
         lbl_NombreCliente_Ventas_Admin.setForeground(new java.awt.Color(0, 0, 0));
-        lbl_NombreCliente_Ventas_Admin.setText("jLabel8");
+        jPanel.add(lbl_NombreCliente_Ventas_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 362, -1, -1));
 
         lbl_NombreEmpleado_Ventas_Admin.setForeground(new java.awt.Color(0, 0, 0));
-        lbl_NombreEmpleado_Ventas_Admin.setText("jLabel8");
+        jPanel.add(lbl_NombreEmpleado_Ventas_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 390, -1, -1));
 
         lbl_FechaVenta_Ventas_Admin.setForeground(new java.awt.Color(0, 0, 0));
-        lbl_FechaVenta_Ventas_Admin.setText("jLabel8");
+        jPanel.add(lbl_FechaVenta_Ventas_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 468, -1, -1));
 
         lbl_HoraVenta_Ventas_Admin.setForeground(new java.awt.Color(0, 0, 0));
-        lbl_HoraVenta_Ventas_Admin.setText("jLabel8");
+        jPanel.add(lbl_HoraVenta_Ventas_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 513, -1, -1));
 
         lbl_TotalVenta_Ventas_Admin.setForeground(new java.awt.Color(0, 0, 0));
-        lbl_TotalVenta_Ventas_Admin.setText("jLabel8");
-
-        javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
-        jPanel.setLayout(jPanelLayout);
-        jPanelLayout.setHorizontalGroup(
-            jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jSeparator1)
-            .addComponent(jSeparator2)
-            .addComponent(jSeparator3)
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(jLabel37))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_NombreEmpleado_Ventas_Admin)
-                            .addComponent(lbl_NombreCliente_Ventas_Admin)))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanelLayout.createSequentialGroup()
-                                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
-                                .addGap(49, 49, 49)
-                                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_HoraVenta_Ventas_Admin)
-                                    .addComponent(lbl_FechaVenta_Ventas_Admin)))))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(42, 42, 42)
-                                .addComponent(lbl_TotalVenta_Ventas_Admin))
-                            .addComponent(jLabel6))))
-                .addContainerGap(78, Short.MAX_VALUE))
-        );
-        jPanelLayout.setVerticalGroup(
-            jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel37)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(lbl_NombreCliente_Ventas_Admin))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lbl_NombreEmpleado_Ventas_Admin))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(lbl_FechaVenta_Ventas_Admin))
-                .addGap(29, 29, 29)
-                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(lbl_HoraVenta_Ventas_Admin))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(lbl_TotalVenta_Ventas_Admin))
-                .addGap(77, 77, 77)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel.add(lbl_TotalVenta_Ventas_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 591, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -260,7 +207,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+            .addComponent(scroll)
             .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents

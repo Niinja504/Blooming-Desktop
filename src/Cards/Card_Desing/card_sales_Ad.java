@@ -4,6 +4,7 @@ import Card.Item.Sales_Admin;
 import Controlador.Admin.Ctrl_Ventas_Admin;
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -11,28 +12,32 @@ import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 public class card_sales_Ad extends javax.swing.JPanel {
-    
+
     private boolean selected;
     private Sales_Admin data;
     private Ctrl_Ventas_Admin controlador;
-    
-    public boolean isSelected(){
+
+    public boolean isSelected() {
         return selected;
     }
-    
-    public void setSelected(boolean selected){
+
+    public void setSelected(boolean selected) {
         this.selected = selected;
         repaint();
     }
-    
+
     public card_sales_Ad(Ctrl_Ventas_Admin controlador) {
         this.controlador = controlador;
         initComponents();
         setOpaque(false);
         Btn_delete_Venta.addActionListener(e -> eliminarVenta());
+        
+        setPreferredSize(new Dimension(274, 206));
+        setMinimumSize(new Dimension(274, 206)); 
+        setMaximumSize(new Dimension(274, 206));
     }
-    
-    public void setData(Sales_Admin data){
+
+    public void setData(Sales_Admin data) {
         this.data = data;
         DecimalFormat df = new DecimalFormat("$#, ##0.00");
         Lbl_Costo_Ventas_Admin.setText(df.format(data.getTotalVenta()));
@@ -41,31 +46,35 @@ public class card_sales_Ad extends javax.swing.JPanel {
         Lbl_NombreCliente_Ventas_Admin.setText(data.getNombreCliente());
     }
     
+    public Sales_Admin getData() {
+        return data;
+    }
+
     private void eliminarVenta() {
-    if (data != null) {
-        String uuid = data.getUuid();
-        boolean eliminado = controlador.eliminarVenta(uuid);
-        if (eliminado) {
-            JOptionPane.showMessageDialog(this, "El pedido se ha eliminado exitosamente.", "Eliminación Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            controlador.actualizarVentas();
+        if (data != null) {
+            String uuid = data.getUuid();
+            boolean eliminado = controlador.eliminarVenta(uuid);
+            if (eliminado) {
+                JOptionPane.showMessageDialog(this, "El pedido se ha eliminado exitosamente.", "Eliminación Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                controlador.actualizarVentas();
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo eliminar el pedido.", "Error en la Eliminación", JOptionPane.ERROR_MESSAGE);
+            }
         } else {
             JOptionPane.showMessageDialog(this, "No se pudo eliminar el pedido.", "Error en la Eliminación", JOptionPane.ERROR_MESSAGE);
         }
-    } else {
-        JOptionPane.showMessageDialog(this, "No se pudo eliminar el pedido.", "Error en la Eliminación", JOptionPane.ERROR_MESSAGE);
     }
-}
-    
+
     @Override
-    public void paint(Graphics grphcs){
+    public void paint(Graphics grphcs) {
         Graphics2D g2 = (Graphics2D) grphcs.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2.setColor(new Color (242, 242, 242));
+        g2.setColor(new Color(242, 242, 242));
         g2.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
-        if(selected){
+        if (selected) {
             g2.setColor(new Color(171, 71, 188));
             g2.setStroke(new BasicStroke(4));
-            g2.drawRoundRect(0, 0, getWidth() -1, getHeight() -1, 20, 20);
+            g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 20, 20);
         }
         g2.dispose();
         super.paint(grphcs);
@@ -139,7 +148,7 @@ public class card_sales_Ad extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(Lbl_Costo_Ventas_Admin)
                 .addGap(48, 48, 48)
                 .addComponent(Btn_delete_Venta)
@@ -160,7 +169,7 @@ public class card_sales_Ad extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel7))
-                        .addGap(43, 43, 43)
+                        .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Lbl_NombreEmpleado_Ventas_Admin)
                             .addComponent(Lbl_NombreCliente_Ventas_Admin))

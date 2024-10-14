@@ -24,7 +24,7 @@ public class Ctrl_Notificaciones {
         panelNotificaciones.cargarNotificaciones(notificacion);
     }
 
-    private List<Notificaciones> cargarNotificacion() {
+    public List<Notificaciones> cargarNotificacion() {
         try (Connection connection = ClaseConexion.getConexion()) {
             return Notificaciones.obtenerNotificaciones(connection, UUID);
         } catch (SQLException e) {
@@ -34,13 +34,13 @@ public class Ctrl_Notificaciones {
 
     public boolean eliminarNotificacion(String uuid) {
         int respuesta = JOptionPane.showConfirmDialog(null, 
-            "¿Estás seguro de que deseas eliminar este pedido?", 
+            "¿Estás seguro de que deseas eliminar esta notificación?", 
             "Confirmar eliminación", 
             JOptionPane.YES_NO_OPTION);
         
         if (respuesta == JOptionPane.YES_OPTION) {
             System.out.println("UUID a eliminar: " + uuid);
-            String query = "DELETE FROM TbPedido_Cliente WHERE UUID_Pedido = ?";
+            String query = "DELETE FROM TbNotificaciones WHERE UUID_Notificacion = ?";
             
             try (Connection connection = ClaseConexion.getConexion();
                  PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -50,7 +50,7 @@ public class Ctrl_Notificaciones {
                 if (filasAfectadas > 0) {
                     return true;
                 } else {
-                    System.out.println("No se encontró ningún pedido con el UUID proporcionado.");
+                    System.out.println("No se encontró ningúna notificación con el UUID proporcionado.");
                     return false;
                 }
             } catch (SQLException e) {

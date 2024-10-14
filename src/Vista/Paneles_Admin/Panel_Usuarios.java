@@ -11,7 +11,6 @@ public class Panel_Usuarios extends javax.swing.JPanel {
 
     public Panel_Usuarios() {
         try {
-            // UIManager.setLookAndFeel(new FlatLightLaf()); 
             UIManager.setLookAndFeel(new FlatMaterialPalenightIJTheme());
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();

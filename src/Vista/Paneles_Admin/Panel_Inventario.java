@@ -45,7 +45,6 @@ public class Panel_Inventario extends javax.swing.JPanel {
         Cb_Categoria_Flores_Inventory_admin = new javax.swing.JComboBox<>();
         Cb_Categoria_Diseno_Inventory_admin = new javax.swing.JComboBox<>();
         Cb_Categoria_Evento_Inventory_admin = new javax.swing.JComboBox<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
         txt_Descrip_Inventory_Admin = new javax.swing.JTextPane();
         IMG_Inventory_admin = new javax.swing.JLabel();
         btn_Update_Inventory_Admin = new javax.swing.JButton();
@@ -130,7 +129,6 @@ public class Panel_Inventario extends javax.swing.JPanel {
         Cb_Categoria_Evento_Inventory_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cumpleaños", "Aniversario", "Amor", "Nacimiento", "Condolencias" }));
 
         txt_Descrip_Inventory_Admin.setForeground(new java.awt.Color(255, 255, 255));
-        jScrollPane2.setViewportView(txt_Descrip_Inventory_Admin);
 
         btn_Update_Inventory_Admin.setBackground(new java.awt.Color(243, 143, 154));
         btn_Update_Inventory_Admin.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -178,11 +176,11 @@ public class Panel_Inventario extends javax.swing.JPanel {
                                     .addComponent(txt_Nombre_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txt_Precio_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(Cb_Categoria_Evento_Inventory_admin, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(Cb_Categoria_Diseno_Inventory_admin, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(Cb_Categoria_Flores_Inventory_admin, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txt_Cantidad_Inventory_Admin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)))
+                                        .addComponent(txt_Cantidad_Inventory_Admin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE))
+                                    .addComponent(txt_Descrip_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(btn_Update_Inventory_Admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -218,8 +216,8 @@ public class Panel_Inventario extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Cb_Categoria_Evento_Inventory_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_Descrip_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
                                 .addComponent(btn_Upload_photo_Inventario, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -232,7 +230,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
                         .addComponent(btn_Update_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(90, 90, 90)
                         .addComponent(Btn_Delete_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -255,7 +253,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
     }//GEN-LAST:event_txt_Buscar_Inventory_AdminFocusLost
 
     private void txt_Nombre_Inventory_AdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Nombre_Inventory_AdminFocusGained
-        if(txt_Nombre_Inventory_Admin.getText().equals("Titulo de oferta")){
+        if(txt_Nombre_Inventory_Admin.getText().equals("Nombre")){
             txt_Nombre_Inventory_Admin.setText(null);
             txt_Nombre_Inventory_Admin.requestFocus();
 
@@ -266,12 +264,12 @@ public class Panel_Inventario extends javax.swing.JPanel {
     private void txt_Nombre_Inventory_AdminFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Nombre_Inventory_AdminFocusLost
         if(txt_Nombre_Inventory_Admin.getText().length()==0){
             addPlaceholderStyle(txt_Nombre_Inventory_Admin);
-            txt_Nombre_Inventory_Admin.setText("Titulo de oferta");
+            txt_Nombre_Inventory_Admin.setText("Nombre");
         }
     }//GEN-LAST:event_txt_Nombre_Inventory_AdminFocusLost
 
     private void txt_Precio_Inventory_AdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Precio_Inventory_AdminFocusGained
-        if(txt_Precio_Inventory_Admin.getText().equals("Porcentaje oferta")){
+        if(txt_Precio_Inventory_Admin.getText().equals("Precio")){
             txt_Precio_Inventory_Admin.setText(null);
             txt_Precio_Inventory_Admin.requestFocus();
 
@@ -282,12 +280,12 @@ public class Panel_Inventario extends javax.swing.JPanel {
     private void txt_Precio_Inventory_AdminFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Precio_Inventory_AdminFocusLost
         if(txt_Precio_Inventory_Admin.getText().length()==0){
             addPlaceholderStyle(txt_Precio_Inventory_Admin);
-            txt_Precio_Inventory_Admin.setText("Porcentaje oferta");
+            txt_Precio_Inventory_Admin.setText("Precio");
         }
     }//GEN-LAST:event_txt_Precio_Inventory_AdminFocusLost
 
     private void txt_Cantidad_Inventory_AdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Cantidad_Inventory_AdminFocusGained
-        if(txt_Cantidad_Inventory_Admin.getText().equals("Correo")){
+        if(txt_Cantidad_Inventory_Admin.getText().equals("Cantidad disponible")){
             txt_Cantidad_Inventory_Admin.setText(null);
             txt_Cantidad_Inventory_Admin.requestFocus();
 
@@ -298,7 +296,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
     private void txt_Cantidad_Inventory_AdminFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Cantidad_Inventory_AdminFocusLost
         if(txt_Cantidad_Inventory_Admin.getText().length()==0){
             addPlaceholderStyle(txt_Cantidad_Inventory_Admin);
-            txt_Cantidad_Inventory_Admin.setText("Usuario");
+            txt_Cantidad_Inventory_Admin.setText("Cantidad disponible");
         }
     }//GEN-LAST:event_txt_Cantidad_Inventory_AdminFocusLost
 
@@ -314,7 +312,6 @@ public class Panel_Inventario extends javax.swing.JPanel {
     public javax.swing.JButton btn_Upload_photo_Inventario;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable jtb_Inventory;
     public javax.swing.JTextField txt_Buscar_Inventory_Admin;
     public javax.swing.JTextField txt_Cantidad_Inventory_Admin;

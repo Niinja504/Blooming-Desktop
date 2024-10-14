@@ -16,6 +16,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import Cards.Eventos.EventItem_PedidosPendientes;
+import javax.swing.JOptionPane;
 
 public class Panel_Pedidos_Pendientes extends javax.swing.JPanel {
     
@@ -64,6 +65,22 @@ public class Panel_Pedidos_Pendientes extends javax.swing.JPanel {
             }
         }
         ((card_pedidos_Pendientes_Ad) item).setSelected(true);
+    }
+    
+    public void eliminarNotificacion(card_pedidos_Pendientes_Ad item) {
+        if (item != null && item.getData() != null) {
+            String uuid = item.getData().getUuid();
+            boolean eliminado = controlador.eliminarPedido(uuid);
+            if (eliminado) {
+                JOptionPane.showMessageDialog(this, "La notificación se ha eliminado exitosamente.", "Eliminación Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                controlador.mostrarPedidos();
+                cargarPedidos(controlador.cargarPedidos());
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo eliminar la notificación.", "Error en la Eliminación", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No se pudo eliminar la notificación.", "Error en la Eliminación", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     public void ShowItem(PedidosPendientes_Admin data){

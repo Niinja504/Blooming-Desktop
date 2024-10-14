@@ -12,15 +12,16 @@ import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 public class Panel_Notificaciones extends javax.swing.JPanel {
-    
+
     private EventItem_Notifications event;
     private Ctrl_Notificaciones controlador;
-    
+
     public Panel_Notificaciones(Ctrl_Notificaciones controlador) {
         this.controlador = controlador;
         this.event = new EventItemImpl_Notifications();
@@ -33,11 +34,11 @@ public class Panel_Notificaciones extends javax.swing.JPanel {
         scroll.setVerticalScrollBar(new ScrollBar());
         jPanel.setPreferredSize(new Dimension(878, 43));
     }
-    
+
     public void setControlador(Ctrl_Notificaciones controlador) {
         this.controlador = controlador;
     }
-    
+
     public void addItem(Notificaciones data) {
         card_notifications item = new card_notifications(controlador);
         item.setData(data);
@@ -54,31 +55,46 @@ public class Panel_Notificaciones extends javax.swing.JPanel {
         panelItem.repaint();
         panelItem.revalidate();
     }
-    
-    public void setSelected(Component item){
-        for (Component com : panelItem.getComponents()){
+
+    public void setSelected(Component item) {
+        for (Component com : panelItem.getComponents()) {
             card_notifications i = (card_notifications) com;
-            if (i.isSelected()){
+            if (i.isSelected()) {
                 i.setSelected(false);
             }
         }
         ((card_notifications) item).setSelected(true);
     }
-    
-    public void cargarNotificaciones(List<Notificaciones> notificaciones) {
-    panelItem.removeAll(); 
-    for (Notificaciones notificacion : notificaciones) {
-        addItem(notificacion);
-    }
-    panelItem.revalidate();
-    panelItem.repaint();
-}
 
-    
+    public void eliminarNotificacion(card_notifications item) {
+        if (item != null && item.getData() != null) {
+            String uuid = item.getData().getUUID();
+            boolean eliminado = controlador.eliminarNotificacion(uuid);
+            if (eliminado) {
+                JOptionPane.showMessageDialog(this, "La notificación se ha eliminado exitosamente.", "Eliminación Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                controlador.mostrarNotificacion();
+                cargarNotificaciones(controlador.cargarNotificacion());
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo eliminar la notificación.", "Error en la Eliminación", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No se pudo eliminar la notificación.", "Error en la Eliminación", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void cargarNotificaciones(List<Notificaciones> notificaciones) {
+        panelItem.removeAll();
+        for (Notificaciones notificacion : notificaciones) {
+            addItem(notificacion);
+        }
+        panelItem.revalidate();
+        panelItem.repaint();
+    }
+
     public void setEvent(EventItem_Notifications event) {
         this.event = event;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

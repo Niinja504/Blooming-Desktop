@@ -22,34 +22,42 @@ public class Ctrl_Ventas_Admin {
         panelVentas.cargarVentas(ventas);
     }
 
-    private List<Sales_Admin> cargarVentas() {
+    public List<Sales_Admin> cargarVentas() {
         try (Connection connection = ClaseConexion.getConexion()) {
             return Sales_Admin.obtenerVentas(connection);
         } catch (SQLException e) {
-            return Collections.emptyList(); 
+            return Collections.emptyList();
         }
     }
 
     public boolean eliminarVenta(String uuid) {
-        int respuesta = JOptionPane.showConfirmDialog(null, 
-            "¿Estás seguro de que deseas eliminar este pedido?", 
-            "Confirmar eliminación", 
-            JOptionPane.YES_NO_OPTION);
-        
+        int respuesta = JOptionPane.showConfirmDialog(null,
+                "¿Estás seguro de que deseas eliminar este pedido?",
+                "Confirmar eliminación",
+                JOptionPane.YES_NO_OPTION);
+
         if (respuesta == JOptionPane.YES_OPTION) {
             System.out.println("UUID a eliminar: " + uuid);
-            String query = "DELETE FROM TbPedido_Cliente WHERE UUID_Pedido = ?";
-            
-            try (Connection connection = ClaseConexion.getConexion();
-                 PreparedStatement stmt = connection.prepareStatement(query)) {
-                stmt.setObject(1, uuid);
-                int filasAfectadas = stmt.executeUpdate();
-                System.out.println("Filas afectadas: " + filasAfectadas);
-                if (filasAfectadas > 0) {
-                    return true;
-                } else {
-                    System.out.println("No se encontró ningún pedido con el UUID proporcionado.");
-                    return false;
+
+            String Articulos = "DELETE FROM TbVentaArticulos WHERE UUID_Venta = ?";
+            String Venta = "DELETE FROM TbVentaEncaja WHERE UUID_Venta = ?";
+
+            try (Connection connection = ClaseConexion.getConexion()) {
+                try (PreparedStatement stmtArticulos = connection.prepareStatement(Articulos)) {
+                    stmtArticulos.setObject(1, uuid);
+                    stmtArticulos.executeUpdate();
+                }
+                
+                try (PreparedStatement stmtVenta = connection.prepareStatement(Venta)) {
+                    stmtVenta.setObject(1, uuid);
+                    int filasAfectadas = stmtVenta.executeUpdate();
+                    System.out.println("Filas afectadas: " + filasAfectadas);
+                    if (filasAfectadas > 0) {
+                        return true;
+                    } else {
+                        System.out.println("No se encontró ningún pedido con el UUID proporcionado.");
+                        return false;
+                    }
                 }
             } catch (SQLException e) {
                 System.out.println("Error durante la eliminación: " + e.getMessage());

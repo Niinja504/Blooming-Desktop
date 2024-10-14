@@ -4,6 +4,7 @@ import Card.Item.PedidosEntregados_Admin;
 import Controlador.Admin.Ctrl_PedidosEntregados_admin;
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -30,6 +31,10 @@ public class card_pedidos_Entregados_Ad extends javax.swing.JPanel {
         initComponents();
         setOpaque(false);
         Btn_delete_Pedido.addActionListener(e -> eliminarPedido());
+        
+        setPreferredSize(new Dimension(275, 225));
+        setMinimumSize(new Dimension(275, 225)); 
+        setMaximumSize(new Dimension(275, 225));
     }
 
     public void setData(PedidosEntregados_Admin data){
@@ -41,20 +46,24 @@ public class card_pedidos_Entregados_Ad extends javax.swing.JPanel {
         Lbl_NombreCliente_Pedidos_Admin.setText(data.getNombreCliente());
     }
     
+    public PedidosEntregados_Admin getData() {
+        return data;
+    }
+    
     private void eliminarPedido() {
-    if (data != null) {
-        String uuid = data.getUuid();
-        boolean eliminado = controlador.eliminarPedido(uuid);
-        if (eliminado) {
-            JOptionPane.showMessageDialog(this, "El pedido se ha eliminado exitosamente.", "Eliminación Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            controlador.actualizarPedidos();
+        if (data != null) {
+            String uuid = data.getUuid();
+            boolean eliminado = controlador.eliminarPedido(uuid);
+            if (eliminado) {
+                JOptionPane.showMessageDialog(this, "El pedido se ha eliminado exitosamente.", "Eliminación Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                controlador.actualizarPedidos();
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo eliminar el pedido.", "Error en la Eliminación", JOptionPane.ERROR_MESSAGE);
+            }
         } else {
             JOptionPane.showMessageDialog(this, "No se pudo eliminar el pedido.", "Error en la Eliminación", JOptionPane.ERROR_MESSAGE);
         }
-    } else {
-        JOptionPane.showMessageDialog(this, "No se pudo eliminar el pedido.", "Error en la Eliminación", JOptionPane.ERROR_MESSAGE);
     }
-}
     @Override
     public void paint(Graphics grphcs){
         Graphics2D g2 = (Graphics2D) grphcs.create();

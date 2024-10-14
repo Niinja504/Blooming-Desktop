@@ -37,6 +37,23 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
         }
         initComponents();
         init();
+        
+        addPlaceholderStyle(txt_Zona_Cost_Admin);
+        addPlaceholderStyle(txt_Costo_Cost_Admin);
+    }
+    
+    public void addPlaceholderStyle(JTextField textField){
+        Font font = textField.getFont();
+        font = font.deriveFont(Font.ITALIC);
+        textField.setFont(font);
+        textField.setForeground(Color.white);
+    }
+    
+    public void removePlaceholderStyle(JTextField textField){
+        Font font = textField.getFont();
+        font = font.deriveFont(Font.PLAIN);
+        textField.setFont(font);
+        textField.setForeground(Color.white);
     }
     
     private GeoPosition geo;
@@ -99,21 +116,6 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
     public GeoPosition getCurrentWaypointPosition() {
     return currentWaypoint != null ? currentWaypoint.getPosition() : null;
     }
-
-
-    public void addPlaceholderStyle(JTextField textField){
-        Font font = textField.getFont();
-        font = font.deriveFont(Font.ITALIC);
-        textField.setFont(font);
-        textField.setForeground(Color.white);
-    }
-    
-    public void removePlaceholderStyle(JTextField textField){
-        Font font = textField.getFont();
-        font = font.deriveFont(Font.PLAIN);
-        textField.setFont(font);
-        textField.setForeground(Color.white);
-    }
     
     public void actualizarMapaConCoordenadas(String coordenadas) {
     String[] partes = coordenadas.split(",");
@@ -151,6 +153,11 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
         btn_Delete_Cost_Admin = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 252, 245));
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+        });
 
         txt_Buscar_Cost_admin.setText("Buscar...");
         txt_Buscar_Cost_admin.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -269,7 +276,7 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jtb_Cost);
 
         txt_Zona_Cost_Admin.setForeground(new java.awt.Color(255, 255, 255));
-        txt_Zona_Cost_Admin.setText("Nombre");
+        txt_Zona_Cost_Admin.setText("Nombre de la zona");
         txt_Zona_Cost_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_Zona_Cost_AdminFocusGained(evt);
@@ -290,10 +297,13 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
             }
         });
 
+        btn_Add_Cost_Admin.setForeground(new java.awt.Color(255, 255, 255));
         btn_Add_Cost_Admin.setText("Agregar");
 
+        btn_Update_Cost_Admin.setForeground(new java.awt.Color(255, 255, 255));
         btn_Update_Cost_Admin.setText("Actualizar");
 
+        btn_Delete_Cost_Admin.setForeground(new java.awt.Color(255, 255, 255));
         btn_Delete_Cost_Admin.setText("Eliminar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -393,7 +403,7 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
     }//GEN-LAST:event_comboMapActionPerformed
 
     private void txt_Zona_Cost_AdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Zona_Cost_AdminFocusGained
-        if(txt_Zona_Cost_Admin.getText().equals("Titulo de oferta")){
+        if(txt_Zona_Cost_Admin.getText().equals("Nombre de la zona")){
             txt_Zona_Cost_Admin.setText(null);
             txt_Zona_Cost_Admin.requestFocus();
 
@@ -404,12 +414,12 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
     private void txt_Zona_Cost_AdminFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Zona_Cost_AdminFocusLost
         if(txt_Zona_Cost_Admin.getText().length()==0){
             addPlaceholderStyle(txt_Zona_Cost_Admin);
-            txt_Zona_Cost_Admin.setText("Titulo de oferta");
+            txt_Zona_Cost_Admin.setText("Nombre de la zona");
         }
     }//GEN-LAST:event_txt_Zona_Cost_AdminFocusLost
 
     private void txt_Costo_Cost_AdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Costo_Cost_AdminFocusGained
-        if(txt_Costo_Cost_Admin.getText().equals("Porcentaje oferta")){
+        if(txt_Costo_Cost_Admin.getText().equals("Precio")){
             txt_Costo_Cost_Admin.setText(null);
             txt_Costo_Cost_Admin.requestFocus();
 
@@ -420,7 +430,7 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
     private void txt_Costo_Cost_AdminFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Costo_Cost_AdminFocusLost
         if(txt_Costo_Cost_Admin.getText().length()==0){
             addPlaceholderStyle(txt_Costo_Cost_Admin);
-            txt_Costo_Cost_Admin.setText("Porcentaje oferta");
+            txt_Costo_Cost_Admin.setText("Precio");
         }
     }//GEN-LAST:event_txt_Costo_Cost_AdminFocusLost
 
@@ -447,6 +457,10 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
     private void cmdClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdClearActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdClearActionPerformed
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        this.requestFocus();
+    }//GEN-LAST:event_formFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

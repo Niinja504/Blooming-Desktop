@@ -13,6 +13,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.DecimalFormat;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -64,6 +65,22 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
             }
         }
         ((card_pedidos_Entregados_Ad) item).setSelected(true);
+    }
+    
+    public void eliminarNotificacion(card_pedidos_Entregados_Ad item) {
+        if (item != null && item.getData() != null) {
+            String uuid = item.getData().getUuid();
+            boolean eliminado = controlador.eliminarPedido(uuid);
+            if (eliminado) {
+                JOptionPane.showMessageDialog(this, "La notificación se ha eliminado exitosamente.", "Eliminación Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                controlador.mostrarPedidos();
+                cargarPedidos(controlador.cargarPedidos());
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo eliminar la notificación.", "Error en la Eliminación", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No se pudo eliminar la notificación.", "Error en la Eliminación", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     public void ShowItem(PedidosEntregados_Admin data){
