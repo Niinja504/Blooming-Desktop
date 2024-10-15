@@ -67,7 +67,7 @@ public class Panel_Pedidos_Pendientes extends javax.swing.JPanel {
         ((card_pedidos_Pendientes_Ad) item).setSelected(true);
     }
     
-    public void eliminarNotificacion(card_pedidos_Pendientes_Ad item) {
+    public void eliminarPedido(card_pedidos_Pendientes_Ad item) {
         if (item != null && item.getData() != null) {
             String uuid = item.getData().getUuid();
             boolean eliminado = controlador.eliminarPedido(uuid);

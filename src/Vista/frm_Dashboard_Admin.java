@@ -12,7 +12,6 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 
 public class frm_Dashboard_Admin extends javax.swing.JFrame {
-
     private String uuid;
     private Ctrl_DashBoard_Admin ctrl;
     public frm_Dashboard_Admin(String uuid) {
@@ -90,12 +89,13 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         Btn_Inventario.setBorderPainted(false);
         Btn_Inventario.setContentAreaFilled(false);
         Btn_Inventario.setFocusPainted(false);
+        Btn_Inventario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Btn_Inventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_InventarioActionPerformed(evt);
             }
         });
-        jpMenu_Admin.add(Btn_Inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 110, 30));
+        jpMenu_Admin.add(Btn_Inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 150, 30));
 
         Btn_CostoEnvio.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         Btn_CostoEnvio.setForeground(new java.awt.Color(255, 255, 255));
@@ -225,14 +225,6 @@ public class frm_Dashboard_Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Btn_VentasActionPerformed
 
-    public static void main(String args[]) {
-        String uuid = "d8d8d8d8d8d";
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                init_frm_Dashboard_Admin(uuid);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton Btn_CostoEnvio;

@@ -87,6 +87,7 @@ public class card_notifications extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(204, 204, 204));
 
+        lbl_Titulo_Notification_card.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbl_Titulo_Notification_card.setForeground(new java.awt.Color(0, 0, 0));
         lbl_Titulo_Notification_card.setText("jLabel2");
 
@@ -110,7 +111,6 @@ public class card_notifications extends javax.swing.JPanel {
 
         lbl_Mensaje_Notification_card.setColumns(20);
         lbl_Mensaje_Notification_card.setRows(5);
-        lbl_Mensaje_Notification_card.setEditable(false);
         jScrollPane1.setViewportView(lbl_Mensaje_Notification_card);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -120,34 +120,35 @@ public class card_notifications extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbl_Titulo_Notification_card)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                        .addComponent(lbl_Fecha_Notification_card)
-                        .addGap(33, 33, 33)
-                        .addComponent(lbl_Hora_Notification_card)
-                        .addGap(42, 42, 42)
-                        .addComponent(Btn_delete_Notificacion))))
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 21, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(lbl_Titulo_Notification_card)
+                .addGap(55, 55, 55)
+                .addComponent(lbl_Fecha_Notification_card)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_Hora_Notification_card)
+                .addGap(42, 42, 42)
+                .addComponent(Btn_delete_Notificacion))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_Fecha_Notification_card)
-                            .addComponent(lbl_Hora_Notification_card)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(lbl_Titulo_Notification_card))
-                    .addComponent(Btn_delete_Notificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lbl_Fecha_Notification_card)
+                                    .addComponent(lbl_Hora_Notification_card)))
+                            .addComponent(Btn_delete_Notificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lbl_Titulo_Notification_card)
+                        .addGap(18, 18, 18)))
                 .addComponent(jLabel1)
                 .addGap(0, 0, 0)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -67,7 +67,7 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
         ((card_pedidos_Entregados_Ad) item).setSelected(true);
     }
     
-    public void eliminarNotificacion(card_pedidos_Entregados_Ad item) {
+    public void eliminarPedido(card_pedidos_Entregados_Ad item) {
         if (item != null && item.getData() != null) {
             String uuid = item.getData().getUuid();
             boolean eliminado = controlador.eliminarPedido(uuid);
@@ -149,7 +149,7 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
 
         jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel37.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel37.setText("Pedidos pendientes");
+        jLabel37.setText("Pedidos entregados");
 
         jLabel38.setForeground(new java.awt.Color(0, 0, 0));
         jLabel38.setText("Cliente:");
@@ -231,37 +231,38 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
                         .addComponent(jLabel46)
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addComponent(jSeparator20)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel38)
-                        .addGap(73, 73, 73)
-                        .addComponent(Lbl_Nombre_Detalles_Pedido))
-                    .addComponent(jLabel41)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel40)
-                        .addGap(47, 47, 47)
-                        .addComponent(Lbl_DireccionEntrega_Detalles_Pedido))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel44)
-                        .addGap(81, 81, 81)
-                        .addComponent(Lbl_Dedicatoria_Detalles_Pedido))
-                    .addComponent(jLabel45)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel42)
-                            .addComponent(jLabel43))
-                        .addGap(43, 43, 43)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Lbl_HoraEntrga_Detalles_Pedido)
-                            .addComponent(Lbl_FechaEntrga_Detalles_Pedido))))
-                .addContainerGap(87, Short.MAX_VALUE))
             .addComponent(jSeparator17)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jLabel37)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel38)
+                                .addGap(73, 73, 73)
+                                .addComponent(Lbl_Nombre_Detalles_Pedido))
+                            .addComponent(jLabel41)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel40)
+                                .addGap(47, 47, 47)
+                                .addComponent(Lbl_DireccionEntrega_Detalles_Pedido))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel44)
+                                .addGap(81, 81, 81)
+                                .addComponent(Lbl_Dedicatoria_Detalles_Pedido))
+                            .addComponent(jLabel45)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel42)
+                                    .addComponent(jLabel43))
+                                .addGap(43, 43, 43)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Lbl_HoraEntrga_Detalles_Pedido)
+                                    .addComponent(Lbl_FechaEntrga_Detalles_Pedido)))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(jLabel37)))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

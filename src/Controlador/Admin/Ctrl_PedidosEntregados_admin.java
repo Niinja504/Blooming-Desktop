@@ -40,37 +40,43 @@ public class Ctrl_PedidosEntregados_admin {
             System.out.println("UUID a eliminar: " + uuid);
 
             String deleteProductos = "DELETE FROM TbProductosPedido WHERE UUID_Pedido = ?";
-            String deleteHorario= "DELETE FROM TbHorarioPedido WHERE UUID_Pedido = ?";
-            String deleteDireccion= "DELETE FROM TbDireccionPedido WHERE UUID_Pedido = ?";
+            String deleteHorario = "DELETE FROM TbHorarioPedido WHERE UUID_Pedido = ?";
+            String deleteDireccion = "DELETE FROM TbDireccionPedido WHERE UUID_Pedido = ?";
             String deleteDedicatorias = "DELETE FROM TbDedicatorias WHERE UUID_Pedido = ?";
+            String deleteNotas = "DELETE FROM TbNotasPedidodos WHERE UUID_Pedido = ?";
             String deletePedido = "DELETE FROM TbPedido_Cliente WHERE UUID_Pedido = ?";
 
             try (Connection connection = ClaseConexion.getConexion()) {
                 connection.setAutoCommit(false);
-                
-                try (PreparedStatement stmt = connection.prepareStatement(deleteProductos)) {
-                    stmt.setObject(1, uuid);
-                    stmt.executeUpdate();
+
+                try (PreparedStatement stmt1 = connection.prepareStatement(deleteProductos)) {
+                    stmt1.setObject(1, uuid);
+                    stmt1.executeUpdate();
                 }
 
-                try (PreparedStatement stmt = connection.prepareStatement(deleteHorario)) {
-                    stmt.setObject(1, uuid);
-                    stmt.executeUpdate();
+                try (PreparedStatement stmt2 = connection.prepareStatement(deleteHorario)) {
+                    stmt2.setObject(1, uuid);
+                    stmt2.executeUpdate();
                 }
 
-                try (PreparedStatement stmt = connection.prepareStatement(deleteDireccion)) {
-                    stmt.setObject(1, uuid);
-                    stmt.executeUpdate();
+                try (PreparedStatement stmt3 = connection.prepareStatement(deleteDireccion)) {
+                    stmt3.setObject(1, uuid);
+                    stmt3.executeUpdate();
                 }
 
-                try (PreparedStatement stmt = connection.prepareStatement(deleteDedicatorias)) {
-                    stmt.setObject(1, uuid);
-                    stmt.executeUpdate();
+                try (PreparedStatement stmt4 = connection.prepareStatement(deleteDedicatorias)) {
+                    stmt4.setObject(1, uuid);
+                    stmt4.executeUpdate();
                 }
 
-                try (PreparedStatement stmt = connection.prepareStatement(deletePedido)) {
-                    stmt.setObject(1, uuid);
-                    int filasAfectadas = stmt.executeUpdate();
+                try (PreparedStatement stmt5 = connection.prepareStatement(deleteNotas)) {
+                    stmt5.setObject(1, uuid);
+                    stmt5.executeUpdate();
+                }
+
+                try (PreparedStatement stmt6 = connection.prepareStatement(deletePedido)) {
+                    stmt6.setObject(1, uuid);
+                    int filasAfectadas = stmt6.executeUpdate();
                     System.out.println("Filas afectadas: " + filasAfectadas);
 
                     if (filasAfectadas > 0) {
@@ -95,7 +101,7 @@ public class Ctrl_PedidosEntregados_admin {
         }
         return false;
     }
-
+    
     public void actualizarPedidos() {
         mostrarPedidos();
     }
