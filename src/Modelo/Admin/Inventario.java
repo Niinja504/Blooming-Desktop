@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class Inventario {
+
     private String Img_Producto;
     private String Nombre_Producto;
     private Float Precio_Producto;
@@ -90,7 +91,7 @@ public class Inventario {
     public void setDescripcion_Producto(String Descripcion_Producto) {
         this.Descripcion_Producto = Descripcion_Producto;
     }
-    
+
     public void Guardar() {
         Connection conexion = ClaseConexion.getConexion();
         try {
@@ -105,102 +106,101 @@ public class Inventario {
             addProduct.setString(8, getCategoria_Evento());
             addProduct.setString(9, getDescripcion_Producto());
             addProduct.executeUpdate();
- 
+
         } catch (SQLException ex) {
             System.out.println("Este es el error en el modelo:metodo guardar " + ex);
         }
     }
-    
+
     public void Eliminar(JTable tabla) {
-       Connection conexion = ClaseConexion.getConexion();
-       int filaSeleccionada = tabla.getSelectedRow();
-      if (filaSeleccionada == -1) {
-        System.out.println("No se ha seleccionado ninguna fila.");
-        return;
-      }
-    
-      String uuidProduct = tabla.getValueAt(filaSeleccionada, 0).toString();
-      String sql = "DELETE FROM TbInventario WHERE UUID_Producto = ?";
-    
-      try (PreparedStatement deleteProduct = conexion.prepareStatement(sql)) {
-          deleteProduct.setString(1, uuidProduct);
-          int rowsAffected = deleteProduct.executeUpdate();
-        
-         if (rowsAffected > 0) {
-            System.out.println("Registro eliminado correctamente.");
-         } else {
-            System.out.println("No se encontró ningún registro con el UUID especificado.");
-         }
-       } catch (Exception e) {
-        System.out.println("Este es el error en el método de eliminar: " + e.getMessage());
-      }
+        Connection conexion = ClaseConexion.getConexion();
+        int filaSeleccionada = tabla.getSelectedRow();
+        if (filaSeleccionada == -1) {
+            System.out.println("No se ha seleccionado ninguna fila.");
+            return;
+        }
+
+        String uuidProduct = tabla.getValueAt(filaSeleccionada, 0).toString();
+        String sql = "DELETE FROM TbInventario WHERE UUID_Producto = ?";
+
+        try (PreparedStatement deleteProduct = conexion.prepareStatement(sql)) {
+            deleteProduct.setString(1, uuidProduct);
+            int rowsAffected = deleteProduct.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Registro eliminado correctamente.");
+            } else {
+                System.out.println("No se encontró ningún registro con el UUID especificado.");
+            }
+        } catch (Exception e) {
+            System.out.println("Este es el error en el método de eliminar: " + e.getMessage());
+        }
     }
-    
-    
+
     public void Mostrar(JTable tabla) {
-       Connection conexion = ClaseConexion.getConexion();
-       DefaultTableModel modeloDeDatos = new DefaultTableModel();
-       modeloDeDatos.setColumnIdentifiers(new Object[]{"UUID", "Imagen", "Nombre del producto", "Precio", "Cantidad disponible", "Categoria flores", "Categoria diseño", "Categoria evento", "Descripción"});
-    
-      try {
-          Statement statement = conexion.createStatement();
-          ResultSet rs = statement.executeQuery("SELECT UUID_Producto, Img_Producto, Nombre_Producto, Precio_Producto, Cantidad_Bodega_Productos, Categoria_Flores, Categoria_Diseno, Categoria_Evento, Descripcion_Producto FROM TbInventario");
-          while (rs.next()) {
-             modeloDeDatos.addRow(new Object[]{
-                rs.getString("UUID_Producto"),
-                rs.getString("Img_Producto"),
-                rs.getString("Nombre_Producto"),
-                rs.getFloat("Precio_Producto"),
-                rs.getInt("Cantidad_Bodega_Productos"),
-                rs.getString("Categoria_Flores"),
-                rs.getString("Categoria_Diseno"),
-                rs.getString("Categoria_Evento"),
-                rs.getString("Descripcion_Producto")
-             });
-           }
-          tabla.setModel(modeloDeDatos);
-          tabla.getColumnModel().getColumn(0).setMinWidth(0);
-          tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-          tabla.getColumnModel().getColumn(1).setMinWidth(0);
-          tabla.getColumnModel().getColumn(1).setMaxWidth(0);
-        }catch (Exception e) {
+        Connection conexion = ClaseConexion.getConexion();
+        DefaultTableModel modeloDeDatos = new DefaultTableModel();
+        modeloDeDatos.setColumnIdentifiers(new Object[]{"UUID", "Imagen", "Nombre del producto", "Precio", "Cantidad disponible", "Categoria flores", "Categoria diseño", "Categoria evento", "Descripción"});
+
+        try {
+            Statement statement = conexion.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT UUID_Producto, Img_Producto, Nombre_Producto, Precio_Producto, Cantidad_Bodega_Productos, Categoria_Flores, Categoria_Diseno, Categoria_Evento, Descripcion_Producto FROM TbInventario");
+            while (rs.next()) {
+                modeloDeDatos.addRow(new Object[]{
+                    rs.getString("UUID_Producto"),
+                    rs.getString("Img_Producto"),
+                    rs.getString("Nombre_Producto"),
+                    rs.getFloat("Precio_Producto"),
+                    rs.getInt("Cantidad_Bodega_Productos"),
+                    rs.getString("Categoria_Flores"),
+                    rs.getString("Categoria_Diseno"),
+                    rs.getString("Categoria_Evento"),
+                    rs.getString("Descripcion_Producto")
+                });
+            }
+            tabla.setModel(modeloDeDatos);
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(1).setMinWidth(0);
+            tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+        } catch (Exception e) {
             System.out.println("Este es el error en el modelo, metodo mostrar " + e);
         }
     }
-    
+
     public void cargarDatosTabla(Panel_Inventario Vista) {
-      int filaSeleccionada = Vista.jtb_Inventory.getSelectedRow();
-      if (filaSeleccionada != -1) {
-          String imgPath = (String) Vista.jtb_Inventory.getValueAt(filaSeleccionada, 1);
-          //
-          //Esto nos permite establecer datos nulos si los hay claro =)
-          //
-          String NombreTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 2) != null ? 
-          Vista.jtb_Inventory.getValueAt(filaSeleccionada, 2).toString() : "";
-          String PrecioTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 3) != null
-                  ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 3).toString() : "0";
-          String CantidadTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 4) != null
-                  ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 4).toString() : "0";
-          String Categoria_FloresTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 5) != null
-                  ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 5).toString() : "";
-          String Categoria_DisenoTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 6) != null
-                  ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 6).toString() : "";
-          String Categoria_EventoTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 7) != null
-                  ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 7).toString() : "";
-          String DescripcionTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 8) != null
-                  ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 8).toString() : "";
-        
-          Vista.txt_Nombre_Inventory_Admin.setText(NombreTB);
-          Vista.txt_Precio_Inventory_Admin.setText(PrecioTB);
-          Vista.txt_Cantidad_Inventory_Admin.setText(CantidadTB);
-          Vista.txt_Descrip_Inventory_Admin.setText(DescripcionTB);
-          
-          Vista.Cb_Categoria_Flores_Inventory_admin.setSelectedItem(Categoria_FloresTB);
-          Vista.Cb_Categoria_Diseno_Inventory_admin.setSelectedItem(Categoria_DisenoTB);
-          Vista.Cb_Categoria_Evento_Inventory_admin.setSelectedItem(Categoria_EventoTB);
-          
-          //Funcion que nos permitira mostrar la imagen al seleccionar el registro de la tabla
-          if (imgPath != null && !imgPath.isEmpty()) {
+        int filaSeleccionada = Vista.jtb_Inventory.getSelectedRow();
+        if (filaSeleccionada != -1) {
+            String imgPath = (String) Vista.jtb_Inventory.getValueAt(filaSeleccionada, 1);
+            //
+            //Esto nos permite establecer datos nulos si los hay claro =)
+            //
+            String NombreTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 2) != null
+                    ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 2).toString() : "";
+            String PrecioTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 3) != null
+                    ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 3).toString() : "0";
+            String CantidadTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 4) != null
+                    ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 4).toString() : "0";
+            String Categoria_FloresTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 5) != null
+                    ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 5).toString() : "";
+            String Categoria_DisenoTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 6) != null
+                    ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 6).toString() : "";
+            String Categoria_EventoTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 7) != null
+                    ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 7).toString() : "";
+            String DescripcionTB = Vista.jtb_Inventory.getValueAt(filaSeleccionada, 8) != null
+                    ? Vista.jtb_Inventory.getValueAt(filaSeleccionada, 8).toString() : "";
+
+            Vista.txt_Nombre_Inventory_Admin.setText(NombreTB);
+            Vista.txt_Precio_Inventory_Admin.setText(PrecioTB);
+            Vista.txt_Cantidad_Inventory_Admin.setText(CantidadTB);
+            Vista.txt_Descrip_Inventory_Admin.setText(DescripcionTB);
+
+            Vista.Cb_Categoria_Flores_Inventory_admin.setSelectedItem(Categoria_FloresTB);
+            Vista.Cb_Categoria_Diseno_Inventory_admin.setSelectedItem(Categoria_DisenoTB);
+            Vista.Cb_Categoria_Evento_Inventory_admin.setSelectedItem(Categoria_EventoTB);
+
+            //Funcion que nos permitira mostrar la imagen al seleccionar el registro de la tabla
+            if (imgPath != null && !imgPath.isEmpty()) {
                 try {
                     URL url = new URL(imgPath);
                     Image image = ImageIO.read(url);
@@ -213,11 +213,11 @@ public class Inventario {
             } else {
                 Vista.IMG_Inventory_admin.setIcon(null);
             }
-       } else {
-        System.out.println("No se ha seleccionado ninguna fila.");
-       }
+        } else {
+            System.out.println("No se ha seleccionado ninguna fila.");
+        }
     }
-    
+
     public void Actualizar(JTable tabla) {
         Connection conexion = ClaseConexion.getConexion();
         int filaSeleccionada = tabla.getSelectedRow();
@@ -251,31 +251,42 @@ public class Inventario {
             System.out.println("Error en el método de actualizar: " + e.getMessage());
         }
     }
-    
+
     public void Buscar(JTable tabla, JTextField txtBuscar) {
-    Connection conexion = ClaseConexion.getConexion();
-    DefaultTableModel modelo = new DefaultTableModel();
-    modelo.setColumnIdentifiers(new Object[]{"UUID_Producto", "Nombre_Producto", "Precio_Producto", "Cantidad_Bodega_Productos", "Categoria_Flores", "Categoria_Diseno", "Categoria_Evento", "Descripcion_Producto"});
-    try {
-        PreparedStatement searchUser = conexion.prepareStatement("SELECT * FROM TbInventario WHERE Nombre_Producto LIKE ?");
-        searchUser.setString(1, "%" + txtBuscar.getText() + "%");
-        ResultSet rs = searchUser.executeQuery();
-        while (rs.next()) {
-            modelo.addRow(new Object[]{
-                rs.getString("UUID_Producto"),
-                rs.getString("Img_Producto"),
-                rs.getString("Nombre_Producto"),
-                rs.getFloat("Precio_Producto"),
-                rs.getInt("Cantidad_Bodega_Productos"),
-                rs.getString("Categoria_Flores"),
-                rs.getString("Categoria_Diseno"),
-                rs.getString("Categoria_Evento"),
-                rs.getString("Descripcion_Producto")
-            });
+        Connection conexion = ClaseConexion.getConexion();
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.setColumnIdentifiers(new Object[]{"UUID_Producto", "Nombre_Producto", "Precio_Producto", "Cantidad_Bodega_Productos", "Categoria_Flores", "Categoria_Diseno", "Categoria_Evento", "Descripcion_Producto"});
+        try {
+            PreparedStatement searchUser = conexion.prepareStatement("SELECT * FROM TbInventario WHERE Nombre_Producto LIKE ?");
+            searchUser.setString(1, "%" + txtBuscar.getText() + "%");
+            ResultSet rs = searchUser.executeQuery();
+            while (rs.next()) {
+                modelo.addRow(new Object[]{
+                    rs.getString("UUID_Producto"),
+                    rs.getString("Img_Producto"),
+                    rs.getString("Nombre_Producto"),
+                    rs.getFloat("Precio_Producto"),
+                    rs.getInt("Cantidad_Bodega_Productos"),
+                    rs.getString("Categoria_Flores"),
+                    rs.getString("Categoria_Diseno"),
+                    rs.getString("Categoria_Evento"),
+                    rs.getString("Descripcion_Producto")
+                });
+            }
+            tabla.setModel(modelo);
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(1).setMinWidth(0);
+            tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+        } catch (Exception e) {
+            System.out.println("Este es el error en el modelo, metodo buscar " + e);
         }
-        tabla.setModel(modelo);
-    } catch (Exception e) {
-        System.out.println("Este es el error en el modelo, metodo buscar " + e);
     }
-   }
+    
+    public void limpiar(Panel_Inventario vista) {
+        vista.txt_Nombre_Inventory_Admin.setText("");
+        vista.txt_Precio_Inventory_Admin.setText("");
+        vista.txt_Cantidad_Inventory_Admin.setText("");
+        vista.txt_Descrip_Inventory_Admin.setText("");
+    }
 }

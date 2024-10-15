@@ -14,6 +14,7 @@ import java.util.UUID;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class Ofertas {
@@ -204,5 +205,38 @@ public class Ofertas {
         } catch (SQLException e) {
             System.out.println("Error en el método de actualizar: " + e.getMessage());
         }
+    }
+    
+    public void Buscar(JTable tabla, JTextField txtBuscar) {
+        Connection conexion = ClaseConexion.getConexion();
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.setColumnIdentifiers(new Object[]{"UUID", "Titulo", "Porcentaje_Oferta", "Decripcion_Oferta", "Img_oferta"});
+        try {
+            PreparedStatement searchUser = conexion.prepareStatement("SELECT * FROM TbOfertas WHERE Titulo LIKE ?");
+            searchUser.setString(1, "%" + txtBuscar.getText() + "%");
+            ResultSet rs = searchUser.executeQuery();
+            while (rs.next()) {
+                modelo.addRow(new Object[]{
+                    rs.getString("UUID_Oferta"),
+                    rs.getString("Titulo"),
+                    rs.getString("Porcentaje_Oferta"),
+                    rs.getString("Decripcion_Oferta"),
+                    rs.getString("Img_oferta")
+                });
+            }
+            tabla.setModel(modelo);
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(4).setMinWidth(0);
+            tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+        } catch (Exception e) {
+            System.out.println("Este es el error en el modelo, metodo buscar " + e);
+        }
+    }
+    
+    public void limpiar(Panel_Ofertas vista) {
+        vista.txt_Titulo_Offers_Admin.setText("");
+        vista.txt_Porcentaje_Offers_Admin.setText("");
+        vista.txt_Descrip_Offers_Admin.setText("");
     }
 }

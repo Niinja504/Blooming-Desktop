@@ -93,7 +93,7 @@
                           <Component id="Btn_Delete" min="-2" pref="98" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" alignment="0" pref="551" max="32767" attributes="0"/>
-                      <Component id="txt_Buscar" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txt_Buscar_User" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <Component id="btn_Upload_photo_User" min="-2" pref="58" max="-2" attributes="0"/>
               </Group>
@@ -107,7 +107,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jLabel1" min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="txt_Buscar" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="txt_Buscar_User" min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -172,6 +172,8 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Nombre"/>
+        <Property name="selectionEnd" type="int" value="9"/>
+        <Property name="selectionStart" type="int" value="9"/>
       </Properties>
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_NombreFocusGained"/>
@@ -254,8 +256,6 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_Confirmar_ContraFocusGained"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_Confirmar_ContraFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Confirmar_ContraActionPerformed"/>
       </Events>
       <AuxValues>
@@ -314,13 +314,13 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_Buscar">
+    <Component class="javax.swing.JTextField" name="txt_Buscar_User">
       <Properties>
         <Property name="text" type="java.lang.String" value="Buscar..."/>
       </Properties>
       <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_BuscarFocusGained"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_BuscarFocusLost"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_Buscar_UserFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_Buscar_UserFocusLost"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -419,8 +419,6 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_ContraFocusGained"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_ContraFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_ContraActionPerformed"/>
       </Events>
       <AuxValues>

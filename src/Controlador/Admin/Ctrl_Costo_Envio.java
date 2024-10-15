@@ -5,13 +5,14 @@ import Modelo.Admin.Costo_Envio;
 import Vista.Paneles_Admin.Panel_CostoEnvio_Admin;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import javax.swing.text.AbstractDocument;
 import org.jxmapviewer.viewer.GeoPosition;
 
-public class Ctrl_Costo_Envio implements MouseListener {
+public class Ctrl_Costo_Envio implements MouseListener, KeyListener {
 
     private Costo_Envio Modelo;
     private Panel_CostoEnvio_Admin Vista;
@@ -25,6 +26,7 @@ public class Ctrl_Costo_Envio implements MouseListener {
         vista.btn_Update_Cost_Admin.addMouseListener(this);
         vista.jtb_Cost.addMouseListener(this);
         vista.btn_Delete_Cost_Admin.addMouseListener(this);
+        vista.txt_Buscar_Cost_admin.addKeyListener(this);
         
         ((AbstractDocument) Vista.txt_Zona_Cost_Admin.getDocument()).setDocumentFilter(new Limites(30));
         ((AbstractDocument) Vista.txt_Costo_Cost_Admin.getDocument()).setDocumentFilter(new Limites(6));
@@ -68,6 +70,7 @@ public class Ctrl_Costo_Envio implements MouseListener {
                 }
 
                 Modelo.Guardar();
+                Modelo.limpiar(Vista);
                 Modelo.Mostrar(Vista.jtb_Cost);
                 JOptionPane.showMessageDialog(Vista, "El usuario se ha añadido", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
             }
@@ -139,6 +142,23 @@ public class Ctrl_Costo_Envio implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
 
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if (e.getSource() == Vista.txt_Buscar_Cost_admin) {
+            Modelo.Buscar(Vista.jtb_Cost, Vista.txt_Buscar_Cost_admin);
+        }
     }
 
 }

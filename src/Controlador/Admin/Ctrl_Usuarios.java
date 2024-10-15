@@ -6,6 +6,7 @@ import static Modelo.SingIn.hashSHA256;
 import Vista.Paneles_Admin.Panel_Usuarios;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -20,7 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import javax.swing.text.AbstractDocument;
 
-public class Ctrl_Usuarios implements MouseListener {
+public class Ctrl_Usuarios implements MouseListener, KeyListener {
 
     private Usuarios Modelo;
     private Panel_Usuarios Vista;
@@ -36,6 +37,7 @@ public class Ctrl_Usuarios implements MouseListener {
         vista.jtb_Usuarios.addMouseListener(this);
         vista.Btn_Delete.addMouseListener(this);
         vista.btn_Upload_photo_User.addMouseListener(this);
+        vista.txt_Buscar_User.addKeyListener(this);
         
         //Limites de caracteres
         ((AbstractDocument) Vista.txt_Nombre.getDocument()).setDocumentFilter(new Limites(15));
@@ -94,6 +96,7 @@ public class Ctrl_Usuarios implements MouseListener {
             String Rol_User = Vista.cb_Rol.getSelectedItem().toString();
             Modelo.setRol_User(Rol_User);
             Modelo.Guardar();
+            Modelo.limpiar(Vista);
             Modelo.Mostrar(Vista.jtb_Usuarios);
             JOptionPane.showMessageDialog(Vista, "El usuario se ha añadido", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -228,6 +231,13 @@ public class Ctrl_Usuarios implements MouseListener {
     }
 
     @Override
+    public void keyReleased(KeyEvent e) {
+        if (e.getSource() == Vista.txt_Buscar_User) {
+            Modelo.Buscar(Vista.jtb_Usuarios, Vista.txt_Buscar_User);
+        }
+    }
+
+    @Override
     public void mousePressed(MouseEvent e) {
 
     }
@@ -245,5 +255,15 @@ public class Ctrl_Usuarios implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
 
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+       
     }
 }

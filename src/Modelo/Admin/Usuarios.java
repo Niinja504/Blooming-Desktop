@@ -296,9 +296,24 @@ public class Usuarios {
                 });
             }
             tabla.setModel(modelo);
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(7).setMinWidth(0);
+            tabla.getColumnModel().getColumn(7).setMaxWidth(0);
         } catch (Exception e) {
             System.out.println("Este es el error en el modelo, metodo buscar " + e);
         }
+    }
+    
+    public void limpiar(Panel_Usuarios vista) {
+        vista.txt_Nombre.setText("");
+        vista.txt_Apellido.setText("");
+        vista.txt_NombreDeUsuario.setText("");
+        vista.txt_Correo.setText("");
+        vista.txt_Contra.setText("");
+        vista.txt_Confirmar_Contra.setText("");
+        vista.txt_Edad.setText("");
+        vista.txt_Telefono.setText("");
     }
 
 }

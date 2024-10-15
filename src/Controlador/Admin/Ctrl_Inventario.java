@@ -7,6 +7,7 @@ import Modelo.Envio_Correo.Envio;
 import Vista.Paneles_Admin.Panel_Inventario;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -25,7 +26,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import javax.swing.text.AbstractDocument;
 
-public class Ctrl_Inventario implements MouseListener {
+public class Ctrl_Inventario implements MouseListener, KeyListener {
 
     private Inventario Modelo;
     private Panel_Inventario Vista;
@@ -40,7 +41,8 @@ public class Ctrl_Inventario implements MouseListener {
         vista.btn_Update_Inventory_Admin.addMouseListener(this);
         vista.jtb_Inventory.addMouseListener(this);
         vista.Btn_Delete_Inventory_Admin.addMouseListener(this);
-        Vista.btn_Upload_photo_Inventario.addMouseListener(this);
+        vista.btn_Upload_photo_Inventario.addMouseListener(this);
+        vista.txt_Buscar_Inventory_Admin.addKeyListener(this);
 
         ((AbstractDocument) Vista.txt_Nombre_Inventory_Admin.getDocument()).setDocumentFilter(new Limites(28));
         ((AbstractDocument) Vista.txt_Precio_Inventory_Admin.getDocument()).setDocumentFilter(new Limites(8));
@@ -104,6 +106,7 @@ public class Ctrl_Inventario implements MouseListener {
             String Categoria_Evento = Vista.Cb_Categoria_Evento_Inventory_admin.getSelectedItem().toString();
             Modelo.setCategoria_Evento(Categoria_Evento); 
             Modelo.Guardar();
+            Modelo.limpiar(Vista);
             Modelo.Mostrar(Vista.jtb_Inventory);
             DB();
             JOptionPane.showMessageDialog(Vista, "El producto se ha añadido", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
@@ -354,5 +357,22 @@ public class Ctrl_Inventario implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
         
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if (e.getSource() == Vista.txt_Buscar_Inventory_Admin) {
+            Modelo.Buscar(Vista.jtb_Inventory, Vista.txt_Buscar_Inventory_Admin);
+        }
     }
 }

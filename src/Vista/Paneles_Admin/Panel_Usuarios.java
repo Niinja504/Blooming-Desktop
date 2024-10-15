@@ -34,7 +34,7 @@ public class Panel_Usuarios extends javax.swing.JPanel {
     
     public void removePlaceholderStyle(JTextField textField){
         Font font = textField.getFont();
-        font = font.deriveFont(Font.PLAIN|Font.BOLD);
+        font = font.deriveFont(Font.PLAIN);
         textField.setFont(font);
         textField.setForeground(Color.white);
     }
@@ -54,7 +54,7 @@ public class Panel_Usuarios extends javax.swing.JPanel {
         txt_Edad = new javax.swing.JTextField();
         txt_Telefono = new javax.swing.JTextField();
         cb_Rol = new javax.swing.JComboBox<>();
-        txt_Buscar = new javax.swing.JTextField();
+        txt_Buscar_User = new javax.swing.JTextField();
         txt_NombreDeUsuario = new javax.swing.JTextField();
         btn_Update = new javax.swing.JButton();
         Btn_Delete = new javax.swing.JButton();
@@ -80,6 +80,8 @@ public class Panel_Usuarios extends javax.swing.JPanel {
 
         txt_Nombre.setForeground(new java.awt.Color(255, 255, 255));
         txt_Nombre.setText("Nombre");
+        txt_Nombre.setSelectionEnd(9);
+        txt_Nombre.setSelectionStart(9);
         txt_Nombre.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_NombreFocusGained(evt);
@@ -136,14 +138,6 @@ public class Panel_Usuarios extends javax.swing.JPanel {
         });
 
         txt_Confirmar_Contra.setForeground(new java.awt.Color(255, 255, 255));
-        txt_Confirmar_Contra.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_Confirmar_ContraFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_Confirmar_ContraFocusLost(evt);
-            }
-        });
         txt_Confirmar_Contra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_Confirmar_ContraActionPerformed(evt);
@@ -185,13 +179,13 @@ public class Panel_Usuarios extends javax.swing.JPanel {
             }
         });
 
-        txt_Buscar.setText("Buscar...");
-        txt_Buscar.addFocusListener(new java.awt.event.FocusAdapter() {
+        txt_Buscar_User.setText("Buscar...");
+        txt_Buscar_User.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_BuscarFocusGained(evt);
+                txt_Buscar_UserFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_BuscarFocusLost(evt);
+                txt_Buscar_UserFocusLost(evt);
             }
         });
 
@@ -272,14 +266,6 @@ public class Panel_Usuarios extends javax.swing.JPanel {
         });
 
         txt_Contra.setForeground(new java.awt.Color(255, 255, 255));
-        txt_Contra.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_ContraFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_ContraFocusLost(evt);
-            }
-        });
         txt_Contra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_ContraActionPerformed(evt);
@@ -346,7 +332,7 @@ public class Panel_Usuarios extends javax.swing.JPanel {
                             .addGap(18, 18, 18)
                             .addComponent(Btn_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
-                        .addComponent(txt_Buscar))
+                        .addComponent(txt_Buscar_User))
                     .addComponent(btn_Upload_photo_User, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 6, Short.MAX_VALUE))
         );
@@ -356,7 +342,7 @@ public class Panel_Usuarios extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_Buscar_User, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -396,139 +382,6 @@ public class Panel_Usuarios extends javax.swing.JPanel {
                 .addContainerGap(8, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txt_NombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_NombreFocusGained
-        if(txt_Nombre.getText().equals("Correo")){
-            txt_Nombre.setText(null);
-            txt_Nombre.requestFocus();
-            
-            removePlaceholderStyle(txt_Nombre);
-        }
-    }//GEN-LAST:event_txt_NombreFocusGained
-
-    private void txt_ApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ApellidoFocusGained
-        if(txt_Apellido.getText().equals("Correo")){
-            txt_Apellido.setText(null);
-            txt_Apellido.requestFocus();
-            
-            removePlaceholderStyle(txt_Apellido);
-        }
-    }//GEN-LAST:event_txt_ApellidoFocusGained
-
-    private void txt_NombreDeUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_NombreDeUsuarioFocusGained
-        if(txt_NombreDeUsuario.getText().equals("Correo")){
-            txt_NombreDeUsuario.setText(null);
-            txt_NombreDeUsuario.requestFocus();
-            
-            removePlaceholderStyle(txt_NombreDeUsuario);
-        }
-    }//GEN-LAST:event_txt_NombreDeUsuarioFocusGained
-
-    private void txt_CorreoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_CorreoFocusGained
-        if(txt_Correo.getText().equals("Correo")){
-            txt_Correo.setText(null);
-            txt_Correo.requestFocus();
-            
-            removePlaceholderStyle(txt_Correo);
-        }
-    }//GEN-LAST:event_txt_CorreoFocusGained
-
-    private void txt_Confirmar_ContraFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Confirmar_ContraFocusGained
-
-        if(txt_Confirmar_Contra.getText().equals("Correo")){
-            txt_Confirmar_Contra.setText(null);
-            txt_Confirmar_Contra.requestFocus();
-            
-            removePlaceholderStyle(txt_Confirmar_Contra);
-        }
-    }//GEN-LAST:event_txt_Confirmar_ContraFocusGained
-
-    private void txt_EdadFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_EdadFocusGained
-        if(txt_Edad.getText().equals("Correo")){
-            txt_Edad.setText(null);
-            txt_Edad.requestFocus();
-            
-            removePlaceholderStyle(txt_Edad);
-        }
-    }//GEN-LAST:event_txt_EdadFocusGained
-
-    private void txt_TelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_TelefonoFocusGained
-        if(txt_Telefono.getText().equals("Correo")){
-            txt_Telefono.setText(null);
-            txt_Telefono.requestFocus();
-            
-            removePlaceholderStyle(txt_Telefono);
-        }
-    }//GEN-LAST:event_txt_TelefonoFocusGained
-
-    private void txt_NombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_NombreFocusLost
-        if(txt_Nombre.getText().length()==0){
-            addPlaceholderStyle(txt_Nombre);
-            txt_Nombre.setText("Nombre");
-        }
-    }//GEN-LAST:event_txt_NombreFocusLost
-
-    private void txt_ApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ApellidoFocusLost
-        if(txt_Apellido.getText().length()==0){
-            addPlaceholderStyle(txt_Apellido);
-            txt_Apellido.setText("Apellido");
-        }
-    }//GEN-LAST:event_txt_ApellidoFocusLost
-
-    private void txt_NombreDeUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_NombreDeUsuarioFocusLost
-        if(txt_NombreDeUsuario.getText().length()==0){
-            addPlaceholderStyle(txt_NombreDeUsuario);
-            txt_NombreDeUsuario.setText("Usuario");
-        }
-    }//GEN-LAST:event_txt_NombreDeUsuarioFocusLost
-
-    private void txt_CorreoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_CorreoFocusLost
-        if(txt_Correo.getText().length()==0){
-            addPlaceholderStyle(txt_NombreDeUsuario);
-            txt_NombreDeUsuario.setText("Correo");
-        }
-    }//GEN-LAST:event_txt_CorreoFocusLost
-
-    private void txt_Confirmar_ContraFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Confirmar_ContraFocusLost
-        if(txt_Confirmar_Contra.getText().length()==0){
-            addPlaceholderStyle(txt_Confirmar_Contra);
-            txt_Confirmar_Contra.setText("Contraseña");
-        }
-    }//GEN-LAST:event_txt_Confirmar_ContraFocusLost
-
-    private void txt_EdadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_EdadFocusLost
-        if(txt_Confirmar_Contra.getText().length()==0){
-            addPlaceholderStyle(txt_Confirmar_Contra);
-            txt_Confirmar_Contra.setText("Confirmar contraseña");
-        }
-    }//GEN-LAST:event_txt_EdadFocusLost
-
-    private void txt_TelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_TelefonoFocusLost
-        if(txt_Telefono.getText().length()==0){
-            addPlaceholderStyle(txt_Telefono);
-            txt_Telefono.setText("Telefono");
-        }
-    }//GEN-LAST:event_txt_TelefonoFocusLost
-
-    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
-        this.requestFocus();
-    }//GEN-LAST:event_formFocusGained
-
-    private void txt_BuscarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_BuscarFocusGained
-        if(txt_Buscar.getText().equals("Correo")){
-            txt_Buscar.setText(null);
-            txt_Buscar.requestFocus();
-            
-            removePlaceholderStyle(txt_Buscar);
-        }
-    }//GEN-LAST:event_txt_BuscarFocusGained
-
-    private void txt_BuscarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_BuscarFocusLost
-        if(txt_Buscar.getText().length()==0){
-            addPlaceholderStyle(txt_Buscar);
-            txt_Buscar.setText("Buscar...");
-        }
-    }//GEN-LAST:event_txt_BuscarFocusLost
 
     private void btn_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_UpdateActionPerformed
         // TODO add your handling code here:
@@ -570,14 +423,6 @@ public class Panel_Usuarios extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_Confirmar_ContraActionPerformed
 
-    private void txt_ContraFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ContraFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_ContraFocusGained
-
-    private void txt_ContraFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ContraFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_ContraFocusLost
-
     private void txt_ContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ContraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_ContraActionPerformed
@@ -589,6 +434,123 @@ public class Panel_Usuarios extends javax.swing.JPanel {
     private void cb_RolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_RolActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_RolActionPerformed
+
+    private void txt_Buscar_UserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Buscar_UserFocusGained
+        if(txt_Buscar_User.getText().equals("Buscar...")){
+            txt_Buscar_User.setText(null);
+            txt_Buscar_User.requestFocus();
+
+            removePlaceholderStyle(txt_Buscar_User);
+        }
+    }//GEN-LAST:event_txt_Buscar_UserFocusGained
+
+    private void txt_Buscar_UserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Buscar_UserFocusLost
+        if(txt_Buscar_User.getText().length()==0){
+            addPlaceholderStyle(txt_Buscar_User);
+            txt_Buscar_User.setText("Buscar...");
+        }
+    }//GEN-LAST:event_txt_Buscar_UserFocusLost
+
+    private void txt_NombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_NombreFocusGained
+        if(txt_Nombre.getText().equals("Nombre")){
+            txt_Nombre.setText(null);
+            txt_Nombre.requestFocus();
+
+            removePlaceholderStyle(txt_Nombre);
+        }
+    }//GEN-LAST:event_txt_NombreFocusGained
+
+    private void txt_NombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_NombreFocusLost
+        if(txt_Nombre.getText().length()==0){
+            addPlaceholderStyle(txt_Nombre);
+            txt_Nombre.setText("Nombre");
+        }
+    }//GEN-LAST:event_txt_NombreFocusLost
+
+    private void txt_ApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ApellidoFocusGained
+        if(txt_Apellido.getText().equals("Apellido")){
+            txt_Apellido.setText(null);
+            txt_Apellido.requestFocus();
+
+            removePlaceholderStyle(txt_Apellido);
+        }
+    }//GEN-LAST:event_txt_ApellidoFocusGained
+
+    private void txt_ApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ApellidoFocusLost
+        if(txt_Apellido.getText().length()==0){
+            addPlaceholderStyle(txt_Apellido);
+            txt_Apellido.setText("Apellido");
+        }
+    }//GEN-LAST:event_txt_ApellidoFocusLost
+
+    private void txt_NombreDeUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_NombreDeUsuarioFocusGained
+        if(txt_NombreDeUsuario.getText().equals("Usuario")){
+            txt_NombreDeUsuario.setText(null);
+            txt_NombreDeUsuario.requestFocus();
+
+            removePlaceholderStyle(txt_NombreDeUsuario);
+        }
+    }//GEN-LAST:event_txt_NombreDeUsuarioFocusGained
+
+    private void txt_NombreDeUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_NombreDeUsuarioFocusLost
+        if(txt_NombreDeUsuario.getText().length()==0){
+            addPlaceholderStyle(txt_NombreDeUsuario);
+            txt_NombreDeUsuario.setText("Usuario");
+        }
+    }//GEN-LAST:event_txt_NombreDeUsuarioFocusLost
+
+    private void txt_CorreoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_CorreoFocusGained
+        if(txt_Correo.getText().equals("Correo")){
+            txt_Correo.setText(null);
+            txt_Correo.requestFocus();
+
+            removePlaceholderStyle(txt_Correo);
+        }
+    }//GEN-LAST:event_txt_CorreoFocusGained
+
+    private void txt_CorreoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_CorreoFocusLost
+        if(txt_Correo.getText().length()==0){
+            addPlaceholderStyle(txt_Correo);
+            txt_Correo.setText("Correo");
+        }
+    }//GEN-LAST:event_txt_CorreoFocusLost
+
+    private void txt_EdadFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_EdadFocusGained
+        if(txt_Edad.getText().equals("Edad")){
+            txt_Edad.setText(null);
+            txt_Edad.requestFocus();
+
+            removePlaceholderStyle(txt_Edad);
+        }
+    }//GEN-LAST:event_txt_EdadFocusGained
+
+    private void txt_EdadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_EdadFocusLost
+        if(txt_Edad.getText().length()==0){
+            addPlaceholderStyle(txt_Edad);
+            txt_Edad.setText("Edad");
+        }
+    }//GEN-LAST:event_txt_EdadFocusLost
+
+
+    private void txt_TelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_TelefonoFocusGained
+        if(txt_Telefono.getText().equals("Telefono")){
+            txt_Telefono.setText(null);
+            txt_Telefono.requestFocus();
+
+            removePlaceholderStyle(txt_Telefono);
+        }
+    }//GEN-LAST:event_txt_TelefonoFocusGained
+
+    private void txt_TelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_TelefonoFocusLost
+        if(txt_Telefono.getText().length()==0){
+            addPlaceholderStyle(txt_Telefono);
+            txt_Telefono.setText("Telefono");
+        }
+    }//GEN-LAST:event_txt_TelefonoFocusLost
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        this.requestFocus();
+    }//GEN-LAST:event_formFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -605,7 +567,7 @@ public class Panel_Usuarios extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jtb_Usuarios;
     public javax.swing.JTextField txt_Apellido;
-    public javax.swing.JTextField txt_Buscar;
+    public javax.swing.JTextField txt_Buscar_User;
     public javax.swing.JTextField txt_Confirmar_Contra;
     public javax.swing.JTextField txt_Contra;
     public javax.swing.JTextField txt_Correo;

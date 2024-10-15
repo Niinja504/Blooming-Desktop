@@ -8,6 +8,7 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -22,7 +23,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import javax.swing.text.AbstractDocument;
 
-public class Ctrl_Ofertas implements MouseListener {
+public class Ctrl_Ofertas implements MouseListener, KeyListener {
 
     private Ofertas Modelo;
     private Lista_Productos ModeloCom;
@@ -40,6 +41,7 @@ public class Ctrl_Ofertas implements MouseListener {
         vista.jtb_Offers_Admin.addMouseListener(this);
         vista.Btn_Delete_Offers_Admin.addMouseListener(this);
         vista.btn_Upload_photo_Ofertas.addMouseListener(this);
+        vista.txt_Buscar_Offers_Admin.addKeyListener(this);
         this.ModeloCom.CargarComboProductos(Vista.Cb_Productos_Offers_Admin);
         
         ((AbstractDocument) Vista.txt_Titulo_Offers_Admin.getDocument()).setDocumentFilter(new Limites(14));
@@ -98,6 +100,7 @@ public class Ctrl_Ofertas implements MouseListener {
             }
 
             Modelo.Guardar();
+            Modelo.limpiar(Vista);
             Modelo.Mostrar(Vista.jtb_Offers_Admin);
             JOptionPane.showMessageDialog(Vista, "La oferta se ha añadido", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -198,6 +201,23 @@ public class Ctrl_Ofertas implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
 
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if (e.getSource() == Vista.txt_Buscar_Offers_Admin) {
+            Modelo.Buscar(Vista.jtb_Offers_Admin, Vista.txt_Buscar_Offers_Admin);
+        }
     }
 
 }
