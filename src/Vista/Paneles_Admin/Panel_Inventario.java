@@ -54,6 +54,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         Descripción = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 252, 245));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txt_Buscar_Inventory_Admin.setText("Buscar...");
         txt_Buscar_Inventory_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -64,6 +65,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
                 txt_Buscar_Inventory_AdminFocusLost(evt);
             }
         });
+        add(txt_Buscar_Inventory_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 0, 532, 36));
 
         jtb_Inventory.setForeground(new java.awt.Color(255, 255, 255));
         jtb_Inventory.setModel(new javax.swing.table.DefaultTableModel(
@@ -87,6 +89,8 @@ public class Panel_Inventario extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jtb_Inventory);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 474, 866, 240));
+
         txt_Nombre_Inventory_Admin.setForeground(new java.awt.Color(255, 255, 255));
         txt_Nombre_Inventory_Admin.setText("Nombre");
         txt_Nombre_Inventory_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -97,6 +101,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
                 txt_Nombre_Inventory_AdminFocusLost(evt);
             }
         });
+        add(txt_Nombre_Inventory_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 79, 309, 40));
 
         txt_Precio_Inventory_Admin.setForeground(new java.awt.Color(255, 255, 255));
         txt_Precio_Inventory_Admin.setText("Precio");
@@ -108,6 +113,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
                 txt_Precio_Inventory_AdminFocusLost(evt);
             }
         });
+        add(txt_Precio_Inventory_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 125, 309, 40));
 
         txt_Cantidad_Inventory_Admin.setForeground(new java.awt.Color(255, 255, 255));
         txt_Cantidad_Inventory_Admin.setText("Cantidad disponible");
@@ -119,17 +125,31 @@ public class Panel_Inventario extends javax.swing.JPanel {
                 txt_Cantidad_Inventory_AdminFocusLost(evt);
             }
         });
+        add(txt_Cantidad_Inventory_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 171, 309, 40));
 
         Cb_Categoria_Flores_Inventory_admin.setForeground(new java.awt.Color(255, 255, 255));
         Cb_Categoria_Flores_Inventory_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hortencias", "Rosas", "Tulipanes", "Girasoles", "Mixtas" }));
+        add(Cb_Categoria_Flores_Inventory_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 217, 309, 40));
 
         Cb_Categoria_Diseno_Inventory_admin.setForeground(new java.awt.Color(255, 255, 255));
         Cb_Categoria_Diseno_Inventory_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cajas", "Ramos", "Botellas", "Corazones", "Rosas preservadas", "Individual" }));
+        add(Cb_Categoria_Diseno_Inventory_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 263, 309, 40));
 
         Cb_Categoria_Evento_Inventory_admin.setForeground(new java.awt.Color(255, 255, 255));
         Cb_Categoria_Evento_Inventory_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cumpleaños", "Aniversario", "Amor", "Nacimiento", "Condolencias" }));
+        add(Cb_Categoria_Evento_Inventory_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 309, 309, 40));
 
         txt_Descrip_Inventory_Admin.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Descrip_Inventory_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_Descrip_Inventory_AdminFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_Descrip_Inventory_AdminFocusLost(evt);
+            }
+        });
+        add(txt_Descrip_Inventory_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 381, 307, 60));
+        add(IMG_Inventory_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 17, 280, 280));
 
         btn_Update_Inventory_Admin.setBackground(new java.awt.Color(243, 143, 154));
         btn_Update_Inventory_Admin.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -137,6 +157,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         btn_Update_Inventory_Admin.setText("Actualizar");
         btn_Update_Inventory_Admin.setBorderPainted(false);
         btn_Update_Inventory_Admin.setFocusPainted(false);
+        add(btn_Update_Inventory_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 232, -1, 37));
 
         btn_Add_Inventory_Admin.setBackground(new java.awt.Color(243, 143, 154));
         btn_Add_Inventory_Admin.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -144,6 +165,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         btn_Add_Inventory_Admin.setText("Agregar");
         btn_Add_Inventory_Admin.setBorderPainted(false);
         btn_Add_Inventory_Admin.setFocusPainted(false);
+        add(btn_Add_Inventory_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 117, 100, 37));
 
         Btn_Delete_Inventory_Admin.setBackground(new java.awt.Color(243, 143, 154));
         Btn_Delete_Inventory_Admin.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -151,92 +173,25 @@ public class Panel_Inventario extends javax.swing.JPanel {
         Btn_Delete_Inventory_Admin.setText("Eliminar");
         Btn_Delete_Inventory_Admin.setBorderPainted(false);
         Btn_Delete_Inventory_Admin.setFocusPainted(false);
+        add(Btn_Delete_Inventory_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 359, 100, 37));
 
         btn_Upload_photo_Inventario.setForeground(new java.awt.Color(255, 255, 255));
         btn_Upload_photo_Inventario.setText("Subir foto");
+        add(btn_Upload_photo_Inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 352, 109, 46));
 
         Descripción.setForeground(new java.awt.Color(51, 51, 51));
         Descripción.setText("Descripción");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(IMG_Inventory_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(107, 107, 107)
-                                .addComponent(btn_Upload_photo_Inventario, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_Buscar_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_Nombre_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_Precio_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(Cb_Categoria_Evento_Inventory_admin, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Cb_Categoria_Diseno_Inventory_admin, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Cb_Categoria_Flores_Inventory_admin, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txt_Cantidad_Inventory_Admin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE))
-                                    .addComponent(txt_Descrip_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Descripción))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(btn_Update_Inventory_Admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btn_Add_Inventory_Admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Btn_Delete_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(IMG_Inventory_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
-                        .addComponent(btn_Upload_photo_Inventario, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txt_Buscar_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75)
-                        .addComponent(btn_Add_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(78, 78, 78)
-                        .addComponent(btn_Update_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(90, 90, 90)
-                        .addComponent(Btn_Delete_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(txt_Nombre_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_Precio_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_Cantidad_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Cb_Categoria_Flores_Inventory_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Cb_Categoria_Diseno_Inventory_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Cb_Categoria_Evento_Inventory_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(Descripción)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_Descrip_Inventory_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        add(Descripción, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 359, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txt_Descrip_Inventory_AdminFocusGained(java.awt.event.FocusEvent evt) {
+        
+    }
+    
+    private void txt_Descrip_Inventory_AdminFocusLost(java.awt.event.FocusEvent evt) {
+        
+    }
+    
 
     private void txt_Buscar_Inventory_AdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Buscar_Inventory_AdminFocusGained
         if(txt_Buscar_Inventory_Admin.getText().equals("Buscar")){

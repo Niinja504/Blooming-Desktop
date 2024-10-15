@@ -158,6 +158,7 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
                 formFocusGained(evt);
             }
         });
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txt_Buscar_Cost_admin.setText("Buscar...");
         txt_Buscar_Cost_admin.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -168,6 +169,7 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
                 txt_Buscar_Cost_adminFocusLost(evt);
             }
         });
+        add(txt_Buscar_Cost_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 0, 472, 36));
 
         cmdAdd.setBackground(new java.awt.Color(243, 143, 154));
         cmdAdd.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -245,6 +247,8 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
             .addComponent(jXMapViewer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 79, -1, -1));
+
         comboMap.setForeground(new java.awt.Color(255, 255, 255));
         comboMap.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Hibrido", "Satelite", "Relieve" }));
         comboMap.addActionListener(new java.awt.event.ActionListener() {
@@ -252,6 +256,7 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
                 comboMapActionPerformed(evt);
             }
         });
+        add(comboMap, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 113, 36));
 
         jtb_Cost.setForeground(new java.awt.Color(255, 255, 255));
         jtb_Cost.setModel(new javax.swing.table.DefaultTableModel(
@@ -275,6 +280,8 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jtb_Cost);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 287, 472, -1));
+
         txt_Zona_Cost_Admin.setForeground(new java.awt.Color(255, 255, 255));
         txt_Zona_Cost_Admin.setText("Nombre de la zona");
         txt_Zona_Cost_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -285,6 +292,7 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
                 txt_Zona_Cost_AdminFocusLost(evt);
             }
         });
+        add(txt_Zona_Cost_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 79, 309, 40));
 
         txt_Costo_Cost_Admin.setForeground(new java.awt.Color(255, 255, 255));
         txt_Costo_Cost_Admin.setText("Precio");
@@ -296,67 +304,19 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
                 txt_Costo_Cost_AdminFocusLost(evt);
             }
         });
+        add(txt_Costo_Cost_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 131, 309, 40));
 
         btn_Add_Cost_Admin.setForeground(new java.awt.Color(255, 255, 255));
         btn_Add_Cost_Admin.setText("Agregar");
+        add(btn_Add_Cost_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(759, 79, 82, 40));
 
         btn_Update_Cost_Admin.setForeground(new java.awt.Color(255, 255, 255));
         btn_Update_Cost_Admin.setText("Actualizar");
+        add(btn_Update_Cost_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(759, 145, -1, 40));
 
         btn_Delete_Cost_Admin.setForeground(new java.awt.Color(255, 255, 255));
         btn_Delete_Cost_Admin.setText("Eliminar");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(comboMap, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(293, 293, 293)
-                .addComponent(txt_Buscar_Cost_admin))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_Zona_Cost_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_Costo_Cost_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn_Update_Cost_Admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_Delete_Cost_Admin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_Add_Cost_Admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(37, 37, 37))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txt_Buscar_Cost_admin, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                    .addComponent(comboMap))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_Zona_Cost_Admin, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                            .addComponent(btn_Add_Cost_Admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_Costo_Cost_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(btn_Update_Cost_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(28, 28, 28)
-                        .addComponent(btn_Delete_Cost_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        add(btn_Delete_Cost_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(759, 213, 82, 37));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_Buscar_Cost_adminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Buscar_Cost_adminFocusGained

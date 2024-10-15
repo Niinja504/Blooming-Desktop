@@ -58,6 +58,7 @@ public class Panel_Ofertas extends javax.swing.JPanel {
         jScrollPane3.setViewportView(jTextArea1);
 
         setBackground(new java.awt.Color(255, 252, 245));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txt_Buscar_Offers_Admin.setText("Buscar...");
         txt_Buscar_Offers_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -68,6 +69,7 @@ public class Panel_Ofertas extends javax.swing.JPanel {
                 txt_Buscar_Offers_AdminFocusLost(evt);
             }
         });
+        add(txt_Buscar_Offers_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 0, 490, 36));
 
         txt_Titulo_Offers_Admin.setForeground(new java.awt.Color(255, 255, 255));
         txt_Titulo_Offers_Admin.setText("Titulo de oferta");
@@ -79,9 +81,16 @@ public class Panel_Ofertas extends javax.swing.JPanel {
                 txt_Titulo_Offers_AdminFocusLost(evt);
             }
         });
+        add(txt_Titulo_Offers_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 64, 309, 40));
 
         Cb_Productos_Offers_Admin.setForeground(new java.awt.Color(255, 255, 255));
         Cb_Productos_Offers_Admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Cb_Productos_Offers_Admin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cb_Productos_Offers_AdminActionPerformed(evt);
+            }
+        });
+        add(Cb_Productos_Offers_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 124, 309, 40));
 
         txt_Porcentaje_Offers_Admin.setForeground(new java.awt.Color(255, 255, 255));
         txt_Porcentaje_Offers_Admin.setText("Porcentaje oferta");
@@ -93,6 +102,7 @@ public class Panel_Ofertas extends javax.swing.JPanel {
                 txt_Porcentaje_Offers_AdminFocusLost(evt);
             }
         });
+        add(txt_Porcentaje_Offers_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 176, 309, 40));
 
         jtb_Offers_Admin.setForeground(new java.awt.Color(255, 255, 255));
         jtb_Offers_Admin.setModel(new javax.swing.table.DefaultTableModel(
@@ -116,7 +126,18 @@ public class Panel_Ofertas extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jtb_Offers_Admin);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 338, 866, 376));
+
         txt_Descrip_Offers_Admin.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Descrip_Offers_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_Descrip_Offers_AdminFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_Descrip_Offers_AdminFocusLost(evt);
+            }
+        });
+        add(txt_Descrip_Offers_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 307, 79));
 
         btn_Add_Offers_Admin.setBackground(new java.awt.Color(243, 143, 154));
         btn_Add_Offers_Admin.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -124,6 +145,7 @@ public class Panel_Ofertas extends javax.swing.JPanel {
         btn_Add_Offers_Admin.setText("Guadar");
         btn_Add_Offers_Admin.setBorderPainted(false);
         btn_Add_Offers_Admin.setFocusPainted(false);
+        add(btn_Add_Offers_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(729, 64, 100, 37));
 
         btn_Update_Offers_Admin.setBackground(new java.awt.Color(243, 143, 154));
         btn_Update_Offers_Admin.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -132,6 +154,7 @@ public class Panel_Ofertas extends javax.swing.JPanel {
         btn_Update_Offers_Admin.setToolTipText("");
         btn_Update_Offers_Admin.setBorderPainted(false);
         btn_Update_Offers_Admin.setFocusPainted(false);
+        add(btn_Update_Offers_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(729, 154, -1, 37));
 
         Btn_Delete_Offers_Admin.setBackground(new java.awt.Color(243, 143, 154));
         Btn_Delete_Offers_Admin.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -140,89 +163,31 @@ public class Panel_Ofertas extends javax.swing.JPanel {
         Btn_Delete_Offers_Admin.setToolTipText("");
         Btn_Delete_Offers_Admin.setBorderPainted(false);
         Btn_Delete_Offers_Admin.setFocusPainted(false);
+        add(Btn_Delete_Offers_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(729, 222, 100, 37));
+        add(IMG_Offers_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 26, 288, 288));
 
         btn_Upload_photo_Ofertas.setBackground(new java.awt.Color(255, 252, 245));
         btn_Upload_photo_Ofertas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/images/ic_upload.png"))); // NOI18N
         btn_Upload_photo_Ofertas.setBorder(null);
+        add(btn_Upload_photo_Ofertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 152, 61, -1));
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Descripción");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(IMG_Offers_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(btn_Upload_photo_Ofertas, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(Cb_Productos_Offers_Admin, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txt_Titulo_Offers_Admin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txt_Porcentaje_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_Descrip_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_Add_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btn_Update_Offers_Admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Btn_Delete_Offers_Admin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(txt_Buscar_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addContainerGap(22, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(64, 64, 64)
-                                .addComponent(txt_Titulo_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                                .addComponent(Cb_Productos_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_Porcentaje_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(txt_Buscar_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22)
-                                .addComponent(btn_Add_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(53, 53, 53)
-                                .addComponent(btn_Update_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_Upload_photo_Ofertas)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_Descrip_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Btn_Delete_Offers_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(IMG_Offers_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 222, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Cb_Productos_Offers_AdminActionPerformed(java.awt.event.ActionEvent evt) {
+        
+    }
+    
+    private void txt_Descrip_Offers_AdminFocusGained(java.awt.event.FocusEvent evt) {
+        
+    }
+    
+    private void txt_Descrip_Offers_AdminFocusLost(java.awt.event.FocusEvent evt) {
+        
+    }
+    
 
     private void txt_Buscar_Offers_AdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Buscar_Offers_AdminFocusGained
         if(txt_Buscar_Offers_Admin.getText().equals("Buscar")){
