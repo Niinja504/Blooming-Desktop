@@ -29,14 +29,14 @@ public class Panel_Usuarios extends javax.swing.JPanel {
         Font font = textField.getFont();
         font = font.deriveFont(Font.ITALIC);
         textField.setFont(font);
-        textField.setForeground(Color.white);
+        textField.setForeground(Color.BLACK);
     }
     
     public void removePlaceholderStyle(JTextField textField){
         Font font = textField.getFont();
         font = font.deriveFont(Font.PLAIN);
         textField.setFont(font);
-        textField.setForeground(Color.white);
+        textField.setForeground(Color.BLACK);
     }
 
     @SuppressWarnings("unchecked")
@@ -80,7 +80,8 @@ public class Panel_Usuarios extends javax.swing.JPanel {
         jLabel1.setText("Usuarios");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 11, -1, 31));
 
-        txt_Nombre.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Nombre.setBackground(new java.awt.Color(255, 255, 255));
+        txt_Nombre.setForeground(new java.awt.Color(0, 0, 0));
         txt_Nombre.setText("Nombre");
         txt_Nombre.setSelectionEnd(9);
         txt_Nombre.setSelectionStart(9);
@@ -94,7 +95,8 @@ public class Panel_Usuarios extends javax.swing.JPanel {
         });
         add(txt_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 235, 309, 35));
 
-        txt_Correo.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Correo.setBackground(new java.awt.Color(255, 255, 255));
+        txt_Correo.setForeground(new java.awt.Color(0, 0, 0));
         txt_Correo.setText("Correo");
         txt_Correo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -132,7 +134,8 @@ public class Panel_Usuarios extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 211, 551, 501));
 
-        txt_Apellido.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Apellido.setBackground(new java.awt.Color(255, 255, 255));
+        txt_Apellido.setForeground(new java.awt.Color(0, 0, 0));
         txt_Apellido.setText("Apellido");
         txt_Apellido.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -144,7 +147,8 @@ public class Panel_Usuarios extends javax.swing.JPanel {
         });
         add(txt_Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 276, 309, 35));
 
-        txt_Confirmar_Contra.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Confirmar_Contra.setBackground(new java.awt.Color(255, 255, 255));
+        txt_Confirmar_Contra.setForeground(new java.awt.Color(0, 0, 0));
         txt_Confirmar_Contra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_Confirmar_ContraActionPerformed(evt);
@@ -152,7 +156,8 @@ public class Panel_Usuarios extends javax.swing.JPanel {
         });
         add(txt_Confirmar_Contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 489, 309, 35));
 
-        txt_Edad.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Edad.setBackground(new java.awt.Color(255, 255, 255));
+        txt_Edad.setForeground(new java.awt.Color(0, 0, 0));
         txt_Edad.setText("Edad");
         txt_Edad.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -169,7 +174,8 @@ public class Panel_Usuarios extends javax.swing.JPanel {
         });
         add(txt_Edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 542, 309, 35));
 
-        txt_Telefono.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Telefono.setBackground(new java.awt.Color(255, 255, 255));
+        txt_Telefono.setForeground(new java.awt.Color(0, 0, 0));
         txt_Telefono.setText("Telefono");
         txt_Telefono.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -190,6 +196,8 @@ public class Panel_Usuarios extends javax.swing.JPanel {
         });
         add(cb_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 624, 309, 43));
 
+        txt_Buscar_User.setBackground(new java.awt.Color(255, 255, 255));
+        txt_Buscar_User.setForeground(new java.awt.Color(0, 0, 0));
         txt_Buscar_User.setText("Buscar...");
         txt_Buscar_User.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -199,9 +207,10 @@ public class Panel_Usuarios extends javax.swing.JPanel {
                 txt_Buscar_UserFocusLost(evt);
             }
         });
-        add(txt_Buscar_User, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 0, 551, 36));
+        add(txt_Buscar_User, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 540, 36));
 
-        txt_NombreDeUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        txt_NombreDeUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        txt_NombreDeUsuario.setForeground(new java.awt.Color(0, 0, 0));
         txt_NombreDeUsuario.setText("Usuario");
         txt_NombreDeUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -234,7 +243,7 @@ public class Panel_Usuarios extends javax.swing.JPanel {
                 btn_UpdateActionPerformed(evt);
             }
         });
-        add(btn_Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 65, 106, -1));
+        add(btn_Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 65, 110, 30));
 
         Btn_Delete.setBackground(new java.awt.Color(243, 143, 154));
         Btn_Delete.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -257,12 +266,13 @@ public class Panel_Usuarios extends javax.swing.JPanel {
                 Btn_DeleteActionPerformed(evt);
             }
         });
-        add(Btn_Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 65, 98, -1));
+        add(Btn_Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 65, 110, 30));
 
         btn_Agregar.setBackground(new java.awt.Color(243, 143, 154));
         btn_Agregar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btn_Agregar.setForeground(new java.awt.Color(255, 255, 255));
         btn_Agregar.setText("Agregar usuario");
+        btn_Agregar.setBorderPainted(false);
         btn_Agregar.setFocusPainted(false);
         btn_Agregar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -279,9 +289,10 @@ public class Panel_Usuarios extends javax.swing.JPanel {
                 btn_AgregarActionPerformed(evt);
             }
         });
-        add(btn_Agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 673, 309, 39));
+        add(btn_Agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 672, 309, 39));
 
-        txt_Contra.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Contra.setBackground(new java.awt.Color(255, 255, 255));
+        txt_Contra.setForeground(new java.awt.Color(0, 0, 0));
         txt_Contra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_ContraActionPerformed(evt);
@@ -374,7 +385,7 @@ public class Panel_Usuarios extends javax.swing.JPanel {
 
     private void txt_NombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_NombreFocusGained
         if(txt_Nombre.getText().equals("Nombre")){
-            txt_Nombre.setText(null);
+            txt_Nombre.setText("");
             txt_Nombre.requestFocus();
 
             removePlaceholderStyle(txt_Nombre);
@@ -390,7 +401,7 @@ public class Panel_Usuarios extends javax.swing.JPanel {
 
     private void txt_ApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ApellidoFocusGained
         if(txt_Apellido.getText().equals("Apellido")){
-            txt_Apellido.setText(null);
+            txt_Apellido.setText("");
             txt_Apellido.requestFocus();
 
             removePlaceholderStyle(txt_Apellido);
@@ -406,7 +417,7 @@ public class Panel_Usuarios extends javax.swing.JPanel {
 
     private void txt_NombreDeUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_NombreDeUsuarioFocusGained
         if(txt_NombreDeUsuario.getText().equals("Usuario")){
-            txt_NombreDeUsuario.setText(null);
+            txt_NombreDeUsuario.setText("");
             txt_NombreDeUsuario.requestFocus();
 
             removePlaceholderStyle(txt_NombreDeUsuario);
@@ -422,7 +433,7 @@ public class Panel_Usuarios extends javax.swing.JPanel {
 
     private void txt_CorreoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_CorreoFocusGained
         if(txt_Correo.getText().equals("Correo")){
-            txt_Correo.setText(null);
+            txt_Correo.setText("");
             txt_Correo.requestFocus();
 
             removePlaceholderStyle(txt_Correo);
@@ -438,7 +449,7 @@ public class Panel_Usuarios extends javax.swing.JPanel {
 
     private void txt_EdadFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_EdadFocusGained
         if(txt_Edad.getText().equals("Edad")){
-            txt_Edad.setText(null);
+            txt_Edad.setText("");
             txt_Edad.requestFocus();
 
             removePlaceholderStyle(txt_Edad);
@@ -455,7 +466,7 @@ public class Panel_Usuarios extends javax.swing.JPanel {
 
     private void txt_TelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_TelefonoFocusGained
         if(txt_Telefono.getText().equals("Telefono")){
-            txt_Telefono.setText(null);
+            txt_Telefono.setText("");
             txt_Telefono.requestFocus();
 
             removePlaceholderStyle(txt_Telefono);

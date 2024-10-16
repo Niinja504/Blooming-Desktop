@@ -57,7 +57,7 @@
         <Container class="Cards.PanelItem" name="panelItem">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
+              <Color blue="f5" green="fc" red="ff" type="rgb"/>
             </Property>
           </Properties>
         </Container>
@@ -66,7 +66,7 @@
     <Container class="javax.swing.JPanel" name="jPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
 
@@ -97,7 +97,7 @@
               <Font name="Segoe UI" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
+              <Color blue="1c" green="33" red="4a" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Notificaciones"/>
           </Properties>

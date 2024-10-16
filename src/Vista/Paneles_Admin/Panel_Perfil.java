@@ -71,22 +71,37 @@ public class Panel_Perfil extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 252, 245));
 
+        Txt_Nombres_Profile.setBackground(new java.awt.Color(255, 255, 255));
+        Txt_Nombres_Profile.setForeground(new java.awt.Color(51, 51, 51));
         Txt_Nombres_Profile.setText("Nombres");
 
+        btn_Upload_photo_Admin.setBackground(new java.awt.Color(243, 143, 154));
+        btn_Upload_photo_Admin.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         btn_Upload_photo_Admin.setForeground(new java.awt.Color(255, 255, 255));
         btn_Upload_photo_Admin.setText("Subir");
+        btn_Upload_photo_Admin.setBorderPainted(false);
 
+        Txt_Apellidos_Profile.setBackground(new java.awt.Color(255, 255, 255));
+        Txt_Apellidos_Profile.setForeground(new java.awt.Color(51, 51, 51));
         Txt_Apellidos_Profile.setText("Apellidos");
 
+        Txt_NombreUsuario_Profile.setBackground(new java.awt.Color(255, 255, 255));
+        Txt_NombreUsuario_Profile.setForeground(new java.awt.Color(51, 51, 51));
         Txt_NombreUsuario_Profile.setText("Nombre de usuario");
 
+        Txt_Correo_Profile.setBackground(new java.awt.Color(255, 255, 255));
+        Txt_Correo_Profile.setForeground(new java.awt.Color(51, 51, 51));
         Txt_Correo_Profile.setText("Correo");
 
+        Txt_Edad_Profile.setBackground(new java.awt.Color(255, 255, 255));
+        Txt_Edad_Profile.setForeground(new java.awt.Color(51, 51, 51));
         Txt_Edad_Profile.setText("Edad");
 
+        Txt_Telefono_Profile.setBackground(new java.awt.Color(255, 255, 255));
+        Txt_Telefono_Profile.setForeground(new java.awt.Color(51, 51, 51));
         Txt_Telefono_Profile.setText("Telèfono");
 
-        roundedImagePanel.setBackground(new java.awt.Color(255, 252, 245));
+        roundedImagePanel.setBackground(new java.awt.Color(255, 252, 250));
 
         javax.swing.GroupLayout roundedImagePanelLayout = new javax.swing.GroupLayout(roundedImagePanel);
         roundedImagePanel.setLayout(roundedImagePanelLayout);
@@ -103,8 +118,17 @@ public class Panel_Perfil extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Contraseña");
 
+        Txt_Contra_Profile.setBackground(new java.awt.Color(255, 255, 255));
+        Txt_Contra_Profile.setForeground(new java.awt.Color(51, 51, 51));
+
+        Txt_ContraConfirmar_Profile.setBackground(new java.awt.Color(255, 255, 255));
+        Txt_ContraConfirmar_Profile.setForeground(new java.awt.Color(51, 51, 51));
+
+        Btn_Update_Perfil.setBackground(new java.awt.Color(243, 143, 154));
+        Btn_Update_Perfil.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         Btn_Update_Perfil.setForeground(new java.awt.Color(255, 255, 255));
         Btn_Update_Perfil.setText("Actualizar");
+        Btn_Update_Perfil.setBorderPainted(false);
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nueva Contraseña");

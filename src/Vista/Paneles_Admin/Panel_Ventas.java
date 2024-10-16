@@ -131,18 +131,23 @@ public class Panel_Ventas extends javax.swing.JPanel {
         lbl_TotalVenta_Ventas_Admin = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 252, 245));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         scroll.setBorder(null);
         scroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        panelItem.setBackground(new java.awt.Color(255, 255, 255));
         scroll.setViewportView(panelItem);
 
-        jPanel.setBackground(new java.awt.Color(204, 204, 204));
+        add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 0, 608, 720));
+
+        jPanel.setBackground(new java.awt.Color(255, 252, 245));
         jPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel37.setForeground(new java.awt.Color(74, 51, 28));
         jLabel37.setText("Ventas");
-        jPanel.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 6, -1, -1));
+        jPanel.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombre cliente:");
@@ -154,7 +159,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Informaciòn de envio:");
+        jLabel3.setText("Información de envio:");
         jPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 434, -1, -1));
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -174,9 +179,17 @@ public class Panel_Ventas extends javax.swing.JPanel {
         jLabel7.setText("Total de la venta:");
         jPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 591, -1, -1));
 
+        jButton1.setBackground(new java.awt.Color(243, 143, 154));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Eliminar venta");
-        jPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 684, 272, 36));
+        jButton1.setBorderPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 272, 36));
         jPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 547, 272, 10));
         jPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 418, 272, 10));
         jPanel.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 346, 272, 10));
@@ -196,21 +209,12 @@ public class Panel_Ventas extends javax.swing.JPanel {
         lbl_TotalVenta_Ventas_Admin.setForeground(new java.awt.Color(0, 0, 0));
         jPanel.add(lbl_TotalVenta_Ventas_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 591, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scroll)
-            .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        add(jPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 720));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

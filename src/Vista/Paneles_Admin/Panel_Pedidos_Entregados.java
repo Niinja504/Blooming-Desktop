@@ -142,13 +142,14 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
         scroll.setBorder(null);
         scroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        panelItem.setBackground(new java.awt.Color(255, 255, 255));
         panelItem.setPreferredSize(new java.awt.Dimension(13, 20));
         scroll.setViewportView(panelItem);
 
-        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel4.setBackground(new java.awt.Color(255, 252, 245));
 
         jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel37.setForeground(new java.awt.Color(74, 51, 28));
         jLabel37.setText("Pedidos entregados");
 
         jLabel38.setForeground(new java.awt.Color(0, 0, 0));
@@ -180,8 +181,11 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
         jLabel46.setForeground(new java.awt.Color(0, 0, 0));
         jLabel46.setText("Envio:");
 
+        jButton4.setBackground(new java.awt.Color(243, 143, 154));
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Eliminar pedido");
+        jButton4.setBorderPainted(false);
 
         jLabel47.setForeground(new java.awt.Color(0, 0, 0));
         jLabel47.setText("Nota:");
@@ -260,16 +264,16 @@ public class Panel_Pedidos_Entregados extends javax.swing.JPanel {
                                     .addComponent(Lbl_HoraEntrga_Detalles_Pedido)
                                     .addComponent(Lbl_FechaEntrga_Detalles_Pedido)))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
+                        .addGap(44, 44, 44)
                         .addComponent(jLabel37)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(28, 28, 28)
                 .addComponent(jLabel37)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 267, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
                 .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

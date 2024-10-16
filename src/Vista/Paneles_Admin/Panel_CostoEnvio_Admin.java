@@ -46,14 +46,14 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
         Font font = textField.getFont();
         font = font.deriveFont(Font.ITALIC);
         textField.setFont(font);
-        textField.setForeground(Color.white);
+        textField.setForeground(Color.BLACK);
     }
     
     public void removePlaceholderStyle(JTextField textField){
         Font font = textField.getFont();
         font = font.deriveFont(Font.PLAIN);
         textField.setFont(font);
-        textField.setForeground(Color.white);
+        textField.setForeground(Color.BLACK);
     }
     
     private GeoPosition geo;
@@ -152,7 +152,7 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
         btn_Update_Cost_Admin = new javax.swing.JButton();
         btn_Delete_Cost_Admin = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 252, 245));
+        setBackground(new java.awt.Color(255, 252, 250));
         addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 formFocusGained(evt);
@@ -160,6 +160,8 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
         });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txt_Buscar_Cost_admin.setBackground(new java.awt.Color(255, 255, 255));
+        txt_Buscar_Cost_admin.setForeground(new java.awt.Color(0, 0, 0));
         txt_Buscar_Cost_admin.setText("Buscar...");
         txt_Buscar_Cost_admin.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -169,13 +171,12 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
                 txt_Buscar_Cost_adminFocusLost(evt);
             }
         });
-        add(txt_Buscar_Cost_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 0, 472, 36));
+        add(txt_Buscar_Cost_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 450, 36));
 
         cmdAdd.setBackground(new java.awt.Color(243, 143, 154));
         cmdAdd.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         cmdAdd.setForeground(new java.awt.Color(255, 255, 255));
         cmdAdd.setText("Marcar");
-        cmdAdd.setBorderPainted(false);
         cmdAdd.setFocusPainted(false);
         cmdAdd.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -197,7 +198,6 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
         cmdClear.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         cmdClear.setForeground(new java.awt.Color(255, 255, 255));
         cmdClear.setText("Limpiar");
-        cmdClear.setBorderPainted(false);
         cmdClear.setFocusPainted(false);
         cmdClear.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -282,7 +282,8 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 287, 472, -1));
 
-        txt_Zona_Cost_Admin.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Zona_Cost_Admin.setBackground(new java.awt.Color(255, 255, 255));
+        txt_Zona_Cost_Admin.setForeground(new java.awt.Color(0, 0, 0));
         txt_Zona_Cost_Admin.setText("Nombre de la zona");
         txt_Zona_Cost_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -292,10 +293,11 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
                 txt_Zona_Cost_AdminFocusLost(evt);
             }
         });
-        add(txt_Zona_Cost_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 79, 309, 40));
+        add(txt_Zona_Cost_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 309, 40));
 
-        txt_Costo_Cost_Admin.setForeground(new java.awt.Color(255, 255, 255));
-        txt_Costo_Cost_Admin.setText("Precio");
+        txt_Costo_Cost_Admin.setBackground(new java.awt.Color(255, 255, 255));
+        txt_Costo_Cost_Admin.setForeground(new java.awt.Color(0, 0, 0));
+        txt_Costo_Cost_Admin.setText("Costo");
         txt_Costo_Cost_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_Costo_Cost_AdminFocusGained(evt);
@@ -304,23 +306,32 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
                 txt_Costo_Cost_AdminFocusLost(evt);
             }
         });
-        add(txt_Costo_Cost_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 131, 309, 40));
+        add(txt_Costo_Cost_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 309, 40));
 
+        btn_Add_Cost_Admin.setBackground(new java.awt.Color(243, 143, 154));
+        btn_Add_Cost_Admin.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         btn_Add_Cost_Admin.setForeground(new java.awt.Color(255, 255, 255));
         btn_Add_Cost_Admin.setText("Agregar");
-        add(btn_Add_Cost_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(759, 79, 82, 40));
+        btn_Add_Cost_Admin.setBorderPainted(false);
+        add(btn_Add_Cost_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(749, 79, 100, 40));
 
+        btn_Update_Cost_Admin.setBackground(new java.awt.Color(243, 143, 154));
+        btn_Update_Cost_Admin.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         btn_Update_Cost_Admin.setForeground(new java.awt.Color(255, 255, 255));
         btn_Update_Cost_Admin.setText("Actualizar");
-        add(btn_Update_Cost_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(759, 145, -1, 40));
+        btn_Update_Cost_Admin.setBorderPainted(false);
+        add(btn_Update_Cost_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 145, 100, 40));
 
+        btn_Delete_Cost_Admin.setBackground(new java.awt.Color(243, 143, 154));
+        btn_Delete_Cost_Admin.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         btn_Delete_Cost_Admin.setForeground(new java.awt.Color(255, 255, 255));
         btn_Delete_Cost_Admin.setText("Eliminar");
-        add(btn_Delete_Cost_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(759, 213, 82, 37));
+        btn_Delete_Cost_Admin.setBorderPainted(false);
+        add(btn_Delete_Cost_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(749, 213, 100, 37));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_Buscar_Cost_adminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Buscar_Cost_adminFocusGained
-        if(txt_Buscar_Cost_admin.getText().equals("Buscar")){
+        if(txt_Buscar_Cost_admin.getText().trim().equals("Buscar...")){
             txt_Buscar_Cost_admin.setText(null);
             txt_Buscar_Cost_admin.requestFocus();
 
@@ -362,38 +373,6 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
       }
     }//GEN-LAST:event_comboMapActionPerformed
 
-    private void txt_Zona_Cost_AdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Zona_Cost_AdminFocusGained
-        if(txt_Zona_Cost_Admin.getText().equals("Nombre de la zona")){
-            txt_Zona_Cost_Admin.setText(null);
-            txt_Zona_Cost_Admin.requestFocus();
-
-            removePlaceholderStyle(txt_Zona_Cost_Admin);
-        }
-    }//GEN-LAST:event_txt_Zona_Cost_AdminFocusGained
-
-    private void txt_Zona_Cost_AdminFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Zona_Cost_AdminFocusLost
-        if(txt_Zona_Cost_Admin.getText().length()==0){
-            addPlaceholderStyle(txt_Zona_Cost_Admin);
-            txt_Zona_Cost_Admin.setText("Nombre de la zona");
-        }
-    }//GEN-LAST:event_txt_Zona_Cost_AdminFocusLost
-
-    private void txt_Costo_Cost_AdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Costo_Cost_AdminFocusGained
-        if(txt_Costo_Cost_Admin.getText().equals("Precio")){
-            txt_Costo_Cost_Admin.setText(null);
-            txt_Costo_Cost_Admin.requestFocus();
-
-            removePlaceholderStyle(txt_Costo_Cost_Admin);
-        }
-    }//GEN-LAST:event_txt_Costo_Cost_AdminFocusGained
-
-    private void txt_Costo_Cost_AdminFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Costo_Cost_AdminFocusLost
-        if(txt_Costo_Cost_Admin.getText().length()==0){
-            addPlaceholderStyle(txt_Costo_Cost_Admin);
-            txt_Costo_Cost_Admin.setText("Precio");
-        }
-    }//GEN-LAST:event_txt_Costo_Cost_AdminFocusLost
-
     private void cmdAddMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmdAddMouseDragged
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdAddMouseDragged
@@ -421,6 +400,38 @@ public class Panel_CostoEnvio_Admin extends javax.swing.JPanel {
     private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
         this.requestFocus();
     }//GEN-LAST:event_formFocusGained
+
+    private void txt_Zona_Cost_AdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Zona_Cost_AdminFocusGained
+        if(txt_Zona_Cost_Admin.getText().trim().equals("Nombre de la zona")){
+            txt_Zona_Cost_Admin.setText("");
+            txt_Zona_Cost_Admin.requestFocus();
+
+            removePlaceholderStyle(txt_Zona_Cost_Admin);
+        }
+    }//GEN-LAST:event_txt_Zona_Cost_AdminFocusGained
+
+    private void txt_Zona_Cost_AdminFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Zona_Cost_AdminFocusLost
+        if(txt_Zona_Cost_Admin.getText().length()==0){
+            addPlaceholderStyle(txt_Zona_Cost_Admin);
+            txt_Zona_Cost_Admin.setText("Nombre de la zona");
+        }
+    }//GEN-LAST:event_txt_Zona_Cost_AdminFocusLost
+
+    private void txt_Costo_Cost_AdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Costo_Cost_AdminFocusGained
+        if(txt_Costo_Cost_Admin.getText().trim().equals("Costo")){
+            txt_Costo_Cost_Admin.setText("");
+            txt_Costo_Cost_Admin.requestFocus();
+
+            removePlaceholderStyle(txt_Costo_Cost_Admin);
+        }
+    }//GEN-LAST:event_txt_Costo_Cost_AdminFocusGained
+
+    private void txt_Costo_Cost_AdminFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Costo_Cost_AdminFocusLost
+        if(txt_Costo_Cost_Admin.getText().length()==0){
+            addPlaceholderStyle(txt_Costo_Cost_Admin);
+            txt_Costo_Cost_Admin.setText("Costo");
+        }
+    }//GEN-LAST:event_txt_Costo_Cost_AdminFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

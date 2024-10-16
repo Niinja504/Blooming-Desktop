@@ -70,7 +70,7 @@ public class Menu_Item extends JButton {
         this.index = index;
         this.subMenuAble = subMenuAble;
         setContentAreaFilled(false);
-        setForeground(new Color(230, 230, 230));
+        setForeground(new Color(0,0,0));
         setHorizontalAlignment(SwingConstants.LEFT);
         setBorder(new EmptyBorder(9, 10, 9, 10));
         setIconTextGap(10);

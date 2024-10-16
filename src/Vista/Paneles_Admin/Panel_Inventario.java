@@ -21,14 +21,14 @@ public class Panel_Inventario extends javax.swing.JPanel {
         Font font = textField.getFont();
         font = font.deriveFont(Font.ITALIC);
         textField.setFont(font);
-        textField.setForeground(Color.white);
+        textField.setForeground(Color.BLACK);
     }
     
     public void removePlaceholderStyle(JTextField textField){
         Font font = textField.getFont();
         font = font.deriveFont(Font.PLAIN);
         textField.setFont(font);
-        textField.setForeground(Color.white);
+        textField.setForeground(Color.BLACK);
     }
     
     @SuppressWarnings("unchecked")
@@ -53,9 +53,11 @@ public class Panel_Inventario extends javax.swing.JPanel {
         btn_Upload_photo_Inventario = new javax.swing.JButton();
         Descripción = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 252, 245));
+        setBackground(new java.awt.Color(255, 252, 250));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txt_Buscar_Inventory_Admin.setBackground(new java.awt.Color(255, 255, 255));
+        txt_Buscar_Inventory_Admin.setForeground(new java.awt.Color(0, 0, 0));
         txt_Buscar_Inventory_Admin.setText("Buscar...");
         txt_Buscar_Inventory_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -65,7 +67,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
                 txt_Buscar_Inventory_AdminFocusLost(evt);
             }
         });
-        add(txt_Buscar_Inventory_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 0, 532, 36));
+        add(txt_Buscar_Inventory_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 510, 36));
 
         jtb_Inventory.setForeground(new java.awt.Color(255, 255, 255));
         jtb_Inventory.setModel(new javax.swing.table.DefaultTableModel(
@@ -91,8 +93,10 @@ public class Panel_Inventario extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 474, 866, 240));
 
-        txt_Nombre_Inventory_Admin.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Nombre_Inventory_Admin.setBackground(new java.awt.Color(255, 255, 255));
+        txt_Nombre_Inventory_Admin.setForeground(new java.awt.Color(0, 0, 0));
         txt_Nombre_Inventory_Admin.setText("Nombre");
+        txt_Nombre_Inventory_Admin.setPreferredSize(new java.awt.Dimension(121, 22));
         txt_Nombre_Inventory_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_Nombre_Inventory_AdminFocusGained(evt);
@@ -103,8 +107,10 @@ public class Panel_Inventario extends javax.swing.JPanel {
         });
         add(txt_Nombre_Inventory_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 79, 309, 40));
 
-        txt_Precio_Inventory_Admin.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Precio_Inventory_Admin.setBackground(new java.awt.Color(255, 255, 255));
+        txt_Precio_Inventory_Admin.setForeground(new java.awt.Color(0, 0, 0));
         txt_Precio_Inventory_Admin.setText("Precio");
+        txt_Precio_Inventory_Admin.setPreferredSize(new java.awt.Dimension(121, 22));
         txt_Precio_Inventory_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_Precio_Inventory_AdminFocusGained(evt);
@@ -115,7 +121,8 @@ public class Panel_Inventario extends javax.swing.JPanel {
         });
         add(txt_Precio_Inventory_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 125, 309, 40));
 
-        txt_Cantidad_Inventory_Admin.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Cantidad_Inventory_Admin.setBackground(new java.awt.Color(255, 255, 255));
+        txt_Cantidad_Inventory_Admin.setForeground(new java.awt.Color(0, 0, 0));
         txt_Cantidad_Inventory_Admin.setText("Cantidad disponible");
         txt_Cantidad_Inventory_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -139,7 +146,9 @@ public class Panel_Inventario extends javax.swing.JPanel {
         Cb_Categoria_Evento_Inventory_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cumpleaños", "Aniversario", "Amor", "Nacimiento", "Condolencias" }));
         add(Cb_Categoria_Evento_Inventory_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 309, 309, 40));
 
-        txt_Descrip_Inventory_Admin.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Descrip_Inventory_Admin.setBackground(new java.awt.Color(255, 255, 255));
+        txt_Descrip_Inventory_Admin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        txt_Descrip_Inventory_Admin.setForeground(new java.awt.Color(0, 0, 0));
         txt_Descrip_Inventory_Admin.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_Descrip_Inventory_AdminFocusGained(evt);
@@ -149,6 +158,8 @@ public class Panel_Inventario extends javax.swing.JPanel {
             }
         });
         add(txt_Descrip_Inventory_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 381, 307, 60));
+
+        IMG_Inventory_admin.setBackground(new java.awt.Color(243, 143, 154));
         add(IMG_Inventory_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 17, 280, 280));
 
         btn_Update_Inventory_Admin.setBackground(new java.awt.Color(243, 143, 154));
@@ -175,10 +186,14 @@ public class Panel_Inventario extends javax.swing.JPanel {
         Btn_Delete_Inventory_Admin.setFocusPainted(false);
         add(Btn_Delete_Inventory_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 359, 100, 37));
 
+        btn_Upload_photo_Inventario.setBackground(new java.awt.Color(243, 143, 154));
+        btn_Upload_photo_Inventario.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         btn_Upload_photo_Inventario.setForeground(new java.awt.Color(255, 255, 255));
         btn_Upload_photo_Inventario.setText("Subir foto");
-        add(btn_Upload_photo_Inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 352, 109, 46));
+        btn_Upload_photo_Inventario.setBorderPainted(false);
+        add(btn_Upload_photo_Inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 358, 109, 40));
 
+        Descripción.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Descripción.setForeground(new java.awt.Color(51, 51, 51));
         Descripción.setText("Descripción");
         add(Descripción, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 359, -1, -1));
@@ -194,7 +209,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
     
 
     private void txt_Buscar_Inventory_AdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Buscar_Inventory_AdminFocusGained
-        if(txt_Buscar_Inventory_Admin.getText().equals("Buscar")){
+        if(txt_Buscar_Inventory_Admin.getText().trim().equals("Buscar...")){
             txt_Buscar_Inventory_Admin.setText(null);
             txt_Buscar_Inventory_Admin.requestFocus();
 
@@ -210,8 +225,8 @@ public class Panel_Inventario extends javax.swing.JPanel {
     }//GEN-LAST:event_txt_Buscar_Inventory_AdminFocusLost
 
     private void txt_Nombre_Inventory_AdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Nombre_Inventory_AdminFocusGained
-        if(txt_Nombre_Inventory_Admin.getText().equals("Nombre")){
-            txt_Nombre_Inventory_Admin.setText(null);
+        if(txt_Nombre_Inventory_Admin.getText().trim().equals("Nombre")){
+            txt_Nombre_Inventory_Admin.setText("");
             txt_Nombre_Inventory_Admin.requestFocus();
 
             removePlaceholderStyle(txt_Nombre_Inventory_Admin);
@@ -227,7 +242,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
 
     private void txt_Precio_Inventory_AdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Precio_Inventory_AdminFocusGained
         if(txt_Precio_Inventory_Admin.getText().equals("Precio")){
-            txt_Precio_Inventory_Admin.setText(null);
+            txt_Precio_Inventory_Admin.setText("");
             txt_Precio_Inventory_Admin.requestFocus();
 
             removePlaceholderStyle(txt_Precio_Inventory_Admin);
@@ -243,7 +258,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
 
     private void txt_Cantidad_Inventory_AdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_Cantidad_Inventory_AdminFocusGained
         if(txt_Cantidad_Inventory_Admin.getText().equals("Cantidad disponible")){
-            txt_Cantidad_Inventory_Admin.setText(null);
+            txt_Cantidad_Inventory_Admin.setText("");
             txt_Cantidad_Inventory_Admin.requestFocus();
 
             removePlaceholderStyle(txt_Cantidad_Inventory_Admin);

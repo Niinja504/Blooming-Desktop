@@ -107,13 +107,13 @@ public class Panel_Notificaciones extends javax.swing.JPanel {
         scroll.setBorder(null);
         scroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        panelItem.setBackground(new java.awt.Color(51, 51, 51));
+        panelItem.setBackground(new java.awt.Color(255, 252, 245));
         scroll.setViewportView(panelItem);
 
-        jPanel.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel37.setForeground(new java.awt.Color(74, 51, 28));
         jLabel37.setText("Notificaciones");
 
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);

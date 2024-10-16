@@ -66,7 +66,7 @@ public class SingIn {
                         }
                         Vista.dispose();
                         DB();
-                        EnviarCorreo();
+//                        EnviarCorreo();
                         
                         
                     }
